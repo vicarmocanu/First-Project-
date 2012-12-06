@@ -2,11 +2,7 @@ package ModelLayer;
 
 public class Product 
 {
-<<<<<<< .mine
-   String barCode;
-=======
-    public String barCode;
->>>>>>> .r4
+    String barCode;
     String location;
     String name;
     String description;
@@ -18,7 +14,8 @@ public class Product
 
     public Product(String barCode, String location, String name,
     String description, int buyPrice, int salePrice, int min, int max,
-    int quantity) {
+    int quantity)
+    {
         super();
         this.barCode = barCode;
         this.location = location;
@@ -122,7 +119,6 @@ public class Product
     }
 
     
-    
     public void print()
     {
         System.out.println("BarCode: " + barCode);
@@ -135,8 +131,7 @@ public class Product
         System.out.println("Max: " + max);
         System.out.println("Quantity: " + quantity);
         System.out.println("*****************"); 
-       
+
     }
 }
-    
-    
+
