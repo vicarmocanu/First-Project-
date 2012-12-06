@@ -1,9 +1,8 @@
 package ModelLayer;
 
-
 public class Product 
 {
-    String barCode;
+    public String barCode;
     String location;
     String name;
     String description;
@@ -25,7 +24,11 @@ public class Product
         this.salePrice = salePrice;
         this.min = min;
         this.max = max;
-        this.quantity = quantity;
+        this.quantity=quantity;
+        if(quantity<min)
+        {
+            throw new IllegalArgumentException("smaller than the minimum");
+        }
     }
 
     public String getBarCode() {
@@ -100,7 +103,7 @@ public class Product
         this.quantity = quantity;
     }   
 
-    public void AddProduct(String barCode, String location, String name,String description, int buyPrice, int salePrice, int min, int max,
+    public void makeProduct(String barCode, String location, String name,String description, int buyPrice, int salePrice, int min, int max,
     int quantity)
     {
         this.barCode = barCode;
@@ -112,19 +115,10 @@ public class Product
         this.min = min;
         this.max = max;
         this.quantity = quantity;
-        if(quantity>max)
-        {
-            throw new IllegalArgumentException(
-                "BALFASZ VAGY BAZDMEG");
-        }
-        if(quantity<min)
-        {
-            throw new IllegalArgumentException("MÉG MINDIG BALFASZ VAGY BAZDMEG NEM LATOD HOGY KEVESEBB?");
-        }
     }
 
     
-
+    
     public void print()
     {
         System.out.println("BarCode: " + barCode);
