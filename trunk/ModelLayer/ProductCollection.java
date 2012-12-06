@@ -4,26 +4,32 @@ import java.util.ArrayList;
 
 public class ProductCollection
 {
-    ArrayList<Product> prodList;
-    String name;
+    private static final ProductCollection instance = new ProductCollection();
 
-    public ProductCollection()
+    ArrayList<Product> listOfProducts;
+
+    private ProductCollection()
     {
-        prodList=new ArrayList<>();
+        listOfProducts=new ArrayList<>();
     }
 
+    private static ProductCollection getInstance()       //singleton of the class;
+    {
+        return instance;
+    }
+    
     public void addProduct(String barCode, String location, String name,String description, int buyPrice, int salePrice, int min, int max,
     int quantity)
     {
         Product product=new Product(barCode, location, name, description, buyPrice, salePrice, min, max, quantity);
-        prodList.add(product);
+        listOfProducts.add(product);
     }
 
     public void listAllProducts()
     {
-        if (prodList.size()!=0)
+        if (listOfProducts.size()!=0)
         {
-            for(Product i : prodList)
+            for(Product i : listOfProducts)
             {
                 i.print();
                 System.out.println("                               ");
@@ -34,9 +40,9 @@ public class ProductCollection
 
     public void deleteProduct(String name)          
     {
-        if(prodList.size()!=0)
+        if(listOfProducts.size()!=0)
         {
-            Iterator<Product> it = prodList.iterator();
+            Iterator<Product> it = listOfProducts.iterator();
             while(it.hasNext())
             {
                 if(it.next().name.equals(name))
@@ -52,9 +58,9 @@ public class ProductCollection
     public void updateProductBarCode(String name, String barCode)
     {
         ArrayList<Product> select=new ArrayList<Product>();
-        if(prodList.size()!=0)
+        if(listOfProducts.size()!=0)
         {
-            for(Product a: prodList)
+            for(Product a: listOfProducts)
             {
                 if(a.name.equals(name))
                 {
@@ -70,9 +76,9 @@ public class ProductCollection
     public void updateProductLocation(String name, String location)
     {
         ArrayList<Product> select=new ArrayList<Product>();
-        if(prodList.size()!=0)
+        if(listOfProducts.size()!=0)
         {
-            for(Product a: prodList)
+            for(Product a: listOfProducts)
             {
                 if(a.name.equals(name))
                 {
@@ -88,9 +94,9 @@ public class ProductCollection
     public void updateProductDescription(String name, String description)
     {
         ArrayList<Product> select=new ArrayList<Product>();
-        if(prodList.size()!=0)
+        if(listOfProducts.size()!=0)
         {
-            for(Product a: prodList)
+            for(Product a: listOfProducts)
             {
                 if(a.name.equals(name))
                 {
@@ -106,9 +112,9 @@ public class ProductCollection
     public void updateProductBuyPrice(String name, int buyPrice)
     {
         ArrayList<Product> select=new ArrayList<Product>();
-        if(prodList.size()!=0)
+        if(listOfProducts.size()!=0)
         {
-            for(Product a: prodList)
+            for(Product a: listOfProducts)
             {
                 if(a.name.equals(name))
                 {
@@ -124,9 +130,9 @@ public class ProductCollection
     public void updateProductSalePrice(String name, int salePrice)
     {
         ArrayList<Product> select=new ArrayList<Product>();
-        if(prodList.size()!=0)
+        if(listOfProducts.size()!=0)
         {
-            for(Product a: prodList)
+            for(Product a: listOfProducts)
             {
                 if(a.name.equals(name))
                 {
@@ -142,9 +148,9 @@ public class ProductCollection
     public void updateProductMin(String name, int min)
     {
         ArrayList<Product> select=new ArrayList<Product>();
-        if(prodList.size()!=0)
+        if(listOfProducts.size()!=0)
         {
-            for(Product a: prodList)
+            for(Product a: listOfProducts)
             {
                 if(a.name.equals(name))
                 {
@@ -160,9 +166,9 @@ public class ProductCollection
     public void updateProductMax(String name, int max)
     {
         ArrayList<Product> select=new ArrayList<Product>();
-        if(prodList.size()!=0)
+        if(listOfProducts.size()!=0)
         {
-            for(Product a: prodList)
+            for(Product a: listOfProducts)
             {
                 if(a.name.equals(name))
                 {
