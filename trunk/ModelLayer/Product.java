@@ -2,7 +2,11 @@ package ModelLayer;
 
 public class Product 
 {
+<<<<<<< .mine
+   String barCode;
+=======
     public String barCode;
+>>>>>>> .r4
     String location;
     String name;
     String description;
@@ -130,6 +134,9 @@ public class Product
         System.out.println("Min: " + min);
         System.out.println("Max: " + max);
         System.out.println("Quantity: " + quantity);
-        System.out.println("*****************");
+        System.out.println("*****************"); 
+       
     }
 }
+    
+    
