@@ -11,9 +11,10 @@ import java.util.ArrayList;
 public abstract class Person
 {
 private String id;
-private String name;
+public String name;
 private String address;
 private String phoneNumber;
+private ArrayList<Person> listOfPersons;
 
 public Person(String name, String id, String address, String phoneNumber)
 {
@@ -21,7 +22,26 @@ public Person(String name, String id, String address, String phoneNumber)
     this.name = name;
     this.address = address;
     this.phoneNumber = phoneNumber;
+    listOfPersons=new ArrayList<>();
 }
+
+public void updatePersonId(String name, String id)
+    {
+        ArrayList<Person> select=new ArrayList<Person>();
+        if(listOfPersons.size()!=0)
+        {
+            for(Person a: listOfPersons)
+            {
+                if(a.name.equals(name))
+                {
+                    select.add(a);
+                    a.setId(id);
+                    System.out.println("Update Successful!");
+                }
+            }
+        }
+        else System.out.println("No contractor registred with that name in the system");
+    }
 
 public void setId(String id)
     {
@@ -63,16 +83,13 @@ public String getPhoneNumber()
         return phoneNumber;
     }
     
-public void printAll()
+public void print()
     {
-        System.out.println("id is:"+ id);
-        System.out.println("name is:"+ name);
-        System.out.println("address is:"+ address);
-        System.out.println("phoneNumber is:"+ phoneNumber);
+        System.out.println("id :"+ id);
+        System.out.println("name :"+ name);
+        System.out.println("address :"+ address);
+        System.out.println("phone number :"+ phoneNumber);
     }
 
-public void deletePerson(String name)          
-    {
-    
-    }
+
 }
