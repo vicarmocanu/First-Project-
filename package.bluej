@@ -1,8 +1,15 @@
 #BlueJ package file
+<<<<<<< .mine
+package.editor.height=571
+package.editor.width=1248
+package.editor.x=-8
+package.editor.y=-8
+=======
 package.editor.height=566
 package.editor.width=549
 package.editor.x=703
 package.editor.y=20
+>>>>>>> .r4
 package.numDependencies=0
 package.numTargets=3
 package.showExtends=true
@@ -12,13 +19,13 @@ target1.height=62
 target1.name=ModelLayer
 target1.type=PackageTarget
 target1.width=90
-target1.x=70
+target1.x=300
 target1.y=10
 target2.height=62
 target2.name=UI
 target2.type=PackageTarget
 target2.width=80
-target2.x=280
+target2.x=70
 target2.y=10
 target3.height=62
 target3.name=ControlLayer

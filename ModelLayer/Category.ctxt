@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=NewcategoryNumber\ NewcategoryDiscount
+comment0.target=Category(int,\ int)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Category\r\n
+comment1.params=NewcategoryNumber\ NewcategoryDiscount
+comment1.target=void\ createCategory(int,\ int)
+comment2.params=
+comment2.target=void\ print()
+comment3.params=categoryDiscount
+comment3.target=void\ updateDiscounts(int)
+numComments=4
