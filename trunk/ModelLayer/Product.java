@@ -123,15 +123,7 @@ public class Product
         }
     }
 
-    public void UpdateProduct(String barCode, String location, String name,String description, int buyPrice, int salePrice, int min, int max, int quantity)
-    {
-
-    }
-
-    public void DeleteProduct()
-    {
-
-    }
+    
 
     public void print()
     {
@@ -144,5 +136,6 @@ public class Product
         System.out.println("Min: " + min);
         System.out.println("Max: " + max);
         System.out.println("Quantity: " + quantity);
+        System.out.println("*****************");
     }
 }
