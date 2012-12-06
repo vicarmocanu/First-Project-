@@ -22,7 +22,7 @@ public Person(String name, String id, String address, String phoneNumber)
     this.name = name;
     this.address = address;
     this.phoneNumber = phoneNumber;
-    listOfPersons=new ArrayList<>();
+    listOfPersons= new ArrayList<>();
 }
 
 public void updatePersonId(String name, String id)
