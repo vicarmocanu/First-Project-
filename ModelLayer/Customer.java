@@ -15,6 +15,14 @@ public class Customer extends Person
         super(name,id,address,phoneNumber);
         
     }
+    
+      
+    public void printCustomer()
+    {
+     print();
+     }
+    
+   
 
     
 }

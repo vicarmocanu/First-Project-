@@ -15,5 +15,10 @@ public class Contractor extends Person
         super(name,id,address,phoneNumber);
         
     }
+    
+    public void printContractor()
+    {
+     print();
+     }
 
 }

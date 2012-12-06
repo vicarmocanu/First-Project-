@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=CustomerCollection()
+comment1.params=name\ id\ address\ phoneNumber
+comment1.target=void\ createCustomer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=void\ listAllCustomers()
+comment3.params=name
+comment3.target=void\ deleteCustomer(java.lang.String)
+numComments=4

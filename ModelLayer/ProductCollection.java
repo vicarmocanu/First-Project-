@@ -70,7 +70,7 @@ public class ProductCollection
                 }
             }
         }
-        else System.out.println("No products in stock");
+        else System.out.println("No such product in stock");
     }
     
     public void updateProductLocation(String name, String location)
@@ -88,7 +88,7 @@ public class ProductCollection
                 }
             }
         }
-        else System.out.println("No products in stock");
+        else System.out.println("No such product in stock");
     }
     
     public void updateProductDescription(String name, String description)
@@ -106,7 +106,7 @@ public class ProductCollection
                 }
             }
         }
-        else System.out.println("No products in stock");
+        else System.out.println("No such product in stock");
     }
     
     public void updateProductBuyPrice(String name, int buyPrice)
@@ -124,7 +124,7 @@ public class ProductCollection
                 }
             }
         }
-        else System.out.println("No products in stock");
+        else System.out.println("No such product in stock");
     }
     
     public void updateProductSalePrice(String name, int salePrice)
@@ -142,7 +142,7 @@ public class ProductCollection
                 }
             }
         }
-        else System.out.println("No products in stock");
+        else System.out.println("No such product in stock");
     }
     
     public void updateProductMin(String name, int min)
@@ -160,7 +160,7 @@ public class ProductCollection
                 }
             }
         }
-        else System.out.println("No products in stock");
+        else System.out.println("No such product in stock");
     }
     
     public void updateProductMax(String name, int max)
@@ -178,7 +178,7 @@ public class ProductCollection
                 }
             }
         }
-        else System.out.println("No products in stock");
+        else System.out.println("No such product in stock");
     }
     
     
