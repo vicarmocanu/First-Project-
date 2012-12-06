@@ -2,6 +2,8 @@ package ModelLayer;
 
 public class Product 
 {
+
+
     String barCode;
     String location;
     String name;

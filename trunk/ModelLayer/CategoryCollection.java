@@ -62,17 +62,7 @@ public class CategoryCollection
         Scanner keyboard = new Scanner(System.in);
         System.out.println(" Write new discount:");
         int newDiscount=keyboard.nextInt();
-        /*
-        Iterator<Category> it = listOfCategory.iterator();
-        while(it.hasNext())
-        {
-            int x=it.next().categoryNumber;
-            if(x == categoryNumber)
-            {
-              category.updateDiscounts(newDiscount);
-            }
-        }
-        */
+       
         ArrayList<Category> select=new ArrayList<Category>();
         if(listOfCategory.size()!=0)
         {
