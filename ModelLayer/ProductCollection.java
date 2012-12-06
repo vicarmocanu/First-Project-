@@ -48,7 +48,9 @@ public class ProductCollection
                 if(it.next().name.equals(name))
                 {
                     it.remove();
+                    System.out.println("Product deleted successfuly.");
                 }
+                else System.out.println("No product with that name in the system.");
             }
         }
         else System.out.println("No products in stock");
@@ -68,6 +70,7 @@ public class ProductCollection
                     a.setBarCode(barCode);
                     System.out.println("Update Successful!");
                 }
+                System.out.println("No product with that name in the system.");
             }
         }
         else System.out.println("No such product in stock");

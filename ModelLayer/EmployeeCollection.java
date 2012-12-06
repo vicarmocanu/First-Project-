@@ -24,6 +24,7 @@ public class EmployeeCollection
     {
         Employee employee=new Employee( name,  id,  address,  phoneNumber, position,  salary);
         listOfEmployees.add(employee);
+        
     }
 
     public void listAllEmployees()
