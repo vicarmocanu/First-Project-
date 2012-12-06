@@ -37,7 +37,6 @@ public class Category
     public void updateDiscounts(int categoryDiscount)
     {
         this.categoryDiscount=categoryDiscount;
-        System.out.println(" Update successful");
     }
             
             

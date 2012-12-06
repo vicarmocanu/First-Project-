@@ -2,131 +2,74 @@
 dependency1.from=ProductCollection
 dependency1.to=Product
 dependency1.type=UsesDependency
-<<<<<<< .mine
-dependency2.from=ProductTest
-dependency2.to=ProductCollection
+dependency2.from=CustCategory
+dependency2.to=Category
 dependency2.type=UsesDependency
-dependency3.from=CustCategory
-dependency3.to=Category
-dependency3.type=UsesDependency
-package.editor.height=571
-package.editor.width=1248
-package.editor.x=12
-package.editor.y=12
-package.numDependencies=3
-package.numTargets=5
-=======
 package.editor.height=566
 package.editor.width=549
-package.editor.x=683
-package.editor.y=0
-package.numDependencies=1
-package.numTargets=3
->>>>>>> .r4
+package.editor.x=629
+package.editor.y=7
+package.numDependencies=2
+package.numTargets=5
 package.showExtends=true
 package.showUses=true
-<<<<<<< .mine
 target1.editor.height=700
 target1.editor.width=900
-target1.editor.x=32
-target1.editor.y=12
-=======
-target1.editor.height=738
-target1.editor.width=683
 target1.editor.x=0
 target1.editor.y=0
->>>>>>> .r4
 target1.height=50
-<<<<<<< .mine
 target1.name=Category
-=======
-target1.name=Exceptions
->>>>>>> .r4
 target1.naviview.expanded=true
 target1.showInterface=false
 target1.type=ClassTarget
-<<<<<<< .mine
 target1.width=80
-target1.x=200
-target1.y=290
-target2.association=ProductTest
-target2.editor.height=744
-target2.editor.width=1382
-target2.editor.x=-8
-target2.editor.y=-8
-=======
-target1.width=90
-target1.x=110
-target1.y=280
-target2.editor.height=722
-target2.editor.width=680
-target2.editor.x=683
-target2.editor.y=6
->>>>>>> .r4
+target1.x=160
+target1.y=10
+target2.editor.height=738
+target2.editor.width=683
+target2.editor.x=0
+target2.editor.y=0
 target2.height=50
-target2.name=Product
+target2.name=Exceptions
 target2.naviview.expanded=true
 target2.showInterface=false
 target2.type=ClassTarget
-<<<<<<< .mine
-target2.width=80
-target2.x=270
-target2.y=100
-target3.editor.height=700
-=======
-target2.width=80
-target2.x=280
-target2.y=110
-target3.editor.height=695
->>>>>>> .r4
-target3.editor.width=900
-<<<<<<< .mine
-target3.editor.x=308
+target2.width=90
+target2.x=110
+target2.y=320
+target3.editor.height=722
+target3.editor.width=680
+target3.editor.x=683
 target3.editor.y=6
-=======
-target3.editor.x=154
-target3.editor.y=23
->>>>>>> .r4
 target3.height=50
-<<<<<<< .mine
-target3.name=CustCategory
-=======
-target3.name=ProductCollection
->>>>>>> .r4
+target3.name=Product
 target3.naviview.expanded=true
 target3.showInterface=false
-<<<<<<< .mine
 target3.type=ClassTarget
-target3.width=100
-target3.x=360
-target3.y=290
-target4.editor.height=695
-target4.editor.width=900
-target4.editor.x=291
-target4.editor.y=35
+target3.width=80
+target3.x=310
+target3.y=140
+target4.editor.height=738
+target4.editor.width=683
+target4.editor.x=0
+target4.editor.y=0
 target4.height=50
-target4.name=ProductCollection
+target4.name=CustCategory
 target4.naviview.expanded=true
 target4.showInterface=false
 target4.type=ClassTarget
-target4.width=130
-target4.x=90
-target4.y=90
-target5.editor.height=700
+target4.width=100
+target4.x=320
+target4.y=10
+target5.editor.height=695
 target5.editor.width=900
-target5.editor.x=32
-target5.editor.y=12
+target5.editor.x=154
+target5.editor.y=23
 target5.height=50
-target5.name=ProductTest
+target5.name=ProductCollection
 target5.naviview.expanded=true
 target5.showInterface=false
-target5.type=UnitTestTargetJunit4
-target5.width=90
-target5.x=300
-target5.y=70
-=======
-target3.type=ClassTarget
-target3.width=130
-target3.x=80
-target3.y=110
->>>>>>> .r4
+target5.type=ClassTarget
+target5.width=130
+target5.x=60
+target5.y=160

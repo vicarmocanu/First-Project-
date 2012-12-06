@@ -55,7 +55,7 @@ public class CustCategory
         Scanner keyboard = new Scanner(System.in);
         System.out.println(" Write new discount:");
         int newDiscount=keyboard.nextInt();
-        
+        /*
         Iterator<Category> it = listOfCategory.iterator();
         while(it.hasNext())
         {
@@ -65,8 +65,21 @@ public class CustCategory
               category.updateDiscounts(newDiscount);
             }
         }
-        
-        
+        */
+        ArrayList<Category> select=new ArrayList<Category>();
+        if(listOfCategory.size()!=0)
+        {
+            for(Category a: listOfCategory)
+            {
+                if(a.categoryNumber==categoryNumber)
+                {
+                    select.add(a);
+                    a.updateDiscounts(newDiscount);
+                    System.out.println("Update Successful!");
+                }
+            }
+        }
+        else System.out.println("No products in stock");
        
     }
 }
