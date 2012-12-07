@@ -13,7 +13,7 @@ public class ProductCollection
         listOfProducts=new ArrayList<>();
     }
 
-    private static ProductCollection getInstance()       //singleton of the class;
+    public static ProductCollection getInstance()       //singleton of the class;
     {
         return instance;
     }
@@ -24,6 +24,8 @@ public class ProductCollection
         Product product=new Product(barCode, location, name, description, buyPrice, salePrice, min, max, quantity);
         listOfProducts.add(product);
     }
+    
+    
 
     public Product searchProduct(String name)
     {
