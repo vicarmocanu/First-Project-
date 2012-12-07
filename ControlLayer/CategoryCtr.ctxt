@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=CategoryCtr()
+comment1.params=categoryNumber\ categoryDiscount
+comment1.target=void\ createCategory(int,\ int)
+comment2.params=
+comment2.target=void\ listAllCategories()
+comment3.params=categoryNumber
+comment3.target=void\ deleteCategory(int)
+comment4.params=categoryNumber\ newDiscount
+comment4.target=void\ updateDiscount(int,\ int)
+numComments=5
