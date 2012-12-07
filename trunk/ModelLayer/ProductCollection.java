@@ -8,7 +8,7 @@ public class ProductCollection
 
     ArrayList<Product> listOfProducts;
 
-    private ProductCollection()
+    public ProductCollection()
     {
         listOfProducts=new ArrayList<>();
     }
@@ -17,12 +17,29 @@ public class ProductCollection
     {
         return instance;
     }
-    
+
     public void addProduct(String barCode, String location, String name,String description, int buyPrice, int salePrice, int min, int max,
     int quantity)
     {
         Product product=new Product(barCode, location, name, description, buyPrice, salePrice, min, max, quantity);
         listOfProducts.add(product);
+    }
+
+    public Product searchProduct(String name)
+    {
+        Product result=null;
+        if(listOfProducts.size()!=0)
+        {
+            for(Product i : listOfProducts)
+            {
+                if(i.name.equals(name))
+                {
+                    result=i;
+                }
+            }
+        }
+        else System.out.println("The list is empty");
+        return result;
     }
 
     public void listAllProducts()
@@ -75,7 +92,7 @@ public class ProductCollection
         }
         else System.out.println("No such product in stock");
     }
-    
+
     public void updateProductLocation(String name, String location)
     {
         ArrayList<Product> select=new ArrayList<Product>();
@@ -93,7 +110,7 @@ public class ProductCollection
         }
         else System.out.println("No such product in stock");
     }
-    
+
     public void updateProductDescription(String name, String description)
     {
         ArrayList<Product> select=new ArrayList<Product>();
@@ -111,7 +128,7 @@ public class ProductCollection
         }
         else System.out.println("No such product in stock");
     }
-    
+
     public void updateProductBuyPrice(String name, int buyPrice)
     {
         ArrayList<Product> select=new ArrayList<Product>();
@@ -129,7 +146,7 @@ public class ProductCollection
         }
         else System.out.println("No such product in stock");
     }
-    
+
     public void updateProductSalePrice(String name, int salePrice)
     {
         ArrayList<Product> select=new ArrayList<Product>();
@@ -147,7 +164,7 @@ public class ProductCollection
         }
         else System.out.println("No such product in stock");
     }
-    
+
     public void updateProductMin(String name, int min)
     {
         ArrayList<Product> select=new ArrayList<Product>();
@@ -165,7 +182,7 @@ public class ProductCollection
         }
         else System.out.println("No such product in stock");
     }
-    
+
     public void updateProductMax(String name, int max)
     {
         ArrayList<Product> select=new ArrayList<Product>();
@@ -183,7 +200,6 @@ public class ProductCollection
         }
         else System.out.println("No such product in stock");
     }
-    
-    
+
     
 }
