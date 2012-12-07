@@ -32,7 +32,7 @@ public class ContractorCollection
     
     
     
-    public void createContractor(String name, String id, String address, String phoneNumber,String position, int salary)
+    public void createContractor(String name, String id, String address, String phoneNumber)
     {
         Contractor contractor=new Contractor( name,  id,  address,  phoneNumber );
         listOfContractors.add(contractor);
@@ -90,7 +90,7 @@ public class ContractorCollection
         else System.out.println("No employee registred in the system");
     }
     
-    public void updateEmployeeAddress(String name, String address)
+    public void updateContractorAddress(String name, String address)
     {
         ArrayList<Contractor> select=new ArrayList<Contractor>();
         boolean found=false;
