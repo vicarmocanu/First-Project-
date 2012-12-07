@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ProductCtr()
+comment1.params=barCode\ location\ name\ description\ buyPrice\ salePrice\ min\ max\ quantity
+comment1.target=void\ addProduct(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ int,\ int,\ int,\ int)
+comment10.params=name\ min
+comment10.target=void\ updateProductMin(java.lang.String,\ int)
+comment11.params=name\ max
+comment11.target=void\ updateProductMax(java.lang.String,\ int)
+comment2.params=name
+comment2.target=void\ searchProduct(java.lang.String)
+comment3.params=
+comment3.target=void\ listAllProducts()
+comment4.params=name
+comment4.target=void\ deleteProduct(java.lang.String)
+comment5.params=name\ barCode
+comment5.target=void\ updateProductBarCode(java.lang.String,\ java.lang.String)
+comment6.params=name\ location
+comment6.target=void\ updateProductLocation(java.lang.String,\ java.lang.String)
+comment7.params=name\ description
+comment7.target=void\ updateProductDescription(java.lang.String,\ java.lang.String)
+comment8.params=name\ buyPrice
+comment8.target=void\ updateProductBuyPrice(java.lang.String,\ int)
+comment9.params=name\ salePrice
+comment9.target=void\ updateProductSalePrice(java.lang.String,\ int)
+numComments=12

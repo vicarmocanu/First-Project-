@@ -4,18 +4,26 @@ import java.util.ArrayList;
 
 public class ProductCollection
 {
-    private static final ProductCollection instance = new ProductCollection();
+    private static ProductCollection instance;
 
     ArrayList<Product> listOfProducts;
 
-    public ProductCollection()
+    private ProductCollection()
     {
         listOfProducts=new ArrayList<>();
     }
 
+
     public static ProductCollection getInstance()       //singleton of the class;
+
     {
-        return instance;
+        if(instance!=null)
+        {
+            instance=new ProductCollection();
+            return instance;
+        }
+        else
+            return instance;
     }
 
     public void addProduct(String barCode, String location, String name,String description, int buyPrice, int salePrice, int min, int max,
@@ -51,7 +59,7 @@ public class ProductCollection
             for(Product i : listOfProducts)
             {
                 i.print();
-                System.out.println("                               ");
+                System.out.println("*****************");
             }
         }
         else System.out.println("No products in stock");
@@ -61,6 +69,7 @@ public class ProductCollection
     {
         if(listOfProducts.size()!=0)
         {
+            boolean found=false;
             Iterator<Product> it = listOfProducts.iterator();
             while(it.hasNext())
             {
@@ -68,9 +77,11 @@ public class ProductCollection
                 {
                     it.remove();
                     System.out.println("Product deleted successfuly.");
+                    found=true;
                 }
                 else System.out.println("No product with that name in the system.");
             }
+            if (!found) System.out.println("No product registred with that name in the system");
         }
         else System.out.println("No products in stock");
 
@@ -79,6 +90,7 @@ public class ProductCollection
     public void updateProductBarCode(String name, String barCode)
     {
         ArrayList<Product> select=new ArrayList<Product>();
+        boolean found=false;
         if(listOfProducts.size()!=0)
         {
             for(Product a: listOfProducts)
@@ -88,9 +100,11 @@ public class ProductCollection
                     select.add(a);
                     a.setBarCode(barCode);
                     System.out.println("Update Successful!");
+                    found=true;
                 }
-                System.out.println("No product with that name in the system.");
+                
             }
+            if (!found) System.out.println("No product with that name in the system.");
         }
         else System.out.println("No such product in stock");
     }
@@ -98,6 +112,7 @@ public class ProductCollection
     public void updateProductLocation(String name, String location)
     {
         ArrayList<Product> select=new ArrayList<Product>();
+        boolean found=false;
         if(listOfProducts.size()!=0)
         {
             for(Product a: listOfProducts)
@@ -107,8 +122,11 @@ public class ProductCollection
                     select.add(a);
                     a.setLocation(location);
                     System.out.println("Update Successful!");
+                    found=true;
                 }
-            }
+                
+            } 
+            if (!found) System.out.println("No product with that name in the system.");
         }
         else System.out.println("No such product in stock");
     }
@@ -116,6 +134,7 @@ public class ProductCollection
     public void updateProductDescription(String name, String description)
     {
         ArrayList<Product> select=new ArrayList<Product>();
+        boolean found=false;
         if(listOfProducts.size()!=0)
         {
             for(Product a: listOfProducts)
@@ -125,8 +144,11 @@ public class ProductCollection
                     select.add(a);
                     a.setDescription(description);
                     System.out.println("Update Successful!");
+                    found=true;
                 }
+                
             }
+            if (!found) System.out.println("No product with that name in the system.");
         }
         else System.out.println("No such product in stock");
     }
@@ -134,6 +156,7 @@ public class ProductCollection
     public void updateProductBuyPrice(String name, int buyPrice)
     {
         ArrayList<Product> select=new ArrayList<Product>();
+        boolean found=false;
         if(listOfProducts.size()!=0)
         {
             for(Product a: listOfProducts)
@@ -143,8 +166,11 @@ public class ProductCollection
                     select.add(a);
                     a.setBuyPrice(buyPrice);
                     System.out.println("Update Successful!");
+                    found=true;
                 }
+                
             }
+            if (!found) System.out.println("No product with that name in the system.");
         }
         else System.out.println("No such product in stock");
     }
@@ -152,6 +178,7 @@ public class ProductCollection
     public void updateProductSalePrice(String name, int salePrice)
     {
         ArrayList<Product> select=new ArrayList<Product>();
+        boolean found=false;
         if(listOfProducts.size()!=0)
         {
             for(Product a: listOfProducts)
@@ -161,8 +188,11 @@ public class ProductCollection
                     select.add(a);
                     a.setSalePrice(salePrice);
                     System.out.println("Update Successful!");
+                    found=true;
                 }
+                
             }
+            if (!found) System.out.println("No product with that name in the system.");
         }
         else System.out.println("No such product in stock");
     }
@@ -170,6 +200,7 @@ public class ProductCollection
     public void updateProductMin(String name, int min)
     {
         ArrayList<Product> select=new ArrayList<Product>();
+        boolean found=false;
         if(listOfProducts.size()!=0)
         {
             for(Product a: listOfProducts)
@@ -179,8 +210,11 @@ public class ProductCollection
                     select.add(a);
                     a.setMin(min);
                     System.out.println("Update Successful!");
+                    found=true;
                 }
+                
             }
+            if (!found) System.out.println("No product with that name in the system.");
         }
         else System.out.println("No such product in stock");
     }
@@ -188,6 +222,7 @@ public class ProductCollection
     public void updateProductMax(String name, int max)
     {
         ArrayList<Product> select=new ArrayList<Product>();
+        boolean found=false;
         if(listOfProducts.size()!=0)
         {
             for(Product a: listOfProducts)
@@ -197,8 +232,11 @@ public class ProductCollection
                     select.add(a);
                     a.setMax(max);
                     System.out.println("Update Successful!");
+                    found=true;
                 }
+                
             }
+            if (!found) System.out.println("No product with that name in the system.");
         }
         else System.out.println("No such product in stock");
     }
