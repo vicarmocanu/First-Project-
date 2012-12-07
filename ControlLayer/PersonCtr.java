@@ -17,7 +17,9 @@ public class PersonCtr
 
     public PersonCtr()
     {
-
+        customer=ModelLayer.CustomerCollection.getInstance(); 
+        contractor=ModelLayer.ContractorCollection.getInstance();
+        employee=ModelLayer.EmployeeCollection.getInstance();
     }
 
     // CUSTOMER section

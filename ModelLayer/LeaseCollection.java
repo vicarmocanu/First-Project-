@@ -9,10 +9,22 @@ import java.util.ArrayList;
 public class LeaseCollection
 {
     ArrayList<Lease> listOfLeases;
+    private static LeaseCollection instance=null;
 
-    public LeaseCollection()
+    private LeaseCollection()
     {
         listOfLeases=new ArrayList();
+    }
+    
+     public static LeaseCollection getInstance()
+    {
+        if(instance==null)
+        {
+            instance=new LeaseCollection();
+            
+        }
+        
+            return instance;
     }
     
     public void makeLease(String id, int total, String startPeriod, String endPeriod)

@@ -10,12 +10,14 @@ public class CategoryCollection
     int categoryNumber;
     Category category;
     int categoryDiscount;
-    private static CategoryCollection instance;
+    private static CategoryCollection instance=null;
     
     /**
      * Constructor for objects of class CustCategory
    private CategoryCollection instance;
    */
+  
+  
     private CategoryCollection()
     {
         listOfCategory=new ArrayList<>();
@@ -23,12 +25,12 @@ public class CategoryCollection
 
     public static CategoryCollection getInstance()
     {
-        if(instance!=null)
+        if(instance==null)
         {
             instance=new CategoryCollection();
-            return instance;
+            
         }
-        else
+        
             return instance;
     }
     

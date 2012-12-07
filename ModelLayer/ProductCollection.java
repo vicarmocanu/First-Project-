@@ -6,24 +6,22 @@ public class ProductCollection
 {
     private static ProductCollection instance;
 
-    ArrayList<Product> listOfProducts;
+    ArrayList<Product> listOfProducts=null;
 
     private ProductCollection()
     {
         listOfProducts=new ArrayList<>();
     }
 
-
     public static ProductCollection getInstance()       //singleton of the class;
-
-    {
-        if(instance!=null)
+    { 
+        if(instance==null)
         {
             instance=new ProductCollection();
-            return instance;
+
         }
-        else
-            return instance;
+
+        return instance;
     }
 
     public void addProduct(String barCode, String location, String name,String description, int buyPrice, int salePrice, int min, int max,
@@ -32,8 +30,7 @@ public class ProductCollection
         Product product=new Product(barCode, location, name, description, buyPrice, salePrice, min, max, quantity);
         listOfProducts.add(product);
     }
-    
-    
+
 
     public Product searchProduct(String name)
     {
@@ -59,7 +56,7 @@ public class ProductCollection
             for(Product i : listOfProducts)
             {
                 i.print();
-                System.out.println("*****************");
+                
             }
         }
         else System.out.println("No products in stock");
@@ -102,7 +99,7 @@ public class ProductCollection
                     System.out.println("Update Successful!");
                     found=true;
                 }
-                
+
             }
             if (!found) System.out.println("No product with that name in the system.");
         }
@@ -124,7 +121,7 @@ public class ProductCollection
                     System.out.println("Update Successful!");
                     found=true;
                 }
-                
+
             } 
             if (!found) System.out.println("No product with that name in the system.");
         }
@@ -146,7 +143,7 @@ public class ProductCollection
                     System.out.println("Update Successful!");
                     found=true;
                 }
-                
+
             }
             if (!found) System.out.println("No product with that name in the system.");
         }
@@ -168,7 +165,7 @@ public class ProductCollection
                     System.out.println("Update Successful!");
                     found=true;
                 }
-                
+
             }
             if (!found) System.out.println("No product with that name in the system.");
         }
@@ -190,7 +187,7 @@ public class ProductCollection
                     System.out.println("Update Successful!");
                     found=true;
                 }
-                
+
             }
             if (!found) System.out.println("No product with that name in the system.");
         }
@@ -212,7 +209,7 @@ public class ProductCollection
                     System.out.println("Update Successful!");
                     found=true;
                 }
-                
+
             }
             if (!found) System.out.println("No product with that name in the system.");
         }
@@ -234,12 +231,11 @@ public class ProductCollection
                     System.out.println("Update Successful!");
                     found=true;
                 }
-                
+
             }
             if (!found) System.out.println("No product with that name in the system.");
         }
         else System.out.println("No such product in stock");
     }
 
-    
 }

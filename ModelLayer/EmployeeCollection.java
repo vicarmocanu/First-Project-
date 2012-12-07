@@ -12,7 +12,7 @@ public class EmployeeCollection
 {
 
     ArrayList<Employee> listOfEmployees;
-    private static EmployeeCollection instance;
+    private static EmployeeCollection instance=null;
 
     private EmployeeCollection()
     {
@@ -21,14 +21,14 @@ public class EmployeeCollection
 
     public static EmployeeCollection getInstance()
     {
-        if(instance!=null)
+       if(instance==null)
         {
             instance=new EmployeeCollection();
-            return instance;
+            
         }
-        else
+        
             return instance;
-    }
+    }  
     
     
     public void createEmployee(String name, String id, String address, String phoneNumber,String position, int salary)

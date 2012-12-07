@@ -8,11 +8,25 @@ import java.util.ArrayList;
  */
 public class OrderCollection
 {
+        
     ArrayList<Order> listOfOrders;
+    
+    private static OrderCollection instance=null;
 
-    public OrderCollection()
+    private OrderCollection()
     {
         listOfOrders=new ArrayList();
+    }
+    
+     public static OrderCollection getInstance()       //singleton of the class;
+    { 
+        if(instance==null)
+        {
+            instance=new OrderCollection();
+
+        }
+
+        return instance;
     }
 
     public void createOrder(String id, int total)

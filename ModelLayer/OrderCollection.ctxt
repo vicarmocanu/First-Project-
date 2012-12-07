@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.params=
 comment0.target=OrderCollection()
-comment1.params=id\ total
-comment1.target=void\ createOrder(java.lang.String,\ int)
-comment2.params=id
-comment2.target=void\ searchOrder(java.lang.String)
+comment1.params=
+comment1.target=OrderCollection\ getInstance()
+comment2.params=id\ total
+comment2.target=void\ createOrder(java.lang.String,\ int)
 comment3.params=id
-comment3.target=void\ listOrders(java.lang.String)
-numComments=4
+comment3.target=void\ searchOrder(java.lang.String)
+comment4.params=id
+comment4.target=void\ listOrders(java.lang.String)
+numComments=5
