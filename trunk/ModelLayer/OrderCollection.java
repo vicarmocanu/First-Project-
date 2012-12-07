@@ -46,7 +46,7 @@ public class OrderCollection
                 if(i.id.equals(id))
                 {
                     i.print();
-                    System.out.println("                 ");
+                    System.out.println("***************");
                 }
             }
         }
@@ -62,7 +62,7 @@ public class OrderCollection
             for(Order i: listOfOrders)
             {
                 i.print();
-                System.out.println("                ");
+                System.out.println("***************");
             }
         }
         else System.out.println("The list is empty!");
