@@ -1,5 +1,5 @@
 package ModelLayer;
-
+import java.util.ArrayList;
 
 /**
  * Write a description of class Order here.
@@ -11,9 +11,11 @@ public class Order
 {
     String id;
     int total;
+    ArrayList<SubOrder> subOrders;
     
     public Order(String id, int total)
     {
+        subOrders=new ArrayList();
         this.id=id;
         this.total=total;
     }
@@ -44,5 +46,7 @@ public class Order
         this.id=id;
         this.total=total;
     }
+    
+    
     
 }
