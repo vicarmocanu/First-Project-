@@ -13,7 +13,7 @@ public class CategoryCtr
    
    public CategoryCtr()
    {
-    
+        category=ModelLayer.CategoryCollection.getInstance(); 
    }
    
     public void createCategory(int categoryNumber,int categoryDiscount)

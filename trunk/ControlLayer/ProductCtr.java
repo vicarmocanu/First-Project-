@@ -13,7 +13,7 @@ public class ProductCtr
 
     public ProductCtr()
     {
-
+        colection=ModelLayer.ProductCollection.getInstance(); 
     }
 
     public void addProduct(String barCode, String location, String name,String description, int buyPrice, int salePrice, int min, int max,int quantity)

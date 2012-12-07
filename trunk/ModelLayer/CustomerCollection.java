@@ -13,7 +13,7 @@ public class CustomerCollection
 
     ArrayList<Customer> listOfCustomers;
     Person person;
-    private static CustomerCollection instance;
+    private static CustomerCollection instance=null;
 
     private CustomerCollection()
     {
@@ -22,12 +22,12 @@ public class CustomerCollection
 
     public static CustomerCollection getInstance()
     {
-        if(instance!=null)
+        if(instance==null)
         {
             instance=new CustomerCollection();
-            return instance;
+            
         }
-        else
+        
             return instance;
     }
 

@@ -12,7 +12,7 @@ public class ContractorCollection
 {
     ArrayList<Contractor> listOfContractors;
     Person person;
-    private static ContractorCollection instance;
+    private static ContractorCollection instance=null;
 
     private ContractorCollection()
     {
@@ -21,12 +21,12 @@ public class ContractorCollection
 
     public static ContractorCollection getInstance()
     {
-        if(instance!=null)
+       if(instance==null)
         {
             instance=new ContractorCollection();
-            return instance;
+            
         }
-        else
+        
             return instance;
     }
     
