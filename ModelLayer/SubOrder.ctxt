@@ -1,6 +1,8 @@
 #BlueJ class context
-comment0.params=number\ name
-comment0.target=void\ SubOrder(int,\ java.lang.String)
+comment0.params=amount\ name
+comment0.target=SubOrder(int,\ java.lang.String)
 comment1.params=
-comment1.target=void\ print()
-numComments=2
+comment1.target=void\ subTotal()
+comment2.params=
+comment2.target=void\ print()
+numComments=3
