@@ -6,23 +6,30 @@ import java.util.Scanner;
 
 public class CategoryCollection
 {
-    private static final CategoryCollection instance = new CategoryCollection();
-    
     ArrayList<Category> listOfCategory;
     int categoryNumber;
     Category category;
     int categoryDiscount;
+    private static CategoryCollection instance;
+    
     /**
      * Constructor for objects of class CustCategory
-     */
+   private CategoryCollection instance;
+   */
     private CategoryCollection()
     {
         listOfCategory=new ArrayList<>();
     }
 
-    private static CategoryCollection getInstance()       //singleton of the class;
+    public static CategoryCollection getInstance()
     {
-        return instance;
+        if(instance!=null)
+        {
+            instance=new CategoryCollection();
+            return instance;
+        }
+        else
+            return instance;
     }
     
     public void createCategory(int categoryNumber,int categoryDiscount)
@@ -34,6 +41,7 @@ public class CategoryCollection
     
     public void listAllCategories()
     {
+        
         if (listOfCategory.size()!=0){
             for(Category i : listOfCategory)
             {
@@ -47,23 +55,26 @@ public class CategoryCollection
     public void deleteCategory(int categoryNumber)          
     {
         Iterator<Category> it = listOfCategory.iterator();
+        boolean found=false;
         while(it.hasNext())
         {
             int x=it.next().categoryNumber;
             if(x == categoryNumber)
             {
                 it.remove();
+                found=true;
+                System.out.println("Category deleted");
             }
         }
+       if(!found) System.out.println("No category registed with that number in the system");
     }
     
-    public void updateDiscount(int categoryNumber)
+    public void updateDiscount(int categoryNumber, int newDiscount)
     {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println(" Write new discount:");
-        int newDiscount=keyboard.nextInt();
+        
        
         ArrayList<Category> select=new ArrayList<Category>();
+        boolean found=false;
         if(listOfCategory.size()!=0)
         {
             for(Category a: listOfCategory)
@@ -73,10 +84,12 @@ public class CategoryCollection
                     select.add(a);
                     a.updateDiscounts(newDiscount);
                     System.out.println("Update Successful!");
+                    found=true;
                 }
             }
+            if (!found)  System.out.println("No category registred with that number in the system.");
         }
-        else System.out.println("No products in stock");
+        else System.out.println("No category registred in the system");
        
     }
 }

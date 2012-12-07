@@ -12,14 +12,25 @@ public class EmployeeCollection
 {
 
     ArrayList<Employee> listOfEmployees;
-    Person person;
-    
+    private static EmployeeCollection instance;
 
-    public EmployeeCollection()
+    private EmployeeCollection()
     {
         listOfEmployees=new ArrayList<>();
     }
 
+    public static EmployeeCollection getInstance()
+    {
+        if(instance!=null)
+        {
+            instance=new EmployeeCollection();
+            return instance;
+        }
+        else
+            return instance;
+    }
+    
+    
     public void createEmployee(String name, String id, String address, String phoneNumber,String position, int salary)
     {
         Employee employee=new Employee( name,  id,  address,  phoneNumber, position,  salary);
@@ -53,9 +64,117 @@ public class EmployeeCollection
         }
     }
     
-    public void updateId(String name, String id)
+     public void updateEmployeeId(String name, String id)
     {
-        person.updatePersonId(name, id);
+        ArrayList<Employee> select=new ArrayList<Employee>();
+        boolean found=false;
+        if(listOfEmployees.size()!=0)
+        {
+             
+            for(Employee a: listOfEmployees)
+            {
+                if(a.name.equals(name))
+                {
+                    select.add(a);
+                    a.setId(id);
+                    found=true;
+                    System.out.println("Update Successful!");
+                }
+               
+            }
+            if (!found)  System.out.println("No employee with that name in the system.");
+        }
+        else System.out.println("No employee registred in the system");
     }
-
+    
+    public void updateEmployeeAddress(String name, String address)
+    {
+        ArrayList<Employee> select=new ArrayList<Employee>();
+        boolean found=false;
+        if(listOfEmployees.size()!=0)
+        {
+            
+            for(Employee a: listOfEmployees)
+            {
+                if(a.name.equals(name))
+                {
+                    select.add(a);
+                    a.setAddress(address);
+                    System.out.println("Update Successful!");
+                    found=true;
+                }
+                
+            }
+            if (!found) System.out.println("No employee with that name in the system.");
+        }
+        else System.out.println("No employee registred in the system");
+    }
+    
+    public void updateEmployeePhoneNumber(String name, String phoneNumber)
+    {
+        ArrayList<Employee> select=new ArrayList<Employee>();
+        boolean found=false;
+        if(listOfEmployees.size()!=0)
+        {
+           
+            for(Employee a: listOfEmployees)
+            {
+                if(a.name.equals(name))
+                {
+                    select.add(a);
+                    a.setPhoneNumber(phoneNumber);
+                    System.out.println("Update Successful!");
+                    found=true;
+                }
+               
+            }
+            if (!found)  System.out.println("No employee with that name in the system.");
+        }
+        else System.out.println("No employee registred in the system");
+    }
+    
+    public void updateEmployeePosition(String name, String position)
+    {
+        ArrayList<Employee> select=new ArrayList<Employee>();
+        boolean found=false;
+        if(listOfEmployees.size()!=0)
+        {
+            
+            for(Employee a: listOfEmployees)
+            {
+                if(a.name.equals(name))
+                {
+                    select.add(a);
+                    a.setPosition(position);
+                    System.out.println("Update Successful!");
+                    found=true;
+                }
+               
+            }
+            if (!found) System.out.println("No employee with that name in the system.");
+        }
+        else System.out.println("No employee registred in the system");
+    }
+    
+    public void updateEmployeeSalary(String name, int salary)
+    {
+        ArrayList<Employee> select=new ArrayList<Employee>();
+        boolean found=false;
+        if(listOfEmployees.size()!=0)
+        {
+            for(Employee a: listOfEmployees)
+            {
+                if(a.name.equals(name))
+                {
+                    select.add(a);
+                    a.setSalary(salary);
+                    System.out.println("Update Successful!");
+                    found=true;
+                }
+                
+            }
+            if (!found) System.out.println("No employee with that name in the system.");
+        }
+        else System.out.println("No employee registred in the system");
+    }
 }
