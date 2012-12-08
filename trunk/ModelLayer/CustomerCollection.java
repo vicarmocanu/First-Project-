@@ -48,6 +48,23 @@ public class CustomerCollection
         }
         else System.out.println("No customers registred in the system");
     }
+    public boolean listCustomerByName(String name)
+    {
+        if (listOfCustomers.size()!=0){
+            for(Customer i : listOfCustomers)
+            {
+                if(i.name.equals(name))
+                {
+                    i.printCustomer();
+                    System.out.println("*****************************");
+                    return true;
+                }
+            }
+            
+        }
+        System.out.println("No customer with that name in the system");
+        return false;
+    }
 
     public void deleteCustomer(String name)          
     {

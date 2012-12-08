@@ -46,7 +46,7 @@ public class ManagerMenu
                         employeeControllMenu = new EmployeeControllMenu();
                         break;
                     }
-                    case 4:
+                    case 0:
                     {
                         exit = true;
                         return;
@@ -92,7 +92,7 @@ public class ManagerMenu
         System.out.println(" [2] Customer Control Menu");
         System.out.println(" [3] Employee Control Menu");
         System.out.println("");
-        System.out.println(" [4] Back to Main Menu");
+        System.out.println(" [0] Back to Main Menu");
         System.out.print("\n Make your choice: ");
         int choice = keyboard.nextInt();
         // Return the choice

@@ -1,6 +1,5 @@
 package ModelLayer;
 
-
 /**
  * Write a description of class Contractors here.
  * 
@@ -9,16 +8,16 @@ package ModelLayer;
  */
 public class Contractor extends Person
 {
-    
+
     public Contractor(String name, String id, String address, String phoneNumber )
     {
         super(name,id,address,phoneNumber);
-        
+
     }
-    
+
     public void printContractor()
     {
-     print();
-     }
+        print();
+    }
 
 }

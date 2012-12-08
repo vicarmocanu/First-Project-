@@ -49,6 +49,23 @@ public class EmployeeCollection
         }
         else System.out.println("No employees registred in the system");
     }
+    public boolean listEmployeeByName(String name)
+    {
+        if (listOfEmployees.size()!=0){
+            for(Employee i : listOfEmployees)
+            {
+                if(i.name.equals(name))
+                {
+                    i.printEmployee();
+                    System.out.println("*****************************");
+                    return true;
+                }
+            }
+            
+        }
+        System.out.println("No employee with that name in the system");
+        return false;
+    }
 
     public void deleteEmployee(String name)          
     {
