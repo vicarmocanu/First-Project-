@@ -69,10 +69,10 @@ public String getPhoneNumber()
     
 public void print()
     {
-        System.out.println("id :"+ id);
-        System.out.println("name :"+ name);
-        System.out.println("address :"+ address);
-        System.out.println("phone number :"+ phoneNumber);
+        System.out.println("ID       :"+ id);
+        System.out.println("Name     :"+ name);
+        System.out.println("Address  :"+ address);
+        System.out.println("Phone nr.:"+ phoneNumber);
     }
 
 

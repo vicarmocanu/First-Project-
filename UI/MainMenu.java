@@ -33,7 +33,7 @@ public class MainMenu
                     
                     break;
                 }
-                case 3:
+                case 0:
                 {
                     exit = true;
                     end();
@@ -51,7 +51,7 @@ public class MainMenu
         System.out.println(" [1] Manager Menu");
         System.out.println(" [2] Employee Menu");
         System.out.println("");
-        System.out.println(" [3] Exit System");
+        System.out.println(" [0] Exit System");
         System.out.print("\n Make your choice: ");
         int choice = keyboard.nextInt();
         // Return the choice

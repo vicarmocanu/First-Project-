@@ -35,8 +35,8 @@ public class Employee extends Person
     public void printEmployee()
     {
        print();
-       System.out.println("Position: " + position);
-        System.out.println("Salary: " + salary);
+       System.out.println("Position :" + position);
+       System.out.println("Salary   :" + salary);
     }
     
     

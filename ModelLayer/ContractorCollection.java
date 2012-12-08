@@ -50,6 +50,23 @@ public class ContractorCollection
         else System.out.println("No contractor registred in the system");
     }
 
+    public boolean listContractorByName(String name)
+    {
+        if (listOfContractors.size()!=0){
+            for(Contractor i : listOfContractors)
+            {
+                if(i.name.equals(name))
+                {
+                    i.printContractor();
+                    System.out.println("*****************************");
+                    return true;
+                }
+            }
+            
+        }
+        System.out.println("No contractor with that name in the system");
+        return false;
+    }
     public void deleteContractor(String name)          
     {
         Iterator<Contractor> it = listOfContractors.iterator();
