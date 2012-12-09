@@ -30,7 +30,7 @@ public class MainMenu
                 }
                 case 2:
                 {
-                    
+
                     break;
                 }
                 case 0:
@@ -52,8 +52,13 @@ public class MainMenu
         System.out.println(" [2] Employee Menu");
         System.out.println("");
         System.out.println(" [0] Exit System");
-        System.out.print("\n Make your choice: ");
+        System.out.print("\n Make your choice: \r");
         int choice = keyboard.nextInt();
+        while(!(choice>=0 && choice <= 2))
+        {
+            System.out.print("\u0008");
+            choice = keyboard.nextInt();
+        }
         // Return the choice
         return choice;
     }
