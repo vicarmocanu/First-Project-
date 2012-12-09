@@ -48,6 +48,23 @@ public class ProductCollection
         else System.out.println("The list is empty");
         return result;
     }
+    
+    public Product searchProductByBarCode(String barCode)
+    {
+        Product result=null;
+        if(listOfProducts.size()!=0)
+        {
+            for(Product i : listOfProducts)
+            {
+                if(i.barCode.equals(barCode))
+                {
+                    result=i;
+                }
+            }
+        }
+        else System.out.println("The list is empty");
+        return result;
+    }
 
     public void listAllProducts()
     {

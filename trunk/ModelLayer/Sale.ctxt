@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=id
+comment0.target=Sale(java.lang.String)
+comment1.params=numberOfProducts\ barCode
+comment1.target=void\ scanNewProduct(int,\ java.lang.String)
+comment2.params=
+comment2.target=void\ printTotal()
+comment3.params=
+comment3.target=void\ print()
+numComments=4
