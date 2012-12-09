@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=SaleCollection()
+comment1.params=sale
+comment1.target=void\ addSale(Sale)
+comment2.params=
+comment2.target=void\ listAllSales()
+numComments=3
