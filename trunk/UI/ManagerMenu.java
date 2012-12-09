@@ -12,7 +12,7 @@ public class ManagerMenu
     CustomerControllMenu customerControllMenu;
     EmployeeControllMenu employeeControllMenu;
     String error = "";
-    boolean login;
+    int login;
     public ManagerMenu()
     {
         startMenu();
@@ -25,8 +25,10 @@ public class ManagerMenu
         while (!exit) //! means while exit not is true (that is: false)
         {
             // var choice it's that number that you selected
-            if (login != true) login = login();
-            if(login)
+            
+            if (!(login == 1 || login == 3 || login == 4) ){login = login();}
+            
+            if(login == 1)
             {
                 int choice = textManagerMenu();
                 switch (choice)
@@ -53,16 +55,14 @@ public class ManagerMenu
                     }
                 }
             }
-            else
-            {
-                error = " !!! Wrong username and password !!! ";
-            }
-
+            if (login == 2) error = " !!! Wrong username and password !!! "; 
+            if (login == 3) return;
+            if (login == 4) error = " !!! No such choice available (pick 1 or 2) !!! ";
         }
 
     }
     // Here it display the option that you have
-    private boolean login()
+    private int login()
     {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("\f *** Login Menu ***");
@@ -73,13 +73,28 @@ public class ManagerMenu
         }
         System.out.print("Username:");
         String username = keyboard.nextLine();
-        System.out.println("");
         System.out.print("Password:");
         String password = keyboard.nextLine();
-        if(username.equals("manager") && password.equals("manager"))
-            return true;
-        else
-            return false;
+        System.out.println(" [1] Login");
+        System.out.println(" [2] Calcel");
+        System.out.print("Choice: ");
+        String choice = keyboard.nextLine();
+
+        switch (choice)
+        {
+            case "1":
+            {
+                if(username.equals("manager") && password.equals("manager"))
+                    return 1;
+                else
+                    return 2;
+            }
+            case "2":
+            {
+                return 3;
+            }
+        }
+        return 4;
 
     }
 
