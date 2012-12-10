@@ -39,12 +39,8 @@ public class ManagerMenu
                         contractorControllMenu = new ContractorControllMenu();
                         break;
                     }
+                    
                     case 2:
-                    {
-                        customerControllMenu = new CustomerControllMenu();
-                        break;
-                    }
-                    case 3:
                     {
                         employeeControllMenu = new EmployeeControllMenu();
                         break;
@@ -111,8 +107,7 @@ public class ManagerMenu
         Scanner keyboard = new Scanner(System.in);
         System.out.println("\f *** ManagerMenu ***");
         System.out.println(" [1] Contractor Control Menu");
-        System.out.println(" [2] Customer Control Menu");
-        System.out.println(" [3] Employee Control Menu");
+        System.out.println(" [2] Employee Control Menu");
         System.out.println("");
         System.out.println(" [0] Back to Main Menu");
         System.out.print("\n Make your choice: ");

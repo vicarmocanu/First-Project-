@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class MainMenu
 {
     ManagerMenu managerMenu;
+    EmployeeMenu employeeMenu;
     public MainMenu()
     {
         startMainMenu();
@@ -30,7 +31,7 @@ public class MainMenu
                 }
                 case "2":
                 {
-
+                    employeeMenu = new EmployeeMenu();
                     break;
                 }
                 case "0":

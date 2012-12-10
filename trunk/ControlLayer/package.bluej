@@ -1,9 +1,12 @@
 #BlueJ package file
+dependency1.from=ProductCtrTest
+dependency1.to=ProductCtr
+dependency1.type=UsesDependency
 package.editor.height=566
 package.editor.width=549
-package.editor.x=405
-package.editor.y=64
-package.numDependencies=0
+package.editor.x=12
+package.editor.y=12
+package.numDependencies=1
 package.numTargets=6
 package.showExtends=true
 package.showUses=true
