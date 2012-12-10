@@ -35,6 +35,17 @@ public class OrderCollection
         listOfOrders.add(order);
     }
 
+    public void addSubOrderToOrder(String id, int amount, String name)
+    {        
+        for(Order i: listOfOrders)
+        {
+            if(i.id.equals(id))
+            {
+                i.addSubOrder(amount, name);
+            }
+        }
+    }
+    
     public void searchOrder(String id)
     {
         ArrayList<Order> select=new ArrayList();
@@ -67,5 +78,7 @@ public class OrderCollection
         }
         else System.out.println("The list is empty!");
     }
+    
+    
 }
 
