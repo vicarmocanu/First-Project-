@@ -13,12 +13,12 @@ public class OrderCollection
     
     private static OrderCollection instance=null;
 
-    private OrderCollection()
+    public OrderCollection()
     {
         listOfOrders=new ArrayList();
     }
     
-     public static OrderCollection getInstance()       //singleton of the class;
+    public static OrderCollection getInstance()       //singleton of the class;
     { 
         if(instance==null)
         {
@@ -29,9 +29,9 @@ public class OrderCollection
         return instance;
     }
 
-    public void createOrder(String id, int total)
+    public void createOrder(String id)
     {
-        Order order=new Order(id, total);
+        Order order=new Order(id);
         listOfOrders.add(order);
     }
 

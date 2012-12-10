@@ -45,9 +45,16 @@ public class Order
     public void addSubOrder(int amount, String name)
     {
         SubOrder suborder=new SubOrder(amount, name);
+        suborder.subTotal();
         listOfSubOrders.add(suborder);
     }
     
-    
+    public void calculateTotal()
+    {        
+        for(SubOrder i : listOfSubOrders)
+        {
+            total=total+i.subTotal;
+        }
+    }
     
 }

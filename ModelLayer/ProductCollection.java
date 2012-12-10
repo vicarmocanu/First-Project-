@@ -67,7 +67,7 @@ public class ProductCollection
     }
     
     
-     public void updateProductStock(int numberOfItems,String barCode)
+     public void updateProductStockByBarCode(int numberOfItems,String barCode)
     {
         
         
@@ -85,6 +85,23 @@ public class ProductCollection
         }
         else System.out.println("The list is empty");
         
+    }
+    
+    public void updateProductStockByName(int numberOfItems,String name)
+    {
+        Product result=null;
+        if(listOfProducts.size()!=0)
+        {
+            for(Product i : listOfProducts)
+            {
+                if(i.name.equals(name))
+                {
+                    result=i;
+                    result.setQuantity(numberOfItems);
+                }
+            }
+        }
+        else System.out.println("The list is empty");
     }
 
     public void listAllProducts()

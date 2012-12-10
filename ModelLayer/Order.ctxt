@@ -11,4 +11,6 @@ comment4.params=id\ total
 comment4.target=void\ makeOrder(java.lang.String,\ int)
 comment5.params=amount\ name
 comment5.target=void\ addSubOrder(int,\ java.lang.String)
-numComments=6
+comment6.params=
+comment6.target=void\ calculateTotal()
+numComments=7
