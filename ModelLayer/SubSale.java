@@ -26,6 +26,7 @@ public class SubSale
         int subTotal=0;
         product=productCollection.searchProductByBarCode(barCode);
         subTotal=product.getSalePrice() * numberOfProducts;
+        productCollection.updateProductStock(numberOfProducts,barCode);
         return subTotal;        
     }
 
