@@ -10,25 +10,37 @@ package ModelLayer;
 public class SubSale
 {
    
-   String barCode;
-   int numberOfProducts;
-   ProductCollection productCollection;
-   Product product;
+    int amount;
+    int subTotal;
+    String barCode;
+    ProductCollection productCollection=ProductCollection.getInstance();
    
-   public SubSale()
+   public SubSale(int amount, String barCode)
     {
-        productCollection=  ProductCollection.getInstance(); 
-        product=null;
+        this.amount=amount;
+        this.barCode=barCode;
+        productCollection.updateProductStockByBarCode(amount,barCode );
     }
     
-   public int scanNewProduct(int numberOfProducts,String barCode)
+   
+    public void subTotal(int amount)
     {
-        int subTotal=0;
-        product=productCollection.searchProductByBarCode(barCode);
-        subTotal=product.getSalePrice() * numberOfProducts;
-        productCollection.updateProductStockByBarCode(numberOfProducts,barCode);
-        return subTotal;        
+        ProductCollection prodColl=ProductCollection.getInstance();
+        subTotal=amount*(prodColl.searchProductByBarCode(barCode).salePrice);
     }
+    
+    public void print()
+    {
+        System.out.println("Bar code: " + barCode);
+        System.out.println("Amount: " + amount);
+        System.out.println("SubTotal: " + subTotal);
+        System.out.println("                ");
+    }
+    
+    
+    
+    
+    
 
     
 }

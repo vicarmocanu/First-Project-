@@ -1,6 +1,8 @@
 #BlueJ class context
-comment0.params=
-comment0.target=SubSale()
-comment1.params=numberOfProducts\ barCode
-comment1.target=int\ scanNewProduct(int,\ java.lang.String)
-numComments=2
+comment0.params=amount\ barCode
+comment0.target=SubSale(int,\ java.lang.String)
+comment1.params=amount
+comment1.target=void\ subTotal(int)
+comment2.params=
+comment2.target=void\ print()
+numComments=3

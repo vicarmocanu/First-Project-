@@ -1,8 +1,16 @@
 #BlueJ class context
 comment0.params=
 comment0.target=SaleCollection()
-comment1.params=sale
-comment1.target=void\ addSale(Sale)
-comment2.params=
-comment2.target=void\ listAllSales()
-numComments=3
+comment1.params=
+comment1.target=SaleCollection\ getInstance()
+comment2.params=id
+comment2.target=void\ createSale(java.lang.String)
+comment3.params=id\ amount\ barCode
+comment3.target=void\ addSubSaleToSale(java.lang.String,\ int,\ java.lang.String)
+comment4.params=id
+comment4.target=void\ calculateTotalForSale(java.lang.String)
+comment5.params=
+comment5.target=void\ listSales()
+comment6.params=id
+comment6.target=void\ searchSale(java.lang.String)
+numComments=7

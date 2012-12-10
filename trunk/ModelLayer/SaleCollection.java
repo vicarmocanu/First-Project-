@@ -1,6 +1,7 @@
 package ModelLayer;
 import java.util.ArrayList;
 
+
 /**
  * Write a description of class SaleCollection here.
  * 
@@ -9,29 +10,86 @@ import java.util.ArrayList;
  */
 public class SaleCollection
 {
-    ArrayList<Sale> saleCollection;   
+        
 
+        ArrayList<Sale> listOfSales;  
+        Sale sale;
+        String barCode;
+        private static SaleCollection instance=null;
+        
     public SaleCollection()
     {
-       saleCollection=new ArrayList<>();
+       listOfSales=new ArrayList<>();
     }
     
-    public void addSale(Sale sale)
+    public static SaleCollection getInstance()
     {
-        saleCollection.add(sale);
-    }
-    
-    public void listAllSales()
-    {
-        if (saleCollection.size()!=0)
+        if(instance==null)
         {
-            for(Sale i : saleCollection)
+            instance=new SaleCollection();
+            
+        }
+        
+            return instance;
+    }
+    
+    public void createSale(String id)
+    {
+        Sale sale=new Sale(id);
+        listOfSales.add(sale);
+    }
+    
+     public void addSubSaleToSale(String id, int amount, String barCode)
+    {        
+        for(Sale i: listOfSales)
+        {
+            if(i.id.equals(id))
             {
-                i.print();
-                
+                i.addSubSale(amount, barCode);
             }
         }
-        else System.out.println("No sales registred to system");
+    }
+    
+     public void calculateTotalForSale(String id)
+    {
+        for(Sale i: listOfSales)
+        {
+            if(i.id.equals(id))
+            {
+                i.calculateTotal();
+            }
+        }
+    }
+       
+   public void listSales()
+    {
+        if(listOfSales.size()!=0)
+        {
+            for(Sale i: listOfSales)
+            {
+                i.print();
+                System.out.println("*************************");
+            }
+        }
+        else System.out.println("The list is empty!");
+    }
+    
+    public void searchSale(String id)
+    {
+        ArrayList<Order> select=new ArrayList();
+
+        if(listOfSales.size()!=0)
+        {
+            for(Sale i : listOfSales)
+            {
+                if(i.id.equals(id))
+                {
+                    i.print();
+                    System.out.println("***************");
+                }
+            }
+        }
+        else System.out.println("The list is empty!");
     }
     
 

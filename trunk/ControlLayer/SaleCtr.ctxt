@@ -1,4 +1,14 @@
 #BlueJ class context
 comment0.params=
 comment0.target=SaleCtr()
-numComments=1
+comment1.params=id
+comment1.target=void\ createSale(java.lang.String)
+comment2.params=id
+comment2.target=void\ searchSale(java.lang.String)
+comment3.params=
+comment3.target=void\ listSales()
+comment4.params=id\ amount\ barCode
+comment4.target=void\ addSubSaleToSale(java.lang.String,\ int,\ java.lang.String)
+comment5.params=id
+comment5.target=void\ calculateTotalForSale(java.lang.String)
+numComments=6
