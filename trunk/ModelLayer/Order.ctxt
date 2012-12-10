@@ -1,14 +1,14 @@
 #BlueJ class context
-comment0.params=id\ total
-comment0.target=Order(java.lang.String,\ int)
+comment0.params=id
+comment0.target=Order(java.lang.String)
 comment1.params=id
 comment1.target=void\ setId(java.lang.String)
 comment2.params=
 comment2.target=java.lang.String\ getId()
-comment3.params=total
-comment3.target=void\ setTotal(int)
-comment4.params=
-comment4.target=void\ print()
-comment5.params=id\ total
-comment5.target=void\ makeOrder(java.lang.String,\ int)
+comment3.params=
+comment3.target=void\ print()
+comment4.params=id\ total
+comment4.target=void\ makeOrder(java.lang.String,\ int)
+comment5.params=amount\ name
+comment5.target=void\ addSubOrder(int,\ java.lang.String)
 numComments=6

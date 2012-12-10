@@ -11,13 +11,12 @@ public class Order
 {
     String id;
     int total;
-    ArrayList<SubOrder> subOrders;
+    ArrayList<SubOrder> listOfSubOrders;
     
-    public Order(String id, int total)
+    public Order(String id)
     {
-        subOrders=new ArrayList();
+        listOfSubOrders=new ArrayList();
         this.id=id;
-        this.total=total;
     }
     
     public void setId(String id)
@@ -30,10 +29,6 @@ public class Order
         return id;
     }
     
-    public void setTotal(int total)
-    {
-        this.total=total;
-    }
     
     public void print()
     {
@@ -45,6 +40,12 @@ public class Order
     {
         this.id=id;
         this.total=total;
+    }
+    
+    public void addSubOrder(int amount, String name)
+    {
+        SubOrder suborder=new SubOrder(amount, name);
+        listOfSubOrders.add(suborder);
     }
     
     
