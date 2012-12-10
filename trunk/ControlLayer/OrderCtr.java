@@ -30,4 +30,15 @@ public class OrderCtr
     {
         order.listOrders(id);
     }
+        
+    public void addSubOrderToOrder(String id, int amount, String name)
+    {
+        order.addSubOrderToOrder(id, amount, name);
+    }
+    
+    public void calculateTotalForOrder(String id)
+    {
+        order.calculateTotalForOrder(id);
+    }
+    
 }
