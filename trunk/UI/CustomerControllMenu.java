@@ -237,7 +237,8 @@ public class CustomerControllMenu
             }
             
             controller.createCustomer(name, id, address, phone);
-            System.out.print(" [1] Add another Customer" + "\n [0] to return to the Manager menu");
+            System.out.println(" [1] Add another Customer" + "\n [0] to return to the Manager menu");
+            System.out.print(" Choice: ");
             another = keyboard.nextLine();
             while (!(another.equals("1") || another.equals("0")))
             {
