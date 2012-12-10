@@ -1,4 +1,5 @@
 package ModelLayer;
+import java.util.ArrayList;
 
 
 /**
@@ -9,34 +10,59 @@ package ModelLayer;
  */
 public class Sale
 {
-    SubSale subSale;
     String id;
-    int intermediate;
     int total;
+    ArrayList<SubSale> listOfSubSales;
     
     public Sale(String id)
     {
-       this.id=id;
-        subSale=new SubSale();
+       listOfSubSales=new ArrayList();
+        this.id=id;
     }
     
-    
-    public void scanNewProduct(int numberOfProducts,String barCode )
+     public void setId(String id)
     {
-        intermediate=subSale.scanNewProduct( numberOfProducts, barCode);
-        total=total + intermediate;
+        this.id=id;
     }
     
-    public void printTotal()
+    public String getId()
     {
-        System.out.println(total);
+        return id;
     }
     
-    public void print()
+  public void print()
     {
-        
-        System.out.println("Id: " + id);
+        System.out.println("ID: " + id);
+        for(SubSale i: listOfSubSales)
+        {
+            i.print();
+        }
         System.out.println("Total: " + total);
     }
+    
+    public void makeSale(String id, int total)
+    {
+        this.id=id;
+        this.total=total;
+    }
+    
+    public void addSubSale(int amount, String barCode)
+    {
+        SubSale subSale=new SubSale(amount, barCode);
+        subSale.subTotal(amount);
+        listOfSubSales.add(subSale);
+    }
+    
+    public void calculateTotal()
+    {        
+        for(SubSale i : listOfSubSales)
+        {
+            total=total+i.subTotal;
+        }
+    }
+    
+    
+    
+    
 
 }
