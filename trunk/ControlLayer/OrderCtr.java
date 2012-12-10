@@ -26,9 +26,14 @@ public class OrderCtr
         order.searchOrder(id);
     }
     
-    public void listOrders(String id)
+    public void orderDetails(String id)
     {
-        order.listOrders(id);
+        order.orderDetails(id);
+    }
+    
+    public void listOrders()
+    {
+        order.listOrders();
     }
         
     public void addSubOrderToOrder(String id, int amount, String name)
