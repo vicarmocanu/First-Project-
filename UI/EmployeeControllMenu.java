@@ -250,8 +250,9 @@ public class EmployeeControllMenu
             System.out.print("Position : ");
             String position = keyboard.nextLine();
             System.out.print("Salary   : ");
-            int salary = keyboard.nextInt();
-            if(name.equals("") || id.equals("") || address.equals("") || phone.equals("") || position.equals(""))
+            String salary = keyboard.nextLine();
+
+            if(name.equals("") || id.equals("") || address.equals("") || phone.equals("") || position.equals("") || salary.equals(""))
             {
                 System.out.println("One or more fields are EMPTY");
                 System.out.println("Type [1] to try again" + "\nType [0] to return to the Manager menu");
@@ -265,10 +266,10 @@ public class EmployeeControllMenu
                 }
                 return;
             }
-            
-            controller.createEmployee(name, id, address, phone, position, salary);
-            System.out.print(" [1] Add another Employee" + "\n [0] to return to the Manager menu");
-            another = keyboard.nextLine();
+
+            controller.createEmployee(name, id, address, phone, position, Integer.parseInt(salary));
+            System.out.println(" [1] Add another Employee" + "\n [0] to return to the Manager menu");
+            System.out.print(" Choice: ");
             another = keyboard.nextLine();
             while (!(another.equals("1") || another.equals("0")))
             {
