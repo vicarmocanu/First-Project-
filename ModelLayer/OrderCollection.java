@@ -8,16 +8,16 @@ import java.util.ArrayList;
  */
 public class OrderCollection
 {
-        
+
     ArrayList<Order> listOfOrders;
-    
+
     private static OrderCollection instance=null;
 
     public OrderCollection()
     {
         listOfOrders=new ArrayList();
     }
-    
+
     public static OrderCollection getInstance()       //singleton of the class;
     { 
         if(instance==null)
@@ -45,7 +45,7 @@ public class OrderCollection
             }
         }
     }
-    
+
     public void calculateTotalForOrder(String id)
     {
         for(Order i: listOfOrders)
@@ -56,7 +56,7 @@ public class OrderCollection
             }
         }
     }
-    
+
     public void searchOrder(String id)
     {
         ArrayList<Order> select=new ArrayList();
@@ -75,7 +75,7 @@ public class OrderCollection
         else System.out.println("The list is empty!");
     }
 
-    public void listOrders(String id)
+    public void orderDetails(String id)
     {
         ArrayList<Order> select=new ArrayList();
 
@@ -83,13 +83,27 @@ public class OrderCollection
         {
             for(Order i: listOfOrders)
             {
-                i.print();
-                System.out.println("***************");
+                if(i.id.equals(id))
+                {
+                    i.print();
+                    System.out.println("***************");
+                }
             }
         }
         else System.out.println("The list is empty!");
     }
-    
-    
+
+    public void listOrders()
+    {
+        if(listOfOrders.size()!=0)
+        {
+            for(Order i: listOfOrders)
+            {
+                i.print();
+                System.out.println("*************************");
+            }
+        }
+        else System.out.println("The list is empty!");
+    }
 }
 

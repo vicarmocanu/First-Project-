@@ -62,6 +62,7 @@ target5.editor.x=40
 target5.editor.y=20
 target5.height=50
 target5.name=ProductCtrTest
+target5.naviview.expanded=true
 target5.showInterface=false
 target5.type=UnitTestTargetJunit4
 target5.width=110

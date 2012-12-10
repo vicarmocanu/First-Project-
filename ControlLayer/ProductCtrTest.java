@@ -17,6 +17,8 @@ public class ProductCtrTest
 {
     private ControlLayer.ProductCtr productC1;
 
+    
+
     /**
      * Default constructor for test class ProductCtrTest
      */

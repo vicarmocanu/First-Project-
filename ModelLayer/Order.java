@@ -33,6 +33,10 @@ public class Order
     public void print()
     {
         System.out.println("ID: " + id);
+        for(SubOrder i: listOfSubOrders)
+        {
+            i.print();
+        }
         System.out.println("Total: " + total);
     }
     
