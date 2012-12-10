@@ -94,7 +94,7 @@ public class PersonCtr
 
     public void updateEmployeePosition(String name, String position)
     {
-        employee.updateEmployeePhoneNumber(name,position);
+        employee.updateEmployeePosition(name,position);
     }
 
     public void updateEmployeeSalary(String name, int salary)

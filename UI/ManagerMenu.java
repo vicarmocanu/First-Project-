@@ -15,6 +15,7 @@ public class ManagerMenu
     int login;
     public ManagerMenu()
     {
+        login = 0;
         startMenu();
     }
     // Here are the 4 options that you have 
@@ -25,9 +26,9 @@ public class ManagerMenu
         while (!exit) //! means while exit not is true (that is: false)
         {
             // var choice it's that number that you selected
-            
-            if (!(login == 1 || login == 3 || login == 4) ){login = login();}
-            
+
+            if (login == 0 || login == 2){login = login();}
+
             if(login == 1)
             {
                 int choice = textManagerMenu();
@@ -79,6 +80,12 @@ public class ManagerMenu
         System.out.println(" [2] Calcel");
         System.out.print("Choice: ");
         String choice = keyboard.nextLine();
+        while (!choice.equals("1") && !choice.equals("2"))
+        {
+            System.out.println(" !!! No such choice available !!! ");
+            System.out.print("Choice: ");
+            choice = keyboard.nextLine();
+        }
 
         switch (choice)
         {

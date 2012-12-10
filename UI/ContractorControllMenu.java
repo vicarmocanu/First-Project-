@@ -25,35 +25,35 @@ public class ContractorControllMenu
         while (!exit) //! means while exit not is true (that is: false)
         {
             // var choice it's that number that you selected
-            int choice = textMainMenu();
+            String choice = textMainMenu();
             switch (choice)
             {
-                case 1:
+                case "1":
                 {
                     createContractor();
                     break;
                 }
-                case 2:
+                case "2":
                 {
                     updateContractor();
                     break;
                 }
-                case 3:
+                case "3":
                 {
                     deleteContractor();
                     break;
                 }
-                case 4:
+                case "4":
                 {
                     listAllContractors();
                     break;
                 }
-                case 5:
+                case "5":
                 {
                     findContractorByName();
                     break;
                 }
-                case 0:
+                case "0":
                 {
                     exit = true;
                     return;
@@ -62,7 +62,7 @@ public class ContractorControllMenu
         }// end else
     }
     // Here it display the option that you have
-    private int textMainMenu()
+    private String textMainMenu()
     { 
         // creates a keyboard object to read input
         Scanner keyboard = new Scanner(System.in);
@@ -74,21 +74,42 @@ public class ContractorControllMenu
         System.out.println(" [5] Find Contractor");
         System.out.println("");
         System.out.println(" [0] Back to Manager Menu");
-        System.out.print("\n Make your choice: ");
-        int choice = keyboard.nextInt();
+        System.out.print("\n Choice: ");
+        String choice = keyboard.nextLine();
+        while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("4") && !choice.equals("5") && !choice.equals("0"))
+        {
+            System.out.println(" !!! No such choice available !!! ");
+            System.out.print(" Choice: ");
+            choice = keyboard.nextLine();
+
+        }
         // Return the choice
         return choice;
     }
 
     private void findContractorByName()
     {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("\f *** Find Contractor ***");
-        System.out.print("Search Name: ");
-        String name = keyboard.nextLine();
-        controller.listContractorByName(name);
-        System.out.println("\n Press ENTER to return to previous menu");
-        String exit = keyboard.nextLine();
+        String choice = "1";
+        while (choice.equals("1"))
+        {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("\f *** Find Contractor ***");
+            System.out.print("Search Name: ");
+            String name = keyboard.nextLine();
+            controller.listContractorByName(name);
+            System.out.println("\n [1] Search another");
+            System.out.println(" [0] Return to Manager menu");
+            System.out.print("Choice: ");
+            choice = keyboard.nextLine();
+            while (!choice.equals("1") && !choice.equals("0")) 
+            {
+                System.out.println(" !!! No such choice available !!!");
+                System.out.println(" [1] Search another");
+                System.out.println(" [0] Return to Manager menu");
+                System.out.print("Choice: ");
+                choice = keyboard.nextLine();
+            }
+        }
     }
 
     private void updateContractor()
@@ -165,8 +186,16 @@ public class ContractorControllMenu
         Scanner keyboard = new Scanner(System.in);
         System.out.println("\f *** Contractor List ***");
         controller.listAllContractors();
-        System.out.println("\n Press ENTER to return to previous menu");
-        String exit = keyboard.nextLine();
+        System.out.println("\n [0] Return to previous menu");
+        System.out.print("Choice: ");
+        String choice = keyboard.nextLine();
+        while (!choice.equals("0"))
+        {
+            System.out.println(" !!! No such choice available !!!");
+            System.out.println("[0] Return to previous menu");
+            System.out.print("Choice: ");
+            choice = keyboard.nextLine();
+        }
 
     }
 
@@ -196,6 +225,7 @@ public class ContractorControllMenu
             {
                 System.out.println("One or more fields are EMPTY");
                 System.out.println("Type [1] to try again" + "\nType [0] to return to the Manager menu");
+                System.out.print(" Choice: ");
                 String exit = keyboard.nextLine();
                 if (exit.toUpperCase().equals("1")) {createContractor(); return;}
                 if (exit.toUpperCase().equals("0")) {return;}
@@ -205,7 +235,7 @@ public class ContractorControllMenu
                 }
                 return;
             }
-            error = "Contractor Added Succesfull"; 
+            
             controller.createContractor(name, id, address, phone);
             System.out.print(" [1] Add another Contractor" + "\n [0] to return to the Manager menu");
             another = keyboard.nextLine();
@@ -229,20 +259,61 @@ public class ContractorControllMenu
         {
             System.out.print("Are you sure you want to delete this contractor? (y/n): ");
             confirm = keyboard.nextLine();
+            while (!confirm.toUpperCase().equals("Y") && !confirm.toUpperCase().equals("N"))
+            {
+                System.out.print("!!! No such choice available !!! " + "\nAre you sure you want to delete this contractor? (y/n): ");
+                confirm = keyboard.nextLine();
+            }
         }
         else
         {
-            System.out.println("Press ENTER to try again" + "\nType exit to return to the Manager menu");
-            String exit = keyboard.nextLine();
-            if (!exit.toUpperCase().equals("EXIT")) deleteContractor();
+            System.out.println("[1] Try again" + "\n [0] Return to the Manager menu");
+            System.out.print(" Choice: ");
+            String choice = keyboard.nextLine();
+            while(!choice.equals("1") && !choice.equals("0"))
+            {
+                System.out.println(" !!! No such choice available !!! " +"\n [1] Try again" + "\n [0] Return to the Manager menu");
+                System.out.print(" Choice: ");
+                choice = keyboard.nextLine();
+            }
+            if (choice.equals("1"))
+            {
+                deleteContractor();
+                return;
+            }
+
             return;
+
         }
         if (confirm.toUpperCase().equals("Y")) 
         {
             controller.deleteContractor(name);
         }
-        System.out.println("Press ENTER to return to previous menu");
-        String exit = keyboard.nextLine();
+        if (confirm.toUpperCase().equals("N"))
+        {
+            System.out.println(" [1] Try again" + "\n [0] Return to the Manager menu");
+            System.out.print(" Choice: ");
+            String choice = keyboard.nextLine();
+            while(!choice.equals("1") && !choice.equals("0"))
+            {
+                System.out.println(" !!! No such choice available !!! " +"\n [1] Try again" + "\n [0] Return to the Manager menu");
+                System.out.print(" Choice: ");
+                choice = keyboard.nextLine();
+            }
+            if(choice.equals("1")) {deleteContractor();return;}
+            if(choice.equals("0")) return;
+        }
+        System.out.println(" [1] Try again" + "\n [0] Return to the Manager menu");
+        System.out.print(" Choice: ");
+        String choice = keyboard.nextLine();
+        while(!choice.equals("1") && !choice.equals("0"))
+        {
+            System.out.println(" !!! No such choice available !!! " +"\n [1] Try again" + "\n [0] Return to the Manager menu");
+            System.out.print(" Choice: ");
+            choice = keyboard.nextLine();
+        }
+        if(choice.equals("1")) {deleteContractor();return;}
+        if(choice.equals("0")) return;
     }
     // Print "bye bye" when you close the program
     private void End()
