@@ -20,20 +20,20 @@ public class MainMenu
         while (!exit) //! means while exit not is true (that is: false)
         {
             // var choice it's that number that you selected
-            int choice = textMainMenu();
+            String choice = textMainMenu();
             switch (choice)
             {
-                case 1:
+                case "1":
                 {
                     managerMenu = new ManagerMenu();
                     break;
                 }
-                case 2:
+                case "2":
                 {
 
                     break;
                 }
-                case 0:
+                case "0":
                 {
                     exit = true;
                     end();
@@ -43,7 +43,7 @@ public class MainMenu
         }// end else
     }
     // Here it display the option that you have
-    private int textMainMenu()
+    private String textMainMenu()
     { 
         // creates a keyboard object to read input
         Scanner keyboard = new Scanner(System.in);
@@ -52,12 +52,13 @@ public class MainMenu
         System.out.println(" [2] Employee Menu");
         System.out.println("");
         System.out.println(" [0] Exit System");
-        System.out.print("\n Make your choice: \r");
-        int choice = keyboard.nextInt();
-        while(!(choice>=0 && choice <= 2))
+        System.out.print("\nChoice: ");
+        String choice = keyboard.nextLine();
+        while(!choice.equals("0") && !choice.equals("1") && !choice.equals("2"))
         {
-            System.out.print("\u0008");
-            choice = keyboard.nextInt();
+            System.out.println("\b !!! No such choice available !!! ");
+            System.out.print("Choice: ");
+            choice = keyboard.nextLine();
         }
         // Return the choice
         return choice;
