@@ -46,6 +46,17 @@ public class OrderCollection
         }
     }
     
+    public void calculateTotalForOrder(String id)
+    {
+        for(Order i: listOfOrders)
+        {
+            if(i.id.equals(id))
+            {
+                i.calculateTotal();
+            }
+        }
+    }
+    
     public void searchOrder(String id)
     {
         ArrayList<Order> select=new ArrayList();
