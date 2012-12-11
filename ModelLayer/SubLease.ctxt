@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=product\ startPeriod\ endPeriod
+comment0.target=SubLease(java.lang.String,\ java.util.Date,\ java.util.Date)
+comment1.params=product\ startPeriod\ endPeriod
+comment1.target=void\ makeLease(java.lang.String,\ java.util.Date,\ java.util.Date)
+comment2.params=
+comment2.target=void\ print()
+numComments=3

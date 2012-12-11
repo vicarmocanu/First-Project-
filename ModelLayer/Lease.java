@@ -1,5 +1,7 @@
 package ModelLayer;
 import java.util.Calendar;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Write a description of class Lease here.
@@ -11,30 +13,33 @@ public class Lease
 {
     String id;
     int total;
-    String startPeriod;
-    String endPeriod;
+    ArrayList<SubLease> listOfSubLeases;
     
-    public Lease(String id, int total, String startPeriod, String endPeriod)
+    public Lease(String id)
     {
         this.id=id;
-        this.total=total;
-        this.startPeriod=startPeriod;
-        this.endPeriod=endPeriod;
+        listOfSubLeases=new ArrayList();
     }
     
-    public void makeLease(String id, int total, String startPeriod, String endPeriod)
+    public void makeLease(String id)
     {
         this.id=id;
-        this.total=total;
-        this.startPeriod=startPeriod;
-        this.endPeriod=endPeriod;
+    }
+    
+    public void addSubLease(String id, Date startPeriod, Date endPeriod)
+    {
+        SubLease sublease=new SubLease(id, startPeriod, endPeriod);
+        listOfSubLeases.add(sublease);
+    }
+    
+    public void calcTotal()
+    {
+        
     }
     
     public void print()
     {
         System.out.println("ID: " + id);
         System.out.println("Total: " + total);
-        System.out.println("Start of Period: " + startPeriod);
-        System.out.println("End of Period: " + endPeriod);
     }
 }
