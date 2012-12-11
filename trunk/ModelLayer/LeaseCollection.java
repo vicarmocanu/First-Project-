@@ -1,5 +1,6 @@
 package ModelLayer;
 import java.util.ArrayList;
+import java.util.Date;
 /**
  * Write a description of class LeaseCollection here.
  * 
@@ -27,10 +28,21 @@ public class LeaseCollection
             return instance;
     }
     
-    public void makeLease(String id, int total, String startPeriod, String endPeriod)
+    public void makeLease(String id)
     {
-        Lease lease=new Lease(id, total, startPeriod, endPeriod);
+        Lease lease=new Lease(id);
         listOfLeases.add(lease);
+    }
+
+    public void addSubLeaseToLease(String id, String product, Date startPeriod, Date endPeriod)
+    {
+         for(Lease i: listOfLeases)
+        {
+            if(i.id.equals(id))
+            {
+                i.addSubLease(product, startPeriod, endPeriod);
+            }
+        }
     }
     
     public void searchLease(String id)

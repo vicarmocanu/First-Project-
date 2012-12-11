@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=barCode\ location\ name\ description\ status
+comment0.target=void\ ProductForLease(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.params=barCode\ location\ name\ description\ status
+comment1.target=void\ makeProduct(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=status
+comment2.target=void\ updateStatus(java.lang.String)
+numComments=3

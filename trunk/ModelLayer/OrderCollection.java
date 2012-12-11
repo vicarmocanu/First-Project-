@@ -59,8 +59,6 @@ public class OrderCollection
 
     public void searchOrder(String id)
     {
-        ArrayList<Order> select=new ArrayList();
-
         if(listOfOrders.size()!=0)
         {
             for(Order i : listOfOrders)
@@ -77,8 +75,6 @@ public class OrderCollection
 
     public void orderDetails(String id)
     {
-        ArrayList<Order> select=new ArrayList();
-
         if(listOfOrders.size()!=0)
         {
             for(Order i: listOfOrders)
