@@ -26,9 +26,19 @@ public class ProductCtr
         colection.searchProduct(name);
     }
     
+    public void searchProductAndPrint(String name)
+    {
+        colection.searchProductAndPrint(name);
+    }
+    
     public void searchProductByBarCode(String name)
     {
         colection.searchProductByBarCode(name);
+    }
+    
+    public void searchProductByBarCodeAndPrint(String name)
+    {
+        colection.searchProductByBarCodeAndPrint(name);
     }
     
     public void listAllProducts()

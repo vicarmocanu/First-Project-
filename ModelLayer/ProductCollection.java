@@ -40,7 +40,7 @@ public class ProductCollection
         {
             for(Product i : listOfProducts)
             {
-                if(i.name.startsWith(name))
+                if(i.name.equals(name))
                 {
                     result=i;
                 }
@@ -48,6 +48,23 @@ public class ProductCollection
         }
         else System.out.println("The list is empty");
         return result;
+    }
+    
+    public void searchProductAndPrint(String name)
+    {
+        Product result=null;
+        if(listOfProducts.size()!=0)
+        {
+            for(Product i : listOfProducts)
+            {
+                if(i.name.toLowerCase().contains(name.toLowerCase()))
+                {
+                    i.print();
+                }
+            }
+        }
+        else System.out.println("The list is empty");
+        
     }
     
     public Product searchProductByBarCode(String barCode)
@@ -65,6 +82,22 @@ public class ProductCollection
         }
         else System.out.println("The list is empty");
         return result;
+    }
+    
+    public void searchProductByBarCodeAndPrint(String barCode)
+    {
+        
+        if(listOfProducts.size()!=0)
+        {
+            for(Product i : listOfProducts)
+            {
+                if(i.barCode.toLowerCase().contains(barCode.toLowerCase()))
+                {
+                    i.print();
+                }
+            }
+        }
+        else System.out.println("The list is empty");
     }
     
      public void updateProductStockByBarCode(int numberOfItems,String barCode)
