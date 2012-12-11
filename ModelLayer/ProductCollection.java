@@ -50,23 +50,6 @@ public class ProductCollection
         return result;
     }
     
-    public void searchProductAndPrint(String name)
-    {
-        Product result=null;
-        if(listOfProducts.size()!=0)
-        {
-            for(Product i : listOfProducts)
-            {
-                if(i.name.startsWith(name))
-                {
-                    i.print();
-                    return;
-                }
-            }
-        }
-        else System.out.println("The list is empty");
-    }
-    
     public Product searchProductByBarCode(String barCode)
     {
         Product result=null;
@@ -83,23 +66,6 @@ public class ProductCollection
         else System.out.println("The list is empty");
         return result;
     }
-    public void searchProductByBarCodeAndPrint(String barCode)
-    {
-        
-        if(listOfProducts.size()!=0)
-        {
-            for(Product i : listOfProducts)
-            {
-                if(i.barCode.equals(barCode))
-                {
-                    i.print();
-                    return;
-                }
-            }
-        }
-        else System.out.println("The list is empty");
-    }
-    
     
      public void updateProductStockByBarCode(int numberOfItems,String barCode)
     {
