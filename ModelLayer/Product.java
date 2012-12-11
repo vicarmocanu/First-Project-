@@ -3,7 +3,6 @@ package ModelLayer;
 public class Product 
 {
 
-
     String barCode;
     String location;
     String name;
@@ -120,18 +119,24 @@ public class Product
         this.quantity = quantity;
     }
 
-    
     public void print()
     {
-        System.out.println("BarCode: " + barCode);
-        System.out.println("Location: " + location);
-        System.out.println("Name: " + name);
-        System.out.println("Description: " + description);
-        System.out.println("Buy Price: " + buyPrice);
-        System.out.println("salePrice: " + salePrice);
-        System.out.println("Min: " + min);
-        System.out.println("Max: " + max);
-        System.out.println("Quantity: " + quantity);
+        System.out.println("BarCode     : " + barCode);
+        System.out.println("Location    : " + location);
+        System.out.println("Name        : " + name);
+        System.out.println("Description : " + description);
+        System.out.println("Buy Price   : " + buyPrice);
+        if(salePrice != 0)
+        {
+            System.out.println("Sale Price  : " + salePrice);
+        }
+        else
+        {
+            System.out.println("Sale Price  : " + " Price not set by Manager");
+        }
+        System.out.println("Min         : " + min);
+        System.out.println("Max         : " + max);
+        System.out.println("Quantity    : " + quantity);
         System.out.println("*****************"); 
 
     }

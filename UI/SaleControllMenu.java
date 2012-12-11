@@ -59,28 +59,62 @@ public class SaleControllMenu
     {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("\f *** Scanning Process ***");
-        // VERIFY EMPTY FIELD
         System.out.print(" ID: ");
         String id = keyboard.nextLine();
+        while (id.equals(""))
+        {
+            System.out.println("Empty fields are not allowed");
+            System.out.print(" ID: ");
+            id = keyboard.nextLine();
+        }
         controller.createSale(id);
         String another = "1";
         while (another.equals("1"))
         {
             System.out.print(" Nr. of Products   : ");
             String qtty = keyboard.nextLine();
-            // VERIFY EMPTY FIELD
+
+            while (qtty.equals(""))
+            {
+                System.out.println("Empty fields are not allowed");
+                System.out.print(" Nr. of Products   : ");
+                qtty = keyboard.nextLine();
+            }
             System.out.print(" SCANN PRODUCT CODE: ");
             String barCode = keyboard.nextLine();
+
+            while (barCode.equals(""))
+            {
+                System.out.println("Empty fields are not allowed");
+                System.out.print(" SCANN PRODUCT CODE: ");
+                barCode = keyboard.nextLine();
+            }
             controller.addSubSaleToSale(id, Integer.parseInt(qtty), barCode);
             System.out.println(" [1] New Product " + "\n [2] Print Total");
             System.out.print(" Choice: ");
             String choice = keyboard.nextLine();
+            while (!choice.equals("1") && !choice.equals("2"))
+            {
+                System.out.println(" !!! No such choice available !!! ");
+                System.out.print(" Choice: ");
+                choice = keyboard.nextLine();
+
+            }
+
             if(choice.equals("2"))
             {
                 controller.calculateTotalForSale(id);
                 controller.searchSale(id);
                 System.out.print("[0] Return");
+                System.out.print(" Choice: ");
                 String choice1 = keyboard.nextLine();
+                while (!choice.equals("0"))
+                {
+                    System.out.println(" !!! No such choice available !!! ");
+                    System.out.print(" Choice: ");
+                    choice = keyboard.nextLine();
+
+                }
                 if(choice1.equals("0")) return;
             }
             else if (choice.equals("1"))
