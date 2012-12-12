@@ -17,7 +17,7 @@ public class Order
    
     ArrayList<SubOrder> listOfSubOrders;
     EmployeeCollection employeeCollection=EmployeeCollection.getInstance();
-    
+    CustomerCollection customerCollection=CustomerCollection.getInstance();
     
     public Order(String id, String customerName, String employeeName)
     {
@@ -72,11 +72,17 @@ public class Order
             
         }
         addTotalToEmployee(employeeName, total);
+        addTotalToCustomer(customerName, total);
     }
     
     public void addTotalToEmployee(String employeeName, int total)
     {
         employeeCollection.updateEmployeeTotalFromOrders(employeeName,total);
+    }
+    
+     public void addTotalToCustomer(String customerName, int total)
+    {
+        customerCollection.updateCustomerTotalFromOrders(customerName,total);
     }
     
 }

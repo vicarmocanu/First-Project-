@@ -15,4 +15,6 @@ comment6.params=
 comment6.target=void\ calculateTotal()
 comment7.params=employeeName\ total
 comment7.target=void\ addTotalToEmployee(java.lang.String,\ int)
-numComments=8
+comment8.params=customerName\ total
+comment8.target=void\ addTotalToCustomer(java.lang.String,\ int)
+numComments=9
