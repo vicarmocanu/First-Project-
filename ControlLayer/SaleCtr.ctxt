@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=SaleCtr()
-comment1.params=id
-comment1.target=void\ createSale(java.lang.String)
+comment1.params=id\ customerName\ employeeName
+comment1.target=void\ createSale(java.lang.String,\ java.lang.String,\ java.lang.String)
 comment2.params=id
 comment2.target=void\ searchSale(java.lang.String)
 comment3.params=
