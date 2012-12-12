@@ -34,21 +34,19 @@ public class LeaseCollection
         listOfLeases.add(lease);
     }
 
-    public void addSubLeaseToLease(String id, String product, Date startPeriod, Date endPeriod)
+    public void addSubLeaseToLease(String id, String product, int numberOfDays)
     {
          for(Lease i: listOfLeases)
         {
             if(i.id.equals(id))
             {
-                i.addSubLease(product, startPeriod, endPeriod);
+                i.addSubLease(product, numberOfDays);
             }
         }
     }
     
     public void searchLease(String id)
     {
-        ArrayList<Order> select=new ArrayList();
-
         if(listOfLeases.size()!=0)
         {
             for(Lease i : listOfLeases)
@@ -58,6 +56,19 @@ public class LeaseCollection
                     i.print();
                     System.out.println("                 ");
                 }
+            }
+        }
+        else System.out.println("The list is empty!");
+    }
+    
+    public void print()
+    {
+        if(listOfLeases.size()!=0)
+        {
+            for(Lease i : listOfLeases)
+            {
+                    i.print();
+                    System.out.println("                 ");
             }
         }
         else System.out.println("The list is empty!");

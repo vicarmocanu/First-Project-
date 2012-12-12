@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ProductForLeaseCtr()
+comment1.params=barCode\ location\ name\ description\ status\ pricePerDay
+comment1.target=void\ makeProductForLease(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int)
+comment2.params=name\ status
+comment2.target=void\ changeProductForLeaseStatus(java.lang.String,\ java.lang.String)
+comment3.params=name
+comment3.target=void\ searchProduct(java.lang.String)
+comment4.params=
+comment4.target=void\ print()
+numComments=5

@@ -9,81 +9,81 @@ import ModelLayer.ProductCollection;
  */
 public class ProductCtr
 {
-    ProductCollection colection;
+    ProductCollection collection;
 
     public ProductCtr()
     {
-        colection=ModelLayer.ProductCollection.getInstance(); 
+        collection=ModelLayer.ProductCollection.getInstance(); 
     }
 
     public void addProduct(String barCode, String location, String name,String description, int buyPrice, int salePrice, int min, int max,int quantity)
     {
-        colection.addProduct(barCode,location,name,description,buyPrice,salePrice,min,max,quantity);
+        collection.addProduct(barCode,location,name,description,buyPrice,salePrice,min,max,quantity);
     }
 
     public void searchProduct(String name)
     {
-        colection.searchProduct(name);
+        collection.searchProduct(name);
     }
     
     public void searchProductAndPrint(String name)
     {
-        colection.searchProductAndPrint(name);
+        collection.searchProductAndPrint(name);
     }
     
     public void searchProductByBarCode(String name)
     {
-        colection.searchProductByBarCode(name);
+        collection.searchProductByBarCode(name);
     }
     
     public void searchProductByBarCodeAndPrint(String name)
     {
-        colection.searchProductByBarCodeAndPrint(name);
+        collection.searchProductByBarCodeAndPrint(name);
     }
     
     public void listAllProducts()
     {
-        colection.listAllProducts();
+        collection.listAllProducts();
     }
 
     public void deleteProduct(String name)          
     {
-        colection.deleteProduct(name);
+        collection.deleteProduct(name);
     }
 
     public void updateProductBarCode(String name, String barCode)
     {
-        colection.updateProductBarCode(name,barCode);
+        collection.updateProductBarCode(name,barCode);
     }
 
     public void updateProductLocation(String name, String location)
     {
-        colection.updateProductLocation(name,location);
+        collection.updateProductLocation(name,location);
     }
 
     public void updateProductDescription(String name, String description)
     {
-        colection.updateProductDescription(name,description);
+        collection.updateProductDescription(name,description);
     }
 
     public void updateProductBuyPrice(String name, int buyPrice)
     {
-        colection.updateProductBuyPrice(name,buyPrice);
+        collection.updateProductBuyPrice(name,buyPrice);
     }
 
     public void updateProductSalePrice(String name, int salePrice)
     {
-        colection.updateProductSalePrice(name,salePrice);
+        collection.updateProductSalePrice(name,salePrice);
     }
 
     public void updateProductMin(String name, int min)
     {
-        colection.updateProductMin(name,min);
+        collection.updateProductMin(name,min);
     }
 
     public void updateProductMax(String name, int max)
     {
-        colection.updateProductMax(name,max);
+        collection.updateProductMax(name,max);
     }
 
             

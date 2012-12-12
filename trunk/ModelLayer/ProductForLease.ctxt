@@ -1,8 +1,10 @@
 #BlueJ class context
-comment0.params=barCode\ location\ name\ description\ status
-comment0.target=void\ ProductForLease(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment0.params=barCode\ location\ name\ description\ status\ pricePerDay
+comment0.target=ProductForLease(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int)
 comment1.params=barCode\ location\ name\ description\ status
 comment1.target=void\ makeProduct(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
 comment2.params=status
 comment2.target=void\ updateStatus(java.lang.String)
-numComments=3
+comment3.params=
+comment3.target=void\ print()
+numComments=4
