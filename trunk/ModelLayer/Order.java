@@ -11,10 +11,13 @@ public class Order
 {
     String id;
     int total;
-    Employee employee;
+    
     String customerName;
     String employeeName;
+   
     ArrayList<SubOrder> listOfSubOrders;
+    EmployeeCollection employeeCollection=EmployeeCollection.getInstance();
+    
     
     public Order(String id, String customerName, String employeeName)
     {
@@ -22,6 +25,8 @@ public class Order
         this.customerName=customerName;
         this.employeeName=employeeName;
         this.id=id;
+        
+    
     }
     
     public void setId(String id)
@@ -71,7 +76,7 @@ public class Order
     
     public void addTotalToEmployee(String employeeName, int total)
     {
-        employee.setTotalAmountFromOrders(total);
+        employeeCollection.updateEmployeeTotalFromOrders(employeeName,total);
     }
     
 }

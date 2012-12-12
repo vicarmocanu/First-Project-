@@ -195,4 +195,50 @@ public class EmployeeCollection
         }
         else System.out.println("No employee registred in the system");
     }
+    
+     public void updateEmployeeTotalFromOrders(String name, int total)
+    {
+        ArrayList<Employee> select=new ArrayList<Employee>();
+        boolean found=false;
+        if(listOfEmployees.size()!=0)
+        {
+             
+            for(Employee a: listOfEmployees)
+            {
+                if(a.name.equals(name))
+                {
+                    select.add(a);
+                    a.setTotalAmountFromOrders(total);
+                    found=true;
+                    System.out.println("Update Successful!");
+                }
+               
+            }
+            if (!found)  System.out.println("No employee with that name in the system.");
+        }
+        else System.out.println("No employee registred in the system");
+    }
+    
+      public void updateEmployeeTotalFromSales(String name, int total)
+    {
+        ArrayList<Employee> select=new ArrayList<Employee>();
+        boolean found=false;
+        if(listOfEmployees.size()!=0)
+        {
+             
+            for(Employee a: listOfEmployees)
+            {
+                if(a.name.equals(name))
+                {
+                    select.add(a);
+                    a.setTotalAmountFromSales(total);
+                    found=true;
+                    System.out.println("Update Successful!");
+                }
+               
+            }
+            if (!found)  System.out.println("No employee with that name in the system.");
+        }
+        else System.out.println("No employee registred in the system");
+    }
 }
