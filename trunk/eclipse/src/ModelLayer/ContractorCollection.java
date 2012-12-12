@@ -11,7 +11,7 @@ import java.util.Iterator;
 public class ContractorCollection
 {
     ArrayList<Contractor> listOfContractors;
-    Person person;
+    
     private static ContractorCollection instance=null;
 
     private ContractorCollection()

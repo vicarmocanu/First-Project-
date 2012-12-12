@@ -16,7 +16,8 @@ public class Sale
     
     public Sale(String id)
     {
-       listOfSubSales=new ArrayList();
+        String test;
+        listOfSubSales=new ArrayList();
         this.id=id;
     }
     

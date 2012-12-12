@@ -56,6 +56,11 @@ public class PersonCtr
     {
         customer.updateCustomerPhoneNumber(name,phoneNumber);
     }
+    
+    public void setDiscountCategory(String name, int discountCategory)
+    {
+        customer.setDiscountCategory(name,discountCategory);
+    }
 
     //EMPLOYEE section
     public void createEmployee(String name, String id, String address, String phoneNumber,String position, int salary)

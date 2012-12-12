@@ -58,6 +58,7 @@ public class Order
         for(SubOrder i : listOfSubOrders)
         {
             total=total+i.subTotal;
+            
         }
     }
     

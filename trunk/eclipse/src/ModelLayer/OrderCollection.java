@@ -10,6 +10,8 @@ public class OrderCollection
 {
 
     ArrayList<Order> listOfOrders;
+    CustomerCollection customer;
+    EmployeeCollection employee;
 
     private static OrderCollection instance=null;
 

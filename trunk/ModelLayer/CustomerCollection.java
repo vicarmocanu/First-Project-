@@ -12,7 +12,8 @@ public class CustomerCollection
 {
 
     ArrayList<Customer> listOfCustomers;
-    Person person;
+    int discountCategory;
+    
     private static CustomerCollection instance=null;
 
     private CustomerCollection()
@@ -148,9 +149,32 @@ public class CustomerCollection
                 }
 
             }
-            if (!found)  System.out.println("No employee with that name in the system.");
+            if (!found)  System.out.println("No customer with that name in the system.");
         }
-        else System.out.println("No employee registred in the system");
+        else System.out.println("No customer registred in the system");
+    }
+    
+    public void setDiscountCategory(String name, int discountCategory)
+    {
+         ArrayList<Customer> select=new ArrayList<Customer>();
+        boolean found=false;
+        if(listOfCustomers.size()!=0)
+        {
+
+            for(Customer a: listOfCustomers)
+            {
+                if(a.name.equals(name))
+                {
+                    select.add(a);
+                    a.setDiscountCategory(discountCategory);
+                    System.out.println("Customer category succesfully added!");
+                    found=true;
+                }
+
+            }
+            if (!found)  System.out.println("No customer with that name in the system.");
+        }
+        else System.out.println("No customer registred in the system");
     }
 
    
