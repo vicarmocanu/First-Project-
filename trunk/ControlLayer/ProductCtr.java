@@ -85,8 +85,6 @@ public class ProductCtr
     {
         collection.updateProductMax(name,max);
     }
-
-            
         
 
 }

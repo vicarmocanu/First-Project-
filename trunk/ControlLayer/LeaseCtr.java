@@ -21,9 +21,9 @@ public class LeaseCtr
         leaseColl.makeLease(id);
     }
     
-    public void addSubLeaseToLease(String id, String product, Date endPeriod)
+    public void addSubLeaseToLease(String id, String product, int numberOfDays)
     {
-        leaseColl.addSubLeaseToLease(id, product, endPeriod);
+        leaseColl.addSubLeaseToLease(id, product, numberOfDays);
     }
     
     public void searchLease(String id)
@@ -34,6 +34,11 @@ public class LeaseCtr
     public void print()
     {
         leaseColl.print();
+    }
+    
+    public void calculateTotalForLease(String id)
+    {
+        leaseColl.calculateTotalForLease(id);
     }
     
 }
