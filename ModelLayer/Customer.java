@@ -10,6 +10,7 @@ package ModelLayer;
 public class Customer extends Person
 {
     int discountCategory;
+    CategoryCollection categoryCollection;
     
     public Customer(String name, String id, String address, String phoneNumber)
     {
