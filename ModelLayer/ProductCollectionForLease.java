@@ -9,15 +9,34 @@ import java.util.ArrayList;
  */
 public class ProductCollectionForLease
 {
+    private static ProductCollectionForLease instance;
+
     ArrayList<ProductForLease> listOfProductsForLease;
     
-    public void ProductCollectionForLease()
+    private ProductCollectionForLease()
     {
         listOfProductsForLease=new ArrayList();
     }
     
+    public static ProductCollectionForLease getInstance()       //singleton of the class;
+    { 
+        if(instance==null)
+        {
+            instance=new ProductCollectionForLease();
+
+        }
+
+        return instance;
+    }
+    
     public void addProductForLease(ProductForLease product)
     {
+        listOfProductsForLease.add(product);
+    }
+    
+    public void makeProductForLease(String barCode, String location, String name, String description, String status, int pricePerDay)
+    {
+        ProductForLease product=new ProductForLease(barCode, location, name, description, status, pricePerDay);
         listOfProductsForLease.add(product);
     }
     
@@ -35,4 +54,35 @@ public class ProductCollectionForLease
         }
         else System.out.println("The list is empty!");
     }
+    
+    public ProductForLease searchProduct(String name)
+    {
+        ProductForLease result=null;
+        if(listOfProductsForLease.size()!=0)
+        {
+            for(ProductForLease i : listOfProductsForLease)
+            {
+                if(i.name.equals(name))
+                {
+                    result=i;
+                }
+            }
+        }
+        else System.out.println("The list is empty");
+        return result;
+    }
+
+    public void print()
+    {
+        if(listOfProductsForLease.size()!=0)
+        {
+        for(ProductForLease i: listOfProductsForLease)
+        {
+            i.print();
+            System.out.println("******************");
+        }
+    }
+    else System.out.println("The list is empty!");
+    }
+    
 }

@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=LeaseCtr()
+comment1.params=id
+comment1.target=void\ makeLease(java.lang.String)
+comment2.params=id\ product\ endPeriod
+comment2.target=void\ addSubLeaseToLease(java.lang.String,\ java.lang.String,\ java.util.Date)
+comment3.params=id
+comment3.target=void\ searchLease(java.lang.String)
+comment4.params=
+comment4.target=void\ print()
+numComments=5

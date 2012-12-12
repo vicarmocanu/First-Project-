@@ -1,8 +1,16 @@
 #BlueJ class context
 comment0.params=
-comment0.target=void\ ProductCollectionForLease()
-comment1.params=product
-comment1.target=void\ addProductForLease(ProductForLease)
-comment2.params=name\ status
-comment2.target=void\ changeProductForLeaseStatus(java.lang.String,\ java.lang.String)
-numComments=3
+comment0.target=ProductCollectionForLease()
+comment1.params=
+comment1.target=ProductCollectionForLease\ getInstance()
+comment2.params=product
+comment2.target=void\ addProductForLease(ProductForLease)
+comment3.params=barCode\ location\ name\ description\ status\ pricePerDay
+comment3.target=void\ makeProductForLease(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int)
+comment4.params=name\ status
+comment4.target=void\ changeProductForLeaseStatus(java.lang.String,\ java.lang.String)
+comment5.params=name
+comment5.target=ProductForLease\ searchProduct(java.lang.String)
+comment6.params=
+comment6.target=void\ print()
+numComments=7

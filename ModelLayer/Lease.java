@@ -26,15 +26,21 @@ public class Lease
         this.id=id;
     }
     
-    public void addSubLease(String id, Date startPeriod, Date endPeriod)
+    public void addSubLease(String id, int numberOfDays)
     {
-        SubLease sublease=new SubLease(id, startPeriod, endPeriod);
+        SubLease sublease=new SubLease(id, numberOfDays);
         listOfSubLeases.add(sublease);
     }
     
     public void calcTotal()
     {
-        
+        if(listOfSubLeases.size()!=0)
+        {
+            for(SubLease i: listOfSubLeases)
+            {
+                
+            }
+        }
     }
     
     public void print()
