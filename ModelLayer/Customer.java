@@ -9,18 +9,25 @@ package ModelLayer;
  */
 public class Customer extends Person
 {
-   
-    public Customer(String name, String id, String address, String phoneNumber )
+    int discountCategory;
+    
+    public Customer(String name, String id, String address, String phoneNumber)
     {
         super(name,id,address,phoneNumber);
-        
+        discountCategory=0;
     }
     
       
     public void printCustomer()
     {
      print();
+     System.out.println("Discount category: " + discountCategory);
      }
+     
+     public void setDiscountCategory(int discountCategory)
+     {
+        this.discountCategory=discountCategory;
+        }
     
    
 

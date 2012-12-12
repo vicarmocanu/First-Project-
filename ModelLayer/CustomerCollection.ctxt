@@ -17,4 +17,6 @@ comment7.params=name\ address
 comment7.target=void\ updateCustomerAddress(java.lang.String,\ java.lang.String)
 comment8.params=name\ phoneNumber
 comment8.target=void\ updateCustomerPhoneNumber(java.lang.String,\ java.lang.String)
-numComments=9
+comment9.params=name\ discountCategory
+comment9.target=void\ setDiscountCategory(java.lang.String,\ int)
+numComments=10

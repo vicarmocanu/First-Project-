@@ -12,7 +12,7 @@ public class CustomerCollection
 {
 
     ArrayList<Customer> listOfCustomers;
-    Person person;
+    
     private static CustomerCollection instance=null;
 
     private CustomerCollection()
