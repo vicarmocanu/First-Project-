@@ -13,6 +13,7 @@ public class Lease
 {
     String id;
     int total;
+    
     ArrayList<SubLease> listOfSubLeases;
     
     public Lease(String id)
@@ -29,6 +30,7 @@ public class Lease
     public void addSubLease(String id, int numberOfDays)
     {
         SubLease sublease=new SubLease(id, numberOfDays);
+        sublease.subTotal();
         listOfSubLeases.add(sublease);
     }
     

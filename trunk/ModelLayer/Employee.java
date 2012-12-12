@@ -65,6 +65,16 @@ public class Employee extends Person
         System.out.println("Position :" + position);
         System.out.println("Salary   :" + salary);
         
+        
+
+    }
+    
+    public void printEmployeeWithStatistics()
+    {
+        print();
+        System.out.println("Position :" + position);
+        System.out.println("Salary   :" + salary);
+        
         System.out.println("Total amount from orders: " + totalAmountFromOrders);
         System.out.println("Total number of orders placed: " + numberOfOrders );
         
@@ -75,7 +85,6 @@ public class Employee extends Person
         
          System.out.println("Total amount from leases: " + totalAmountFromLeases);
         System.out.println("Total number of leases placed: " + numberOfLeases );
-
     }
     
     // MISSING LEASE UPDATE TO EMPLOYEE

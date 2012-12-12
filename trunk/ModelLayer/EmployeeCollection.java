@@ -50,6 +50,20 @@ public class EmployeeCollection
         }
         else System.out.println("No employees registred in the system");
     }
+    
+     public void listAllEmployeesWithStatistics()
+    {
+        if (listOfEmployees.size()!=0){
+            for(Employee i : listOfEmployees)
+            {
+                i.printEmployeeWithStatistics();
+                System.out.println("*****************************");
+            }
+        }
+        else System.out.println("No employees registred in the system");
+    }
+    
+    
     public boolean listEmployeeByName(String name)
     {
         if (listOfEmployees.size()!=0){
@@ -210,7 +224,7 @@ public class EmployeeCollection
                     select.add(a);
                     a.setTotalAmountFromOrders(total);
                     found=true;
-                    System.out.println("Update Successful!");
+                    System.out.println("Order successfuly registred to employee's statistics!");
                 }
                
             }
@@ -233,7 +247,7 @@ public class EmployeeCollection
                     select.add(a);
                     a.setTotalAmountFromSales(total);
                     found=true;
-                    System.out.println("Update Successful!");
+                    System.out.println("Order successfuly registred to employee's statistics!");
                 }
                
             }

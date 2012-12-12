@@ -11,4 +11,6 @@ comment4.params=totalAmountFromOrders
 comment4.target=void\ setTotalAmountFromOrders(int)
 comment5.params=
 comment5.target=void\ printEmployee()
-numComments=6
+comment6.params=
+comment6.target=void\ printEmployeeWithStatistics()
+numComments=7
