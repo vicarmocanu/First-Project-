@@ -11,16 +11,16 @@ import java.util.Calendar;
 public class SubLease
 {
     Calendar currenttime = Calendar.getInstance();
-    String product;
+    String name;
     Date startPeriod;
     int numberOfDays;
     Date endPeriod;
     int subTotal;
-    ProductCollectionForLease productCollection=ProductCollectionForLease.getInstance();
+    ProductCollectionForLease productCollectionForLease=ProductCollectionForLease.getInstance();
 
-    public SubLease(String product, int numberOfDays)
+    public SubLease(String name, int numberOfDays)
     {
-        this.product=product;
+        this.name=name;
         this.startPeriod=new Date(((currenttime.getTime()).getTime())/1000);       
         this.numberOfDays=numberOfDays;
         long seconds = numberOfDays*24*60*60;
@@ -28,22 +28,21 @@ public class SubLease
         this.startPeriod=new Date((this.startPeriod.getTime())*1000);
     }
 
-    public void makeLease(String product, Date endPeriod)
+    public void makeLease(String name, Date endPeriod)
     {
-        this.product=product;
+        this.name=name;
         this.startPeriod=new Date((currenttime.getTime()).getTime());
         this.endPeriod=endPeriod;
     }
 
     public void subTotal()
     {
-        ProductCollectionForLease prodColl=ProductCollectionForLease.getInstance();
-        subTotal=prodColl.searchProduct(product).pricePerDay;
+        subTotal=(productCollectionForLease.searchProduct(name).pricePerDay);
     }
 
     public void print()
     {
-        System.out.println("Product: " + product);
+        System.out.println("Name: " + name);
         System.out.println("Start of Period: " + startPeriod);
         System.out.println("End of Period: " + endPeriod);
     }

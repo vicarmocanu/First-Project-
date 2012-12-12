@@ -1,7 +1,7 @@
 #BlueJ class context
-comment0.params=product\ numberOfDays
+comment0.params=name\ numberOfDays
 comment0.target=SubLease(java.lang.String,\ int)
-comment1.params=product\ endPeriod
+comment1.params=name\ endPeriod
 comment1.target=void\ makeLease(java.lang.String,\ java.util.Date)
 comment2.params=
 comment2.target=void\ subTotal()

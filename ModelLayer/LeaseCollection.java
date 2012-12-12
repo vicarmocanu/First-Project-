@@ -12,7 +12,7 @@ public class LeaseCollection
     ArrayList<Lease> listOfLeases;
     private static LeaseCollection instance=null;
 
-    private LeaseCollection()
+    public LeaseCollection()
     {
         listOfLeases=new ArrayList();
     }
@@ -44,6 +44,18 @@ public class LeaseCollection
             }
         }
     }
+    
+    public void calculateTotalForLease(String id)
+    {
+        for(Lease i: listOfLeases)
+        {
+            if(i.id.equals(id))
+            {
+                i.calculateTotal();
+            }
+        }
+    }
+
     
     public void searchLease(String id)
     {

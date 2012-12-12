@@ -32,13 +32,13 @@ public class Lease
         listOfSubLeases.add(sublease);
     }
     
-    public void calcTotal()
+    public void calculateTotal()
     {
         if(listOfSubLeases.size()!=0)
         {
             for(SubLease i: listOfSubLeases)
             {
-                
+                total=total+i.subTotal;
             }
         }
     }

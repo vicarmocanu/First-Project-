@@ -47,10 +47,9 @@ public class Order
         System.out.println("Total: " + total);
     }
     
-    public void makeOrder(String id, int total)
+    public void makeOrder(String id)
     {
         this.id=id;
-        this.total=total;
     }
     
     public void addSubOrder(int amount, String name)
