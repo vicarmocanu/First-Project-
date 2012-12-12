@@ -42,6 +42,8 @@ public class Sale
         {
             i.print();
         }
+        
+        System.out.println("Employee name: " + employeeName);
         System.out.println("Total: " + total);
     }
 
