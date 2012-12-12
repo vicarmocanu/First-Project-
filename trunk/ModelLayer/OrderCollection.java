@@ -10,7 +10,7 @@ public class OrderCollection
 {
 
     ArrayList<Order> listOfOrders;
-
+    Order order;
     private static OrderCollection instance=null;
 
     public OrderCollection()
@@ -29,9 +29,9 @@ public class OrderCollection
         return instance;
     }
 
-    public void createOrder(String id)
+    public void createOrder(String id,String customerName,String employeeName)
     {
-        Order order=new Order(id);
+        Order order=new Order(id,customerName,employeeName);
         listOfOrders.add(order);
     }
 
@@ -101,5 +101,7 @@ public class OrderCollection
         }
         else System.out.println("The list is empty!");
     }
+    
+   
 }
 

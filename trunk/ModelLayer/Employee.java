@@ -10,7 +10,8 @@ public class Employee extends Person
 {
     private String position;
     private int salary;
-    
+    private int numberOfOrders;
+    private int totalAmountFromOrders;
     
 
     public Employee(String name, String id, String address, String phoneNumber, String position, int salary)
@@ -18,6 +19,8 @@ public class Employee extends Person
         super(name,id,address,phoneNumber);
         this.position = position;
         this.salary = salary;
+        this.numberOfOrders=0;
+        this.totalAmountFromOrders=0;
 
     }
     
@@ -30,6 +33,11 @@ public class Employee extends Person
     {
         this.salary=salary;
     }
+    
+    public void setTotalAmountFromOrders(int totalAmountFromOrders)
+    {
+        this.totalAmountFromOrders=totalAmountFromOrders;
+    }
 
     
     public void printEmployee()
@@ -37,6 +45,7 @@ public class Employee extends Person
        print();
        System.out.println("Position :" + position);
        System.out.println("Salary   :" + salary);
+       System.out.println("Total amount from order: " + totalAmountFromOrders);
     }
     
     

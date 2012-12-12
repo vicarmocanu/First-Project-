@@ -30,6 +30,7 @@ public class SubOrder
     public void print()
     {
         System.out.println("Name: " + name);
+        
         System.out.println("Amount: " + amount);
         System.out.println("SubTotal: " + subTotal);
         System.out.println("                ");
