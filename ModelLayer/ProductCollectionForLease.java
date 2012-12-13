@@ -13,7 +13,7 @@ public class ProductCollectionForLease
 
     ArrayList<ProductForLease> listOfProductsForLease;
     
-    public ProductCollectionForLease()
+    private ProductCollectionForLease()
     {
         listOfProductsForLease=new ArrayList();
     }

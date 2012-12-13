@@ -19,6 +19,7 @@ public class SubOrder
         this.amount=amount;
         this.name=name;
         productCollection.updateProductStockByName(amount, name);
+        productCollection.checkProductAmount(name);
     }
         
     public void subTotal()
