@@ -16,9 +16,9 @@ public class OrderCtr
         order=ModelLayer.OrderCollection.getInstance();
     }
     
-    public void createOrder(String id)
+    public void createOrder(String id,String customerName, String employeeName)
     {
-        order.createOrder(id);
+        order.createOrder(id,customerName,employeeName);
     }
     
     public void searchOrder(String id)
@@ -45,5 +45,7 @@ public class OrderCtr
     {
         order.calculateTotalForOrder(id);
     }
+    
+    
     
 }

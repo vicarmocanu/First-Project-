@@ -11,12 +11,22 @@ public class Order
 {
     String id;
     int total;
-    ArrayList<SubOrder> listOfSubOrders;
     
-    public Order(String id)
+    String customerName;
+    String employeeName;
+   
+    ArrayList<SubOrder> listOfSubOrders;
+    EmployeeCollection employeeCollection=EmployeeCollection.getInstance();
+    CustomerCollection customerCollection=CustomerCollection.getInstance();
+    
+    public Order(String id, String customerName, String employeeName)
     {
         listOfSubOrders=new ArrayList();
+        this.customerName=customerName;
+        this.employeeName=employeeName;
         this.id=id;
+        
+    
     }
     
     public void setId(String id)
@@ -37,13 +47,14 @@ public class Order
         {
             i.print();
         }
+        System.out.println("Customer name: " + customerName);
+        System.out.println("Employee name: " + employeeName);
         System.out.println("Total: " + total);
     }
     
-    public void makeOrder(String id, int total)
+    public void makeOrder(String id)
     {
         this.id=id;
-        this.total=total;
     }
     
     public void addSubOrder(int amount, String name)
@@ -58,7 +69,20 @@ public class Order
         for(SubOrder i : listOfSubOrders)
         {
             total=total+i.subTotal;
+            
         }
+        addTotalToEmployee(employeeName, total);
+        addTotalToCustomer(customerName, total);
+    }
+    
+    public void addTotalToEmployee(String employeeName, int total)
+    {
+        employeeCollection.updateEmployeeTotalFromOrders(employeeName,total);
+    }
+    
+     public void addTotalToCustomer(String customerName, int total)
+    {
+        customerCollection.updateCustomerTotalFromOrders(customerName,total);
     }
     
 }

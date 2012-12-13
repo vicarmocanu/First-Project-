@@ -32,6 +32,12 @@ public class PersonCtr
     {
         customer.listAllCustomers();
     }
+    
+    public void listAllCustomersWithStatistics()
+    {
+        customer.listAllCustomersWithStatistics();
+    }
+    
     public boolean listCustomerByName(String name)
     {
         return customer.listCustomerByName(name);
@@ -56,6 +62,11 @@ public class PersonCtr
     {
         customer.updateCustomerPhoneNumber(name,phoneNumber);
     }
+    
+    public void setDiscountCategory(String name, int discountCategory)
+    {
+        customer.setDiscountCategory(name,discountCategory);
+    }
 
     //EMPLOYEE section
     public void createEmployee(String name, String id, String address, String phoneNumber,String position, int salary)
@@ -67,6 +78,12 @@ public class PersonCtr
     {
         employee.listAllEmployees();
     }
+    
+    public void listAllEmployeesWithStatistics()
+    {
+        employee.listAllEmployeesWithStatistics();
+    }
+    
     public boolean listEmployeeByName(String name)
     {
         return employee.listEmployeeByName(name);

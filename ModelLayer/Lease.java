@@ -13,13 +13,21 @@ public class Lease
 {
     String id;
     int total;
+    
+    String customerName;
+    String employeeName;
 
     ArrayList<SubLease> listOfSubLeases;
+    EmployeeCollection employeeCollection=EmployeeCollection.getInstance();
+    CustomerCollection customerCollection=CustomerCollection.getInstance();
+    
 
-    public Lease(String id)
+    public Lease(String id, String customerName, String employeeName)
     {
-        this.id=id;
         listOfSubLeases=new ArrayList();
+        this.customerName=customerName;
+        this.employeeName=employeeName;
+        this.id=id;
     }
 
     public void makeLease(String id)
@@ -46,6 +54,18 @@ public class Lease
         {
             total=total+i.subTotal;
         }
+        addTotalToEmployee(employeeName, total);
+        addTotalToCustomer(customerName, total);
+    }
+    
+    public void addTotalToEmployee(String employeeName, int total)
+    {
+        employeeCollection.updateEmployeeTotalFromOrders(employeeName,total);
+    }
+    
+     public void addTotalToCustomer(String customerName, int total)
+    {
+        customerCollection.updateCustomerTotalFromOrders(customerName,total);
     }
 
     public void returnSubLease(String name)

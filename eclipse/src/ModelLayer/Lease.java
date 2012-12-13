@@ -1,5 +1,7 @@
 package ModelLayer;
 import java.util.Calendar;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Write a description of class Lease here.
@@ -11,30 +13,52 @@ public class Lease
 {
     String id;
     int total;
-    String startPeriod;
-    String endPeriod;
     
-    public Lease(String id, int total, String startPeriod, String endPeriod)
+    ArrayList<SubLease> listOfSubLeases;
+    
+    public Lease(String id)
     {
         this.id=id;
-        this.total=total;
-        this.startPeriod=startPeriod;
-        this.endPeriod=endPeriod;
+        listOfSubLeases=new ArrayList();
     }
     
-    public void makeLease(String id, int total, String startPeriod, String endPeriod)
+    public void makeLease(String id)
     {
         this.id=id;
-        this.total=total;
-        this.startPeriod=startPeriod;
-        this.endPeriod=endPeriod;
+    }
+    
+    public void addSubLease(String name, int numberOfDays)
+    {
+        SubLease sublease=new SubLease(name, numberOfDays);
+        if(sublease.checkAvailability(name).equals("Available"))
+        {
+        sublease.subTotal();
+        sublease.changeProductForLeaseStatus(name);
+        listOfSubLeases.add(sublease);
+        }
+        else System.out.println("The item is already leased!");
+    }
+    
+    public void calculateTotal()
+    {
+        total=0;
+            for(SubLease i: listOfSubLeases)
+            {
+                total=total+i.subTotal;
+            }
     }
     
     public void print()
     {
         System.out.println("ID: " + id);
+        if(listOfSubLeases.size()!=0)
+        {
+            for(SubLease i: listOfSubLeases)
+            {
+                i.print();
+                System.out.println("           ");
+            }
+        }
         System.out.println("Total: " + total);
-        System.out.println("Start of Period: " + startPeriod);
-        System.out.println("End of Period: " + endPeriod);
     }
 }

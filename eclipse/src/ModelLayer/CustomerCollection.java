@@ -12,6 +12,7 @@ public class CustomerCollection
 {
 
     ArrayList<Customer> listOfCustomers;
+    int discountCategory;
     
     private static CustomerCollection instance=null;
 
@@ -48,6 +49,20 @@ public class CustomerCollection
         }
         else System.out.println("No customers registred in the system");
     }
+    
+     public void listAllCustomersWithStatistics()
+    {
+        if (listOfCustomers.size()!=0){
+            for(Customer i : listOfCustomers)
+            {
+                i.printCustomerWithStatistics();
+                System.out.println("*****************************");
+            }
+        }
+        else System.out.println("No customers registred in the system");
+    }
+    
+    
     public boolean listCustomerByName(String name)
     {
         if (listOfCustomers.size()!=0){
@@ -102,7 +117,7 @@ public class CustomerCollection
                 }
 
             }
-            if (!found)  System.out.println("No employee with that name in the system.");
+            if (!found)  System.out.println("No Customer with that name in the system.");
         }
         else System.out.println("No customer registred in the system");
     }
@@ -148,9 +163,78 @@ public class CustomerCollection
                 }
 
             }
-            if (!found)  System.out.println("No employee with that name in the system.");
+            if (!found)  System.out.println("No customer with that name in the system.");
         }
-        else System.out.println("No employee registred in the system");
+        else System.out.println("No customer registred in the system");
+    }
+    
+    public void setDiscountCategory(String name, int discountCategory)
+    {
+         ArrayList<Customer> select=new ArrayList<Customer>();
+        boolean found=false;
+        if(listOfCustomers.size()!=0)
+        {
+
+            for(Customer a: listOfCustomers)
+            {
+                if(a.name.equals(name))
+                {
+                    select.add(a);
+                    a.setDiscountCategory(discountCategory);
+                    System.out.println("Customer category succesfully added!");
+                    found=true;
+                }
+
+            }
+            if (!found)  System.out.println("No customer with that name in the system.");
+        }
+        else System.out.println("No customer registred in the system");
+    }
+    
+     public void updateCustomerTotalFromOrders(String name, int total)
+    {
+        ArrayList<Customer> select=new ArrayList<Customer>();
+        boolean found=false;
+        if(listOfCustomers.size()!=0)
+        {
+             
+            for(Customer a: listOfCustomers)
+            {
+                if(a.name.equals(name))
+                {
+                    select.add(a);
+                    a.setTotalAmountFromOrders(total);
+                    found=true;
+                    System.out.println("Order successfuly registred to customer's statistics!");
+                }
+               
+            }
+            if (!found)  System.out.println("No customer with that name in the system.");
+        }
+        else System.out.println("No customer registred in the system");
+    }
+    
+      public void updateCustomerTotalFromSales(String name, int total)
+    {
+        ArrayList<Customer> select=new ArrayList<Customer>();
+        boolean found=false;
+        if(listOfCustomers.size()!=0)
+        {
+             
+            for(Customer a: listOfCustomers)
+            {
+                if(a.name.equals(name))
+                {
+                    select.add(a);
+                    a.setTotalAmountFromSales(total);
+                    found=true;
+                    System.out.println("Order successfuly registred to customer's statistics!");
+                }
+               
+            }
+            if (!found)  System.out.println("No customer with that name in the system.");
+        }
+        else System.out.println("No customer registred in the system");
     }
 
    
