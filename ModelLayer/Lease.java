@@ -36,18 +36,24 @@ public class Lease
     
     public void calculateTotal()
     {
-        if(listOfSubLeases.size()!=0)
-        {
+        total=0;
             for(SubLease i: listOfSubLeases)
             {
                 total=total+i.subTotal;
             }
-        }
     }
     
     public void print()
     {
         System.out.println("ID: " + id);
+        if(listOfSubLeases.size()!=0)
+        {
+            for(SubLease i: listOfSubLeases)
+            {
+                i.print();
+                System.out.println("           ");
+            }
+        }
         System.out.println("Total: " + total);
     }
 }

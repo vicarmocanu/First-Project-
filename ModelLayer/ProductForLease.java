@@ -36,6 +36,66 @@ public class ProductForLease
         this.pricePerDay=pricePerDay;
     }
     
+    public void setBarCode(String barCode)
+    {
+        this.barCode=barCode;
+    }
+    
+    public String getBarCode()
+    {
+        return barCode;
+    }
+    
+    public void setLocation(String location)
+    {
+        this.location=location;
+    }
+    
+    public String getLocation()
+    {
+        return location;
+    }
+    
+    public void setName(String name)
+    {
+        this.name=name;
+    }
+    
+    public String getName()
+    {
+        return name;
+    }
+    
+    public void setDescription(String description)
+    {
+        this.description=description;
+    }
+    
+    public String getDescription()
+    {
+        return description;
+    }
+    
+    public void setStatus(String status)
+    {
+        this.status=status;
+    }
+    
+    public String getStatus()
+    {
+        return status;
+    }
+    
+    public void setPricePerDay(int pricePerDay)
+    {
+        this.pricePerDay=pricePerDay;
+    }
+    
+    public int getPricePerDay()
+    {
+        return pricePerDay;
+    }
+    
     public void updateStatus(String status)
     {
         this.status=status;

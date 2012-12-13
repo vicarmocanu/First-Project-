@@ -40,6 +40,27 @@ public class ProductCollectionForLease
         listOfProductsForLease.add(product);
     }
     
+    public String checkStatus(String name)
+    {
+        String result=null;
+        if(listOfProductsForLease.size()!=0)
+        {
+            for(ProductForLease i: listOfProductsForLease)
+            {
+                if(i.name.equals(name))
+                {
+                    result=i.getStatus();
+                }
+            }
+        }
+        else 
+        {
+            System.out.println("The list is empty!");
+            result=null;
+        }
+        return result;
+    }
+    
     public void changeProductForLeaseStatus(String name, String status)
     {
         if(listOfProductsForLease.size()!=0)

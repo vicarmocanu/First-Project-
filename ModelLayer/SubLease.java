@@ -37,12 +37,16 @@ public class SubLease
 
     public void subTotal()
     {
-        subTotal=(productCollectionForLease.searchProduct(name).pricePerDay);
+        subTotal=numberOfDays*(productCollectionForLease.searchProduct(name).getPricePerDay());
     }
 
     public void print()
     {
+        subTotal();
         System.out.println("Name: " + name);
+        System.out.println("Price Per Day: " + productCollectionForLease.searchProduct(name).getPricePerDay());
+        System.out.println("Number Of Days: " + numberOfDays);
+        System.out.println("Sub Total: " + subTotal);
         System.out.println("Start of Period: " + startPeriod);
         System.out.println("End of Period: " + endPeriod);
     }
