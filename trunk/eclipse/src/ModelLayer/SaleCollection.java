@@ -33,9 +33,9 @@ public class SaleCollection
             return instance;
     }
     
-    public void createSale(String id)
+    public void createSale(String id,String customerName, String employeeName)
     {
-        Sale sale=new Sale(id);
+        Sale sale=new Sale(id,customerName,employeeName);
         listOfSales.add(sale);
     }
     

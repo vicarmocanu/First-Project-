@@ -236,6 +236,29 @@ public class CustomerCollection
         }
         else System.out.println("No customer registred in the system");
     }
+    
+    public void updateCustomerTotalFromLeases(String name, int total)
+    {
+        ArrayList<Customer> select=new ArrayList<Customer>();
+        boolean found=false;
+        if(listOfCustomers.size()!=0)
+        {
+             
+            for(Customer a: listOfCustomers)
+            {
+                if(a.name.equals(name))
+                {
+                    select.add(a);
+                    a.setTotalAmountFromLeases(total);
+                    found=true;
+                    System.out.println("Lease successfuly registred to customer's statistics!");
+                }
+               
+            }
+            if (!found)  System.out.println("No customer with that name in the system.");
+        }
+        else System.out.println("No customer registred in the system");
+    }
 
    
    

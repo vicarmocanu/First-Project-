@@ -16,9 +16,9 @@ public class LeaseCtr
         leaseColl=ModelLayer.LeaseCollection.getInstance();
     }
     
-    public void makeLease(String id)
+    public void makeLease(String id,String customerName,String employeeName)
     {
-        leaseColl.makeLease(id);
+        leaseColl.makeLease(id,customerName,employeeName);
     }
     
     public void addSubLeaseToLease(String id, String name, int numberOfDays)

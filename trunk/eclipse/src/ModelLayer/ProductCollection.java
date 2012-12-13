@@ -29,6 +29,7 @@ public class ProductCollection
     {
         Product product=new Product(barCode, location, name, description, buyPrice, salePrice, min, max, quantity);
         listOfProducts.add(product);
+        System.out.println(" Product added ! ");
     }
 
 
@@ -49,6 +50,23 @@ public class ProductCollection
         return result;
     }
     
+    public void searchProductAndPrint(String name)
+    {
+        Product result=null;
+        if(listOfProducts.size()!=0)
+        {
+            for(Product i : listOfProducts)
+            {
+                if(i.name.toLowerCase().contains(name.toLowerCase()))
+                {
+                    i.print();
+                }
+            }
+        }
+        else System.out.println("The list is empty");
+        
+    }
+    
     public Product searchProductByBarCode(String barCode)
     {
         Product result=null;
@@ -66,6 +84,21 @@ public class ProductCollection
         return result;
     }
     
+    public void searchProductByBarCodeAndPrint(String barCode)
+    {
+        
+        if(listOfProducts.size()!=0)
+        {
+            for(Product i : listOfProducts)
+            {
+                if(i.barCode.toLowerCase().contains(barCode.toLowerCase()))
+                {
+                    i.print();
+                }
+            }
+        }
+        else System.out.println("The list is empty");
+    }
     
      public void updateProductStockByBarCode(int numberOfItems,String barCode)
     {

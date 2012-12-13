@@ -31,9 +31,9 @@ public class LeaseCollection
         return instance;
     }
 
-    public void makeLease(String id)
+    public void makeLease(String id,String customerName,String employeeName)
     {
-        Lease lease=new Lease(id);
+        Lease lease=new Lease( id, customerName, employeeName);
         listOfLeases.add(lease);
     }
 

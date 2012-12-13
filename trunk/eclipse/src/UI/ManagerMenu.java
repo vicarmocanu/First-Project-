@@ -1,5 +1,7 @@
 package UI;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Iterator;
 /**
  * This is the Manager menu of the program.
  * 
@@ -13,8 +15,11 @@ public class ManagerMenu
     EmployeeControllMenu employeeControllMenu;
     String error = "";
     int login;
-    public ManagerMenu()
+    ArrayList<ArrayList<String>> userpass;
+    
+    public ManagerMenu(ArrayList<ArrayList<String>> userpass)
     {
+        this.userpass = userpass;
         login = 0;
         startMenu();
     }
@@ -58,6 +63,25 @@ public class ManagerMenu
         }
 
     }
+    
+    private boolean checkUsernameAndPassword(String u, String p)
+    {
+        int size = userpass.size();
+        
+        int i = 0;
+        while(i<size)
+        {
+            ArrayList<String> test = userpass.get(i);
+            String uu = test.get(0);
+            String pp = test.get(1);
+            if(uu.equals(u) && pp.equals(p))
+            {
+                return true;
+            }
+            i++;
+        }
+        return false;
+    }
     // Here it display the option that you have
     private int login()
     {
@@ -87,7 +111,7 @@ public class ManagerMenu
         {
             case "1":
             {
-                if(username.equals("manager") && password.equals("manager"))
+                if(checkUsernameAndPassword(username, password))
                     return 1;
                 else
                     return 2;

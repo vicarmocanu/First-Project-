@@ -17,9 +17,9 @@ public class SaleCtr
         sale=ModelLayer.SaleCollection.getInstance();
     }
     
-    public void createSale(String id)
+    public void createSale(String id,String customerName, String employeeName)
     {
-        sale.createSale(id);
+        sale.createSale(id,customerName,employeeName);
     }
     
     public void searchSale(String id)

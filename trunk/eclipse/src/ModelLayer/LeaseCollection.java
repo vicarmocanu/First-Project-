@@ -1,5 +1,6 @@
 package ModelLayer;
 import java.util.ArrayList;
+import java.util.Date;
 /**
  * Write a description of class LeaseCollection here.
  * 
@@ -11,7 +12,7 @@ public class LeaseCollection
     ArrayList<Lease> listOfLeases;
     private static LeaseCollection instance=null;
 
-    private LeaseCollection()
+    public LeaseCollection()
     {
         listOfLeases=new ArrayList();
     }
@@ -27,16 +28,41 @@ public class LeaseCollection
             return instance;
     }
     
-    public void makeLease(String id, int total, String startPeriod, String endPeriod)
+    public void makeLease(String id)
     {
-        Lease lease=new Lease(id, total, startPeriod, endPeriod);
+        Lease lease=new Lease(id);
         listOfLeases.add(lease);
+    }
+    
+    public void addSubLeaseToLease(String id, String name, int numberOfDays)
+    {
+         for(Lease i: listOfLeases)
+        {
+            if(i.id.equals(id))
+            {
+                i.addSubLease(name, numberOfDays);
+            }
+        }
+    }
+    
+    public void calculateTotalForLease(String id)
+    {
+        for(Lease i: listOfLeases)
+        {
+            if(i.id.equals(id))
+            {
+                i.calculateTotal();
+            }
+        }
+    }
+
+    public void returnProduct(String name)
+    {
+        
     }
     
     public void searchLease(String id)
     {
-        ArrayList<Order> select=new ArrayList();
-
         if(listOfLeases.size()!=0)
         {
             for(Lease i : listOfLeases)
@@ -46,6 +72,19 @@ public class LeaseCollection
                     i.print();
                     System.out.println("                 ");
                 }
+            }
+        }
+        else System.out.println("The list is empty!");
+    }
+    
+    public void print()
+    {
+        if(listOfLeases.size()!=0)
+        {
+            for(Lease i : listOfLeases)
+            {
+                    i.print();
+                    System.out.println("                 ");
             }
         }
         else System.out.println("The list is empty!");

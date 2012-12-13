@@ -47,6 +47,14 @@ public class Customer extends Person
         this.totalAmountFromOrders=totalAmountFromOrders;
         numberOfOrders=numberOfOrders+1;
     }
+    
+    
+    
+     public void setTotalAmountFromLeases(int totalAmountFromLeases)
+    {
+        this.totalAmountFromLeases=totalAmountFromLeases;
+        numberOfOrders=numberOfOrders+1;
+    }
       
     public void printCustomer()
     {

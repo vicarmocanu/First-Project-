@@ -10,6 +10,7 @@ public class EmployeeMenu
 {
     CustomerControllMenu customerControllMenu;
     SaleControllMenu saleControllMenu;
+    ProductControllMenu productControllMenu;
     String error = "";
     public EmployeeMenu()
     {
@@ -23,21 +24,26 @@ public class EmployeeMenu
         while (!exit) //! means while exit not is true (that is: false)
         {
 
-            int choice = textEmployeeMenu();
+            String choice = textEmployeeMenu();
             switch (choice)
             {
-                case 1:
+                case "1":
                 {
                     customerControllMenu = new CustomerControllMenu();
                     break;
                 }
                 
-                case 2:
+                case "2":
                 {
                     saleControllMenu = new SaleControllMenu();
                     break;
                 }
-                case 0:
+                case "3":
+                {
+                    productControllMenu = new ProductControllMenu();
+                    break;
+                }
+                case "0":
                 {
                     exit = true;
                     return;
@@ -48,17 +54,25 @@ public class EmployeeMenu
     }
     // Here it display the option that you have
 
-    private int textEmployeeMenu()
+    private String textEmployeeMenu()
     { 
         // creates a keyboard object to read input
         Scanner keyboard = new Scanner(System.in);
         System.out.println("\f *** Employee Menu ***");
         System.out.println(" [1] Customer Control Menu");
         System.out.println(" [2] Sales Control Menu");
+        System.out.println(" [3] Product Control Menu");
         System.out.println("");
         System.out.println(" [0] Back to Main Menu");
         System.out.print("\n Make your choice: ");
-        int choice = keyboard.nextInt();
+        String choice = keyboard.nextLine();
+        while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("0"))
+        {
+            System.out.println(" !!! No such choice available !!! ");
+            System.out.print(" Choice: ");
+            choice = keyboard.nextLine();
+
+        }
         // Return the choice
         return choice;
     }
