@@ -27,11 +27,16 @@ public class Lease
         this.id=id;
     }
     
-    public void addSubLease(String id, int numberOfDays)
+    public void addSubLease(String name, int numberOfDays)
     {
-        SubLease sublease=new SubLease(id, numberOfDays);
+        SubLease sublease=new SubLease(name, numberOfDays);
+        if(sublease.checkAvailability(name).equals("Available"))
+        {
         sublease.subTotal();
+        sublease.changeProductForLeaseStatus(name);
         listOfSubLeases.add(sublease);
+        }
+        else System.out.println("The item is already leased!");
     }
     
     public void calculateTotal()

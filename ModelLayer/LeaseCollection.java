@@ -33,14 +33,14 @@ public class LeaseCollection
         Lease lease=new Lease(id);
         listOfLeases.add(lease);
     }
-
-    public void addSubLeaseToLease(String id, String product, int numberOfDays)
+    
+    public void addSubLeaseToLease(String id, String name, int numberOfDays)
     {
          for(Lease i: listOfLeases)
         {
             if(i.id.equals(id))
             {
-                i.addSubLease(product, numberOfDays);
+                i.addSubLease(name, numberOfDays);
             }
         }
     }
@@ -56,6 +56,10 @@ public class LeaseCollection
         }
     }
 
+    public void returnProduct(String name)
+    {
+        
+    }
     
     public void searchLease(String id)
     {

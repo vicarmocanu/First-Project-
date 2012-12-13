@@ -61,14 +61,23 @@ public class ProductCollectionForLease
         return result;
     }
     
-    public void changeProductForLeaseStatus(String name, String status)
+    public void changeProductForLeaseStatus(String name)
     {
+        String status=null;
         if(listOfProductsForLease.size()!=0)
         {
             for(ProductForLease i: listOfProductsForLease)
             {
                 if(i.name.equals(name))
                 {
+                    if(i.status.equals("Available"))
+                    {
+                        status="Unavailable";
+                    }
+                    else if(i.status.equals("Unavailable"))
+                    {
+                        status="Available";
+                    }
                     i.updateStatus(status);
                 }
             }
