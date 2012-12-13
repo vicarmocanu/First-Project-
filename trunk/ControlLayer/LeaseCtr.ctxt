@@ -11,4 +11,6 @@ comment4.params=
 comment4.target=void\ print()
 comment5.params=id
 comment5.target=void\ calculateTotalForLease(java.lang.String)
-numComments=6
+comment6.params=id\ name
+comment6.target=void\ returnLeasedProduct(java.lang.String,\ java.lang.String)
+numComments=7

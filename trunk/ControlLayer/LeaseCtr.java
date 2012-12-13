@@ -41,4 +41,9 @@ public class LeaseCtr
         leaseColl.calculateTotalForLease(id);
     }
     
+    public void returnLeasedProduct(String id, String name)
+    {
+        leaseColl.returnLeasedProduct(id, name);
+    }
+    
 }
