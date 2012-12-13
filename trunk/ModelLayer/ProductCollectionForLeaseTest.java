@@ -33,8 +33,8 @@ public class ProductCollectionForLeaseTest
     public void setUp()
     {
         productC1 = new ModelLayer.ProductCollectionForLease();
-        productC1.makeProductForLease("b1", "a", "a", "a", "a", 5);
-        productC1.makeProductForLease("b2", "b", "b", "b", "b", 10);
+        productC1.makeProductForLease("b1", "a", "a", "a", "Available", 5);
+        productC1.makeProductForLease("b2", "b", "b", "b", "Unavailable", 10);
     }
 
     /**
