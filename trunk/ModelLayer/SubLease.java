@@ -34,7 +34,17 @@ public class SubLease
         this.startPeriod=new Date((currenttime.getTime()).getTime());
         this.endPeriod=endPeriod;
     }
-
+    
+    public String checkAvailability(String name)
+    {
+        return productCollectionForLease.checkStatus(name);
+    }
+    
+    public void changeProductForLeaseStatus(String name)
+    {
+        productCollectionForLease.changeProductForLeaseStatus(name);
+    }
+    
     public void subTotal()
     {
         subTotal=numberOfDays*(productCollectionForLease.searchProduct(name).getPricePerDay());

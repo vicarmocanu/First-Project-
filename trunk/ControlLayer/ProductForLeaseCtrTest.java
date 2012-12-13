@@ -18,8 +18,6 @@ public class ProductForLeaseCtrTest
     private ControlLayer.ProductForLeaseCtr productF1;
     private ControlLayer.LeaseCtr leaseCtr1;
 
-    
-
     /**
      * Default constructor for test class ProductForLeaseCtrTest
      */
@@ -36,14 +34,13 @@ public class ProductForLeaseCtrTest
     public void setUp()
     {
         productF1 = new ControlLayer.ProductForLeaseCtr();
-        productF1.makeProductForLease("b1", "a", "a", "a", "a", 5);
-        productF1.makeProductForLease("b2", "b", "b", "b", "b", 10);
+        productF1.print();
+        productF1.print();
+        productF1.makeProductForLease("b1", "location1", "a", "desc1", "Available", 5);
+        productF1.makeProductForLease("b2", "loc2", "b", "desc2", "Unavailable", 10);
+        productF1.makeProductForLease("b3", "loc3", "c", "desc3", "Available", 100);
+        productF1.print();
         leaseCtr1 = new ControlLayer.LeaseCtr();
-        leaseCtr1.makeLease("id1");
-        leaseCtr1.addSubLeaseToLease("id1", "a", 5);
-        leaseCtr1.calculateTotalForLease("id1");
-        leaseCtr1.print();
-        leaseCtr1.print();
     }
 
     /**
