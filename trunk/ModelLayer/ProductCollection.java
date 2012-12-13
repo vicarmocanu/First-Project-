@@ -112,7 +112,7 @@ public class ProductCollection
                 if(i.barCode.equals(barCode))
                 {
                     result=i;
-                    result.setQuantity(numberOfItems);
+                    result.quantityDecrement(numberOfItems);
                 }
             }
         }
@@ -130,13 +130,34 @@ public class ProductCollection
                 if(i.name.equals(name))
                 {
                     result=i;
-                    result.setQuantity(numberOfItems);
+                    result.quantityDecrement(numberOfItems);
                 }
             }
         }
         else System.out.println("The list is empty");
     }
 
+    public void checkProductAmount(String name)
+    {
+        if(listOfProducts.size()!=0)
+        {
+            for(Product i: listOfProducts)
+            {
+                if(i.name.equals(name))
+                {
+                    if(i.getMin()==i.getQuantity())
+                    {
+                        System.out.println("The amount of products in the stock reached the minimum! Contact the warehouse to order new products!");
+                    }
+                    if(i.min>i.quantity)
+                    {
+                        System.out.println("The amount of products in the stock are below the minimum! Contact the warehouse to order new products!");
+                    }
+                }
+            }
+        }
+    }
+    
     public void listAllProducts()
     {
         if (listOfProducts.size()!=0)

@@ -15,7 +15,7 @@ public class LeaseCollection
     ArrayList<Lease> listOfLeases;
     private static LeaseCollection instance=null;
 
-    public LeaseCollection()
+    private LeaseCollection()
     {
         listOfLeases=new ArrayList();
     }
