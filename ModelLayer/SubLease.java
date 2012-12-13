@@ -28,11 +28,29 @@ public class SubLease
         this.startPeriod=new Date((this.startPeriod.getTime())*1000);
     }
 
-    public void makeLease(String name, Date endPeriod)
+    public void setName(String name)
     {
         this.name=name;
-        this.startPeriod=new Date((currenttime.getTime()).getTime());
-        this.endPeriod=endPeriod;
+    }
+    
+    public String getName()
+    {
+        return name;
+    }
+    
+    public Date getEndPeriod()
+    {
+        return endPeriod;
+    }
+    
+    public void makeLease(String name, int numberOfDays)
+    {
+        this.name=name;
+        this.startPeriod=new Date(((currenttime.getTime()).getTime())/1000);  
+        this.numberOfDays=numberOfDays;
+        long seconds = numberOfDays*24*60*60;
+        endPeriod=new Date((startPeriod.getTime()+seconds)*1000);
+        this.startPeriod=new Date((this.startPeriod.getTime())*1000);
     }
     
     public String checkAvailability(String name)
@@ -50,6 +68,11 @@ public class SubLease
         subTotal=numberOfDays*(productCollectionForLease.searchProduct(name).getPricePerDay());
     }
 
+    public void leasedProductReturned()
+    {
+        endPeriod=new Date(((currenttime.getTime()).getTime()));
+    }
+    
     public void print()
     {
         subTotal();
