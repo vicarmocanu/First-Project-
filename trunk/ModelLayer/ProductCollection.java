@@ -50,7 +50,7 @@ public class ProductCollection
         return result;
     }
     
-    public void searchProductAndPrint(String name)
+    public boolean searchProductAndPrint(String name)
     {
         Product result=null;
         if(listOfProducts.size()!=0)
@@ -60,10 +60,12 @@ public class ProductCollection
                 if(i.name.toLowerCase().contains(name.toLowerCase()))
                 {
                     i.print();
+                    return true;
                 }
             }
         }
         else System.out.println("The list is empty");
+        return false;
         
     }
     

@@ -64,10 +64,27 @@ public class SaleControllMenu
         while (id.equals(""))
         {
             System.out.println("Empty fields are not allowed");
-            System.out.print(" ID: ");
+            System.out.print(" ID           : ");
             id = keyboard.nextLine();
         }
-        controller.createSale(id);
+        System.out.print(" Customer Name: ");
+        String cname= keyboard.nextLine();
+        while (cname.equals(""))
+        {
+            System.out.println("Empty fields are not allowed");
+            System.out.print(" Customer Name: ");
+            cname = keyboard.nextLine();
+        }
+        System.out.print(" Employee Name: ");
+        String ename= keyboard.nextLine();
+        while (ename.equals(""))
+        {
+            System.out.println("Empty fields are not allowed");
+            System.out.print(" Employee Name: ");
+            cname = keyboard.nextLine();
+        }
+        
+        controller.createSale(id, cname, ename);
         String another = "1";
         while (another.equals("1"))
         {
@@ -108,11 +125,11 @@ public class SaleControllMenu
                 System.out.print("[0] Return");
                 System.out.print(" Choice: ");
                 String choice1 = keyboard.nextLine();
-                while (!choice.equals("0"))
+                while (!choice1.equals("0"))
                 {
                     System.out.println(" !!! No such choice available !!! ");
                     System.out.print(" Choice: ");
-                    choice = keyboard.nextLine();
+                    choice1 = keyboard.nextLine();
 
                 }
                 if(choice1.equals("0")) return;

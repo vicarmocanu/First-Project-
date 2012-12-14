@@ -11,6 +11,7 @@ public class EmployeeMenu
     CustomerControllMenu customerControllMenu;
     SaleControllMenu saleControllMenu;
     ProductControllMenu productControllMenu;
+    OrderControllMenu orderControllMenu;
     String error = "";
     public EmployeeMenu()
     {
@@ -43,6 +44,11 @@ public class EmployeeMenu
                     productControllMenu = new ProductControllMenu();
                     break;
                 }
+                case "4":
+                {
+                    orderControllMenu = new OrderControllMenu();
+                    break;
+                }
                 case "0":
                 {
                     exit = true;
@@ -62,11 +68,12 @@ public class EmployeeMenu
         System.out.println(" [1] Customer Control Menu");
         System.out.println(" [2] Sales Control Menu");
         System.out.println(" [3] Product Control Menu");
+        System.out.println(" [4] Order Control Menu");
         System.out.println("");
         System.out.println(" [0] Back to Main Menu");
         System.out.print("\n Make your choice: ");
         String choice = keyboard.nextLine();
-        while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("0"))
+        while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("4") && !choice.equals("0"))
         {
             System.out.println(" !!! No such choice available !!! ");
             System.out.print(" Choice: ");

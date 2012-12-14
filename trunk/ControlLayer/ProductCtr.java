@@ -25,22 +25,22 @@ public class ProductCtr
     {
         collection.searchProduct(name);
     }
-    
-    public void searchProductAndPrint(String name)
+
+    public boolean searchProductAndPrint(String name)
     {
-        collection.searchProductAndPrint(name);
+        return collection.searchProductAndPrint(name);
     }
-    
+
     public void searchProductByBarCode(String name)
     {
         collection.searchProductByBarCode(name);
     }
-    
+
     public void searchProductByBarCodeAndPrint(String name)
     {
         collection.searchProductByBarCodeAndPrint(name);
     }
-    
+
     public void listAllProducts()
     {
         collection.listAllProducts();
@@ -85,6 +85,5 @@ public class ProductCtr
     {
         collection.updateProductMax(name,max);
     }
-        
 
 }
