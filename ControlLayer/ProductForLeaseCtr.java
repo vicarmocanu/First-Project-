@@ -21,14 +21,18 @@ public class ProductForLeaseCtr
         prodCollForLease.makeProductForLease(barCode, location, name, description, status, pricePerDay);
     }
     
-    public void changeProductForLeaseStatus(String name, String status)
+    public void changeProductForLeaseStatus(String name)
     {
-        prodCollForLease.changeProductForLeaseStatus(name, status);
+        prodCollForLease.changeProductForLeaseStatus(name);
     }
     
     public void searchProduct(String name)
     {
         prodCollForLease.searchProduct(name);
+    }
+    public boolean searchExistProduct(String name)
+    {
+        return prodCollForLease.searchExistProduct(name);
     }
     
     public void print()
