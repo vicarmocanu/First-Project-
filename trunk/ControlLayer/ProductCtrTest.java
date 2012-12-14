@@ -17,6 +17,20 @@ public class ProductCtrTest
 {
     private ControlLayer.ProductCtr productC1;
     private ControlLayer.PersonCtr personCt1;
+    private ControlLayer.CategoryCtr category1;
+    private ControlLayer.OrderCtr orderCtr1;
+
+    
+    
+    
+    
+
+    
+    
+    
+
+    
+    
 
     
     
@@ -42,9 +56,15 @@ public class ProductCtrTest
         personCt1 = new ControlLayer.PersonCtr();
         personCt1.createEmployee("cirstea", "id1", "add1", "p1", "pos1", 100);
         personCt1.createEmployee("razvan", "id2", "add2", "p2", "pos2", 200);
-        personCt1.createCustomer("gabriel", "id10", "add1", "p1");
-        personCt1.createCustomer("victor", "id22", "add2", "p2");
+        personCt1.createCustomer("gabriel", "id10", "add1", "p1", 2);
+        personCt1.createCustomer("victor", "id22", "add2", "p2", 3);
         personCt1.listAllCustomers();
+        category1 = new ControlLayer.CategoryCtr();
+        category1.createCategory(2, 10);
+        category1.createCategory(3, 20);
+        orderCtr1 = new ControlLayer.OrderCtr();
+        orderCtr1.createOrder("id1", "gabriel", "razvan");
+        orderCtr1.addSubOrderToOrder("id1", 5, "a");
     }
 
     /**

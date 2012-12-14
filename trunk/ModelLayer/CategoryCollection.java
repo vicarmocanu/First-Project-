@@ -7,9 +7,7 @@ import java.util.Scanner;
 public class CategoryCollection
 {
     ArrayList<Category> listOfCategory;
-    int categoryNumber;
     Category category;
-    int categoryDiscount;
     private static CategoryCollection instance=null;
     
     /**
@@ -40,6 +38,23 @@ public class CategoryCollection
         listOfCategory.add(category);
     }
 
+    public int getDiscount(int categoryNumber)
+    {
+        int result=0;
+        if(listOfCategory.size()!=0)
+        {
+            for(Category i: listOfCategory)
+            {
+                if(i.categoryNumber==categoryNumber)
+                {
+                    result=i.categoryDiscount;
+                }
+            }
+        }
+        else System.out.println("No categories in the list!");
+        
+        return result;
+    }
     
     public void listAllCategories()
     {
@@ -51,7 +66,7 @@ public class CategoryCollection
                 System.out.println("*****************************");
             }
         }
-        else System.out.println("No products in stock");
+        else System.out.println("No categories in the list");
     }
 
     public void deleteCategory(int categoryNumber)          

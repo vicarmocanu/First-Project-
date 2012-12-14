@@ -12,7 +12,7 @@ public class CustomerCollection
 {
 
     ArrayList<Customer> listOfCustomers;
-    int discountCategory;
+    
     
     private static CustomerCollection instance=null;
 
@@ -32,9 +32,9 @@ public class CustomerCollection
             return instance;
     }
 
-    public void createCustomer(String name, String id, String address, String phoneNumber )
+    public void createCustomer(String name, String id, String address, String phoneNumber, int discountCategory )
     {
-        Customer customer=new Customer( name,  id,  address,  phoneNumber);
+        Customer customer=new Customer( name,  id,  address,  phoneNumber, discountCategory);
         listOfCustomers.add(customer);
     }
 
@@ -147,7 +147,6 @@ public class CustomerCollection
 
     public void updateCustomerPhoneNumber(String name, String phoneNumber)
     {
-        ArrayList<Customer> select=new ArrayList<Customer>();
         boolean found=false;
         if(listOfCustomers.size()!=0)
         {
@@ -156,7 +155,6 @@ public class CustomerCollection
             {
                 if(a.name.equals(name))
                 {
-                    select.add(a);
                     a.setPhoneNumber(phoneNumber);
                     System.out.println("Update Successful!");
                     found=true;
@@ -168,9 +166,26 @@ public class CustomerCollection
         else System.out.println("No customer registred in the system");
     }
     
+    public int getDiscountCategory(String name)
+    {
+        int result=0;
+        if(listOfCustomers.size()!=0)
+        {
+            for(Customer a: listOfCustomers)
+            {
+                if(a.name.equals(name))
+                {
+                    result=a.getDiscountCategory();
+                }
+            }
+        }
+        else System.out.println("No customers in the system!");
+        
+        return result;
+    }
+    
     public void setDiscountCategory(String name, int discountCategory)
     {
-         ArrayList<Customer> select=new ArrayList<Customer>();
         boolean found=false;
         if(listOfCustomers.size()!=0)
         {
@@ -179,7 +194,6 @@ public class CustomerCollection
             {
                 if(a.name.equals(name))
                 {
-                    select.add(a);
                     a.setDiscountCategory(discountCategory);
                     System.out.println("Customer category succesfully added!");
                     found=true;
