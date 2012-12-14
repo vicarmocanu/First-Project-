@@ -124,9 +124,10 @@ public class CustomerControllMenu
             System.out.println(" [1] ID ");
             System.out.println(" [2] Address ");
             System.out.println(" [3] Phone Number ");
+            System.out.println(" [4] Discount Category");
             System.out.print("\n Choice  : ");
             String choice = keyboard.nextLine();
-            while(!(choice.equals("1") || choice.equals("2") || choice.equals("3")))
+            while(!(choice.equals("1") || choice.equals("2") || choice.equals("3") || choice.equals("4")))
             {
                 System.out.print(" !!! No such Choice available !!! ");
                 System.out.print("\n Choice  : ");
@@ -155,6 +156,11 @@ public class CustomerControllMenu
                 case "3":
                 {
                     controller.updateCustomerPhoneNumber(name, change);
+                    break;
+                }
+                case "4":
+                {
+                    controller.setDiscountCategory(name, Integer.parseInt(change));
                     break;
                 }
             }
@@ -236,7 +242,7 @@ public class CustomerControllMenu
                 return;
             }
             
-            controller.createCustomer(name, id, address, phone);
+            controller.createCustomer(name, id, address, phone, 0);
             System.out.println(" [1] Add another Customer" + "\n [0] to return to the Manager menu");
             System.out.print(" Choice: ");
             another = keyboard.nextLine();
