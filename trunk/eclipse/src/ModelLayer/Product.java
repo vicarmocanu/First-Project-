@@ -105,6 +105,11 @@ public class Product
         this.quantity = quantity;
     }   
 
+    public void quantityDecrement(int quantity)
+    {
+        this.quantity=this.quantity-quantity;
+    }
+    
     public void makeProduct(String barCode, String location, String name,String description, int buyPrice, int salePrice, int min, int max,
     int quantity)
     {

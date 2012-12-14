@@ -210,7 +210,7 @@ public class EmployeeCollection
         else System.out.println("No employee registred in the system");
     }
     
-     public void updateEmployeeTotalFromOrders(String name, int total)
+     public void updateEmployeeTotalFromOrders(String name, double total)
     {
         ArrayList<Employee> select=new ArrayList<Employee>();
         boolean found=false;
