@@ -94,13 +94,35 @@ public class ProductCollectionForLease
             {
                 if(i.name.equals(name))
                 {
+                    i.print();
                     result=i;
+                    
                 }
             }
         }
         else System.out.println("The list is empty");
         return result;
     }
+    
+    public boolean searchExistProduct(String name)
+    {
+        ProductForLease result=null;
+        if(listOfProductsForLease.size()!=0)
+        {
+            for(ProductForLease i : listOfProductsForLease)
+            {
+                if(i.name.equals(name))
+                {
+                    i.print();
+                    return true;
+                    
+                }
+            }
+        }
+        else System.out.println("The list is empty");
+        return false;
+    }
+    
 
     public void print()
     {
