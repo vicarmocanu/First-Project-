@@ -13,13 +13,13 @@ public class SubOrder
     int subTotal;
     String name;
     ProductCollection productCollection=ProductCollection.getInstance();
-    
     public SubOrder(int amount, String name)
     {
         this.amount=amount;
         this.name=name;
         productCollection.updateProductStockByName(amount, name);
         productCollection.checkProductAmount(name);
+        
     }
         
     public void subTotal()

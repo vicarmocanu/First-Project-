@@ -18,6 +18,7 @@ public class Order
     ArrayList<SubOrder> listOfSubOrders;
     EmployeeCollection employeeCollection=EmployeeCollection.getInstance();
     CustomerCollection customerCollection=CustomerCollection.getInstance();
+    CategoryCollection categoryCollection=CategoryCollection.getInstance();
     
     public Order(String id, String customerName, String employeeName)
     {
@@ -66,11 +67,13 @@ public class Order
     
     public void calculateTotal()
     {        
+        int discount=0;
+        total=0;
         for(SubOrder i : listOfSubOrders)
         {
             total=total+i.subTotal;
-            
         }
+        discount=categoryCollection.getDiscount(customerCollection.getDiscountCategory(customerName));
         addTotalToEmployee(employeeName, total);
         addTotalToCustomer(customerName, total);
     }

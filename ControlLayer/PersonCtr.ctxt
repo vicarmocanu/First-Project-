@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=PersonCtr()
-comment1.params=name\ id\ address\ phoneNumber
-comment1.target=void\ createCustomer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.params=name\ id\ address\ phoneNumber\ discountNumber
+comment1.target=void\ createCustomer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int)
 comment10.params=name\ id\ address\ phoneNumber\ position\ salary
 comment10.target=void\ createEmployee(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int)
 comment11.params=
