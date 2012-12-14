@@ -12,7 +12,7 @@ public class Customer extends Person
     CategoryCollection categoryCollection;
 
     private int numberOfOrders;
-    private int totalAmountFromOrders;
+    private double totalAmountFromOrders;
 
     private int totalAmountFromSales;
     private int numberOfSales;
@@ -42,7 +42,7 @@ public class Customer extends Person
         numberOfSales=numberOfSales+1;
     }
 
-    public void setTotalAmountFromOrders(int totalAmountFromOrders)
+    public void setTotalAmountFromOrders(double totalAmountFromOrders)
     {
         this.totalAmountFromOrders=totalAmountFromOrders;
         numberOfOrders=numberOfOrders+1;

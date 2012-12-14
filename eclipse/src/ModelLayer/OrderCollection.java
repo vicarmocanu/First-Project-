@@ -13,7 +13,7 @@ public class OrderCollection
     Order order;
     private static OrderCollection instance=null;
 
-    public OrderCollection()
+    private OrderCollection()
     {
         listOfOrders=new ArrayList();
     }

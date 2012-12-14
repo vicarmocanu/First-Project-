@@ -12,7 +12,7 @@ public class Employee extends Person
     private int salary;
 
     private int numberOfOrders;
-    private int totalAmountFromOrders;
+    private double totalAmountFromOrders;
 
     private int totalAmountFromSales;
     private int numberOfSales;
@@ -53,7 +53,7 @@ public class Employee extends Person
         numberOfSales=numberOfSales+1;
     }
     
-    public void setTotalAmountFromOrders(int totalAmountFromOrders)
+    public void setTotalAmountFromOrders(double totalAmountFromOrders)
     {
         this.totalAmountFromOrders=totalAmountFromOrders;
         numberOfOrders=numberOfOrders+1;

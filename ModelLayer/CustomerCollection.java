@@ -205,7 +205,7 @@ public class CustomerCollection
         else System.out.println("No customer registred in the system");
     }
     
-     public void updateCustomerTotalFromOrders(String name, int total)
+     public void updateCustomerTotalFromOrders(String name, double total)
     {
         ArrayList<Customer> select=new ArrayList<Customer>();
         boolean found=false;
