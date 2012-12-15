@@ -10,7 +10,8 @@ import java.util.ArrayList;
 public class Order
 {
     String id;
-    int total;
+    double total;
+    double discount;
     
     String customerName;
     String employeeName;
@@ -18,6 +19,7 @@ public class Order
     ArrayList<SubOrder> listOfSubOrders;
     EmployeeCollection employeeCollection=EmployeeCollection.getInstance();
     CustomerCollection customerCollection=CustomerCollection.getInstance();
+    CategoryCollection categoryCollection=CategoryCollection.getInstance();
     
     public Order(String id, String customerName, String employeeName)
     {
@@ -49,6 +51,7 @@ public class Order
         }
         System.out.println("Customer name: " + customerName);
         System.out.println("Employee name: " + employeeName);
+        System.out.println("Discount: " + discount);
         System.out.println("Total: " + total);
     }
     
@@ -66,21 +69,27 @@ public class Order
     
     public void calculateTotal()
     {        
+        discount=0;
+        total=0;
+        
         for(SubOrder i : listOfSubOrders)
         {
             total=total+i.subTotal;
-            
         }
+        discount=categoryCollection.getDiscount(customerCollection.getDiscountCategory(customerName));
+        discount=total * discount/100;
+        total=total-discount;
+       
         addTotalToEmployee(employeeName, total);
         addTotalToCustomer(customerName, total);
     }
     
-    public void addTotalToEmployee(String employeeName, int total)
+    public void addTotalToEmployee(String employeeName,double total)
     {
         employeeCollection.updateEmployeeTotalFromOrders(employeeName,total);
     }
     
-     public void addTotalToCustomer(String customerName, int total)
+     public void addTotalToCustomer(String customerName,double total)
     {
         customerCollection.updateCustomerTotalFromOrders(customerName,total);
     }

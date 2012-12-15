@@ -201,53 +201,68 @@ public class ContractorControllMenu
 
     private void createContractor()
     {
-        String another = "1";
+       
 
-        while(another.equals("1"))
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("\f *** Create Contractor ***");
+        if (!error.equals(""))
         {
-            Scanner keyboard = new Scanner(System.in);
-            System.out.println("\f *** Create Contractor ***");
-            if (!error.equals(""))
-            {
-                System.out.println(error);
-                error = "";
-            }
-
-            System.out.print("Name     : ");
-            String name = keyboard.nextLine();
-            System.out.print("ID       : ");
-            String id = keyboard.nextLine();
-            System.out.print("Address  : ");
-            String address = keyboard.nextLine();
-            System.out.print("Tel nr   : ");
-            String phone = keyboard.nextLine();
-            if(name.equals("") || id.equals("") || address.equals("") || phone.equals(""))
-            {
-                System.out.println("One or more fields are EMPTY");
-                System.out.println("Type [1] to try again" + "\nType [0] to return to the Manager menu");
-                System.out.print(" Choice: ");
-                String exit = keyboard.nextLine();
-                if (exit.toUpperCase().equals("1")) {createContractor(); return;}
-                if (exit.toUpperCase().equals("0")) {return;}
-                else
-                {
-                    error = " !!! No such choice available !!! ";
-                }
-                return;
-            }
-            
-            controller.createContractor(name, id, address, phone);
-            System.out.println(" [1] Add another Contractor" + "\n [0] to return to the Manager menu");
-            System.out.print(" Choice: ");
-            another = keyboard.nextLine();
-            while (!(another.equals("1") || another.equals("0")))
-            {
-                System.out.print(" !!! No such choice available !!! " + "\n [1] Add another Contractor" + "\n [0] to return to the Manager menu" + "\n Choice:");
-                another = keyboard.nextLine();
-            }
+            System.out.println(error);
+            error = "";
         }
-    }
 
+        System.out.print("Name     : ");
+        String name = keyboard.nextLine();
+        while (name.equals(""))
+        {
+            System.out.println("Empty fields are not allowed");
+            System.out.print("Name     : ");
+            name = keyboard.nextLine();
+        }
+        System.out.print("ID       : ");
+        String id = keyboard.nextLine();
+        while (id.equals(""))
+        {
+            System.out.println("Empty fields are not allowed");
+            System.out.print(" ID           : ");
+            id = keyboard.nextLine();
+        }
+        System.out.print("Address  : ");
+        String address = keyboard.nextLine();
+        while (address.equals(""))
+        {
+            System.out.println("Empty fields are not allowed");
+            System.out.print("Address  : ");
+            address = keyboard.nextLine();
+        }
+        System.out.print("Tel nr   : ");
+        String phone = keyboard.nextLine();
+        while (phone.equals(""))
+        {
+            System.out.println("Empty fields are not allowed");
+            System.out.print("Tel nr   : ");
+            phone = keyboard.nextLine();
+        }
+        controller.createContractor(name, id, address, phone);
+        System.out.println("[1] Add another Contractor" + "\n [0] Return to the Manager menu");
+        System.out.print(" Choice: ");
+        String exit = keyboard.nextLine();
+        
+        while (!exit.equals("1") && !exit.equals("0")) {
+            System.out.println("!!! No such choice available !!! " + "\n [1] Add another" + "\n [0] Return to the Manager menu");
+            System.out.print(" Choice: ");
+        }
+        if (exit.equals("1")) 
+        {
+            createContractor();
+            return;
+        }
+        else
+        {
+            return;
+        }
+
+    }
     private void deleteContractor()
     {
         Scanner keyboard = new Scanner(System.in);

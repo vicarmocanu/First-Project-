@@ -2,6 +2,7 @@ package UI;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Iterator;
+import ControlLayer.ProductCtr;
 /**
  * This is the Manager menu of the program.
  * 
@@ -11,12 +12,13 @@ import java.util.Iterator;
 public class ManagerMenu
 {
     ContractorControllMenu contractorControllMenu;
-    CustomerControllMenu customerControllMenu;
     EmployeeControllMenu employeeControllMenu;
+    DiscountControllMenu discountControllMenu;
+    ProductCtr controller = new ProductCtr();
     String error = "";
     int login;
     ArrayList<ArrayList<String>> userpass;
-    
+
     public ManagerMenu(ArrayList<ArrayList<String>> userpass)
     {
         this.userpass = userpass;
@@ -36,21 +38,31 @@ public class ManagerMenu
 
             if(login == 1)
             {
-                int choice = textManagerMenu();
+                String choice = textManagerMenu();
                 switch (choice)
                 {
-                    case 1:
+                    case "1":
                     {
                         contractorControllMenu = new ContractorControllMenu();
                         break;
                     }
-                    
-                    case 2:
+
+                    case "2":
                     {
                         employeeControllMenu = new EmployeeControllMenu();
                         break;
                     }
-                    case 0:
+                    case "3":
+                    {
+                        discountControllMenu = new DiscountControllMenu();
+                        break;
+                    }
+                    case "4":
+                    {
+                        setSalePriceForProducts();
+                        break;
+                    }
+                    case "0":
                     {
                         exit = true;
                         return;
@@ -63,11 +75,65 @@ public class ManagerMenu
         }
 
     }
-    
+
+    private void setSalePriceForProducts()
+    {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("\f *** Set Sale Price For Product ***");
+        System.out.println(" ** List Of Products without sale price **");
+        controller.listProductsWithoutSalePrice();
+        System.out.print("\n NAME: ");
+        String name = keyboard.nextLine();
+        while (name.equals(""))
+        {
+            System.out.println("Empty fields are not allowed");
+            System.out.print(" NAME          : ");
+            name = keyboard.nextLine();
+        }
+        if(controller.searchProductAndPrint(name))
+        {
+            System.out.print("Are you sure you want to modify this Product? (y/n): ");
+            String confirm = keyboard.nextLine();
+            while (!confirm.toUpperCase().equals("Y") && !confirm.toUpperCase().equals("N"))
+            {
+                System.out.print("!!! No such choice available !!! " + "\nAre you sure you want to modify this Product? (y/n): ");
+                confirm = keyboard.nextLine();
+            }
+            if(confirm.toUpperCase().equals("Y"))
+            {
+                System.out.print(" Sale Price: ");
+                String sPrice = keyboard.nextLine();
+                while (name.equals(""))
+                {
+                    System.out.println("Empty fields are not allowed");
+                    System.out.print(" Sale Price          : ");
+                    sPrice = keyboard.nextLine();
+                }
+                controller.updateProductSalePrice(name, Integer.parseInt(sPrice));
+            }
+        }
+
+        System.out.println("[1] Try again" + "\n [0] Return to the Employee menu");
+        System.out.print(" Choice: ");
+        String choice = keyboard.nextLine();
+        while(!choice.equals("1") && !choice.equals("0"))
+        {
+            System.out.println(" !!! No such choice available !!! " +"\n [1] Try again" + "\n [0] Return to the Manager menu");
+            System.out.print(" Choice: ");
+            choice = keyboard.nextLine();
+        }
+        if (choice.equals("1"))
+        {
+            setSalePriceForProducts();
+            return;
+        }
+
+    }
+
     private boolean checkUsernameAndPassword(String u, String p)
     {
         int size = userpass.size();
-        
+
         int i = 0;
         while(i<size)
         {
@@ -125,18 +191,27 @@ public class ManagerMenu
 
     }
 
-    private int textManagerMenu()
+    private String textManagerMenu()
     { 
         // creates a keyboard object to read input
         Scanner keyboard = new Scanner(System.in);
         System.out.println("\f *** ManagerMenu ***");
         System.out.println(" [1] Contractor Control Menu");
         System.out.println(" [2] Employee Control Menu");
+        System.out.println(" [3] Discount Control Menu");
+        System.out.println(" [4] Set Sale Price For Products");
         System.out.println("");
         System.out.println(" [0] Back to Main Menu");
         System.out.print("\n Make your choice: ");
-        int choice = keyboard.nextInt();
+        String choice = keyboard.nextLine();
         // Return the choice
+        
+        while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("4") && !choice.equals("0"))
+        {
+            System.out.println(" !!! No such choice available !!! ");
+            System.out.print("Choice: ");
+            choice = keyboard.nextLine();
+        }
         return choice;
     }
     // Print "bye bye" when you close the program

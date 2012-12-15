@@ -38,31 +38,31 @@ public class ManagerMenu
 
             if(login == 1)
             {
-                int choice = textManagerMenu();
+                String choice = textManagerMenu();
                 switch (choice)
                 {
-                    case 1:
+                    case "1":
                     {
                         contractorControllMenu = new ContractorControllMenu();
                         break;
                     }
 
-                    case 2:
+                    case "2":
                     {
                         employeeControllMenu = new EmployeeControllMenu();
                         break;
                     }
-                    case 3:
+                    case "3":
                     {
                         discountControllMenu = new DiscountControllMenu();
                         break;
                     }
-                    case 4:
+                    case "4":
                     {
                         setSalePriceForProducts();
                         break;
                     }
-                    case 0:
+                    case "0":
                     {
                         exit = true;
                         return;
@@ -191,7 +191,7 @@ public class ManagerMenu
 
     }
 
-    private int textManagerMenu()
+    private String textManagerMenu()
     { 
         // creates a keyboard object to read input
         Scanner keyboard = new Scanner(System.in);
@@ -203,8 +203,15 @@ public class ManagerMenu
         System.out.println("");
         System.out.println(" [0] Back to Main Menu");
         System.out.print("\n Make your choice: ");
-        int choice = keyboard.nextInt();
+        String choice = keyboard.nextLine();
         // Return the choice
+        
+        while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("4") && !choice.equals("0"))
+        {
+            System.out.println(" !!! No such choice available !!! ");
+            System.out.print("Choice: ");
+            choice = keyboard.nextLine();
+        }
         return choice;
     }
     // Print "bye bye" when you close the program

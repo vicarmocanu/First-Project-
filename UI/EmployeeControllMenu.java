@@ -241,41 +241,70 @@ public class EmployeeControllMenu
 
             System.out.print("Name     : ");
             String name = keyboard.nextLine();
+            while (name.equals(""))
+            {
+                System.out.println("Empty fields are not allowed");
+                System.out.print("Name     : ");
+                name = keyboard.nextLine();
+            }
             System.out.print("ID       : ");
             String id = keyboard.nextLine();
+            while (id.equals(""))
+            {
+                System.out.println("Empty fields are not allowed");
+                System.out.print("ID       : ");
+                id = keyboard.nextLine();
+            }
             System.out.print("Address  : ");
             String address = keyboard.nextLine();
+            while (address.equals(""))
+            {
+                System.out.println("Empty fields are not allowed");
+                System.out.print("Address  : ");
+                address = keyboard.nextLine();
+            }
             System.out.print("Tel nr   : ");
             String phone = keyboard.nextLine();
+            while (phone.equals(""))
+            {
+                System.out.println("Empty fields are not allowed");
+                System.out.print("Tel nr   : ");
+                phone = keyboard.nextLine();
+            }
             System.out.print("Position : ");
             String position = keyboard.nextLine();
+            while (position.equals(""))
+            {
+                System.out.println("Empty fields are not allowed");
+                System.out.print("Position : ");
+                position = keyboard.nextLine();
+            }
             System.out.print("Salary   : ");
             String salary = keyboard.nextLine();
-
-            if(name.equals("") || id.equals("") || address.equals("") || phone.equals("") || position.equals("") || salary.equals(""))
+            while (salary.equals(""))
             {
-                System.out.println("One or more fields are EMPTY");
-                System.out.println("Type [1] to try again" + "\nType [0] to return to the Manager menu");
-                System.out.print(" Choice: ");
-                String exit = keyboard.nextLine();
-                if (exit.toUpperCase().equals("1")) {createEmployee(); return;}
-                if (exit.toUpperCase().equals("0")) {return;}
-                else
-                {
-                    error = " !!! No such choice available !!! ";
-                }
-                return;
+                System.out.println("Empty fields are not allowed");
+                System.out.print("Salary   : ");
+                salary = keyboard.nextLine();
             }
-
             controller.createEmployee(name, id, address, phone, position, Integer.parseInt(salary));
-            System.out.println(" [1] Add another Employee" + "\n [0] to return to the Manager menu");
+            System.out.println(" [1] Try again" + "\n [0] Return to the Manager menu");
+            System.out.print(" Choice: ");
+            String exit = keyboard.nextLine();
+            if (exit.equals("1")) {createEmployee(); return;}
+            if (exit.equals("0")) {return;}
+
+            
+            System.out.println(" [1] Add another Employee" + "\n [0] Return to the Manager menu");
             System.out.print(" Choice: ");
             another = keyboard.nextLine();
             while (!(another.equals("1") || another.equals("0")))
             {
-                System.out.print(" !!! No such choice available !!! " + "\n [1] Add another Employee" + "\n [0] to return to the Manager menu" + "\n Choice:");
+                System.out.print(" !!! No such choice available !!! " + "\n [1] Add another Employee" + "\n [0] Return to the Manager menu" + "\n Choice:");
                 another = keyboard.nextLine();
             }
+            if(another.equals("1")) createEmployee();
+            return;
         }
     }
 
