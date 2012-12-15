@@ -179,7 +179,7 @@ public class LeaseControllMenu
                 System.out.print("Search Name: ");
                 name= keyboard.nextLine();
             }
-            if(controller.searchProduct(name))
+            if(controller.searchExistProduct(name))
             {
                 System.out.print("Do you want to change status?(y/n): ");
                 String ssure = keyboard.nextLine();
