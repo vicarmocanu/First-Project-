@@ -25,6 +25,11 @@ public class ProductCtr
     {
         collection.searchProduct(name);
     }
+    
+    public void listProductsWithoutSalePrice()
+    {
+        collection.listProductsWithoutSalePrice();
+    }
 
     public boolean searchProductAndPrint(String name)
     {

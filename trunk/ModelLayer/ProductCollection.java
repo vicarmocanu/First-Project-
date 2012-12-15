@@ -32,7 +32,6 @@ public class ProductCollection
         System.out.println(" Product added ! ");
     }
 
-
     public Product searchProduct(String name)
     {
         Product result=null;
@@ -49,7 +48,23 @@ public class ProductCollection
         else System.out.println("The list is empty");
         return result;
     }
-    
+
+    public void listProductsWithoutSalePrice()
+    {
+        
+        if(listOfProducts.size()!=0)
+        {
+            for(Product i : listOfProducts)
+            {
+                if(i.salePrice == 0)
+                {
+                    i.print();
+                }
+            }
+        }
+        else System.out.println("The list is empty");
+    }
+
     public boolean searchProductAndPrint(String name)
     {
         Product result=null;
@@ -66,9 +81,9 @@ public class ProductCollection
         }
         else System.out.println("The list is empty");
         return false;
-        
+
     }
-    
+
     public Product searchProductByBarCode(String barCode)
     {
         Product result=null;
@@ -85,10 +100,10 @@ public class ProductCollection
         else System.out.println("The list is empty");
         return result;
     }
-    
+
     public void searchProductByBarCodeAndPrint(String barCode)
     {
-        
+
         if(listOfProducts.size()!=0)
         {
             for(Product i : listOfProducts)
@@ -101,11 +116,10 @@ public class ProductCollection
         }
         else System.out.println("The list is empty");
     }
-    
-     public void updateProductStockByBarCode(int numberOfItems,String barCode)
+
+    public void updateProductStockByBarCode(int numberOfItems,String barCode)
     {
-        
-        
+
         Product result=null;
         if(listOfProducts.size()!=0)
         {
@@ -119,9 +133,9 @@ public class ProductCollection
             }
         }
         else System.out.println("The list is empty");
-        
+
     }
-    
+
     public void updateProductStockByName(int numberOfItems,String name)
     {
         Product result=null;
@@ -159,7 +173,7 @@ public class ProductCollection
             }
         }
     }
-    
+
     public void listAllProducts()
     {
         if (listOfProducts.size()!=0)
@@ -167,7 +181,7 @@ public class ProductCollection
             for(Product i : listOfProducts)
             {
                 i.print();
-                
+
             }
         }
         else System.out.println("No products in stock");

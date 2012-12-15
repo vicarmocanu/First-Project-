@@ -1,12 +1,14 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ startMenu()
-comment1.params=u\ p
-comment1.target=boolean\ checkUsernameAndPassword(java.lang.String,\ java.lang.String)
-comment2.params=
-comment2.target=int\ login()
+comment1.params=
+comment1.target=void\ setSalePriceForProducts()
+comment2.params=u\ p
+comment2.target=boolean\ checkUsernameAndPassword(java.lang.String,\ java.lang.String)
 comment3.params=
-comment3.target=int\ textManagerMenu()
+comment3.target=int\ login()
 comment4.params=
-comment4.target=void\ end()
-numComments=5
+comment4.target=int\ textManagerMenu()
+comment5.params=
+comment5.target=void\ end()
+numComments=6
