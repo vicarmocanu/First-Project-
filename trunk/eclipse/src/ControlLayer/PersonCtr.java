@@ -23,9 +23,9 @@ public class PersonCtr
     }
 
     // CUSTOMER section
-    public void createCustomer(String name, String id, String address, String phoneNumber )
+    public void createCustomer(String name, String id, String address, String phoneNumber, int discountNumber )
     {
-        customer.createCustomer(name, id, address, phoneNumber);
+        customer.createCustomer(name, id, address, phoneNumber, discountNumber);
     }
 
     public void listAllCustomers()

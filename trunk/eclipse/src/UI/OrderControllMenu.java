@@ -1,12 +1,12 @@
 package UI;
-import ControlLayer.SaleCtr;
+import ControlLayer.OrderCtr;
 import java.util.Scanner;
-public class SaleControllMenu
-{
-    SaleCtr controller;
-    public SaleControllMenu()
+
+public class OrderControllMenu
+{OrderCtr controller;
+    public OrderControllMenu()
     {
-        controller = new SaleCtr();
+        controller = new OrderCtr();
         startMenu();
     }
 
@@ -24,7 +24,16 @@ public class SaleControllMenu
                     startScan();
                     break;
                 }
-
+                case "2":
+                {
+                    listAllOrders();
+                    break;
+                }
+                case "3":
+                {
+                    searchOrder();
+                    break;
+                }
                 case "0":
                 {
                     exit = true;
@@ -34,17 +43,61 @@ public class SaleControllMenu
         }
     }
 
+    private void searchOrder()
+    {
+        String choice = "1";
+        while (choice.equals("1"))
+        {
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println("\f *** Find Order ***");
+            System.out.print("Search ID: ");
+            String id = keyboard.nextLine();
+            controller.searchOrder(id);
+            System.out.println("\n [1] Search another");
+            System.out.println(" [0] Return to Employee menu");
+            System.out.print("Choice: ");
+            choice = keyboard.nextLine();
+            while (!choice.equals("1") && !choice.equals("0")) 
+            {
+                System.out.println(" !!! No such choice available !!!");
+                System.out.println(" [1] Search another");
+                System.out.println(" [0] Return to Employee menu");
+                System.out.print("Choice: ");
+                choice = keyboard.nextLine();
+            }
+        }
+    }
+
+    private void listAllOrders()
+    {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("\f *** List Orders ***");
+        controller.listOrders();
+        System.out.println(" [0] Return to Employee Menu");    
+        System.out.print("\n Choice: ");
+        String choice = keyboard.nextLine();
+        while (!choice.equals("0"))
+        {
+            System.out.println(" !!! No such choice available !!! ");
+            System.out.print(" Choice: ");
+            choice = keyboard.nextLine();
+        }
+        return;
+    }
+
     private String textSaleControllMenu()
     { 
         // creates a keyboard object to read input
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("\f *** Employee Controll Menu ***");
+        System.out.println("\f *** Order Controll Menu ***");
         System.out.println(" [1] Start Scanning Products");
+        System.out.println(" [2] List All Orders");
+        System.out.println(" [3] Search Order");
         System.out.println("");
         System.out.println(" [0] Back to Employee Menu");
         System.out.print("\n Choice: ");
         String choice = keyboard.nextLine();
-        while (!choice.equals("1") && !choice.equals("0"))
+        while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("0"))
         {
             System.out.println(" !!! No such choice available !!! ");
             System.out.print(" Choice: ");
@@ -83,11 +136,21 @@ public class SaleControllMenu
             System.out.print(" Employee Name: ");
             cname = keyboard.nextLine();
         }
-        
-        controller.createSale(id, cname, ename);
+
+        controller.createOrder(id, cname, ename);
         String another = "1";
         while (another.equals("1"))
         {
+
+            System.out.print(" PRODUCT NAME: ");
+            String name = keyboard.nextLine();
+
+            while (name.equals(""))
+            {
+                System.out.println("Empty fields are not allowed");
+                System.out.print(" PRODUCT NAME: ");
+                name = keyboard.nextLine();
+            }
             System.out.print(" Nr. of Products   : ");
             String qtty = keyboard.nextLine();
 
@@ -97,16 +160,7 @@ public class SaleControllMenu
                 System.out.print(" Nr. of Products   : ");
                 qtty = keyboard.nextLine();
             }
-            System.out.print(" SCANN PRODUCT CODE: ");
-            String barCode = keyboard.nextLine();
-
-            while (barCode.equals(""))
-            {
-                System.out.println("Empty fields are not allowed");
-                System.out.print(" SCANN PRODUCT CODE: ");
-                barCode = keyboard.nextLine();
-            }
-            controller.addSubSaleToSale(id, Integer.parseInt(qtty), barCode);
+            controller.addSubOrderToOrder(id, Integer.parseInt(qtty), name);
             System.out.println(" [1] New Product " + "\n [2] Print Total");
             System.out.print(" Choice: ");
             String choice = keyboard.nextLine();
@@ -120,8 +174,8 @@ public class SaleControllMenu
 
             if(choice.equals("2"))
             {
-                controller.calculateTotalForSale(id);
-                controller.searchSale(id);
+                controller.calculateTotalForOrder(id);
+                controller.searchOrder(id);
                 System.out.print("[0] Return");
                 System.out.print(" Choice: ");
                 String choice1 = keyboard.nextLine();

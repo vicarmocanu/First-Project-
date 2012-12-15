@@ -26,21 +26,26 @@ public class ProductCtr
         collection.searchProduct(name);
     }
     
-    public void searchProductAndPrint(String name)
+    public void listProductsWithoutSalePrice()
     {
-        collection.searchProductAndPrint(name);
+        collection.listProductsWithoutSalePrice();
     }
-    
+
+    public boolean searchProductAndPrint(String name)
+    {
+        return collection.searchProductAndPrint(name);
+    }
+
     public void searchProductByBarCode(String name)
     {
         collection.searchProductByBarCode(name);
     }
-    
+
     public void searchProductByBarCodeAndPrint(String name)
     {
         collection.searchProductByBarCodeAndPrint(name);
     }
-    
+
     public void listAllProducts()
     {
         collection.listAllProducts();
@@ -85,6 +90,5 @@ public class ProductCtr
     {
         collection.updateProductMax(name,max);
     }
-        
 
 }
