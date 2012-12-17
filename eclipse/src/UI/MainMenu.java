@@ -1,6 +1,8 @@
 package UI;
 import java.util.Scanner;
 import java.util.ArrayList;
+
+import javax.swing.JFrame;
 /**
  * This is the main menu of the program.
  * 
@@ -10,8 +12,7 @@ import java.util.ArrayList;
 public class MainMenu
 {
     ManagerMenu managerMenu;
-    EmployeeMenu employeeMenu;
-
+    EmployeeMenu employeeMenu;; 
     boolean newAcc;
     ArrayList<ArrayList<String>> userpass;
     int login = 0;
@@ -21,8 +22,16 @@ public class MainMenu
         newAcc = false;
 
         userpass = new ArrayList<ArrayList<String>>();
+        
         startMainMenu();
     }
+    public static void main(String[] args)
+    {
+    	
+    	new MainMenu();
+    }
+
+   
     // Here are the 4 options that you have 
     public void startMainMenu()
     {
@@ -66,6 +75,7 @@ public class MainMenu
         // creates a keyboard object to read input
         Scanner keyboard = new Scanner(System.in);
         createManager();
+        
         System.out.println("\f *** MainMenu ***");
 
         System.out.println(" [1] Manager Menu");
@@ -102,7 +112,7 @@ public class MainMenu
             {
                 
                 int size = userpass.size();
-
+                
                 System.out.println("\f !!! CREATE MANAGER PROCESS STARTED !!! ");
 
                 ArrayList<String> userandpass = new ArrayList<String>();

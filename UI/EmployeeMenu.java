@@ -75,7 +75,7 @@ public class EmployeeMenu
         System.out.println(" [2] Sales Control Menu");
         System.out.println(" [3] Product Control Menu");
         System.out.println(" [4] Order Control Menu");
-        System.out.println(" [5] Order Control Menu");
+        System.out.println(" [5] Lease Control Menu");
         System.out.println("");
         System.out.println(" [0] Back to Main Menu");
         System.out.print("\n Make your choice: ");

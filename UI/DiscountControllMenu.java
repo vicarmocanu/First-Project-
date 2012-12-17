@@ -1,9 +1,11 @@
 package UI;
 import ControlLayer.CategoryCtr;
+import ControlLayer.PersonCtr;
 import java.util.Scanner;
 public class DiscountControllMenu
 {
     CategoryCtr controller;
+    PersonCtr controller2;
     public DiscountControllMenu()
     {
         controller = new CategoryCtr();
@@ -180,21 +182,62 @@ public class DiscountControllMenu
         return;
     }
 
+    private void setUpCategoryForCustomer()
+    {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("\f *** Customer Discount Menu ***");
+        System.out.println(" Name: ");
+        String name = keyboard.nextLine();
+        while (name.equals(""))
+        {
+            System.out.println("Empty fields are not allowed");
+            System.out.print(" Name: ");
+            name = keyboard.nextLine();
+        }
+        
+        System.out.println(" Discount Number: ");
+        String disc = keyboard.nextLine();
+        while (disc.equals(""))
+        {
+            System.out.println("Empty fields are not allowed");
+            System.out.print(" Discount Number: ");
+            disc = keyboard.nextLine();
+        }
+        controller2 = new PersonCtr();
+        controller2.setDiscountCategory(name, Integer.parseInt(disc));
+         System.out.println(" [1] New Set Up " + "\n [0] Return to Manager Menu");
+        System.out.print(" Choice: ");
+        String choice = keyboard.nextLine();
+        while (!choice.equals("1") && !choice.equals("0"))
+        {
+            System.out.println(" !!! No such choice available !!! ");
+            System.out.print(" Choice: ");
+            choice = keyboard.nextLine();
+
+        }
+        if(choice.equals("1"))
+        {
+            setUpCategoryForCustomer();
+            return;
+        }
+        return;
+    }
+
     private String textSaleControllMenu()
     { 
         // creates a keyboard object to read input
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("\f *** Employee Controll Menu ***");
+        System.out.println("\f *** Discount Controll Menu ***");
         System.out.println(" [1] Add New Category");
         System.out.println(" [2] Delete Category");
         System.out.println(" [3] Update Category Discount");
         System.out.println(" [4] List all categorys");
-
+        System.out.println(" [5] Set Up category for customer");
         System.out.println("");
         System.out.println(" [0] Back to Employee Menu");
         System.out.print("\n Choice: ");
         String choice = keyboard.nextLine();
-        while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("4") && !choice.equals("0"))
+        while (!choice.equals("1") && !choice.equals("2") && !choice.equals("3") && !choice.equals("4") && !choice.equals("5") && !choice.equals("0"))
         {
             System.out.println(" !!! No such choice available !!! ");
             System.out.print(" Choice: ");
