@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=name\ id\ address\ phoneNumber\ discountCategory
-comment0.target=Customer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int)
+comment0.params=name\ id\ address\ phoneNumber
+comment0.target=Customer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
 comment1.params=totalAmountFromSales
 comment1.target=void\ setTotalAmountFromSales(int)
 comment2.params=totalAmountFromOrders
