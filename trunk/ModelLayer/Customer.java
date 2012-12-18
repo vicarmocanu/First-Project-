@@ -20,7 +20,7 @@ public class Customer extends Person
     private int totalAmountFromLeases;
     private int numberOfLeases;
 
-    public Customer(String name, String id, String address, String phoneNumber, int discountCategory)
+    public Customer(String name, String id, String address, String phoneNumber)
     {
         super(name,id,address,phoneNumber);
 

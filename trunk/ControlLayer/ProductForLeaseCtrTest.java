@@ -16,7 +16,6 @@ import org.junit.Test;
 public class ProductForLeaseCtrTest
 {
     private ControlLayer.ProductForLeaseCtr productF1;
-    private ControlLayer.LeaseCtr leaseCtr1;
 
     /**
      * Default constructor for test class ProductForLeaseCtrTest
@@ -34,13 +33,8 @@ public class ProductForLeaseCtrTest
     public void setUp()
     {
         productF1 = new ControlLayer.ProductForLeaseCtr();
-        productF1.print();
-        productF1.print();
-        productF1.makeProductForLease("b1", "location1", "a", "desc1", "Available", 5);
-        productF1.makeProductForLease("b2", "loc2", "b", "desc2", "Unavailable", 10);
-        productF1.makeProductForLease("b3", "loc3", "c", "desc3", "Available", 100);
-        productF1.print();
-        leaseCtr1 = new ControlLayer.LeaseCtr();
+        productF1.makeProductForLease("b5", "DIY", "washing machine", "industrial washing machine", "Available", 50);
+        productF1.makeProductForLease("b6", "Timber Department", "desk", "long school desk", "Available", 64);
     }
 
     /**

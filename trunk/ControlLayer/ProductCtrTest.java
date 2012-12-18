@@ -16,24 +16,6 @@ import org.junit.Test;
 public class ProductCtrTest
 {
     private ControlLayer.ProductCtr productC1;
-    private ControlLayer.PersonCtr personCt1;
-    private ControlLayer.CategoryCtr category1;
-    private ControlLayer.OrderCtr orderCtr1;
-
-    
-    
-    
-    
-
-    
-    
-    
-
-    
-    
-
-    
-    
 
     /**
      * Default constructor for test class ProductCtrTest
@@ -51,20 +33,9 @@ public class ProductCtrTest
     public void setUp()
     {
         productC1 = new ControlLayer.ProductCtr();
-        productC1.addProduct("b1", "a", "a", "a", 10, 20, 1, 100, 52);
-        productC1.addProduct("b2", "b", "b", "b", 55, 10, 1, 1000, 500);
-        personCt1 = new ControlLayer.PersonCtr();
-        personCt1.createEmployee("cirstea", "id1", "add1", "p1", "pos1", 100);
-        personCt1.createEmployee("razvan", "id2", "add2", "p2", "pos2", 200);
-        personCt1.createCustomer("gabriel", "id10", "add1", "p1", 2);
-        personCt1.createCustomer("victor", "id22", "add2", "p2", 3);
-        personCt1.listAllCustomers();
-        category1 = new ControlLayer.CategoryCtr();
-        category1.createCategory(2, 10);
-        category1.createCategory(3, 20);
-        orderCtr1 = new ControlLayer.OrderCtr();
-        orderCtr1.createOrder("id1", "gabriel", "razvan");
-        orderCtr1.addSubOrderToOrder("id1", 5, "a");
+        productC1.addProduct("b1", "DIY", "wood", "best wood ever", 10, 15, 10, 1000, 500);
+        productC1.addProduct("b2", "DIY", "hammer", "hammer", 15, 30, 5, 1000, 120);
+        productC1.addProduct("b3", "Timber Laber", "table", "school table", 120, 160, 5, 140, 60);
     }
 
     /**

@@ -32,9 +32,9 @@ public class CustomerCollection
             return instance;
     }
 
-    public void createCustomer(String name, String id, String address, String phoneNumber, int discountCategory )
+    public void createCustomer(String name, String id, String address, String phoneNumber)
     {
-        Customer customer=new Customer( name,  id,  address,  phoneNumber, discountCategory);
+        Customer customer=new Customer( name,  id,  address,  phoneNumber);
         listOfCustomers.add(customer);
     }
 
