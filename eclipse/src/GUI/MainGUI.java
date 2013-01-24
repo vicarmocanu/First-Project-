@@ -160,11 +160,13 @@ public class MainGUI extends JFrame {
 						userandpass.add(usernameField.getText());
 						userandpass.add(password);
 						userpass.add(size, userandpass);
-						JOptionPane.showMessageDialog(null,
-								"Account: '" + usernameField.getText() + "' has been created!", "Successful",
+						JOptionPane.showMessageDialog(null, "Account: '"
+								+ usernameField.getText()
+								+ "' has been created!", "Successful",
 								JOptionPane.INFORMATION_MESSAGE);
-						
-						contentPane.setVisible(mainMenuPanel, "card_mainMenu");
+
+						CardLayout cl = (CardLayout) contentPane.getLayout();
+						cl.show(contentPane, "card_mainMenu");
 					}
 
 				}
@@ -173,7 +175,7 @@ public class MainGUI extends JFrame {
 		createButton.setMnemonic(KeyEvent.VK_ENTER);
 		createAdminPanel.add(createButton, "cell 1 6,growx,aligny top");
 		JRootPane rootPane = createAdminPanel.getRootPane();
-	    rootPane.setDefaultButton(createButton);
+		rootPane.setDefaultButton(createButton);
 
 		clearButton = new JButton("CLEAR");
 		clearButton.addActionListener(new ActionListener() {
@@ -191,24 +193,34 @@ public class MainGUI extends JFrame {
 		mainMenuPanel = new JPanel();
 		mainMenuPanel.setVisible(false);
 		contentPane.add(mainMenuPanel, "card_mainMenu");
-		mainMenuPanel.setLayout(new MigLayout("", "[89px][89px][][][]", "[23px][][][][][][]"));
-				
-						lblMainMenu = new JLabel("MAIN MENU");
-						mainMenuPanel.add(lblMainMenu, "cell 4 0,alignx center,aligny center");
-				
-						btnNewButton = new JButton("Manager Menu");
-						
-								mainMenuPanel.add(btnNewButton, "cell 4 1,alignx center,aligny top");
-				
-						btnNewButton_1 = new JButton("Employee Menu");
-						
-								mainMenuPanel.add(btnNewButton_1, "cell 4 2,alignx center,aligny top");
-				
-						btnCreateManager = new JButton("Create Manager");
-						mainMenuPanel.add(btnCreateManager, "cell 4 4");
-				
-						btnQuitSystem = new JButton("Quit System");
-						mainMenuPanel
-								.add(btnQuitSystem, "cell 4 6,alignx center,aligny center");
+		mainMenuPanel.setLayout(new MigLayout("", "[500px][][500px]",
+				"[][][][20px][][20px][]"));
+
+		lblMainMenu = new JLabel("MAIN MENU");
+		mainMenuPanel.add(lblMainMenu, "cell 1 0,alignx center,aligny center");
+
+		btnNewButton = new JButton("Manager Menu");
+
+		mainMenuPanel.add(btnNewButton, "cell 1 1,growx,aligny top");
+
+		btnNewButton_1 = new JButton("Employee Menu");
+
+		mainMenuPanel.add(btnNewButton_1, "cell 1 2,growx,aligny top");
+
+		btnCreateManager = new JButton("Create Manager");
+		mainMenuPanel.add(btnCreateManager, "cell 1 4,growx");
+
+		btnQuitSystem = new JButton("Quit System");
+		btnQuitSystem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int reply = JOptionPane.showConfirmDialog(null,
+						"Are you sure you want to close?", "Close?",
+						JOptionPane.YES_NO_OPTION);
+				if (reply == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		mainMenuPanel.add(btnQuitSystem, "cell 1 6,growx,aligny center");
 	}
 }
