@@ -62,6 +62,7 @@ public class MainGUI extends JFrame {
 	private JLabel lblMainMenu;
 	private JButton btnCreateManager;
 	private JButton btnQuitSystem;
+	private JButton btnNewButton_2;
 
 	/**
 	 * Launch the application.
@@ -165,6 +166,7 @@ public class MainGUI extends JFrame {
 								+ "' has been created!", "Successful",
 								JOptionPane.INFORMATION_MESSAGE);
 
+						rootPane.setDefaultButton(null);
 						CardLayout cl = (CardLayout) contentPane.getLayout();
 						cl.show(contentPane, "card_mainMenu");
 					}
@@ -186,6 +188,19 @@ public class MainGUI extends JFrame {
 			}
 		});
 		createAdminPanel.add(clearButton, "cell 4 6,growx,aligny top");
+
+		btnNewButton_2 = new JButton("QUIT SYSTEM");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int reply = JOptionPane.showConfirmDialog(null,
+						"Are you sure you want to close?", "Close?",
+						JOptionPane.YES_NO_OPTION);
+				if (reply == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		createAdminPanel.add(btnNewButton_2, "cell 1 7 4 1,growx");
 
 		separator_1 = new JSeparator();
 		createAdminPanel.add(separator_1, "cell 0 8 7 1,grow");
