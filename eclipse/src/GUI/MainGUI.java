@@ -63,6 +63,22 @@ public class MainGUI extends JFrame {
 	private JButton btnCreateManager;
 	private JButton btnQuitSystem;
 	private JButton btnNewButton_2;
+	private JPanel managerMenuPanel;
+	private JPanel menuPanel;
+	private JPanel loginPanel;
+	private JLabel lblManagerMenu;
+	private JLabel lblUserName;
+	private JLabel lblPassword;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JButton btnCancel;
+	private JButton btnLogin;
+	private JLabel lblManagerMenu_1;
+	private JButton btnContractor;
+	private JButton btnEmployeeMenu;
+	private JButton btnDiscountMenu;
+	private JButton btnSetSalePrice;
+	private JButton btnBackToManager;
 
 	/**
 	 * Launch the application.
@@ -91,6 +107,82 @@ public class MainGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
+		
+		managerMenuPanel = new JPanel();
+		contentPane.add(managerMenuPanel, "name_5485913460753");
+		managerMenuPanel.setLayout(new BoxLayout(managerMenuPanel, BoxLayout.Y_AXIS));
+		
+		loginPanel = new JPanel();
+		managerMenuPanel.add(loginPanel);
+		loginPanel.setLayout(new MigLayout("", "[1000px][][][][1000px]", "[][][][]"));
+		
+		lblManagerMenu = new JLabel("MANAGER MENU");
+		loginPanel.add(lblManagerMenu, "cell 1 0 2 1,alignx center");
+		
+		lblUserName = new JLabel("USER NAME:");
+		loginPanel.add(lblUserName, "cell 1 1,alignx trailing");
+		
+		textField = new JTextField();
+		loginPanel.add(textField, "cell 2 1,alignx left");
+		textField.setColumns(10);
+		
+		lblPassword = new JLabel("PASSWORD:");
+		loginPanel.add(lblPassword, "cell 1 2,alignx trailing");
+		
+		textField_1 = new JTextField();
+		loginPanel.add(textField_1, "cell 2 2,alignx left");
+		textField_1.setColumns(10);
+		
+		btnCancel = new JButton("CANCEL");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CardLayout c1=(CardLayout) contentPane.getLayout();
+				c1.show(contentPane, "card_mainMenu");
+			}
+		});
+		loginPanel.add(btnCancel, "cell 1 3");
+		
+		btnLogin = new JButton("LOGIN");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				menuPanel.setVisible(true);
+				loginPanel.setVisible(false);
+			}
+		});
+		loginPanel.add(btnLogin, "cell 2 3");
+		
+		menuPanel = new JPanel();
+		menuPanel.setVisible(false);
+		managerMenuPanel.add(menuPanel);
+		menuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][]"));
+		
+		lblManagerMenu_1 = new JLabel("MANAGER MENU");
+		menuPanel.add(lblManagerMenu_1, "cell 1 0,alignx center");
+		
+		btnContractor = new JButton("CONTRACTOR MENU");
+		btnContractor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		menuPanel.add(btnContractor, "cell 1 1,growx");
+		
+		btnEmployeeMenu = new JButton("EMPLOYEE MENU");
+		menuPanel.add(btnEmployeeMenu, "cell 1 2,growx");
+		
+		btnDiscountMenu = new JButton("DISCOUNT MENU");
+		menuPanel.add(btnDiscountMenu, "cell 1 3,growx");
+		
+		btnSetSalePrice = new JButton("SET SALE PRICE");
+		menuPanel.add(btnSetSalePrice, "cell 1 4,growx");
+		
+		btnBackToManager = new JButton("BACK TO MANAGER MENU");
+		btnBackToManager.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				menuPanel.setVisible(false);
+				loginPanel.setVisible(true);
+			}
+		});
+		menuPanel.add(btnBackToManager, "cell 1 6,growx");
 
 		createAdminPanel = new JPanel();
 		contentPane.add(createAdminPanel, "card_createAdmin");
