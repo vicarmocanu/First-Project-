@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FindContractorGUI extends JFrame {
 
@@ -62,6 +64,11 @@ public class FindContractorGUI extends JFrame {
 		contentPane.add(textPane, "cell 1 2,grow");
 		
 		JButton btnCalcel = new JButton("CALCEL");
+		btnCalcel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		contentPane.add(btnCalcel, "cell 1 3,growx");
 	}
 

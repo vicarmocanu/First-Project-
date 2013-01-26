@@ -142,6 +142,7 @@ public class MainGUI extends JFrame {
 	private JSeparator separator_25;
 	private JSeparator separator_26;
 	private JSeparator separator_27;
+	private JLabel label_manager;
 
 	/**
 	 * Launch the application.
@@ -174,41 +175,45 @@ public class MainGUI extends JFrame {
 
 		createAdminPanel = new JPanel();
 		contentPane.add(createAdminPanel, "card_createAdminPanel");
-		createAdminPanel.setLayout(new MigLayout("",
-				"[308px][][7px][20px][][28px][311px]",
-				"[14px][4px][20px][][][20px][20px][23px][4px]"));
+		createAdminPanel.setLayout(new MigLayout("", "[308px][][7px][20px][][28px][311px]", "[][][][][][][][][][]"));
+		
+		label_manager = new JLabel("CREATE MANAGER");
+		label_manager.setVisible(false);
+		createAdminPanel.add(label_manager, "cell 1 0 4 1,alignx center,aligny bottom");
 
 		label = new JLabel("CREATE ADMIN");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
-		createAdminPanel.add(label, "cell 1 0 4 1,alignx center,aligny top");
+		createAdminPanel.add(label, "flowx,cell 1 1 4 1,alignx center,aligny top");
+		
+		
 
 		separator = new JSeparator();
-		createAdminPanel.add(separator, "cell 0 1 7 1,grow");
+		createAdminPanel.add(separator, "cell 0 2 7 1,grow");
 
 		label_1 = new JLabel("USER NAME:");
 		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		createAdminPanel.add(label_1, "cell 1 2,alignx right,aligny center");
+		createAdminPanel.add(label_1, "cell 1 3,alignx right,aligny center");
 
 		usernameField = new JTextField();
 		usernameField.setColumns(20);
-		createAdminPanel.add(usernameField, "cell 4 2,alignx left,aligny top");
+		createAdminPanel.add(usernameField, "cell 4 3,alignx left,aligny top");
 
 		label_2 = new JLabel("PASSWORD:");
 		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		createAdminPanel.add(label_2, "cell 1 3,alignx right,aligny center");
+		createAdminPanel.add(label_2, "cell 1 4,alignx right,aligny center");
 
 		passwordField = new JPasswordField();
 		passwordField.setColumns(20);
-		createAdminPanel.add(passwordField, "cell 4 3,alignx left,aligny top");
+		createAdminPanel.add(passwordField, "cell 4 4,alignx left,aligny top");
 
 		label_3 = new JLabel("REPEAT PASSWORD:");
 		label_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		createAdminPanel.add(label_3, "cell 1 4,alignx right,aligny center");
+		createAdminPanel.add(label_3, "cell 1 5,alignx right,aligny center");
 
 		repeatPasswordField = new JPasswordField();
 		repeatPasswordField.setColumns(20);
 		createAdminPanel.add(repeatPasswordField,
-				"cell 4 4,alignx left,aligny top");
+				"cell 4 5,alignx left,aligny top");
 
 		createButton = new JButton("CREATE");
 		createButton.addActionListener(new ActionListener() {
@@ -258,7 +263,7 @@ public class MainGUI extends JFrame {
 			}
 		});
 		createButton.setMnemonic(KeyEvent.VK_ENTER);
-		createAdminPanel.add(createButton, "cell 1 6,growx,aligny top");
+		createAdminPanel.add(createButton, "cell 1 7,growx,aligny top");
 		JRootPane rootPane = createAdminPanel.getRootPane();
 
 		clearButton = new JButton("CLEAR");
@@ -270,7 +275,7 @@ public class MainGUI extends JFrame {
 				repeatPasswordField.setText("");
 			}
 		});
-		createAdminPanel.add(clearButton, "cell 4 6,growx,aligny top");
+		createAdminPanel.add(clearButton, "cell 4 7,growx,aligny top");
 
 		quitSystemBtn__1 = new JButton("QUIT SYSTEM");
 		quitSystemBtn__1.addActionListener(new ActionListener() {
@@ -283,7 +288,7 @@ public class MainGUI extends JFrame {
 				}
 			}
 		});
-		createAdminPanel.add(quitSystemBtn__1, "cell 1 7,growx");
+		createAdminPanel.add(quitSystemBtn__1, "cell 1 8,growx");
 
 		btnCancel = new JButton("CANCEL");
 		btnCancel.setEnabled(false);
@@ -294,10 +299,10 @@ public class MainGUI extends JFrame {
 				cl.show(contentPane, "card_mainMenuPanel");
 			}
 		});
-		createAdminPanel.add(btnCancel, "cell 4 7,growx");
+		createAdminPanel.add(btnCancel, "cell 4 8,growx");
 
 		separator_1 = new JSeparator();
-		createAdminPanel.add(separator_1, "cell 0 8 7 1,grow");
+		createAdminPanel.add(separator_1, "cell 0 9 7 1,grow");
 
 		mainMenuPanel = new JPanel();
 		mainMenuPanel.setVisible(false);
@@ -336,6 +341,8 @@ public class MainGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				CardLayout cl = (CardLayout) contentPane.getLayout();
 				cl.show(contentPane, "card_createAdminPanel");
+				label.setVisible(false);
+				label_manager.setVisible(true);
 			}
 		});
 		
