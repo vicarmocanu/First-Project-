@@ -50,7 +50,7 @@ public class UpdateContractorGUI extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[][][grow][]", "[][][][grow][][][]"));
+		contentPane.setLayout(new MigLayout("", "[][][grow][]", "[][][][grow][][][][]"));
 		
 		JLabel lblNewLabel = new JLabel("UPDATE CONTRACTOR");
 		contentPane.add(lblNewLabel, "cell 2 0,alignx center");
@@ -107,6 +107,9 @@ public class UpdateContractorGUI extends JFrame {
 		JButton btnUpdatePhoneNr = new JButton("UPDATE");
 		btnUpdatePhoneNr.setEnabled(false);
 		contentPane.add(btnUpdatePhoneNr, "cell 3 6");
+		
+		JButton btnCancel = new JButton("CANCEL");
+		contentPane.add(btnCancel, "cell 2 7,growx");
 	}
 
 }
