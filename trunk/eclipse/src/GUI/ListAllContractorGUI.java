@@ -10,6 +10,7 @@ import net.miginfocom.swing.MigLayout;
 import java.awt.Window.Type;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import javax.swing.JButton;
 
 public class ListAllContractorGUI extends JFrame {
 
@@ -43,13 +44,16 @@ public class ListAllContractorGUI extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[grow]", "[][grow]"));
+		contentPane.setLayout(new MigLayout("", "[grow][]", "[][grow]"));
 		
 		JLabel lblListAllContractors = new JLabel("LIST ALL CONTRACTORS");
 		contentPane.add(lblListAllContractors, "cell 0 0");
 		
+		JButton btnCancel = new JButton("CANCEL");
+		contentPane.add(btnCancel, "cell 1 0");
+		
 		JTextArea textArea = new JTextArea();
-		contentPane.add(textArea, "cell 0 1,grow");
+		contentPane.add(textArea, "cell 0 1 2 1,grow");
 	}
 
 }

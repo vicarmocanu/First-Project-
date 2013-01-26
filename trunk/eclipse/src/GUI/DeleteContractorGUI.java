@@ -47,7 +47,7 @@ public class DeleteContractorGUI extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[][][grow][]", "[][][][grow][]"));
+		contentPane.setLayout(new MigLayout("", "[][][grow][]", "[][][][grow][][]"));
 		
 		JLabel lblDeleteContractor = new JLabel("DELETE CONTRACTOR");
 		contentPane.add(lblDeleteContractor, "cell 2 0,alignx center");
@@ -71,6 +71,9 @@ public class DeleteContractorGUI extends JFrame {
 		JButton btnDelete = new JButton("DELETE");
 		btnDelete.setEnabled(false);
 		contentPane.add(btnDelete, "cell 2 4,growx");
+		
+		JButton btnCancel = new JButton("CANCEL");
+		contentPane.add(btnCancel, "cell 2 5,growx");
 	}
 
 }
