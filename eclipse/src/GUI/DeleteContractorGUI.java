@@ -13,6 +13,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
 import javax.swing.JSeparator;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class DeleteContractorGUI extends JFrame {
 
@@ -42,7 +44,7 @@ public class DeleteContractorGUI extends JFrame {
 		setTitle("DELETE CONTRACTOR");
 		setResizable(false);
 		setType(Type.UTILITY);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 373, 225);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -73,6 +75,11 @@ public class DeleteContractorGUI extends JFrame {
 		contentPane.add(btnDelete, "cell 2 4,growx");
 		
 		JButton btnCancel = new JButton("CANCEL");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		contentPane.add(btnCancel, "cell 2 5,growx");
 	}
 

@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CreateEmployeeGUI extends JFrame {
 
@@ -43,10 +45,10 @@ public class CreateEmployeeGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public CreateEmployeeGUI() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("CREATE EMPLOYEE");
 		setType(Type.UTILITY);
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 260, 245);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -105,6 +107,12 @@ public class CreateEmployeeGUI extends JFrame {
 		contentPane.add(btnCreate, "cell 1 8,growx");
 		
 		JButton btnCancel = new JButton("CANCEL");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				
+			}
+		});
 		contentPane.add(btnCancel, "cell 2 8,growx");
 	}
 

@@ -39,7 +39,7 @@ public class MainGUI extends JFrame {
 
 	ManagerMenu managerMenu;
 	EmployeeMenu employeeMenu;
-
+		
 	boolean newAcc;
 	ArrayList<ArrayList<String>> userpass = new ArrayList<ArrayList<String>>();
 	int login = 0;
@@ -139,6 +139,9 @@ public class MainGUI extends JFrame {
 	private JButton btnSearch;
 	private JSeparator separator_24;
 	private JButton btnBackToEmployee_4;
+	private JSeparator separator_25;
+	private JSeparator separator_26;
+	private JSeparator separator_27;
 
 	/**
 	 * Launch the application.
@@ -299,8 +302,7 @@ public class MainGUI extends JFrame {
 		mainMenuPanel = new JPanel();
 		mainMenuPanel.setVisible(false);
 		contentPane.add(mainMenuPanel, "card_mainMenuPanel");
-		mainMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]",
-				"[][][][20px][][20px][]"));
+		mainMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][][]"));
 
 		lblMainMenu = new JLabel("MAIN MENU");
 		mainMenuPanel.add(lblMainMenu, "cell 1 0,alignx center,aligny center");
@@ -312,8 +314,11 @@ public class MainGUI extends JFrame {
 				cl.show(contentPane, "card_managerMenuPanel");
 			}
 		});
+		
+		separator_26 = new JSeparator();
+		mainMenuPanel.add(separator_26, "cell 0 1 3 1,growx");
 
-		mainMenuPanel.add(managerMenuBtn, "cell 1 1,growx,aligny top");
+		mainMenuPanel.add(managerMenuBtn, "cell 1 2,growx,aligny top");
 
 		employeeMenuBtn = new JButton("Employee Menu");
 		employeeMenuBtn.addActionListener(new ActionListener() {
@@ -324,7 +329,7 @@ public class MainGUI extends JFrame {
 			}
 		});
 
-		mainMenuPanel.add(employeeMenuBtn, "cell 1 2,growx,aligny top");
+		mainMenuPanel.add(employeeMenuBtn, "cell 1 3,growx,aligny top");
 
 		createManagerBtn = new JButton("Create Manager");
 		createManagerBtn.addActionListener(new ActionListener() {
@@ -333,7 +338,10 @@ public class MainGUI extends JFrame {
 				cl.show(contentPane, "card_createAdminPanel");
 			}
 		});
-		mainMenuPanel.add(createManagerBtn, "cell 1 4,growx");
+		
+		separator_27 = new JSeparator();
+		mainMenuPanel.add(separator_27, "cell 0 4 3 1,growx");
+		mainMenuPanel.add(createManagerBtn, "cell 1 5,growx");
 
 		quitSystemBtn = new JButton("Quit System");
 		quitSystemBtn.addActionListener(new ActionListener() {
@@ -346,7 +354,10 @@ public class MainGUI extends JFrame {
 				}
 			}
 		});
-		mainMenuPanel.add(quitSystemBtn, "cell 1 6,growx,aligny center");
+		
+		separator_25 = new JSeparator();
+		mainMenuPanel.add(separator_25, "cell 0 6 3 1,growx");
+		mainMenuPanel.add(quitSystemBtn, "cell 1 7,growx,aligny center");
 
 		JPanel managerMenuPanel = new JPanel();
 		contentPane.add(managerMenuPanel, "card_managerMenuPanel");
@@ -547,8 +558,8 @@ public class MainGUI extends JFrame {
 		JButton button = new JButton("CREATE");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CreateEmployeeGUI frame2 = new CreateEmployeeGUI();
-				frame2.setVisible(true);
+				CreateEmployeeGUI  createEmployeeGUI= new CreateEmployeeGUI();
+				createEmployeeGUI.setVisible(true);
 			}
 		});
 		employeeControlMenuPanel.add(button, "cell 1 2,growx,aligny top");
