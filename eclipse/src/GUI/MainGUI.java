@@ -101,6 +101,44 @@ public class MainGUI extends JFrame {
 	private JButton btnLeaseControlMenu;
 	private JSeparator separator_11;
 	private JButton btnBackToManager_1;
+	private JPanel e_customerControlMenuPanel;
+	private JLabel lblCustomerControlMenu;
+	private JSeparator separator_12;
+	private JButton btnNewButton_1;
+	private JButton btnNewButton_2;
+	private JButton btnNewButton_4;
+	private JButton btnNewButton_5;
+	private JButton btnNewButton_6;
+	private JSeparator separator_15;
+	private JButton btnBackToEmployee_1;
+	private JPanel e_productControlMenuPanel;
+	private JLabel lblProductControlMenu;
+	private JSeparator separator_19;
+	private JButton btnNewButton_7;
+	private JButton btnNewButton_8;
+	private JButton btnNewButton_9;
+	private JButton btnNewButton_10;
+	private JButton btnNewButton_11;
+	private JSeparator separator_20;
+	private JButton btnBackToEmployee_2;
+	private JPanel e_orderControlMenuPanel;
+	private JLabel lblOrderControlMenu;
+	private JSeparator separator_21;
+	private JButton btnAddProductsTo;
+	private JButton btnNewButton_12;
+	private JButton btnSearchOrder;
+	private JSeparator separator_22;
+	private JButton btnBackToEmployee_3;
+	private JPanel e_leaseControlMenuPanel;
+	private JLabel lblLeaseControlMenu;
+	private JSeparator separator_23;
+	private JButton btnAdd;
+	private JButton btnChangeStatus;
+	private JButton btnMakeLease;
+	private JButton btnReturnProduct;
+	private JButton btnSearch;
+	private JSeparator separator_24;
+	private JButton btnBackToEmployee_4;
 
 	/**
 	 * Launch the application.
@@ -556,26 +594,201 @@ public class MainGUI extends JFrame {
 		btnCustomerControlMenu = new JButton("CUSTOMER CONTROL MENU");
 		btnCustomerControlMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				CardLayout cl = (CardLayout) contentPane.getLayout();
+				cl.show(contentPane, "card_e_customerControlMenuPanel");
 			}
 		});
 		employeeMenuPanel.add(btnCustomerControlMenu, "cell 1 2,growx");
 		
 		btnNewButton = new JButton("SALE CONTROL MENU");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		employeeMenuPanel.add(btnNewButton, "cell 1 3,growx");
 		
 		btnProductControlMenu = new JButton("PRODUCT CONTROL MENU");
+		btnProductControlMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CardLayout cl = (CardLayout) contentPane.getLayout();
+				cl.show(contentPane, "card_e_productControlMenuPanel");
+			}
+		});
 		employeeMenuPanel.add(btnProductControlMenu, "cell 1 4,growx");
 		
 		btnOrderControlMenu = new JButton("ORDER CONTROL MENU");
+		btnOrderControlMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CardLayout cl = (CardLayout) contentPane.getLayout();
+				cl.show(contentPane, "card_e_orderControlMenuPanel");
+			}
+		});
 		employeeMenuPanel.add(btnOrderControlMenu, "cell 1 5,growx");
 		
 		btnLeaseControlMenu = new JButton("LEASE CONTROL MENU");
+		btnLeaseControlMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CardLayout cl = (CardLayout) contentPane.getLayout();
+				cl.show(contentPane, "card_e_leaseControlMenuPanel");
+			}
+		});
 		employeeMenuPanel.add(btnLeaseControlMenu, "cell 1 6,growx");
 		
 		separator_11 = new JSeparator();
 		employeeMenuPanel.add(separator_11, "cell 0 7 3 1,growx");
 		
-		btnBackToManager_1 = new JButton("BACK TO MANAGER MENU");
+		btnBackToManager_1 = new JButton("BACK TO MAIN MENU");
+		btnBackToManager_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CardLayout cl = (CardLayout) contentPane.getLayout();
+				cl.show(contentPane, "card_mainMenuPanel");
+				
+			}
+		});
 		employeeMenuPanel.add(btnBackToManager_1, "cell 1 8,growx");
+		
+		e_customerControlMenuPanel = new JPanel();
+		contentPane.add(e_customerControlMenuPanel, "card_e_customerControlMenuPanel");
+		e_customerControlMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][][][]"));
+		
+		lblCustomerControlMenu = new JLabel("CUSTOMER CONTROL MENU");
+		e_customerControlMenuPanel.add(lblCustomerControlMenu, "cell 1 0,alignx center");
+		
+		separator_12 = new JSeparator();
+		e_customerControlMenuPanel.add(separator_12, "cell 0 1 3 1,growx");
+		
+		btnNewButton_1 = new JButton("CREATE");
+		e_customerControlMenuPanel.add(btnNewButton_1, "cell 1 2,growx");
+		
+		btnNewButton_2 = new JButton("UPDATE");
+		e_customerControlMenuPanel.add(btnNewButton_2, "cell 1 3,growx");
+		
+		btnNewButton_4 = new JButton("DELETE");
+		e_customerControlMenuPanel.add(btnNewButton_4, "cell 1 4,growx");
+		
+		btnNewButton_5 = new JButton("LIST ALL");
+		e_customerControlMenuPanel.add(btnNewButton_5, "cell 1 5,growx");
+		
+		btnNewButton_6 = new JButton("FIND CUSTOMER");
+		e_customerControlMenuPanel.add(btnNewButton_6, "cell 1 6,growx");
+		
+		separator_15 = new JSeparator();
+		e_customerControlMenuPanel.add(separator_15, "cell 0 7 3 1,growx");
+		
+		btnBackToEmployee_1 = new JButton("BACK TO EMPLOYEE MENU");
+		btnBackToEmployee_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CardLayout cl = (CardLayout) contentPane.getLayout();
+				cl.show(contentPane, "card_employeeMenuPanel");
+			}
+		});
+		e_customerControlMenuPanel.add(btnBackToEmployee_1, "cell 1 8,growx");
+		
+		e_productControlMenuPanel = new JPanel();
+		contentPane.add(e_productControlMenuPanel, "card_e_productControlMenuPanel");
+		e_productControlMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][][][]"));
+		
+		lblProductControlMenu = new JLabel("PRODUCT CONTROL MENU");
+		e_productControlMenuPanel.add(lblProductControlMenu, "cell 1 0,alignx center");
+		
+		separator_19 = new JSeparator();
+		e_productControlMenuPanel.add(separator_19, "cell 0 1 3 1,growx");
+		
+		btnNewButton_7 = new JButton("ADD");
+		e_productControlMenuPanel.add(btnNewButton_7, "cell 1 2,growx");
+		
+		btnNewButton_8 = new JButton("UPDATE");
+		e_productControlMenuPanel.add(btnNewButton_8, "cell 1 3,growx");
+		
+		btnNewButton_9 = new JButton("DELETE");
+		e_productControlMenuPanel.add(btnNewButton_9, "cell 1 4,growx");
+		
+		btnNewButton_10 = new JButton("LIST ALL");
+		e_productControlMenuPanel.add(btnNewButton_10, "cell 1 5,growx");
+		
+		btnNewButton_11 = new JButton("SEARCH PRODUCT");
+		e_productControlMenuPanel.add(btnNewButton_11, "cell 1 6,growx");
+		
+		separator_20 = new JSeparator();
+		e_productControlMenuPanel.add(separator_20, "cell 0 7 3 1,growx");
+		
+		btnBackToEmployee_2 = new JButton("BACK TO EMPLOYEE MENU");
+		btnBackToEmployee_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 
+				CardLayout cl = (CardLayout) contentPane.getLayout();
+				cl.show(contentPane, "card_employeeMenuPanel");
+			}
+		});
+		e_productControlMenuPanel.add(btnBackToEmployee_2, "cell 1 8,growx");
+		
+		e_orderControlMenuPanel = new JPanel();
+		contentPane.add(e_orderControlMenuPanel, "card_e_orderControlMenuPanel");
+		e_orderControlMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][]"));
+		
+		lblOrderControlMenu = new JLabel("ORDER CONTROL MENU");
+		e_orderControlMenuPanel.add(lblOrderControlMenu, "cell 1 0,alignx center");
+		
+		separator_21 = new JSeparator();
+		e_orderControlMenuPanel.add(separator_21, "cell 0 1 3 1,growx");
+		
+		btnAddProductsTo = new JButton("ADD PRODUCTS TO ORDER");
+		e_orderControlMenuPanel.add(btnAddProductsTo, "cell 1 2,growx");
+		
+		btnNewButton_12 = new JButton("LIST ALL ORDERS");
+		e_orderControlMenuPanel.add(btnNewButton_12, "cell 1 3,growx");
+		
+		btnSearchOrder = new JButton("SEARCH ORDER");
+		e_orderControlMenuPanel.add(btnSearchOrder, "cell 1 4,growx");
+		
+		separator_22 = new JSeparator();
+		e_orderControlMenuPanel.add(separator_22, "cell 0 5 3 1,growx");
+		
+		btnBackToEmployee_3 = new JButton("BACK TO EMPLOYEE MENU");
+		btnBackToEmployee_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CardLayout cl = (CardLayout) contentPane.getLayout();
+				cl.show(contentPane, "card_employeeMenuPanel");
+			}
+		});
+		e_orderControlMenuPanel.add(btnBackToEmployee_3, "cell 1 6,growx");
+		
+		e_leaseControlMenuPanel = new JPanel();
+		contentPane.add(e_leaseControlMenuPanel, "card_e_leaseControlMenuPanel");
+		e_leaseControlMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][][][]"));
+		
+		lblLeaseControlMenu = new JLabel("LEASE CONTROL MENU");
+		e_leaseControlMenuPanel.add(lblLeaseControlMenu, "cell 1 0,alignx center");
+		
+		separator_23 = new JSeparator();
+		e_leaseControlMenuPanel.add(separator_23, "cell 0 1 3 1,growx");
+		
+		btnMakeLease = new JButton("MAKE LEASE");
+		e_leaseControlMenuPanel.add(btnMakeLease, "cell 1 2,growx");
+		
+		btnAdd = new JButton("ADD PRODUCTS ");
+		e_leaseControlMenuPanel.add(btnAdd, "cell 1 3,growx");
+		
+		btnChangeStatus = new JButton("CHANGE STATUS");
+		e_leaseControlMenuPanel.add(btnChangeStatus, "cell 1 4,growx");
+		
+		btnReturnProduct = new JButton("RETURN PRODUCT");
+		e_leaseControlMenuPanel.add(btnReturnProduct, "cell 1 5,growx");
+		
+		btnSearch = new JButton("SEARCH LEASE");
+		e_leaseControlMenuPanel.add(btnSearch, "cell 1 6,growx");
+		
+		separator_24 = new JSeparator();
+		e_leaseControlMenuPanel.add(separator_24, "cell 0 7 3 1,growx");
+		
+		btnBackToEmployee_4 = new JButton("BACK TO EMPLOYEE MENU");
+		btnBackToEmployee_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CardLayout cl = (CardLayout) contentPane.getLayout();
+				cl.show(contentPane, "card_employeeMenuPanel");
+			}
+		});
+		e_leaseControlMenuPanel.add(btnBackToEmployee_4, "cell 1 8");
 	}
 }
