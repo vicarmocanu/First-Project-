@@ -7,21 +7,19 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
-import java.awt.Window.Type;
 import javax.swing.JLabel;
+import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JSeparator;
+import java.awt.Window.Type;
 
-public class CreateEmployeeGUI extends JFrame {
+public class CreateContractorGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField nameField;
 	private JTextField idField;
 	private JTextField addressField;
 	private JTextField telNrField;
-	private JTextField positionField;
-	private JTextField salaryField;
 
 	/**
 	 * Launch the application.
@@ -30,7 +28,7 @@ public class CreateEmployeeGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CreateEmployeeGUI frame = new CreateEmployeeGUI();
+					CreateContractorGUI frame = new CreateContractorGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,70 +40,56 @@ public class CreateEmployeeGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CreateEmployeeGUI() {
-		setTitle("CREATE EMPLOYEE");
-		setType(Type.UTILITY);
+	public CreateContractorGUI() {
+		setTitle("CREATE CONTRACTOR");
 		setResizable(false);
+		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 260, 245);
+		setBounds(100, 100, 256, 210);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[][][100px][]", "[][][][][][][][][][]"));
+		contentPane.setLayout(new MigLayout("", "[][][][]", "[][][][][][][]"));
 		
-		JLabel lblCreateEmployee = new JLabel("CREATE EMPLOYEE");
-		contentPane.add(lblCreateEmployee, "cell 1 0 2 1,alignx center");
+		JLabel lblCreateContractor = new JLabel("CREATE CONTRACTOR");
+		contentPane.add(lblCreateContractor, "cell 1 0 2 1,alignx center");
 		
 		JSeparator separator = new JSeparator();
 		contentPane.add(separator, "cell 0 1 4 1,growx");
 		
 		JLabel lblName = new JLabel("NAME:");
-		contentPane.add(lblName, "cell 1 2,alignx left");
+		contentPane.add(lblName, "cell 1 2,alignx trailing");
 		
 		nameField = new JTextField();
 		contentPane.add(nameField, "cell 2 2,growx");
 		nameField.setColumns(10);
 		
 		JLabel lblId = new JLabel("ID:");
-		contentPane.add(lblId, "cell 1 3,alignx left");
+		contentPane.add(lblId, "cell 1 3,alignx trailing");
 		
 		idField = new JTextField();
 		contentPane.add(idField, "cell 2 3,growx");
 		idField.setColumns(10);
 		
 		JLabel lblAddress = new JLabel("ADDRESS:");
-		contentPane.add(lblAddress, "cell 1 4,alignx left");
+		contentPane.add(lblAddress, "cell 1 4,alignx trailing");
 		
 		addressField = new JTextField();
 		contentPane.add(addressField, "cell 2 4,growx");
 		addressField.setColumns(10);
 		
 		JLabel lblTelNr = new JLabel("TEL NR:");
-		contentPane.add(lblTelNr, "cell 1 5,alignx left");
+		contentPane.add(lblTelNr, "cell 1 5,alignx trailing");
 		
 		telNrField = new JTextField();
 		contentPane.add(telNrField, "cell 2 5,growx");
 		telNrField.setColumns(10);
 		
-		JLabel lblPosition = new JLabel("POSITION:");
-		contentPane.add(lblPosition, "cell 1 6,alignx left");
-		
-		positionField = new JTextField();
-		contentPane.add(positionField, "cell 2 6,growx");
-		positionField.setColumns(10);
-		
-		JLabel lblSalary = new JLabel("SALARY:");
-		contentPane.add(lblSalary, "cell 1 7,alignx left");
-		
-		salaryField = new JTextField();
-		contentPane.add(salaryField, "cell 2 7,growx");
-		salaryField.setColumns(10);
-		
 		JButton btnCreate = new JButton("CREATE");
-		contentPane.add(btnCreate, "cell 1 8,growx");
+		contentPane.add(btnCreate, "cell 1 6");
 		
 		JButton btnCancel = new JButton("CANCEL");
-		contentPane.add(btnCancel, "cell 2 8,growx");
+		contentPane.add(btnCancel, "cell 2 6,growx");
 	}
 
 }
