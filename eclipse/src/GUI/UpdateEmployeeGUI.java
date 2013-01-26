@@ -47,7 +47,7 @@ public class UpdateEmployeeGUI extends JFrame {
 	 */
 	public UpdateEmployeeGUI() {
 		setResizable(false);
-		setTitle("UPDATE CONTRACTOR");
+		setTitle("UPDATE EMPLOYEE");
 		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 403, 328);
@@ -56,7 +56,7 @@ public class UpdateEmployeeGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[][][grow][]", "[][][][grow][][][][][][]"));
 		
-		JLabel lblNewLabel = new JLabel("UPDATE CONTRACTOR");
+		JLabel lblNewLabel = new JLabel("UPDATE EMPLOYEE");
 		contentPane.add(lblNewLabel, "cell 2 0,alignx center");
 		
 		JSeparator separator = new JSeparator();

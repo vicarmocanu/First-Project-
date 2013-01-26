@@ -14,7 +14,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class ListAllEmployeeGUI extends JFrame {
+public class ListAllDiscountGUI extends JFrame {
 
 	private JPanel contentPane;
 
@@ -25,7 +25,7 @@ public class ListAllEmployeeGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ListAllEmployeeGUI frame = new ListAllEmployeeGUI();
+					ListAllDiscountGUI frame = new ListAllDiscountGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,8 +37,8 @@ public class ListAllEmployeeGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ListAllEmployeeGUI() {
-		setTitle("LIST ALL CATEGORIES");
+	public ListAllDiscountGUI() {
+		setTitle("LIST ALL EMPLOYEES");
 		setResizable(false);
 		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -48,7 +48,7 @@ public class ListAllEmployeeGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[grow][]", "[][grow]"));
 		
-		JLabel lblListAllContractors = new JLabel("LIST ALL DISCOUNT CATEGORIES");
+		JLabel lblListAllContractors = new JLabel("LIST ALL EMPLOYEES");
 		contentPane.add(lblListAllContractors, "cell 0 0");
 		
 		JButton btnCancel = new JButton("CANCEL");
