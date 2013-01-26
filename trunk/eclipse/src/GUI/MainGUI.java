@@ -603,18 +603,42 @@ public class MainGUI extends JFrame {
 		employeeControlMenuPanel.add(button, "cell 1 2,growx,aligny top");
 
 		JButton button_1 = new JButton("UPDATE");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				UpdateEmployeeGUI  updateEmployeeGUI= new UpdateEmployeeGUI();
+				updateEmployeeGUI.setVisible(true);
+			}
+		});
 		employeeControlMenuPanel.add(button_1, "cell 1 3,growx,aligny top");
 
 		JButton button_2 = new JButton("DELETE");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DeleteEmployeeGUI  deleteEmployeeGUI= new DeleteEmployeeGUI();
+				deleteEmployeeGUI.setVisible(true);
+			}
+		});
 		employeeControlMenuPanel.add(button_2, "cell 1 4,growx,aligny top");
 
 		JSeparator separator_6 = new JSeparator();
 		employeeControlMenuPanel.add(separator_6, "cell 0 5 3 1,growx");
 
 		JButton button_3 = new JButton("LIST ALL");
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListAllEmployeeGUI  listAllEmployeeGUI= new ListAllEmployeeGUI();
+				listAllEmployeeGUI.setVisible(true);
+			}
+		});
 		employeeControlMenuPanel.add(button_3, "cell 1 6,growx,aligny top");
 
 		JButton button_4 = new JButton("FIND EMPLOYEE");
+		button_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FindEmployeeGUI  findEmployeeGUI= new FindEmployeeGUI();
+				findEmployeeGUI.setVisible(true);
+			}
+		});
 		employeeControlMenuPanel.add(button_4, "cell 1 7,growx,aligny top");
 
 		JSeparator separator_7 = new JSeparator();

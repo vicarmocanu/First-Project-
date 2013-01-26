@@ -40,16 +40,17 @@ public class FindEmployeeGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public FindEmployeeGUI() {
+		setResizable(false);
 		setTitle("FIND EMPLOYEE");
 		setType(Type.UTILITY);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[][grow][]", "[][][grow][]"));
 		
-		JLabel lblFindContractor = new JLabel("FIND CONTRACTOR");
+		JLabel lblFindContractor = new JLabel("FIND EMPLOYEE");
 		contentPane.add(lblFindContractor, "cell 1 0,alignx center");
 		
 		JLabel lblSearchName = new JLabel("SEARCH NAME:");
