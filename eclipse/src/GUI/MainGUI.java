@@ -91,6 +91,16 @@ public class MainGUI extends JFrame {
 	private JButton btnCancel;
 	private JSeparator separator_13;
 	private JSeparator separator_14;
+	private JPanel employeeMenuPanel;
+	private JLabel lblEmployeeMenu;
+	private JSeparator separator_10;
+	private JButton btnCustomerControlMenu;
+	private JButton btnNewButton;
+	private JButton btnProductControlMenu;
+	private JButton btnOrderControlMenu;
+	private JButton btnLeaseControlMenu;
+	private JSeparator separator_11;
+	private JButton btnBackToManager_1;
 
 	/**
 	 * Launch the application.
@@ -270,6 +280,8 @@ public class MainGUI extends JFrame {
 		employeeMenuBtn = new JButton("Employee Menu");
 		employeeMenuBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				CardLayout cl = (CardLayout) contentPane.getLayout();
+				cl.show(contentPane, "card_employeeMenuPanel");
 
 			}
 		});
@@ -530,5 +542,40 @@ public class MainGUI extends JFrame {
 		});
 		employeeControlMenuPanel.add(button_5,
 				"cell 1 9,alignx left,aligny top");
+		
+		employeeMenuPanel = new JPanel();
+		contentPane.add(employeeMenuPanel, "card_employeeMenuPanel");
+		employeeMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][][][]"));
+		
+		lblEmployeeMenu = new JLabel("EMPLOYEE MENU");
+		employeeMenuPanel.add(lblEmployeeMenu, "cell 1 0,alignx center");
+		
+		separator_10 = new JSeparator();
+		employeeMenuPanel.add(separator_10, "cell 0 1 3 1,growx");
+		
+		btnCustomerControlMenu = new JButton("CUSTOMER CONTROL MENU");
+		btnCustomerControlMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		employeeMenuPanel.add(btnCustomerControlMenu, "cell 1 2,growx");
+		
+		btnNewButton = new JButton("SALE CONTROL MENU");
+		employeeMenuPanel.add(btnNewButton, "cell 1 3,growx");
+		
+		btnProductControlMenu = new JButton("PRODUCT CONTROL MENU");
+		employeeMenuPanel.add(btnProductControlMenu, "cell 1 4,growx");
+		
+		btnOrderControlMenu = new JButton("ORDER CONTROL MENU");
+		employeeMenuPanel.add(btnOrderControlMenu, "cell 1 5,growx");
+		
+		btnLeaseControlMenu = new JButton("LEASE CONTROL MENU");
+		employeeMenuPanel.add(btnLeaseControlMenu, "cell 1 6,growx");
+		
+		separator_11 = new JSeparator();
+		employeeMenuPanel.add(separator_11, "cell 0 7 3 1,growx");
+		
+		btnBackToManager_1 = new JButton("BACK TO MANAGER MENU");
+		employeeMenuPanel.add(btnBackToManager_1, "cell 1 8,growx");
 	}
 }
