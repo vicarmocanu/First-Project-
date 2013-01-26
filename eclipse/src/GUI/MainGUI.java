@@ -39,7 +39,7 @@ public class MainGUI extends JFrame {
 
 	ManagerMenu managerMenu;
 	EmployeeMenu employeeMenu;
-		
+
 	boolean newAcc;
 	ArrayList<ArrayList<String>> userpass = new ArrayList<ArrayList<String>>();
 	int login = 0;
@@ -152,7 +152,7 @@ public class MainGUI extends JFrame {
 			public void run() {
 				try {
 					MainGUI frame = new MainGUI();
-					
+
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -175,17 +175,18 @@ public class MainGUI extends JFrame {
 
 		createAdminPanel = new JPanel();
 		contentPane.add(createAdminPanel, "card_createAdminPanel");
-		createAdminPanel.setLayout(new MigLayout("", "[308px][][7px][20px][][28px][311px]", "[][][][][][][][][][]"));
-		
+		createAdminPanel.setLayout(new MigLayout("",
+				"[308px][][7px][20px][][28px][311px]", "[][][][][][][][][][]"));
+
 		label_manager = new JLabel("CREATE MANAGER");
 		label_manager.setVisible(false);
-		createAdminPanel.add(label_manager, "cell 1 0 4 1,alignx center,aligny bottom");
+		createAdminPanel.add(label_manager,
+				"cell 1 0 4 1,alignx center,aligny bottom");
 
 		label = new JLabel("CREATE ADMIN");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
-		createAdminPanel.add(label, "flowx,cell 1 1 4 1,alignx center,aligny top");
-		
-		
+		createAdminPanel.add(label,
+				"flowx,cell 1 1 4 1,alignx center,aligny top");
 
 		separator = new JSeparator();
 		createAdminPanel.add(separator, "cell 0 2 7 1,grow");
@@ -269,7 +270,7 @@ public class MainGUI extends JFrame {
 		clearButton = new JButton("CLEAR");
 		clearButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				usernameField.setText("");
 				passwordField.setText("");
 				repeatPasswordField.setText("");
@@ -307,7 +308,8 @@ public class MainGUI extends JFrame {
 		mainMenuPanel = new JPanel();
 		mainMenuPanel.setVisible(false);
 		contentPane.add(mainMenuPanel, "card_mainMenuPanel");
-		mainMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][][]"));
+		mainMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]",
+				"[][][][][][][][]"));
 
 		lblMainMenu = new JLabel("MAIN MENU");
 		mainMenuPanel.add(lblMainMenu, "cell 1 0,alignx center,aligny center");
@@ -319,7 +321,7 @@ public class MainGUI extends JFrame {
 				cl.show(contentPane, "card_managerMenuPanel");
 			}
 		});
-		
+
 		separator_26 = new JSeparator();
 		mainMenuPanel.add(separator_26, "cell 0 1 3 1,growx");
 
@@ -345,7 +347,7 @@ public class MainGUI extends JFrame {
 				label_manager.setVisible(true);
 			}
 		});
-		
+
 		separator_27 = new JSeparator();
 		mainMenuPanel.add(separator_27, "cell 0 4 3 1,growx");
 		mainMenuPanel.add(createManagerBtn, "cell 1 5,growx");
@@ -361,7 +363,7 @@ public class MainGUI extends JFrame {
 				}
 			}
 		});
-		
+
 		separator_25 = new JSeparator();
 		mainMenuPanel.add(separator_25, "cell 0 6 3 1,growx");
 		mainMenuPanel.add(quitSystemBtn, "cell 1 7,growx,aligny center");
@@ -373,11 +375,12 @@ public class MainGUI extends JFrame {
 
 		final JPanel loginPanel = new JPanel();
 		managerMenuPanel.add(loginPanel);
-		loginPanel.setLayout(new MigLayout("", "[1000px][][][1000px]", "[][][][][][]"));
+		loginPanel.setLayout(new MigLayout("", "[1000px][][][1000px]",
+				"[][][][][][]"));
 
 		JLabel lblLogin = new JLabel("LOGIN");
 		loginPanel.add(lblLogin, "cell 1 0 2 1,alignx center");
-		
+
 		separator_13 = new JSeparator();
 		loginPanel.add(separator_13, "cell 0 1 4 1,growx");
 
@@ -410,7 +413,7 @@ public class MainGUI extends JFrame {
 			}
 		});
 		loginPanel.add(btnLogin, "cell 1 4");
-		
+
 		separator_14 = new JSeparator();
 		loginPanel.add(separator_14, "cell 0 5 4 1,growx");
 		JLabel lblManagerMenu = new JLabel("MANAGER MENU");
@@ -509,7 +512,8 @@ public class MainGUI extends JFrame {
 		contractorControlMenuPanel = new JPanel();
 		contentPane.add(contractorControlMenuPanel,
 				"card_conctactorControlMenuPanel");
-		contractorControlMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][][][][][][][][][]"));
+		contractorControlMenuPanel.setLayout(new MigLayout("",
+				"[1000px][][1000px]", "[][][][][][][][][][][][][][][]"));
 
 		lblContractorControlMenu = new JLabel("CONTRACTOR CONTROL MENU");
 		contractorControlMenuPanel.add(lblContractorControlMenu,
@@ -517,67 +521,67 @@ public class MainGUI extends JFrame {
 
 		separator_2 = new JSeparator();
 		contractorControlMenuPanel.add(separator_2, "cell 0 1 3 1,growx");
-		
-				btnCreate = new JButton("CREATE");
-				btnCreate.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						CreateContractorGUI  createContractorGUI= new CreateContractorGUI();
-						createContractorGUI.setVisible(true);
-					}
-				});
-				contractorControlMenuPanel.add(btnCreate, "cell 1 2,grow");
-		
-				btnUpdate = new JButton("UPDATE");
-				btnUpdate.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						UpdateContractorGUI  updateContractorGUI= new UpdateContractorGUI();
-						updateContractorGUI.setVisible(true);
-					}
-				});
-				contractorControlMenuPanel.add(btnUpdate, "cell 1 3,grow");
-		
-				btnDelete = new JButton("DELETE");
-				btnDelete.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						DeleteContractorGUI  deleteContractorGUI= new DeleteContractorGUI();
-						deleteContractorGUI.setVisible(true);
-						
-					}
-				});
-				contractorControlMenuPanel.add(btnDelete, "cell 1 4,grow");
-		
-				separator_3 = new JSeparator();
-				contractorControlMenuPanel.add(separator_3, "cell 0 5 3 1,grow");
-		
-				btnListAll = new JButton("LIST ALL");
-				btnListAll.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						ListAllContractorGUI  ListAllContractorGUI= new ListAllContractorGUI();
-						ListAllContractorGUI.setVisible(true);
-					}
-				});
-				contractorControlMenuPanel.add(btnListAll, "cell 1 6,growx");
-		
-				btnFindContractor = new JButton("FIND CONTRACTOR");
-				btnFindContractor.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						FindContractorGUI  findContractorGUI= new FindContractorGUI();
-						findContractorGUI.setVisible(true);
-					}
-				});
-				contractorControlMenuPanel.add(btnFindContractor, "cell 1 7,growx");
-		
-				separator_4 = new JSeparator();
-				contractorControlMenuPanel.add(separator_4, "cell 0 8 3 1,grow");
-		
-				btnBackToManager = new JButton("BACK TO MANAGER MENU");
-				btnBackToManager.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						CardLayout cl = (CardLayout) contentPane.getLayout();
-						cl.show(contentPane, "card_managerMenuPanel");
-					}
-				});
-				contractorControlMenuPanel.add(btnBackToManager, "cell 1 9,growx");
+
+		btnCreate = new JButton("CREATE");
+		btnCreate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CreateContractorGUI createContractorGUI = new CreateContractorGUI();
+				createContractorGUI.setVisible(true);
+			}
+		});
+		contractorControlMenuPanel.add(btnCreate, "cell 1 2,grow");
+
+		btnUpdate = new JButton("UPDATE");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UpdateContractorGUI updateContractorGUI = new UpdateContractorGUI();
+				updateContractorGUI.setVisible(true);
+			}
+		});
+		contractorControlMenuPanel.add(btnUpdate, "cell 1 3,grow");
+
+		btnDelete = new JButton("DELETE");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DeleteContractorGUI deleteContractorGUI = new DeleteContractorGUI();
+				deleteContractorGUI.setVisible(true);
+
+			}
+		});
+		contractorControlMenuPanel.add(btnDelete, "cell 1 4,grow");
+
+		separator_3 = new JSeparator();
+		contractorControlMenuPanel.add(separator_3, "cell 0 5 3 1,grow");
+
+		btnListAll = new JButton("LIST ALL");
+		btnListAll.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListAllContractorGUI ListAllContractorGUI = new ListAllContractorGUI();
+				ListAllContractorGUI.setVisible(true);
+			}
+		});
+		contractorControlMenuPanel.add(btnListAll, "cell 1 6,growx");
+
+		btnFindContractor = new JButton("FIND CONTRACTOR");
+		btnFindContractor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FindContractorGUI findContractorGUI = new FindContractorGUI();
+				findContractorGUI.setVisible(true);
+			}
+		});
+		contractorControlMenuPanel.add(btnFindContractor, "cell 1 7,growx");
+
+		separator_4 = new JSeparator();
+		contractorControlMenuPanel.add(separator_4, "cell 0 8 3 1,grow");
+
+		btnBackToManager = new JButton("BACK TO MANAGER MENU");
+		btnBackToManager.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CardLayout cl = (CardLayout) contentPane.getLayout();
+				cl.show(contentPane, "card_managerMenuPanel");
+			}
+		});
+		contractorControlMenuPanel.add(btnBackToManager, "cell 1 9,growx");
 
 		employeeControlMenuPanel = new JPanel();
 		contentPane.add(employeeControlMenuPanel,
@@ -596,7 +600,7 @@ public class MainGUI extends JFrame {
 		JButton button = new JButton("CREATE");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CreateEmployeeGUI  createEmployeeGUI= new CreateEmployeeGUI();
+				CreateEmployeeGUI createEmployeeGUI = new CreateEmployeeGUI();
 				createEmployeeGUI.setVisible(true);
 			}
 		});
@@ -605,7 +609,7 @@ public class MainGUI extends JFrame {
 		JButton button_1 = new JButton("UPDATE");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				UpdateEmployeeGUI  updateEmployeeGUI= new UpdateEmployeeGUI();
+				UpdateEmployeeGUI updateEmployeeGUI = new UpdateEmployeeGUI();
 				updateEmployeeGUI.setVisible(true);
 			}
 		});
@@ -614,7 +618,7 @@ public class MainGUI extends JFrame {
 		JButton button_2 = new JButton("DELETE");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DeleteEmployeeGUI  deleteEmployeeGUI= new DeleteEmployeeGUI();
+				DeleteEmployeeGUI deleteEmployeeGUI = new DeleteEmployeeGUI();
 				deleteEmployeeGUI.setVisible(true);
 			}
 		});
@@ -626,7 +630,7 @@ public class MainGUI extends JFrame {
 		JButton button_3 = new JButton("LIST ALL");
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ListAllEmployeeGUI  listAllEmployeeGUI= new ListAllEmployeeGUI();
+				ListAllEmployeeGUI listAllEmployeeGUI = new ListAllEmployeeGUI();
 				listAllEmployeeGUI.setVisible(true);
 			}
 		});
@@ -635,7 +639,7 @@ public class MainGUI extends JFrame {
 		JButton button_4 = new JButton("FIND EMPLOYEE");
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FindEmployeeGUI  findEmployeeGUI= new FindEmployeeGUI();
+				FindEmployeeGUI findEmployeeGUI = new FindEmployeeGUI();
 				findEmployeeGUI.setVisible(true);
 			}
 		});
@@ -653,17 +657,18 @@ public class MainGUI extends JFrame {
 		});
 		employeeControlMenuPanel.add(button_5,
 				"cell 1 9,alignx left,aligny top");
-		
+
 		employeeMenuPanel = new JPanel();
 		contentPane.add(employeeMenuPanel, "card_employeeMenuPanel");
-		employeeMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][][][]"));
-		
+		employeeMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]",
+				"[][][][][][][][][]"));
+
 		lblEmployeeMenu = new JLabel("EMPLOYEE MENU");
 		employeeMenuPanel.add(lblEmployeeMenu, "cell 1 0,alignx center");
-		
+
 		separator_10 = new JSeparator();
 		employeeMenuPanel.add(separator_10, "cell 0 1 3 1,growx");
-		
+
 		btnCustomerControlMenu = new JButton("CUSTOMER CONTROL MENU");
 		btnCustomerControlMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -672,15 +677,15 @@ public class MainGUI extends JFrame {
 			}
 		});
 		employeeMenuPanel.add(btnCustomerControlMenu, "cell 1 2,growx");
-		
+
 		btnNewButton = new JButton("SALE CONTROL MENU");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 			}
 		});
 		employeeMenuPanel.add(btnNewButton, "cell 1 3,growx");
-		
+
 		btnProductControlMenu = new JButton("PRODUCT CONTROL MENU");
 		btnProductControlMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -689,7 +694,7 @@ public class MainGUI extends JFrame {
 			}
 		});
 		employeeMenuPanel.add(btnProductControlMenu, "cell 1 4,growx");
-		
+
 		btnOrderControlMenu = new JButton("ORDER CONTROL MENU");
 		btnOrderControlMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -698,7 +703,7 @@ public class MainGUI extends JFrame {
 			}
 		});
 		employeeMenuPanel.add(btnOrderControlMenu, "cell 1 5,growx");
-		
+
 		btnLeaseControlMenu = new JButton("LEASE CONTROL MENU");
 		btnLeaseControlMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -707,48 +712,51 @@ public class MainGUI extends JFrame {
 			}
 		});
 		employeeMenuPanel.add(btnLeaseControlMenu, "cell 1 6,growx");
-		
+
 		separator_11 = new JSeparator();
 		employeeMenuPanel.add(separator_11, "cell 0 7 3 1,growx");
-		
+
 		btnBackToManager_1 = new JButton("BACK TO MAIN MENU");
 		btnBackToManager_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CardLayout cl = (CardLayout) contentPane.getLayout();
 				cl.show(contentPane, "card_mainMenuPanel");
-				
+
 			}
 		});
 		employeeMenuPanel.add(btnBackToManager_1, "cell 1 8,growx");
-		
+
 		e_customerControlMenuPanel = new JPanel();
-		contentPane.add(e_customerControlMenuPanel, "card_e_customerControlMenuPanel");
-		e_customerControlMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][][][]"));
-		
+		contentPane.add(e_customerControlMenuPanel,
+				"card_e_customerControlMenuPanel");
+		e_customerControlMenuPanel.setLayout(new MigLayout("",
+				"[1000px][][1000px]", "[][][][][][][][][]"));
+
 		lblCustomerControlMenu = new JLabel("CUSTOMER CONTROL MENU");
-		e_customerControlMenuPanel.add(lblCustomerControlMenu, "cell 1 0,alignx center");
-		
+		e_customerControlMenuPanel.add(lblCustomerControlMenu,
+				"cell 1 0,alignx center");
+
 		separator_12 = new JSeparator();
 		e_customerControlMenuPanel.add(separator_12, "cell 0 1 3 1,growx");
-		
+
 		btnNewButton_1 = new JButton("CREATE");
 		e_customerControlMenuPanel.add(btnNewButton_1, "cell 1 2,growx");
-		
+
 		btnNewButton_2 = new JButton("UPDATE");
 		e_customerControlMenuPanel.add(btnNewButton_2, "cell 1 3,growx");
-		
+
 		btnNewButton_4 = new JButton("DELETE");
 		e_customerControlMenuPanel.add(btnNewButton_4, "cell 1 4,growx");
-		
+
 		btnNewButton_5 = new JButton("LIST ALL");
 		e_customerControlMenuPanel.add(btnNewButton_5, "cell 1 5,growx");
-		
+
 		btnNewButton_6 = new JButton("FIND CUSTOMER");
 		e_customerControlMenuPanel.add(btnNewButton_6, "cell 1 6,growx");
-		
+
 		separator_15 = new JSeparator();
 		e_customerControlMenuPanel.add(separator_15, "cell 0 7 3 1,growx");
-		
+
 		btnBackToEmployee_1 = new JButton("BACK TO EMPLOYEE MENU");
 		btnBackToEmployee_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -757,67 +765,73 @@ public class MainGUI extends JFrame {
 			}
 		});
 		e_customerControlMenuPanel.add(btnBackToEmployee_1, "cell 1 8,growx");
-		
+
 		e_productControlMenuPanel = new JPanel();
-		contentPane.add(e_productControlMenuPanel, "card_e_productControlMenuPanel");
-		e_productControlMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][][][]"));
-		
+		contentPane.add(e_productControlMenuPanel,
+				"card_e_productControlMenuPanel");
+		e_productControlMenuPanel.setLayout(new MigLayout("",
+				"[1000px][][1000px]", "[][][][][][][][][]"));
+
 		lblProductControlMenu = new JLabel("PRODUCT CONTROL MENU");
-		e_productControlMenuPanel.add(lblProductControlMenu, "cell 1 0,alignx center");
-		
+		e_productControlMenuPanel.add(lblProductControlMenu,
+				"cell 1 0,alignx center");
+
 		separator_19 = new JSeparator();
 		e_productControlMenuPanel.add(separator_19, "cell 0 1 3 1,growx");
-		
+
 		btnNewButton_7 = new JButton("ADD");
 		e_productControlMenuPanel.add(btnNewButton_7, "cell 1 2,growx");
-		
+
 		btnNewButton_8 = new JButton("UPDATE");
 		e_productControlMenuPanel.add(btnNewButton_8, "cell 1 3,growx");
-		
+
 		btnNewButton_9 = new JButton("DELETE");
 		e_productControlMenuPanel.add(btnNewButton_9, "cell 1 4,growx");
-		
+
 		btnNewButton_10 = new JButton("LIST ALL");
 		e_productControlMenuPanel.add(btnNewButton_10, "cell 1 5,growx");
-		
+
 		btnNewButton_11 = new JButton("SEARCH PRODUCT");
 		e_productControlMenuPanel.add(btnNewButton_11, "cell 1 6,growx");
-		
+
 		separator_20 = new JSeparator();
 		e_productControlMenuPanel.add(separator_20, "cell 0 7 3 1,growx");
-		
+
 		btnBackToEmployee_2 = new JButton("BACK TO EMPLOYEE MENU");
 		btnBackToEmployee_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 
+
 				CardLayout cl = (CardLayout) contentPane.getLayout();
 				cl.show(contentPane, "card_employeeMenuPanel");
 			}
 		});
 		e_productControlMenuPanel.add(btnBackToEmployee_2, "cell 1 8,growx");
-		
+
 		e_orderControlMenuPanel = new JPanel();
-		contentPane.add(e_orderControlMenuPanel, "card_e_orderControlMenuPanel");
-		e_orderControlMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][]"));
-		
+		contentPane
+				.add(e_orderControlMenuPanel, "card_e_orderControlMenuPanel");
+		e_orderControlMenuPanel.setLayout(new MigLayout("",
+				"[1000px][][1000px]", "[][][][][][][]"));
+
 		lblOrderControlMenu = new JLabel("ORDER CONTROL MENU");
-		e_orderControlMenuPanel.add(lblOrderControlMenu, "cell 1 0,alignx center");
-		
+		e_orderControlMenuPanel.add(lblOrderControlMenu,
+				"cell 1 0,alignx center");
+
 		separator_21 = new JSeparator();
 		e_orderControlMenuPanel.add(separator_21, "cell 0 1 3 1,growx");
-		
+
 		btnAddProductsTo = new JButton("ADD PRODUCTS TO ORDER");
 		e_orderControlMenuPanel.add(btnAddProductsTo, "cell 1 2,growx");
-		
+
 		btnNewButton_12 = new JButton("LIST ALL ORDERS");
 		e_orderControlMenuPanel.add(btnNewButton_12, "cell 1 3,growx");
-		
+
 		btnSearchOrder = new JButton("SEARCH ORDER");
 		e_orderControlMenuPanel.add(btnSearchOrder, "cell 1 4,growx");
-		
+
 		separator_22 = new JSeparator();
 		e_orderControlMenuPanel.add(separator_22, "cell 0 5 3 1,growx");
-		
+
 		btnBackToEmployee_3 = new JButton("BACK TO EMPLOYEE MENU");
 		btnBackToEmployee_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -826,35 +840,38 @@ public class MainGUI extends JFrame {
 			}
 		});
 		e_orderControlMenuPanel.add(btnBackToEmployee_3, "cell 1 6,growx");
-		
+
 		e_leaseControlMenuPanel = new JPanel();
-		contentPane.add(e_leaseControlMenuPanel, "card_e_leaseControlMenuPanel");
-		e_leaseControlMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][][][]"));
-		
+		contentPane
+				.add(e_leaseControlMenuPanel, "card_e_leaseControlMenuPanel");
+		e_leaseControlMenuPanel.setLayout(new MigLayout("",
+				"[1000px][][1000px]", "[][][][][][][][][]"));
+
 		lblLeaseControlMenu = new JLabel("LEASE CONTROL MENU");
-		e_leaseControlMenuPanel.add(lblLeaseControlMenu, "cell 1 0,alignx center");
-		
+		e_leaseControlMenuPanel.add(lblLeaseControlMenu,
+				"cell 1 0,alignx center");
+
 		separator_23 = new JSeparator();
 		e_leaseControlMenuPanel.add(separator_23, "cell 0 1 3 1,growx");
-		
+
 		btnMakeLease = new JButton("MAKE LEASE");
 		e_leaseControlMenuPanel.add(btnMakeLease, "cell 1 2,growx");
-		
+
 		btnAdd = new JButton("ADD PRODUCTS ");
 		e_leaseControlMenuPanel.add(btnAdd, "cell 1 3,growx");
-		
+
 		btnChangeStatus = new JButton("CHANGE STATUS");
 		e_leaseControlMenuPanel.add(btnChangeStatus, "cell 1 4,growx");
-		
+
 		btnReturnProduct = new JButton("RETURN PRODUCT");
 		e_leaseControlMenuPanel.add(btnReturnProduct, "cell 1 5,growx");
-		
+
 		btnSearch = new JButton("SEARCH LEASE");
 		e_leaseControlMenuPanel.add(btnSearch, "cell 1 6,growx");
-		
+
 		separator_24 = new JSeparator();
 		e_leaseControlMenuPanel.add(separator_24, "cell 0 7 3 1,growx");
-		
+
 		btnBackToEmployee_4 = new JButton("BACK TO EMPLOYEE MENU");
 		btnBackToEmployee_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
