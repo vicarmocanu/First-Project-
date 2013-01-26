@@ -13,6 +13,8 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class UpdateContractorGUI extends JFrame {
 
@@ -45,7 +47,7 @@ public class UpdateContractorGUI extends JFrame {
 		setResizable(false);
 		setTitle("UPDATE CONTRACTOR");
 		setType(Type.UTILITY);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 403, 328);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -109,6 +111,11 @@ public class UpdateContractorGUI extends JFrame {
 		contentPane.add(btnUpdatePhoneNr, "cell 3 6");
 		
 		JButton btnCancel = new JButton("CANCEL");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		contentPane.add(btnCancel, "cell 2 7,growx");
 	}
 

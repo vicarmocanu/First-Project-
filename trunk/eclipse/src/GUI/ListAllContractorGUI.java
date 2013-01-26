@@ -11,6 +11,8 @@ import java.awt.Window.Type;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ListAllContractorGUI extends JFrame {
 
@@ -39,7 +41,7 @@ public class ListAllContractorGUI extends JFrame {
 		setTitle("LIST ALL CONTRACTORS");
 		setResizable(false);
 		setType(Type.UTILITY);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 452, 473);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -50,6 +52,11 @@ public class ListAllContractorGUI extends JFrame {
 		contentPane.add(lblListAllContractors, "cell 0 0");
 		
 		JButton btnCancel = new JButton("CANCEL");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		contentPane.add(btnCancel, "cell 1 0");
 		
 		JTextArea textArea = new JTextArea();

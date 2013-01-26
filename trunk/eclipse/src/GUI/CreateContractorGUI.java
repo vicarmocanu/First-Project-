@@ -12,6 +12,8 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Window.Type;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CreateContractorGUI extends JFrame {
 
@@ -41,10 +43,10 @@ public class CreateContractorGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public CreateContractorGUI() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("CREATE CONTRACTOR");
 		setResizable(false);
 		setType(Type.UTILITY);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 256, 210);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -89,6 +91,11 @@ public class CreateContractorGUI extends JFrame {
 		contentPane.add(btnCreate, "cell 1 6");
 		
 		JButton btnCancel = new JButton("CANCEL");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		contentPane.add(btnCancel, "cell 2 6,growx");
 	}
 
