@@ -479,22 +479,53 @@ public class MainGUI extends JFrame {
 		discountControlMenuPanel.add(separator_16, "cell 0 1 3 1,growx");
 
 		btnAddNewCategory = new JButton("ADD NEW CATEGORY");
+		btnAddNewCategory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AddNewDiscountGUI addNewDiscountGUI = new AddNewDiscountGUI();
+				addNewDiscountGUI.setVisible(true);
+			}
+		});
 		discountControlMenuPanel.add(btnAddNewCategory, "cell 1 2,growx");
 
 		btnUpdateExistingCategory = new JButton("UPDATE EXISTING CATEGORY");
+		btnUpdateExistingCategory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UpdateDiscountGUI updateDiscountGUI = new UpdateDiscountGUI();
+				updateDiscountGUI.setVisible(true);
+				
+			}
+		});
 		discountControlMenuPanel.add(btnUpdateExistingCategory,
 				"cell 1 3,growx");
 
 		btnDeleteCategory = new JButton("DELETE CATEGORY");
+		btnDeleteCategory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DeleteDiscountGUI deleteDiscountGUI = new DeleteDiscountGUI();
+				deleteDiscountGUI.setVisible(true);
+			}
+		});
 		discountControlMenuPanel.add(btnDeleteCategory, "cell 1 4,growx");
 
 		separator_17 = new JSeparator();
 		discountControlMenuPanel.add(separator_17, "cell 0 5 3 1,growx");
 
 		btnListAll_2 = new JButton("LIST ALL");
+		btnListAll_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListAllDiscountGUI listAllDiscountGUI = new ListAllDiscountGUI();
+				listAllDiscountGUI.setVisible(true);
+			}
+		});
 		discountControlMenuPanel.add(btnListAll_2, "cell 1 6,growx");
 
 		btnSetUpCategory = new JButton("SET UP CATEGORY FOR CUSTOMER");
+		btnSetUpCategory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SetDiscountGUI setDiscountGUI = new SetDiscountGUI();
+				setDiscountGUI.setVisible(true);
+			}
+		});
 		discountControlMenuPanel.add(btnSetUpCategory, "cell 1 7,growx");
 
 		separator_18 = new JSeparator();
