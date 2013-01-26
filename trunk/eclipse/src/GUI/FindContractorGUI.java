@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Window.Type;
 
 public class FindContractorGUI extends JFrame {
 
@@ -39,6 +40,8 @@ public class FindContractorGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public FindContractorGUI() {
+		setType(Type.UTILITY);
+		setTitle("FIND CONTRACTOR");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -47,7 +50,7 @@ public class FindContractorGUI extends JFrame {
 		contentPane.setLayout(new MigLayout("", "[][grow][]", "[][][grow][]"));
 		
 		JLabel lblFindContractor = new JLabel("FIND CONTRACTOR");
-		contentPane.add(lblFindContractor, "cell 0 0");
+		contentPane.add(lblFindContractor, "cell 1 0,alignx center");
 		
 		JLabel lblSearchName = new JLabel("SEARCH NAME:");
 		contentPane.add(lblSearchName, "cell 0 1,alignx trailing");

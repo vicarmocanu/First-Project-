@@ -519,21 +519,52 @@ public class MainGUI extends JFrame {
 		contractorControlMenuPanel.add(separator_2, "cell 0 1 3 1,growx");
 		
 				btnCreate = new JButton("CREATE");
+				btnCreate.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						CreateContractorGUI  createContractorGUI= new CreateContractorGUI();
+						createContractorGUI.setVisible(true);
+					}
+				});
 				contractorControlMenuPanel.add(btnCreate, "cell 1 2,grow");
 		
 				btnUpdate = new JButton("UPDATE");
+				btnUpdate.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						UpdateContractorGUI  updateContractorGUI= new UpdateContractorGUI();
+						updateContractorGUI.setVisible(true);
+					}
+				});
 				contractorControlMenuPanel.add(btnUpdate, "cell 1 3,grow");
 		
 				btnDelete = new JButton("DELETE");
+				btnDelete.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						DeleteContractorGUI  deleteContractorGUI= new DeleteContractorGUI();
+						deleteContractorGUI.setVisible(true);
+						
+					}
+				});
 				contractorControlMenuPanel.add(btnDelete, "cell 1 4,grow");
 		
 				separator_3 = new JSeparator();
 				contractorControlMenuPanel.add(separator_3, "cell 0 5 3 1,grow");
 		
 				btnListAll = new JButton("LIST ALL");
+				btnListAll.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						ListAllContractorGUI  ListAllContractorGUI= new ListAllContractorGUI();
+						ListAllContractorGUI.setVisible(true);
+					}
+				});
 				contractorControlMenuPanel.add(btnListAll, "cell 1 6,growx");
 		
 				btnFindContractor = new JButton("FIND CONTRACTOR");
+				btnFindContractor.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						FindContractorGUI  findContractorGUI= new FindContractorGUI();
+						findContractorGUI.setVisible(true);
+					}
+				});
 				contractorControlMenuPanel.add(btnFindContractor, "cell 1 7,growx");
 		
 				separator_4 = new JSeparator();
