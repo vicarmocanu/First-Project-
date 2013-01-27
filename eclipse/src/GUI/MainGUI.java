@@ -451,6 +451,12 @@ public class MainGUI extends JFrame {
 		managerPanel.add(btnDiscouuntControlMenu, "cell 1 4,growx");
 
 		JButton btnSetPriceFor = new JButton("SET PRICE FOR PRODUCTS");
+		btnSetPriceFor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SetSalePriceGUI setSalePriceGUI = new SetSalePriceGUI();
+				setSalePriceGUI.setVisible(true);
+			}
+		});
 		managerPanel.add(btnSetPriceFor, "cell 1 5,growx");
 
 		JSeparator separator_9 = new JSeparator();
@@ -771,18 +777,48 @@ public class MainGUI extends JFrame {
 		e_customerControlMenuPanel.add(separator_12, "cell 0 1 3 1,growx");
 
 		btnNewButton_1 = new JButton("CREATE");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CreateCustomerGUI createCustomerGUI = new CreateCustomerGUI();
+				createCustomerGUI.setVisible(true);
+			}
+		});
 		e_customerControlMenuPanel.add(btnNewButton_1, "cell 1 2,growx");
 
 		btnNewButton_2 = new JButton("UPDATE");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UpdateCustomerGUI updateCustomerGUI = new UpdateCustomerGUI();
+				updateCustomerGUI.setVisible(true);
+			}
+		});
 		e_customerControlMenuPanel.add(btnNewButton_2, "cell 1 3,growx");
 
 		btnNewButton_4 = new JButton("DELETE");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DeleteCustomerGUI deleteCustomerGUI = new DeleteCustomerGUI();
+				deleteCustomerGUI.setVisible(true);
+			}
+		});
 		e_customerControlMenuPanel.add(btnNewButton_4, "cell 1 4,growx");
 
 		btnNewButton_5 = new JButton("LIST ALL");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListAllCustomerGUI listAllCustomerGUI = new ListAllCustomerGUI();
+				listAllCustomerGUI.setVisible(true);
+			}
+		});
 		e_customerControlMenuPanel.add(btnNewButton_5, "cell 1 5,growx");
 
 		btnNewButton_6 = new JButton("FIND CUSTOMER");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FindCustomerGUI findCustomerGUI = new FindCustomerGUI();
+				findCustomerGUI.setVisible(true);
+			}
+		});
 		e_customerControlMenuPanel.add(btnNewButton_6, "cell 1 6,growx");
 
 		separator_15 = new JSeparator();
@@ -811,18 +847,48 @@ public class MainGUI extends JFrame {
 		e_productControlMenuPanel.add(separator_19, "cell 0 1 3 1,growx");
 
 		btnNewButton_7 = new JButton("ADD");
+		btnNewButton_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CreateProductGUI createProductGUI = new CreateProductGUI();
+				createProductGUI.setVisible(true);
+			}
+		});
 		e_productControlMenuPanel.add(btnNewButton_7, "cell 1 2,growx");
 
 		btnNewButton_8 = new JButton("UPDATE");
+		btnNewButton_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UpdateProductGUI updateProductGUI = new UpdateProductGUI();
+				updateProductGUI.setVisible(true);
+			}
+		});
 		e_productControlMenuPanel.add(btnNewButton_8, "cell 1 3,growx");
 
 		btnNewButton_9 = new JButton("DELETE");
+		btnNewButton_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DeleteProductGUI deleteProductGUI = new DeleteProductGUI();
+				deleteProductGUI.setVisible(true);
+			}
+		});
 		e_productControlMenuPanel.add(btnNewButton_9, "cell 1 4,growx");
 
 		btnNewButton_10 = new JButton("LIST ALL");
+		btnNewButton_10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListAllProductGUI listAllProductGUI = new ListAllProductGUI();
+				listAllProductGUI.setVisible(true);
+			}
+		});
 		e_productControlMenuPanel.add(btnNewButton_10, "cell 1 5,growx");
 
 		btnNewButton_11 = new JButton("SEARCH PRODUCT");
+		btnNewButton_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FindProductGUI findProductGUI = new FindProductGUI();
+				findProductGUI.setVisible(true);
+			}
+		});
 		e_productControlMenuPanel.add(btnNewButton_11, "cell 1 6,growx");
 
 		separator_20 = new JSeparator();

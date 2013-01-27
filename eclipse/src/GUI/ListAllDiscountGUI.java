@@ -38,7 +38,7 @@ public class ListAllDiscountGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public ListAllDiscountGUI() {
-		setTitle("LIST ALL EMPLOYEES");
+		setTitle("LIST ALL DISCOUNTS CATEGORY");
 		setResizable(false);
 		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -48,7 +48,7 @@ public class ListAllDiscountGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[grow][]", "[][grow]"));
 		
-		JLabel lblListAllContractors = new JLabel("LIST ALL EMPLOYEES");
+		JLabel lblListAllContractors = new JLabel("LIST ALL DISCOUNTS CATEGORY");
 		contentPane.add(lblListAllContractors, "cell 0 0");
 		
 		JButton btnCancel = new JButton("CANCEL");

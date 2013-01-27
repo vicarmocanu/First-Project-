@@ -55,7 +55,7 @@ public class SetSalePriceGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[][grow][grow][]", "[][][grow][grow][][grow][][]"));
 		
-		JLabel lblNewLabel = new JLabel("SET PRICES");
+		JLabel lblNewLabel = new JLabel("PRODUCTS");
 		contentPane.add(lblNewLabel, "cell 0 0 4 1,alignx center");
 		
 		JSeparator separator = new JSeparator();
