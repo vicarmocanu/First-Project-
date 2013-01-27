@@ -242,7 +242,7 @@ public class CustomerControllMenu
                 return;
             }
             
-            controller.createCustomer(name, id, address, phone, 0);
+            controller.createCustomer(name, id, address, phone);
             System.out.println(" [1] Add another Customer" + "\n [0] to return to the Manager menu");
             System.out.print(" Choice: ");
             another = keyboard.nextLine();
