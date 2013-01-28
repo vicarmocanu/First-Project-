@@ -13,10 +13,14 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import ControlLayer.ProductCtr;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 public class ListAllProductGUI extends JFrame {
 
 	private JPanel contentPane;
+	private ProductCtr controller = new ProductCtr();
 
 	/**
 	 * Launch the application.
@@ -46,7 +50,7 @@ public class ListAllProductGUI extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[grow][]", "[][grow]"));
+		contentPane.setLayout(new MigLayout("", "[grow][][]", "[][grow]"));
 		
 		JLabel lblListAllContractors = new JLabel("LIST ALL PRODUCTS");
 		contentPane.add(lblListAllContractors, "cell 0 0");
@@ -57,11 +61,23 @@ public class ListAllProductGUI extends JFrame {
 				dispose();
 			}
 		});
-		contentPane.add(btnCancel, "cell 1 0");
 		
-		JTextArea textArea = new JTextArea();
-		contentPane.add(textArea, "cell 0 1 2 1,grow");
-		textArea.setText("");
+		
+		
+		contentPane.add(btnCancel, "cell 2 0");
+		
+		final JTextArea textArea = new JTextArea();
+		
+		
+		contentPane.add(textArea, "cell 0 1 3 1,grow");
+		JButton btnListAll = new JButton("LIST ALL");
+		
+		btnListAll.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textArea.setText(controller.listAllProductsToString());
+			}
+		});
+		contentPane.add(btnListAll, "cell 1 0");
 	}
 
 }

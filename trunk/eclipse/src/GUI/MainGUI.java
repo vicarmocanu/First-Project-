@@ -75,7 +75,7 @@ public class MainGUI extends JFrame {
 	private JSeparator separator_3;
 	private JSeparator separator_4;
 	private JPanel employeeControlMenuPanel;
-	private JTextField usernameLogin;
+	private JTextField userNameLoginField;
 	private JPasswordField passwordLogin;
 	private JPanel discountControlMenuPanel;
 	private JLabel lblDiscountControlMenu;
@@ -161,6 +161,24 @@ public class MainGUI extends JFrame {
 		});
 	}
 
+	//
+	private boolean checkUsernameAndPassword(String u, String p) {
+		int size = userpass.size();
+
+		int i = 0;
+		while (i < size) {
+			ArrayList<String> test = userpass.get(i);
+			String uu = test.get(0);
+			String pp = test.get(1);
+			if (uu.equals(u) && pp.equals(p)) {
+				return true;
+			}
+			i++;
+		}
+		return false;
+	}
+
+	//
 	/**
 	 * Create the frame.
 	 */
@@ -387,9 +405,9 @@ public class MainGUI extends JFrame {
 		JLabel lblUserName = new JLabel("USER NAME:");
 		loginPanel.add(lblUserName, "cell 1 2,alignx trailing");
 
-		usernameLogin = new JTextField();
-		loginPanel.add(usernameLogin, "cell 2 2,growx");
-		usernameLogin.setColumns(10);
+		userNameLoginField = new JTextField();
+		loginPanel.add(userNameLoginField, "cell 2 2,growx");
+		userNameLoginField.setColumns(10);
 
 		JLabel lblPassword = new JLabel("PASSWORD:");
 		loginPanel.add(lblPassword, "cell 1 3,alignx trailing");
@@ -398,6 +416,11 @@ public class MainGUI extends JFrame {
 		loginPanel.add(passwordLogin, "cell 2 3,growx");
 
 		JButton btnCalcel = new JButton("CANCEL");
+		btnCalcel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+			}
+		});
 		loginPanel.add(btnCalcel, "cell 2 4");
 
 		final JPanel managerPanel = new JPanel();
@@ -408,8 +431,30 @@ public class MainGUI extends JFrame {
 		JButton btnLogin = new JButton("LOGIN");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				loginPanel.setVisible(false);
-				managerPanel.setVisible(true);
+				if (userNameLoginField.getText().equals("")
+						|| passwordLogin.getPassword().length == 0) {
+					JOptionPane.showMessageDialog(null,
+							"Empty fields are not allowed!", "Input error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+					char[] pass = passwordLogin.getPassword();
+					String password = "";
+					for (char c : pass) {
+						password = password + c;
+					}
+					if (checkUsernameAndPassword(userNameLoginField.getText(),
+							password)) {
+						loginPanel.setVisible(false);
+						managerPanel.setVisible(true);
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null,
+								"Incorrect Username and Password combination!", "Login Error",
+								JOptionPane.ERROR_MESSAGE);
+					}
+				}
+
 			}
 		});
 		loginPanel.add(btnLogin, "cell 1 4");
@@ -498,7 +543,7 @@ public class MainGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				UpdateDiscountGUI updateDiscountGUI = new UpdateDiscountGUI();
 				updateDiscountGUI.setVisible(true);
-				
+
 			}
 		});
 		discountControlMenuPanel.add(btnUpdateExistingCategory,
@@ -720,7 +765,6 @@ public class MainGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				MakeSaleGUI makeSaleGUI = new MakeSaleGUI();
 				makeSaleGUI.setVisible(true);
-				
 
 			}
 		});
@@ -934,7 +978,7 @@ public class MainGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ListAllOrderGUI listAllOrderGUI = new ListAllOrderGUI();
 				listAllOrderGUI.setVisible(true);
-				
+
 			}
 		});
 		e_orderControlMenuPanel.add(btnNewButton_12, "cell 1 3,growx");

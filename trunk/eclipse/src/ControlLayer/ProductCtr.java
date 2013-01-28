@@ -50,6 +50,10 @@ public class ProductCtr
     {
         collection.listAllProducts();
     }
+    public String listAllProductsToString()
+    {
+    	return collection.listAllProductsToString();
+    }
 
     public void deleteProduct(String name)          
     {
