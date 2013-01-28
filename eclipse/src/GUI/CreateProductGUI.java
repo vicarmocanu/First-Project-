@@ -1,4 +1,5 @@
 package GUI;
+import ControlLayer.ProductCtr;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -19,13 +20,14 @@ public class CreateProductGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField nameField;
-	private JTextField idField;
-	private JTextField addressField;
-	private JTextField telNrField;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField barCodeField;
+	private JTextField locationField;
+	private JTextField descriptionField;
+	private JTextField buyPriceField;
+	private JTextField minimNumberOfProductsField;
+	private JTextField maximNumbersOfProductsField;
+	private JTextField numberOfProductsField;
+	private ProductCtr controller= new ProductCtr();
 
 	/**
 	 * Launch the application.
@@ -72,23 +74,23 @@ public class CreateProductGUI extends JFrame {
 		JLabel lblId = new JLabel("BAR CODE:");
 		contentPane.add(lblId, "cell 1 3,growx");
 		
-		idField = new JTextField();
-		contentPane.add(idField, "cell 2 3,growx");
-		idField.setColumns(10);
+		barCodeField = new JTextField();
+		contentPane.add(barCodeField, "cell 2 3,growx");
+		barCodeField.setColumns(10);
 		
 		JLabel lblAddress = new JLabel("LOCATION:");
 		contentPane.add(lblAddress, "cell 1 4,growx");
 		
-		addressField = new JTextField();
-		contentPane.add(addressField, "cell 2 4,growx");
-		addressField.setColumns(10);
+		locationField = new JTextField();
+		contentPane.add(locationField, "cell 2 4,growx");
+		locationField.setColumns(10);
 		
 		JLabel lblTelNr = new JLabel("DESCRIPTION:");
 		contentPane.add(lblTelNr, "cell 1 5,growx");
 		
-		telNrField = new JTextField();
-		contentPane.add(telNrField, "cell 2 5,growx");
-		telNrField.setColumns(10);
+		descriptionField = new JTextField();
+		contentPane.add(descriptionField, "cell 2 5,growx");
+		descriptionField.setColumns(10);
 		
 		JButton btnCancel = new JButton("CANCEL");
 		btnCancel.addActionListener(new ActionListener() {
@@ -100,32 +102,48 @@ public class CreateProductGUI extends JFrame {
 		JLabel lblBuyPrice = new JLabel("BUY PRICE:");
 		contentPane.add(lblBuyPrice, "cell 1 6,growx");
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		contentPane.add(textField, "cell 2 6,growx");
+		buyPriceField = new JTextField();
+		buyPriceField.setColumns(10);
+		contentPane.add(buyPriceField, "cell 2 6,growx");
 		
 		JLabel lblMinimOfProducts = new JLabel("MINIM OF PRODUCTS");
 		contentPane.add(lblMinimOfProducts, "cell 1 7,growx");
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		contentPane.add(textField_1, "cell 2 7,growx");
+		minimNumberOfProductsField = new JTextField();
+		minimNumberOfProductsField.setColumns(10);
+		contentPane.add(minimNumberOfProductsField, "cell 2 7,growx");
 		
 		JLabel lblMaximOfProducts = new JLabel("MAXIM OF PRODUCTS");
 		contentPane.add(lblMaximOfProducts, "cell 1 8,growx");
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		contentPane.add(textField_2, "cell 2 8,growx");
+		maximNumbersOfProductsField = new JTextField();
+		maximNumbersOfProductsField.setColumns(10);
+		contentPane.add(maximNumbersOfProductsField, "cell 2 8,growx");
 		
 		JLabel lblNumberOfProducts = new JLabel("NUMBER OF PRODUCTS");
 		contentPane.add(lblNumberOfProducts, "cell 1 9,growx");
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		contentPane.add(textField_3, "cell 2 9,growx");
+		numberOfProductsField = new JTextField();
+		numberOfProductsField.setColumns(10);
+		contentPane.add(numberOfProductsField, "cell 2 9,growx");
 		
 		JButton btnCreate = new JButton("CREATE");
+		btnCreate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String barCode=barCodeField.getText();
+				String location=locationField.getText();
+				String name=nameField.getText();
+				String description=descriptionField.getText();
+				String buyPrice=buyPriceField.getText();
+				String min=minimNumberOfProductsField.getText();
+				String max=maximNumbersOfProductsField.getText();
+				String numberOfProducts=numberOfProductsField.getText();
+				
+				
+				controller.addProduct(barCode, location, name,description, Integer.parseInt(buyPrice), 0, Integer.parseInt(min), Integer.parseInt(max), Integer.parseInt(numberOfProducts));
+			}
+		});
 		contentPane.add(btnCreate, "cell 1 11");
 		contentPane.add(btnCancel, "cell 2 11,growx");
 	}

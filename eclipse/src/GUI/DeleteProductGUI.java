@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.BorderLayout;
+import ControlLayer.ProductCtr;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -20,6 +21,7 @@ public class DeleteProductGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField searchField;
+	private ProductCtr controller= new ProductCtr();
 
 	/**
 	 * Launch the application.
@@ -63,6 +65,7 @@ public class DeleteProductGUI extends JFrame {
 		searchField = new JTextField();
 		contentPane.add(searchField, "cell 2 2,growx");
 		searchField.setColumns(10);
+		String name=searchField.getText();
 		
 		JButton btnSearch = new JButton("SEARCH");
 		contentPane.add(btnSearch, "cell 3 2");
