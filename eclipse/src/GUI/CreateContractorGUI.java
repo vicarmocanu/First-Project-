@@ -1,5 +1,6 @@
 package GUI;
 
+import ControlLayer.PersonCtr;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -8,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -21,7 +23,8 @@ public class CreateContractorGUI extends JFrame {
 	private JTextField nameField;
 	private JTextField idField;
 	private JTextField addressField;
-	private JTextField telNrField;
+	private JTextField phoneField;
+	private PersonCtr controller=new PersonCtr();
 
 	/**
 	 * Launch the application.
@@ -83,11 +86,36 @@ public class CreateContractorGUI extends JFrame {
 		JLabel lblTelNr = new JLabel("TEL NR:");
 		contentPane.add(lblTelNr, "cell 1 5,alignx trailing");
 		
-		telNrField = new JTextField();
-		contentPane.add(telNrField, "cell 2 5,growx");
-		telNrField.setColumns(10);
+		phoneField = new JTextField();
+		contentPane.add(phoneField, "cell 2 5,growx");
+		phoneField.setColumns(10);
 		
 		JButton btnCreate = new JButton("CREATE");
+		btnCreate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String name=nameField.getText();
+				String id=idField.getText();
+				String address=addressField.getText();
+				String phone=phoneField.getText();
+				
+				
+				
+				controller.createContractor(name, id, address, phone);
+				
+				
+				JOptionPane.showMessageDialog(null,
+						"New contractor added to the system. ", "Successful",
+						JOptionPane.INFORMATION_MESSAGE);
+				
+				
+				nameField.setText("");
+				idField.setText("");
+				addressField.setText("");
+				phoneField.setText("");
+				
+			}
+		});
 		contentPane.add(btnCreate, "cell 1 6");
 		
 		JButton btnCancel = new JButton("CANCEL");

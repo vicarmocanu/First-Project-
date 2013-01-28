@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 import java.awt.Window.Type;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
@@ -22,7 +23,7 @@ public class CreateEmployeeGUI extends JFrame {
 	private JTextField nameField;
 	private JTextField idField;
 	private JTextField addressField;
-	private JTextField telNrField;
+	private JTextField phoneField;
 	private JTextField positionField;
 	private JTextField salaryField;
 	private PersonCtr controller=new PersonCtr();
@@ -86,9 +87,9 @@ public class CreateEmployeeGUI extends JFrame {
 		JLabel lblTelNr = new JLabel("TEL NR:");
 		contentPane.add(lblTelNr, "cell 1 5,alignx left");
 		
-		telNrField = new JTextField();
-		contentPane.add(telNrField, "cell 2 5,growx");
-		telNrField.setColumns(10);
+		phoneField = new JTextField();
+		contentPane.add(phoneField, "cell 2 5,growx");
+		phoneField.setColumns(10);
 		
 		JLabel lblPosition = new JLabel("POSITION:");
 		contentPane.add(lblPosition, "cell 1 6,alignx left");
@@ -110,10 +111,24 @@ public class CreateEmployeeGUI extends JFrame {
 				String name= nameField.getText();
 				String id= idField.getText();
 				String address= addressField.getText();
-				String phone= telNrField.getText();
+				String phone= phoneField.getText();
 				String position = positionField.getText();
 				String salary= salaryField.getText();
+				
 				controller.createEmployee(name, id, address, phone, position, Integer.parseInt(salary));
+				
+				JOptionPane.showMessageDialog(null,
+						"New employee added to the system. ", "Successful",
+						JOptionPane.INFORMATION_MESSAGE);
+				
+				
+				nameField.setText("");
+				idField.setText("");
+				addressField.setText("");
+				phoneField.setText("");
+				positionField.setText("");
+				salaryField.setText("");
+				
 			}
 		});
 		contentPane.add(btnCreate, "cell 1 8,growx");

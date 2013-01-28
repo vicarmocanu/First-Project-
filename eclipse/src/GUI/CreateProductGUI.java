@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -142,9 +143,24 @@ public class CreateProductGUI extends JFrame {
 				
 				
 				controller.addProduct(barCode, location, name,description, Integer.parseInt(buyPrice), 0, Integer.parseInt(min), Integer.parseInt(max), Integer.parseInt(numberOfProducts));
+				
+				
+				JOptionPane.showMessageDialog(null,
+						"Product added!", "Successful",
+						JOptionPane.INFORMATION_MESSAGE);
+				
+				
+				barCodeField.setText("");
+				locationField.setText("");
+				nameField.setText("");
+				descriptionField.setText("");
+				buyPriceField.setText("");
+				minimNumberOfProductsField.setText("");
+				maximNumbersOfProductsField.setText("");
+				numberOfProductsField.setText("");
 			}
 		});
-		contentPane.add(btnCreate, "cell 1 11");
+		contentPane.add(btnCreate, "cell 1 11,growx");
 		contentPane.add(btnCancel, "cell 2 11,growx");
 	}
 
