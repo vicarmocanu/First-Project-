@@ -921,6 +921,12 @@ public class MainGUI extends JFrame {
 		e_orderControlMenuPanel.add(separator_21, "cell 0 1 3 1,growx");
 
 		btnAddProductsTo = new JButton("ADD PRODUCTS TO ORDER");
+		btnAddProductsTo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MakeOrderGUI makeOrderGUI = new MakeOrderGUI();
+				makeOrderGUI.setVisible(true);
+			}
+		});
 		e_orderControlMenuPanel.add(btnAddProductsTo, "cell 1 2,growx");
 
 		btnNewButton_12 = new JButton("LIST ALL ORDERS");
