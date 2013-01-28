@@ -38,16 +38,29 @@ public class CustomerCollection
         listOfCustomers.add(customer);
     }
 
-    public void listAllCustomers()
+    public String listAllCustomers()
     {
-        if (listOfCustomers.size()!=0){
+//        if (listOfCustomers.size()!=0){
+//            for(Customer i : listOfCustomers)
+//            {
+//                i.printCustomer();
+//                System.out.println("*****************************");
+//            }
+//        }
+//        else System.out.println("No customers registred in the system");
+    	
+    	String text;
+    	text = "";
+    	if (listOfCustomers.size()!=0)
+        {
             for(Customer i : listOfCustomers)
             {
-                i.printCustomer();
-                System.out.println("*****************************");
+                text += i.print() + "\n";
+
             }
         }
-        else System.out.println("No customers registred in the system");
+        else text = "No customers registered in the system";
+    	return text;
     }
     
      public void listAllCustomersWithStatistics()

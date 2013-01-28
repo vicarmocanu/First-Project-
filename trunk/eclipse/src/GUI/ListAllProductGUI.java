@@ -67,6 +67,7 @@ public class ListAllProductGUI extends JFrame {
 		contentPane.add(btnCancel, "cell 2 0");
 		
 		final JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
 		
 		
 		contentPane.add(textArea, "cell 0 1 3 1,grow");
@@ -74,7 +75,7 @@ public class ListAllProductGUI extends JFrame {
 		
 		btnListAll.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				textArea.setText(controller.listAllProductsToString());
+				textArea.setText(controller.listAllProducts());
 			}
 		});
 		contentPane.add(btnListAll, "cell 1 0");

@@ -28,9 +28,9 @@ public class PersonCtr
         customer.createCustomer(name, id, address, phoneNumber);
     }
 
-    public void listAllCustomers()
+    public String listAllCustomers()
     {
-        customer.listAllCustomers();
+        return customer.listAllCustomers();
     }
     
     
@@ -75,9 +75,9 @@ public class PersonCtr
         employee.createEmployee(name,id,address,phoneNumber,position,salary);
     }
 
-    public void listAllEmployees()
+    public String listAllEmployees()
     {
-        employee.listAllEmployees();
+        return employee.listAllEmployees();
     }
     
     public void listAllEmployeesWithStatistics()
@@ -126,9 +126,9 @@ public class PersonCtr
         contractor.createContractor(name,id,address,phoneNumber);
     }
 
-    public void listAllContractors()
+    public String listAllContractors()
     {
-        contractor.listAllContractors();
+        return contractor.listAllContractors();
     }
     public boolean listContractorByName(String name)
     {

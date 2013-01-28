@@ -46,15 +46,11 @@ public class ProductCtr
         collection.searchProductByBarCodeAndPrint(name);
     }
 
-    public void listAllProducts()
+    public String listAllProducts()
     {
-        collection.listAllProducts();
+        return collection.listAllProducts();
     }
     
-    public String listAllProductsToString()
-    {
-    	return collection.listAllProductsToString();
-    }
 
     public void deleteProduct(String name)          
     {
