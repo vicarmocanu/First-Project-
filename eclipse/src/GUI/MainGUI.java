@@ -143,6 +143,12 @@ public class MainGUI extends JFrame {
 	private JSeparator separator_26;
 	private JSeparator separator_27;
 	private JLabel label_manager;
+	private JPanel e_OrderMenuPanel;
+	private JLabel lblOrderMenu;
+	private JButton btnStartScanningProducts;
+	private JButton btnNewButton_13;
+	private JButton btnSearchOrder_1;
+	private JButton btnBackToEmployee_5;
 
 	/**
 	 * Launch the application.
@@ -977,5 +983,30 @@ public class MainGUI extends JFrame {
 			}
 		});
 		e_leaseControlMenuPanel.add(btnBackToEmployee_4, "cell 1 8");
+		
+		e_OrderMenuPanel = new JPanel();
+		contentPane.add(e_OrderMenuPanel, "card_e_OrderMenuPanel");
+		e_OrderMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][20px][]"));
+		
+		lblOrderMenu = new JLabel("ORDER MENU");
+		e_OrderMenuPanel.add(lblOrderMenu, "cell 1 0,alignx center");
+		
+		btnStartScanningProducts = new JButton("START SCANNING PRODUCTS");
+		e_OrderMenuPanel.add(btnStartScanningProducts, "cell 1 1,growx");
+		
+		btnNewButton_13 = new JButton("LIST ALL ORDERS");
+		btnNewButton_13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ListAllOrdersGUI listAllOrdersGui= new ListAllOrdersGUI();
+				listAllOrdersGui.setVisible(true);
+			}
+		});
+		e_OrderMenuPanel.add(btnNewButton_13, "cell 1 2,growx");
+		
+		btnSearchOrder_1 = new JButton("SEARCH ORDER");
+		e_OrderMenuPanel.add(btnSearchOrder_1, "cell 1 3,growx");
+		
+		btnBackToEmployee_5 = new JButton("BACK TO EMPLOYEE MENU");
+		e_OrderMenuPanel.add(btnBackToEmployee_5, "cell 1 5,growx");
 	}
 }

@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Window.Type;
 
-public class FindContractorGUI extends JFrame {
+public class FindOrderGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -27,7 +27,7 @@ public class FindContractorGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FindContractorGUI frame = new FindContractorGUI();
+					FindOrderGUI frame = new FindOrderGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,21 +39,21 @@ public class FindContractorGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FindContractorGUI() {
+	public FindOrderGUI() {
 		setResizable(false);
 		setType(Type.UTILITY);
-		setTitle("FIND CONTRACTOR");
+		setTitle("FIND ORDER");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 503);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new MigLayout("", "[][grow][]", "[][][grow][]"));
 		
-		JLabel lblFindContractor = new JLabel("FIND CONTRACTOR");
+		JLabel lblFindContractor = new JLabel("FIND ORDER");
 		contentPane.add(lblFindContractor, "cell 1 0,alignx center");
 		
-		JLabel lblSearchName = new JLabel("SEARCH NAME:");
+		JLabel lblSearchName = new JLabel("SEARCH ID:");
 		contentPane.add(lblSearchName, "cell 0 1,alignx trailing");
 		
 		textField = new JTextField();
