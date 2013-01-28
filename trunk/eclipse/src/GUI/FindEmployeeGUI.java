@@ -14,12 +14,14 @@ import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Window.Type;
+import ControlLayer.PersonCtr;
 
 public class FindEmployeeGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-
+	private PersonCtr controller=new PersonCtr();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -61,13 +63,18 @@ public class FindEmployeeGUI extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnSearch = new JButton("SEARCH");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		contentPane.add(btnSearch, "cell 2 1");
 		
 		JTextPane textPane = new JTextPane();
 		textPane.setEditable(false);
 		contentPane.add(textPane, "cell 1 2,grow");
 		
-		JButton btnCalcel = new JButton("CALCEL");
+		JButton btnCalcel = new JButton("CANCEL");
 		btnCalcel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

@@ -13,11 +13,19 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import ControlLayer.PersonCtr;
+import javax.swing.DropMode;
+import javax.swing.JScrollBar;
 
 public class ListAllEmployeeGUI extends JFrame {
 
 	private JPanel contentPane;
-
+	private PersonCtr controller=new PersonCtr();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -38,6 +46,13 @@ public class ListAllEmployeeGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public ListAllEmployeeGUI() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent arg0) {
+				controller.listAllEmployees();
+			}
+		});
+
 		setTitle("LIST ALL EMPLOYEES");
 		setResizable(false);
 		setType(Type.UTILITY);
@@ -60,6 +75,7 @@ public class ListAllEmployeeGUI extends JFrame {
 		contentPane.add(btnCancel, "cell 1 0");
 		
 		JTextArea textArea = new JTextArea();
+		textArea.setLineWrap(true);
 		contentPane.add(textArea, "cell 0 1 2 1,grow");
 	}
 

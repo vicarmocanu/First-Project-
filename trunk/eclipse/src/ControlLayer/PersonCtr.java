@@ -42,7 +42,7 @@ public class PersonCtr
     {
         return customer.listCustomerByName(name);
     }
-    
+        
     public void deleteCustomer(String name)
     {
         customer.deleteCustomer(name);
@@ -88,7 +88,7 @@ public class PersonCtr
     {
         return employee.listEmployeeByName(name);
     }
-
+    
     public void deleteEmployee(String name)  
     {
         employee.deleteEmployee(name);

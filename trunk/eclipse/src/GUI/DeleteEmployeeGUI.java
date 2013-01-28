@@ -13,13 +13,19 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
 import javax.swing.JSeparator;
+
+import sun.io.Converters;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import ControlLayer.PersonCtr;
 
 public class DeleteEmployeeGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField searchField;
+	private PersonCtr controller=new PersonCtr();
+	private String name;
 
 	/**
 	 * Launch the application.
@@ -49,31 +55,37 @@ public class DeleteEmployeeGUI extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[][][grow][]", "[][][][grow][][]"));
-		
+		contentPane.setLayout(new MigLayout("", "[][][grow][]",
+				"[][][][grow][][]"));
+
 		JLabel lblDeleteContractor = new JLabel("DELETE EMPLOYEE");
 		contentPane.add(lblDeleteContractor, "cell 2 0,alignx center");
-		
+
 		JSeparator separator = new JSeparator();
 		contentPane.add(separator, "cell 0 1 4 1,growx");
-		
+
 		JLabel lblSearch = new JLabel("SEARCH NAME:");
 		contentPane.add(lblSearch, "cell 1 2,alignx trailing");
-		
+
 		searchField = new JTextField();
 		contentPane.add(searchField, "cell 2 2,growx");
 		searchField.setColumns(10);
+
 		
-		JButton btnSearch = new JButton("SEARCH");
-		contentPane.add(btnSearch, "cell 3 2");
-		
-		JTextPane textPane = new JTextPane();
-		contentPane.add(textPane, "cell 2 3,grow");
-		
-		JButton btnDelete = new JButton("DELETE");
-		btnDelete.setEnabled(false);
+
+		final JTextPane resultField = new JTextPane();
+		contentPane.add(resultField, "cell 2 3,grow");
+
+		final JButton btnDelete = new JButton("DELETE");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.deleteEmployee(name);
+				btnDelete.setEnabled(false);
+			}
+		});
+			btnDelete.setEnabled(false);
 		contentPane.add(btnDelete, "cell 2 4,growx");
-		
+
 		JButton btnCancel = new JButton("CANCEL");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -81,6 +93,16 @@ public class DeleteEmployeeGUI extends JFrame {
 			}
 		});
 		contentPane.add(btnCancel, "cell 2 5,growx");
+		
+		JButton btnSearch = new JButton("SEARCH");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				name = searchField.getText();
+				
+				btnDelete.setEnabled(true);
+			}
+		});
+		contentPane.add(btnSearch, "cell 3 2");
 	}
 
 }
