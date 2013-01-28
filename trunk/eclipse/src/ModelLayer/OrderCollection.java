@@ -89,17 +89,30 @@ public class OrderCollection
         else System.out.println("The list is empty!");
     }
 
-    public void listOrders()
+    public String listOrders()
     {
-        if(listOfOrders.size()!=0)
+//        if(listOfOrders.size()!=0)
+//        {
+//            for(Order i: listOfOrders)
+//            {
+//                i.print();
+//                System.out.println("*************************");
+//            }
+//        }
+//        else System.out.println("The list is empty!");
+    	
+    	String text;
+    	text = "";
+    	if (listOfOrders.size()!=0)
         {
-            for(Order i: listOfOrders)
+            for(Order i : listOfOrders)
             {
-                i.print();
-                System.out.println("*************************");
+                text += i.print() + "\n";
+
             }
         }
-        else System.out.println("The list is empty!");
+        else text = "No orders registered in the system";
+    	return text;
     }
     
    

@@ -21,9 +21,9 @@ public class CategoryCtr
         category.createCategory(categoryNumber,categoryDiscount);
     }
     
-    public void listAllCategories()
+    public String listAllCategories()
     {
-        category.listAllCategories();
+        return category.listAllCategories();
     }
     
     public void deleteCategory(int categoryNumber)

@@ -28,10 +28,13 @@ public class Category
        categoryDiscount=NewcategoryDiscount;
     }
     
-    public void print()
+    public String print()
     {
-        System.out.println (" Category number: " + categoryNumber);
-        System.out.println (" Discount: " + categoryDiscount);
+    	String text;
+    	text = "";
+        text += " Category number: " + categoryNumber + "\n";
+        text += " Discount: " + categoryDiscount + "\n";
+        return text;
     }
     
     public void updateDiscounts(int categoryDiscount)
