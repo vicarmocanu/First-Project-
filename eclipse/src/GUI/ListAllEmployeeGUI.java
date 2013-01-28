@@ -46,12 +46,7 @@ public class ListAllEmployeeGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public ListAllEmployeeGUI() {
-		addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowActivated(WindowEvent arg0) {
-				controller.listAllEmployees();
-			}
-		});
+		
 
 		setTitle("LIST ALL EMPLOYEES");
 		setResizable(false);
@@ -74,9 +69,14 @@ public class ListAllEmployeeGUI extends JFrame {
 		});
 		contentPane.add(btnCancel, "cell 1 0");
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setLineWrap(true);
+		final JTextArea textArea = new JTextArea();
 		contentPane.add(textArea, "cell 0 1 2 1,grow");
-	}
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent arg0) {
+				textArea.setText(controller.listAllEmployees());
+			}
+		});
 
-}
+}}

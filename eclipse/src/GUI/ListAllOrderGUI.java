@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.BorderLayout;
+import ControlLayer.PersonCtr;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -13,10 +14,13 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class ListAllOrderGUI extends JFrame {
 
 	private JPanel contentPane;
+	private PersonCtr controller = new PersonCtr();
 
 	/**
 	 * Launch the application.
@@ -59,8 +63,18 @@ public class ListAllOrderGUI extends JFrame {
 		});
 		contentPane.add(btnCancel, "cell 1 0");
 		
-		JTextArea textArea = new JTextArea();
-		contentPane.add(textArea, "cell 0 1 2 1,grow");
-	}
+		
+	
+	
+	final JTextArea textArea = new JTextArea();
+	contentPane.add(textArea, "cell 0 1 2 1,grow");
+	
+	addWindowListener(new WindowAdapter() {
+		@Override
+		public void windowActivated(WindowEvent arg0) {
+			textArea.setText(controller.listAllOrders());
+		}
+	});
 
+}
 }
