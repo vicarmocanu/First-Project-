@@ -13,6 +13,9 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import ControlLayer.ProductCtr;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
@@ -67,18 +70,14 @@ public class ListAllProductGUI extends JFrame {
 		contentPane.add(btnCancel, "cell 2 0");
 		
 		final JTextArea textArea = new JTextArea();
-		textArea.setEditable(false);
+		contentPane.add(textArea, "cell 0 1 2 1,grow");
 		
-		
-		contentPane.add(textArea, "cell 0 1 3 1,grow");
-		JButton btnListAll = new JButton("LIST ALL");
-		
-		btnListAll.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent arg0) {
 				textArea.setText(controller.listAllProducts());
 			}
 		});
-		contentPane.add(btnListAll, "cell 1 0");
-	}
 
+}
 }
