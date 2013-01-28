@@ -31,9 +31,9 @@ public class OrderCtr
         order.orderDetails(id);
     }
     
-    public void listOrders()
+    public String listOrders()
     {
-        order.listOrders();
+        return order.listOrders();
     }
         
     public void addSubOrderToOrder(String id, int amount, String name)

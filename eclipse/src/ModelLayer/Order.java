@@ -42,17 +42,20 @@ public class Order
     }
     
     
-    public void print()
+    public String print()
     {
-        System.out.println("ID: " + id);
+    	String text;
+    	text = "";
+        text += "ID: " + id + "\n";
         for(SubOrder i: listOfSubOrders)
         {
             i.print();
         }
-        System.out.println("Customer name: " + customerName);
-        System.out.println("Employee name: " + employeeName);
-        System.out.println("Discount: " + discount);
-        System.out.println("Total: " + total);
+        text += "Customer name: " + customerName + "\n";
+        text += "Employee name: " + employeeName + "\n";
+        text += "Discount: " + discount + "\n";
+        text += "Total: " + total + "\n";
+        return text;
     }
     
     public void makeOrder(String id)

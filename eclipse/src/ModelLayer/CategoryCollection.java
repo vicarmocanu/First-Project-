@@ -56,17 +56,30 @@ public class CategoryCollection
         return result;
     }
     
-    public void listAllCategories()
+    public String listAllCategories()
     {
         
-        if (listOfCategory.size()!=0){
+//        if (listOfCategory.size()!=0){
+//            for(Category i : listOfCategory)
+//            {
+//                i.print();
+//                System.out.println("*****************************");
+//            }
+//        }
+//        else System.out.println("No categories in the list");
+    	
+    	String text;
+    	text = "";
+    	if (listOfCategory.size()!=0)
+        {
             for(Category i : listOfCategory)
             {
-                i.print();
-                System.out.println("*****************************");
+                text += i.print() + "\n";
+
             }
         }
-        else System.out.println("No categories in the list");
+        else text = "No contractor registered in the system";
+    	return text;
     }
 
     public void deleteCategory(int categoryNumber)          
