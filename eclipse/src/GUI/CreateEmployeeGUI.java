@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import ControlLayer.PersonCtr; 
 
 public class CreateEmployeeGUI extends JFrame {
 
@@ -24,7 +25,7 @@ public class CreateEmployeeGUI extends JFrame {
 	private JTextField telNrField;
 	private JTextField positionField;
 	private JTextField salaryField;
-
+	private PersonCtr controller=new PersonCtr();
 	/**
 	 * Launch the application.
 	 */
@@ -104,6 +105,17 @@ public class CreateEmployeeGUI extends JFrame {
 		salaryField.setColumns(10);
 		
 		JButton btnCreate = new JButton("CREATE");
+		btnCreate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String name= nameField.getText();
+				String id= idField.getText();
+				String address= addressField.getText();
+				String phone= telNrField.getText();
+				String position = positionField.getText();
+				String salary= salaryField.getText();
+				controller.createEmployee(name, id, address, phone, position, Integer.parseInt(salary));
+			}
+		});
 		contentPane.add(btnCreate, "cell 1 8,growx");
 		
 		JButton btnCancel = new JButton("CANCEL");
