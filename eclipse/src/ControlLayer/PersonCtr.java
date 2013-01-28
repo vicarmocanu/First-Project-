@@ -33,6 +33,7 @@ public class PersonCtr
         customer.listAllCustomers();
     }
     
+    
     public void listAllCustomersWithStatistics()
     {
         customer.listAllCustomersWithStatistics();

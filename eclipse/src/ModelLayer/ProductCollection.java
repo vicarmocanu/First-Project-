@@ -186,6 +186,21 @@ public class ProductCollection
         }
         else System.out.println("No products in stock");
     }
+    public String listAllProductsToString()
+    {
+    	String text;
+    	text = "";
+    	if (listOfProducts.size()!=0)
+        {
+            for(Product i : listOfProducts)
+            {
+                text += i.printToString() + "\n";
+
+            }
+        }
+        else text = "No products in stock";
+    	return text;
+    }
 
     public void deleteProduct(String name)          
     {
