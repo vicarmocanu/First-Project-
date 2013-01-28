@@ -24,10 +24,10 @@ public class MainMenu
         startMainMenu();
     }
     
-    public static void main(String[] args)
-    {
-        new MainMenu();
-    }
+//    public static void main(String[] args)
+//    {
+//        new MainMenu();
+//    }
     // Here are the 4 options that you have 
     public void startMainMenu()
     {

@@ -61,6 +61,7 @@ public class ListAllProductGUI extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		contentPane.add(textArea, "cell 0 1 2 1,grow");
+		textArea.setText("");
 	}
 
 }
