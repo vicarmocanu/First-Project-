@@ -718,6 +718,9 @@ public class MainGUI extends JFrame {
 		btnNewButton = new JButton("SALE CONTROL MENU");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				MakeSaleGUI makeSaleGUI = new MakeSaleGUI();
+				makeSaleGUI.setVisible(true);
+				
 
 			}
 		});
