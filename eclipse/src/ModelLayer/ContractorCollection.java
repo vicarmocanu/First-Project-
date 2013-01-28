@@ -38,16 +38,36 @@ public class ContractorCollection
         listOfContractors.add(contractor);
     }
 
-    public void listAllContractors()
+    public String listAllContractors()
     {
-        if (listOfContractors.size()!=0){
+//    	String text;
+//    	text = "";
+//        if (listOfContractors.size()!=0){
+//            for(Contractor i : listOfContractors)
+//            {
+//                i.printContractor();
+//                System.out.println("*****************************");
+//            }
+//        }
+//        else System.out.println("No contractor registred in the system");
+    	String text;
+    	text = "";
+    	if (listOfContractors.size()!=0)
+        {
             for(Contractor i : listOfContractors)
             {
-                i.printContractor();
-                System.out.println("*****************************");
+                text += i.print() + "\n";
+
             }
         }
-        else System.out.println("No contractor registred in the system");
+        else text = "No contractor registered in the system";
+    	return text;
+        
+        
+        
+        
+        
+        
     }
 
     public boolean listContractorByName(String name)

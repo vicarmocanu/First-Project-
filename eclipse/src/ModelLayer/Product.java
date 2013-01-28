@@ -120,25 +120,7 @@ public class Product {
 		this.quantity = quantity;
 	}
 
-	public void print() {
-		System.out.println("BarCode     : " + barCode);
-		System.out.println("Location    : " + location);
-		System.out.println("Name        : " + name);
-		System.out.println("Description : " + description);
-		System.out.println("Buy Price   : " + buyPrice);
-		if (salePrice != 0) {
-			System.out.println("Sale Price  : " + salePrice);
-		} else {
-			System.out.println("Sale Price  : " + " Price not set by Manager");
-		}
-		System.out.println("Min         : " + min);
-		System.out.println("Max         : " + max);
-		System.out.println("Quantity    : " + quantity);
-		System.out.println("*****************");
-
-	}
-
-	public String printToString() {
+	public String print() {
 		String text = "";
 		text += "BarCode     : " + barCode + "\n";
 		text += "Location    : " + location + "\n";
@@ -156,4 +138,6 @@ public class Product {
 		text += "*****************" + "\n";
 		return text;
 	}
+
+	
 }

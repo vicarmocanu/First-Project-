@@ -174,17 +174,20 @@ public class ProductCollection
         }
     }
 
-    public void listAllProducts()
+    public String listAllProducts()
     {
-        if (listOfProducts.size()!=0)
+    	String text;
+    	text = "";
+    	if (listOfProducts.size()!=0)
         {
             for(Product i : listOfProducts)
             {
-                i.print();
+                text += i.print() + "\n";
 
             }
         }
-        else System.out.println("No products in stock");
+        else text = "No products in stock";
+    	return text;
     }
     public String listAllProductsToString()
     {
@@ -194,7 +197,7 @@ public class ProductCollection
         {
             for(Product i : listOfProducts)
             {
-                text += i.printToString() + "\n";
+                text += i.print() + "\n";
 
             }
         }

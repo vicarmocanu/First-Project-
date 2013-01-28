@@ -39,16 +39,29 @@ public class EmployeeCollection
         
     }
 
-    public void listAllEmployees()
+    public String listAllEmployees()
     {
-        if (listOfEmployees.size()!=0){
+//        if (listOfEmployees.size()!=0){
+//            for(Employee i : listOfEmployees)
+//            {
+//                i.printEmployee();
+//                System.out.println("*****************************");
+//            }
+//        }
+//        else System.out.println("No employees registred in the system");
+    	
+    	String text;
+    	text = "";
+    	if (listOfEmployees.size()!=0)
+        {
             for(Employee i : listOfEmployees)
             {
-                i.printEmployee();
-                System.out.println("*****************************");
+                text += i.print() + "\n";
+
             }
         }
-        else System.out.println("No employees registred in the system");
+        else text = "No products in stock";
+    	return text;
     }
     
      public void listAllEmployeesWithStatistics()

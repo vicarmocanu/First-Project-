@@ -67,12 +67,15 @@ public String getPhoneNumber()
         return phoneNumber;
     }
     
-public void print()
+public String print()
     {
-        System.out.println("ID       :"+ id);
-        System.out.println("Name     :"+ name);
-        System.out.println("Address  :"+ address);
-        System.out.println("Phone nr.:"+ phoneNumber);
+		String text;
+		text = "";
+        text += "ID       :"+ id + "\n";
+        text += "Name     :"+ name + "\n";
+        text += "Address  :"+ address + "\n";
+        text += "Phone nr.:"+ phoneNumber + "\n";
+        return text;
     }
 
 
