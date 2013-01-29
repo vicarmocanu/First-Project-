@@ -31,9 +31,9 @@ public class LeaseCtr
         leaseColl.searchLease(id);
     }
     
-    public void print()
+    public String print()
     {
-        leaseColl.print();
+        return leaseColl.print();
     }
     
     public void calculateTotalForLease(String id)

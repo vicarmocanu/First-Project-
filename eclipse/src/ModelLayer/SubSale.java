@@ -29,12 +29,14 @@ public class SubSale
         subTotal=amount*(prodColl.searchProductByBarCode(barCode).salePrice);
     }
     
-    public void print()
+    public String print()
     {
-        System.out.println("Bar code: " + barCode);
-        System.out.println("Amount: " + amount);
-        System.out.println("SubTotal: " + subTotal);
-        System.out.println("                ");
+    	String text = "";
+        text += "Bar code: " + barCode + "\n";
+        text += "Amount: " + amount + "\n";
+        text += "SubTotal: " + subTotal + "\n";
+        text += "                " + "\n";
+        return text;
     }
     
     

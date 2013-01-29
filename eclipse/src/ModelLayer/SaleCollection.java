@@ -61,22 +61,24 @@ public class SaleCollection
         }
     }
        
-   public void listSales()
+   public String listSales()
     {
+	   String text = "";
         if(listOfSales.size()!=0)
         {
             for(Sale i: listOfSales)
             {
-                i.print();
-                System.out.println("*************************");
+                text += i.print()  + "\n";
+                text += "*************************" + "\n";
             }
         }
-        else System.out.println("The list is empty!");
+        else text += "The list is empty!" + "\n";
+        return text;
     }
     
-    public void searchSale(String id)
+    public String searchSale(String id)
     {
-        ArrayList<Order> select=new ArrayList();
+       String text = "";
 
         if(listOfSales.size()!=0)
         {
@@ -84,12 +86,13 @@ public class SaleCollection
             {
                 if(i.id.equals(id))
                 {
-                    i.print();
-                    System.out.println("***************");
+                    text += i.print() + "\n";
+                    text += "***************" + "\n";
                 }
             }
         }
-        else System.out.println("The list is empty!");
+        else text = "The list is empty!" + "\n";
+        return text;
     }
     
 

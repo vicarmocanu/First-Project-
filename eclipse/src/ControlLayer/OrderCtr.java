@@ -21,14 +21,14 @@ public class OrderCtr
         order.createOrder(id,customerName,employeeName);
     }
     
-    public void searchOrder(String id)
+    public String searchOrder(String id)
     {
-        order.searchOrder(id);
+        return order.searchOrder(id);
     }
     
-    public void orderDetails(String id)
+    public String orderDetails(String id)
     {
-        order.orderDetails(id);
+        return order.orderDetails(id);
     }
     
     public String listOrders()

@@ -34,14 +34,18 @@ public class PersonCtr
     }
     
     
-    public void listAllCustomersWithStatistics()
+    public String listAllCustomersWithStatistics()
     {
-        customer.listAllCustomersWithStatistics();
+        return customer.listAllCustomersWithStatistics();
     }
     
     public boolean listCustomerByName(String name)
     {
         return customer.listCustomerByName(name);
+    }
+    public String listCustomerByNamePrint(String name)
+    {
+        return customer.listCustomerByNamePrint(name);
     }
         
     public void deleteCustomer(String name)
@@ -80,14 +84,18 @@ public class PersonCtr
         return employee.listAllEmployees();
     }
     
-    public void listAllEmployeesWithStatistics()
+    public String listAllEmployeesWithStatistics()
     {
-        employee.listAllEmployeesWithStatistics();
+        return employee.listAllEmployeesWithStatistics();
     }
     
     public boolean listEmployeeByName(String name)
     {
         return employee.listEmployeeByName(name);
+    }
+    public String listEmployeeByNamePrint(String name)
+    {
+        return employee.listEmployeeByNamePrint(name);
     }
     
     public void deleteEmployee(String name)  
@@ -130,9 +138,13 @@ public class PersonCtr
     {
         return contractor.listAllContractors();
     }
-    public String listContractorByName(String name)
+    public boolean listContractorByName(String name)
     {
         return contractor.listContractorByName(name);
+    }
+    public String listContractorByNamePrint(String name)
+    {
+        return contractor.listContractorByNamePrint(name);
     }
     public void deleteContractor(String name)
     {

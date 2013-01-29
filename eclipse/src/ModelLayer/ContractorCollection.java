@@ -62,15 +62,25 @@ public class ContractorCollection
         }
         else text = "No contractor registered in the system";
     	return text;
-        
-        
-        
-        
-        
-        
     }
-
-    public String listContractorByName(String name)
+    public boolean listContractorByName(String name)
+    {
+    	if (listOfContractors.size()!=0){
+          for(Contractor i : listOfContractors)
+          {
+              if(i.name.equals(name))
+              {
+                  i.printContractor();
+                  System.out.println("*****************************");
+                  return true;
+              }
+          }
+          
+      }
+      System.out.println("No contractor with that name in the system");
+      return false;
+    }
+    public String listContractorByNamePrint(String name)
     {
 //        if (listOfContractors.size()!=0){
 //            for(Contractor i : listOfContractors)
@@ -101,7 +111,7 @@ public class ContractorCollection
            
             
         }
-        System.out.println("No contractor in the system");
+        text = "No contractor in the system" + "\n";
         return text;
     }
     public void deleteContractor(String name)          

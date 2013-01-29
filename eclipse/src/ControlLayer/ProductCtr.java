@@ -1,5 +1,6 @@
 package ControlLayer;
 import ModelLayer.ProductCollection;
+import ModelLayer.Product;
 
 /**
  * Write a description of class ProductCtr here.
@@ -21,29 +22,33 @@ public class ProductCtr
         collection.addProduct(barCode,location,name,description,buyPrice,salePrice,min,max,quantity);
     }
 
-    public void searchProduct(String name)
+    public Product searchProduct(String name)
     {
-        collection.searchProduct(name);
+        return collection.searchProduct(name);
     }
     
-    public void listProductsWithoutSalePrice()
+    public String listProductsWithoutSalePrice()
     {
-        collection.listProductsWithoutSalePrice();
+        return collection.listProductsWithoutSalePrice();
     }
 
     public boolean searchProductAndPrint(String name)
     {
         return collection.searchProductAndPrint(name);
     }
-
-    public void searchProductByBarCode(String name)
+    public String searchProductAndPrintPrint(String name)
     {
-        collection.searchProductByBarCode(name);
+        return collection.searchProductAndPrintPrint(name);
     }
 
-    public void searchProductByBarCodeAndPrint(String name)
+    public Product searchProductByBarCode(String name)
     {
-        collection.searchProductByBarCodeAndPrint(name);
+        return collection.searchProductByBarCode(name);
+    }
+
+    public String searchProductByBarCodeAndPrint(String name)
+    {
+        return collection.searchProductByBarCodeAndPrint(name);
     }
 
     public String listAllProducts()

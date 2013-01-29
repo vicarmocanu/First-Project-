@@ -35,8 +35,8 @@ public class ProductForLeaseCtr
         return prodCollForLease.searchExistProduct(name);
     }
     
-    public void print()
+    public String print()
     {
-        prodCollForLease.print();
+        return prodCollForLease.print();
     }
 }

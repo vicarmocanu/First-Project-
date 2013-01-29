@@ -101,13 +101,15 @@ public class ProductForLease
         this.status=status;
     }
     
-    public void print()
+    public String print()
     {
-        System.out.println("BarCode: " + barCode);
-        System.out.println("Location: " + location);
-        System.out.println("Name: " + name);
-        System.out.println("Description: " + description);
-        System.out.println("Status: " + status);
-        System.out.println("Price per day: " + pricePerDay);
+    	String text = "";
+        text += "BarCode: " + barCode + "\n";
+        text += "Location: " + location + "\n";
+        text += "Name: " + name + "\n";
+        text += "Description: " + description + "\n";
+        text += "Status: " + status + "\n";
+        text += "Price per day: " + pricePerDay + "\n";
+        return text;
     }
 }

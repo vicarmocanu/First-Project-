@@ -64,35 +64,71 @@ public class CustomerCollection
     	return text;
     }
     
-     public void listAllCustomersWithStatistics()
+     public String listAllCustomersWithStatistics()
     {
+    	String text;
+    	text = "";
         if (listOfCustomers.size()!=0){
             for(Customer i : listOfCustomers)
             {
-                i.printCustomerWithStatistics();
-                System.out.println("*****************************");
+                text += i.printCustomerWithStatistics() + "\n";
+                text += "*****************************" + "\n";
             }
         }
-        else System.out.println("No customers registred in the system");
+        else text = "No customers registred in the system";
+        return text;
     }
-    
     
     public boolean listCustomerByName(String name)
     {
-        if (listOfCustomers.size()!=0){
+    	if (listOfCustomers.size()!=0){
+          for(Customer i : listOfCustomers)
+          {
+              if(i.name.equals(name))
+              {
+                  i.printCustomer();
+                  System.out.println("*****************************");
+                  return true;
+              }
+          }
+          
+      }
+      System.out.println("No customer with that name in the system");
+      return false;
+    }
+    public String listCustomerByNamePrint(String name)
+    {
+//        if (listOfCustomers.size()!=0){
+//            for(Customer i : listOfCustomers)
+//            {
+//                if(i.name.equals(name))
+//                {
+//                    i.printCustomer();
+//                    System.out.println("*****************************");
+//                    return true;
+//                }
+//            }
+//            
+//        }
+//        System.out.println("No customer with that name in the system");
+//        return false;
+    	
+    	String text;
+    	text = "";
+    	if (listOfCustomers.size()!=0){
             for(Customer i : listOfCustomers)
             {
                 if(i.name.equals(name))
                 {
-                    i.printCustomer();
-                    System.out.println("*****************************");
-                    return true;
+                	text += i.print() + "\n";
                 }
+                
             }
+           
             
         }
-        System.out.println("No customer with that name in the system");
-        return false;
+        text = "No customers in the system" + "\n";
+        return text;
     }
 
     public void deleteCustomer(String name)          

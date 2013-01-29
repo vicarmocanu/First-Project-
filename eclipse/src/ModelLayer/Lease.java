@@ -102,17 +102,18 @@ public class Lease
         return result;
     }
 
-    public void print()
+    public String print()
     {
-        System.out.println("ID: " + id);
+    	String text = "";
+        text += "ID: " + id + "\n";
         if(listOfSubLeases.size()!=0)
         {
             for(SubLease i: listOfSubLeases)
             {
-                i.print();
-                System.out.println("           ");
+                text += i.print() + "\n";
             }
         }
-        System.out.println("Total: " + total);
+        text += "Total: " + total + "\n";
+        return text;
     }
 }
