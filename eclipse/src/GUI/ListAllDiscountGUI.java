@@ -1,5 +1,6 @@
 package GUI;
 
+import ControlLayer.CategoryCtr;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -13,10 +14,13 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class ListAllDiscountGUI extends JFrame {
 
 	private JPanel contentPane;
+	private CategoryCtr controller = new CategoryCtr();
 
 	/**
 	 * Launch the application.
@@ -59,8 +63,15 @@ public class ListAllDiscountGUI extends JFrame {
 		});
 		contentPane.add(btnCancel, "cell 1 0");
 		
-		JTextArea textArea = new JTextArea();
+		final JTextArea textArea = new JTextArea();
 		contentPane.add(textArea, "cell 0 1 2 1,grow");
+		
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent arg0) {
+				textArea.setText(controller.listAllCategories());
+			}
+		});
 	}
 
 }
