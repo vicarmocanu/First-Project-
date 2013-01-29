@@ -70,22 +70,39 @@ public class ContractorCollection
         
     }
 
-    public boolean listContractorByName(String name)
+    public String listContractorByName(String name)
     {
-        if (listOfContractors.size()!=0){
+//        if (listOfContractors.size()!=0){
+//            for(Contractor i : listOfContractors)
+//            {
+//                if(i.name.equals(name))
+//                {
+//                    i.printContractor();
+//                    System.out.println("*****************************");
+//                    return true;
+//                }
+//            }
+//            
+//        }
+//        System.out.println("No contractor with that name in the system");
+//        return false;
+    	
+    	String text;
+    	text = "";
+    	if (listOfContractors.size()!=0){
             for(Contractor i : listOfContractors)
             {
                 if(i.name.equals(name))
                 {
-                    i.printContractor();
-                    System.out.println("*****************************");
-                    return true;
+                	text += i.print() + "\n";
                 }
+                
             }
+           
             
         }
-        System.out.println("No contractor with that name in the system");
-        return false;
+        System.out.println("No contractor in the system");
+        return text;
     }
     public void deleteContractor(String name)          
     {
