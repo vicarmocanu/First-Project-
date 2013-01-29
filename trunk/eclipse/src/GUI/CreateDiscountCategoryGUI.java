@@ -1,5 +1,6 @@
 package GUI;
 
+import ControlLayer.CategoryCtr;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -9,16 +10,18 @@ import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 import java.awt.Window.Type;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class AddNewDiscountGUI extends JFrame {
+public class CreateDiscountCategoryGUI extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField categoryField;
+	private JTextField discountField;
+	private CategoryCtr controller = new CategoryCtr();
 
 	/**
 	 * Launch the application.
@@ -27,7 +30,7 @@ public class AddNewDiscountGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AddNewDiscountGUI frame = new AddNewDiscountGUI();
+					CreateDiscountCategoryGUI frame = new CreateDiscountCategoryGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +42,7 @@ public class AddNewDiscountGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AddNewDiscountGUI() {
+	public CreateDiscountCategoryGUI() {
 		setTitle("ADD NEW DISCOUNT CATEGORY");
 		setResizable(false);
 		setType(Type.UTILITY);
@@ -56,18 +59,35 @@ public class AddNewDiscountGUI extends JFrame {
 		JLabel lblCategoryNumber = new JLabel("CATEGORY NUMBER:");
 		contentPane.add(lblCategoryNumber, "cell 0 1,alignx trailing");
 		
-		textField = new JTextField();
-		contentPane.add(textField, "cell 1 1,growx");
-		textField.setColumns(10);
+		categoryField = new JTextField();
+		contentPane.add(categoryField, "cell 1 1,growx");
+		categoryField.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("DISCOUNT AMMOUNT:");
 		contentPane.add(lblNewLabel, "cell 0 2,alignx trailing");
 		
-		textField_1 = new JTextField();
-		contentPane.add(textField_1, "cell 1 2,growx");
-		textField_1.setColumns(10);
+		discountField = new JTextField();
+		contentPane.add(discountField, "cell 1 2,growx");
+		discountField.setColumns(10);
 		
 		JButton btnAdd = new JButton("ADD");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				String category=categoryField.getText();
+				String discount=discountField.getText();
+				
+				
+				
+				controller.createCategory(Integer.parseInt(category),Integer.parseInt(discount));
+				
+				
+				JOptionPane.showMessageDialog(null,
+						"New discount category added in the system!", "Successful",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
 		contentPane.add(btnAdd, "cell 0 3,growx");
 		
 		JButton btnCancel = new JButton("CANCEL");

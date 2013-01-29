@@ -418,6 +418,8 @@ public class MainGUI extends JFrame {
 		JButton btnCalcel = new JButton("CANCEL");
 		btnCalcel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				CardLayout cl = (CardLayout) contentPane.getLayout();
+				cl.show(contentPane, "card_mainMenuPanel");
 
 			}
 		});
@@ -532,7 +534,7 @@ public class MainGUI extends JFrame {
 		btnAddNewCategory = new JButton("ADD NEW CATEGORY");
 		btnAddNewCategory.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddNewDiscountGUI addNewDiscountGUI = new AddNewDiscountGUI();
+				CreateDiscountCategoryGUI addNewDiscountGUI = new CreateDiscountCategoryGUI();
 				addNewDiscountGUI.setVisible(true);
 			}
 		});
