@@ -130,7 +130,7 @@ public class PersonCtr
     {
         return contractor.listAllContractors();
     }
-    public boolean listContractorByName(String name)
+    public String listContractorByName(String name)
     {
         return contractor.listContractorByName(name);
     }

@@ -27,6 +27,7 @@ public class UpdateContractorGUI extends JFrame {
 	private JTextField addressField;
 	private JTextField phoneField;
 	private PersonCtr controller = new PersonCtr();
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -56,8 +57,7 @@ public class UpdateContractorGUI extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[][][grow][]",
-				"[][][][grow][][][][]"));
+		contentPane.setLayout(new MigLayout("", "[][][grow][]", "[][][][grow][][][][]"));
 
 		JLabel lblNewLabel = new JLabel("UPDATE CONTRACTOR");
 		contentPane.add(lblNewLabel, "cell 2 0,alignx center");
@@ -71,13 +71,37 @@ public class UpdateContractorGUI extends JFrame {
 		searchField = new JTextField();
 		contentPane.add(searchField, "cell 2 2,growx");
 		searchField.setColumns(10);
-
+		
 		JButton btnSearch = new JButton("SEARCH");
+		btnSearch.addActionListener(new ActionListener() {
+			 public void actionPerformed(ActionEvent arg0) {
+				
+				String searchName;
+				searchName = searchField.getText();
+				
+			if (searchField.getText().equals("")) {
+					JOptionPane.showMessageDialog(null,
+				
+						"Empty fields are not allowed!", "Input error",
+						JOptionPane.ERROR_MESSAGE);}
+				else {
+						String contractor;
+						contractor = controller.listContractorByName(searchName);
+							if (contractor != "") textField.setText(controller.listContractorByName(searchName));
+							else   
+								textField.setText("No contractor with that name found in the system.");		}
+					
+			
+			}}
+			
+		);
 		contentPane.add(btnSearch, "cell 3 2");
+		
+		textField = new JTextField();
+		contentPane.add(textField, "cell 2 3,grow");
+		textField.setColumns(10);
 
-		JTextPane textPane = new JTextPane();
-		textPane.setEditable(false);
-		contentPane.add(textPane, "cell 2 3,grow");
+		
 
 		JLabel lblNewLabel_1 = new JLabel("ID:");
 		contentPane.add(lblNewLabel_1, "cell 1 4,growx");
