@@ -1,5 +1,6 @@
 package GUI;
 
+import ControlLayer.PersonCtr;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -9,6 +10,8 @@ import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import java.awt.Window.Type;
+
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
@@ -20,6 +23,7 @@ public class DeleteContractorGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField searchField;
+	private PersonCtr controller = new PersonCtr();
 
 	/**
 	 * Launch the application.
@@ -71,7 +75,25 @@ public class DeleteContractorGUI extends JFrame {
 		contentPane.add(textPane, "cell 2 3,grow");
 		
 		JButton btnDelete = new JButton("DELETE");
-		btnDelete.setEnabled(false);
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				 String name = searchField.getText();
+				 
+				 if (searchField.getText().equals("")){
+						JOptionPane.showMessageDialog(null,
+								"Empty fields are not allowed!", "Input error",
+								JOptionPane.ERROR_MESSAGE);
+					}
+				 else {
+					 	controller.deleteContractor(name);
+					 	
+						{JOptionPane.showMessageDialog(null,
+						"Contractor deleted from the system. ", "Successful",
+						JOptionPane.INFORMATION_MESSAGE);}
+				 }
+			}
+		});
 		contentPane.add(btnDelete, "cell 2 4,growx");
 		
 		JButton btnCancel = new JButton("CANCEL");
