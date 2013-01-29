@@ -60,7 +60,7 @@ public class EmployeeCollection
 
             }
         }
-        else text = "No products in stock";
+        else text = "No employees registered in the system";
     	return text;
     }
     

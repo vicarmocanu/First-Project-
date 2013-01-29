@@ -102,7 +102,7 @@ public class CreateCustomerGUI extends JFrame {
 				
 				
 				
-				controller.createContractor(name, id, address, phone);
+				controller.createCustomer(name, id, address, phone);
 				
 				
 				JOptionPane.showMessageDialog(null,

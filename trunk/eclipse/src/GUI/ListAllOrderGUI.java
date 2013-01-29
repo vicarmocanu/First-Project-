@@ -1,7 +1,7 @@
 package GUI;
 
 import java.awt.BorderLayout;
-import ControlLayer.PersonCtr;
+import ControlLayer.OrderCtr;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -20,7 +20,7 @@ import java.awt.event.WindowEvent;
 public class ListAllOrderGUI extends JFrame {
 
 	private JPanel contentPane;
-	private PersonCtr controller = new PersonCtr();
+	private OrderCtr controller = new OrderCtr();
 
 	/**
 	 * Launch the application.
@@ -72,7 +72,7 @@ public class ListAllOrderGUI extends JFrame {
 	addWindowListener(new WindowAdapter() {
 		@Override
 		public void windowActivated(WindowEvent arg0) {
-			textArea.setText(controller.listAllOrders());
+			textArea.setText(controller.listOrders());
 		}
 	});
 

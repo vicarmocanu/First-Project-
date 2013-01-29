@@ -36,6 +36,7 @@ public class CustomerCollection
     {
         Customer customer=new Customer( name,  id,  address,  phoneNumber);
         listOfCustomers.add(customer);
+        System.out.println(" Customer added ! ");
     }
 
     public String listAllCustomers()
