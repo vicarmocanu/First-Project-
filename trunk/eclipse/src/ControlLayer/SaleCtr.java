@@ -22,16 +22,16 @@ public class SaleCtr
         sale.createSale(id,customerName,employeeName);
     }
     
-    public void searchSale(String id)
+    public String searchSale(String id)
     {
-        sale.searchSale(id);
+        return sale.searchSale(id);
     }
     
     
     
-    public void listSales()
+    public String listSales()
     {
-        sale.listSales();
+        return sale.listSales();
     }
         
     public void addSubSaleToSale(String id, int amount, String barCode)

@@ -73,14 +73,16 @@ public class SubLease
         endPeriod=new Date(((currenttime.getTime()).getTime()));
     }
     
-    public void print()
+    public String print()
     {
+    	String text = "";
         subTotal();
-        System.out.println("Name: " + name);
-        System.out.println("Price Per Day: " + productCollectionForLease.searchProduct(name).getPricePerDay());
-        System.out.println("Number Of Days: " + numberOfDays);
-        System.out.println("Sub Total: " + subTotal);
-        System.out.println("Start of Period: " + startPeriod);
-        System.out.println("End of Period: " + endPeriod);
+        text += "Name: " + name + "\n";
+        text += "Price Per Day: " + productCollectionForLease.searchProduct(name).getPricePerDay()  + "\n";
+        text += "Number Of Days: " + numberOfDays + "\n";
+        text += "Sub Total: " + subTotal + "\n";
+        text += "Start of Period: " + startPeriod + "\n";
+        text += "End of Period: " + endPeriod + "\n";
+        return text;
     }
 }

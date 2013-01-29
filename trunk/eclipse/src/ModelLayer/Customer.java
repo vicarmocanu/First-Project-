@@ -64,24 +64,29 @@ public class Customer extends Person
         numberOfOrders=numberOfOrders+1;
     }
 
-    public void printCustomer()
+    public String printCustomer()
     {
+    	String text;
+    	text="";
         print();
-        System.out.println("Discount category: " + discountCategory);
+        text += "Discount category: " + discountCategory + "\n";
+        return text;
     }
 
-    public void printCustomerWithStatistics()
+    public String printCustomerWithStatistics()
     {
+    	String text;
+    	text = "";
         print();
 
-        System.out.println("Total amount from orders: " + totalAmountFromOrders);
-        System.out.println("Total number of orders placed: " + numberOfOrders );
+        text += "Total amount from orders: " + totalAmountFromOrders + "\n";
+        text += "Total number of orders placed: " + numberOfOrders + "\n";
 
-        System.out.println("Total amount from sales: " + totalAmountFromSales);
-        System.out.println("Total number of sales placed: " + numberOfSales );
-
+        text += "Total amount from sales: " + totalAmountFromSales + "\n";
+        text += "Total number of sales placed: " + numberOfSales + "\n";
         
-        System.out.println("Total amount from leases: " + totalAmountFromLeases);
-        System.out.println("Total number of leases placed: " + numberOfLeases );
+        text += "Total amount from leases: " + totalAmountFromLeases + "\n";
+        text += "Total number of leases placed: " + numberOfLeases + "\n";
+        return text;
     }
 }

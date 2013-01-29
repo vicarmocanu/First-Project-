@@ -57,36 +57,40 @@ public class OrderCollection
         }
     }
 
-    public void searchOrder(String id)
+    public String searchOrder(String id)
     {
+    	String text="";
         if(listOfOrders.size()!=0)
         {
             for(Order i : listOfOrders)
             {
                 if(i.id.equals(id))
                 {
-                    i.print();
-                    System.out.println("***************");
+                    text += i.print() + "\n";
+                    text +="***************" + "\n";
                 }
             }
         }
-        else System.out.println("The list is empty!");
+        else text = "The list is empty!";
+        return text;
     }
 
-    public void orderDetails(String id)
+    public String orderDetails(String id)
     {
+    	String text = "";
         if(listOfOrders.size()!=0)
         {
             for(Order i: listOfOrders)
             {
                 if(i.id.equals(id))
                 {
-                    i.print();
-                    System.out.println("***************");
+                    text += i.print() + "\n";
+                    text += "***************" + "\n";
                 }
             }
         }
-        else System.out.println("The list is empty!");
+        else text = "The list is empty!";
+        return text;
     }
 
     public String listOrders()
@@ -113,6 +117,7 @@ public class OrderCollection
         }
         else text = "No orders registered in the system";
     	return text;
+    	
     }
     
    

@@ -49,38 +49,57 @@ public class ProductCollection
         return result;
     }
 
-    public void listProductsWithoutSalePrice()
+    public String listProductsWithoutSalePrice()
     {
-        
+        String text = "";
         if(listOfProducts.size()!=0)
         {
             for(Product i : listOfProducts)
             {
                 if(i.salePrice == 0)
                 {
-                    i.print();
+                    text += i.print() + "\n";
                 }
             }
         }
-        else System.out.println("The list is empty");
+        else text = "The list is empty";
+        return text;
     }
-
     public boolean searchProductAndPrint(String name)
     {
-        Product result=null;
+        String text = "";
         if(listOfProducts.size()!=0)
         {
             for(Product i : listOfProducts)
             {
                 if(i.name.toLowerCase().contains(name.toLowerCase()))
                 {
-                    i.print();
+                    text += i.print() + "\n";
                     return true;
                 }
             }
         }
-        else System.out.println("The list is empty");
+        else text = "The list is empty";
         return false;
+
+    }
+
+    public String searchProductAndPrintPrint(String name)
+    {
+        String text = "";
+        if(listOfProducts.size()!=0)
+        {
+            for(Product i : listOfProducts)
+            {
+                if(i.name.toLowerCase().contains(name.toLowerCase()))
+                {
+                    text += i.print() + "\n";
+                    return text;
+                }
+            }
+        }
+        else text = "The list is empty";
+        return text;
 
     }
 
@@ -101,20 +120,21 @@ public class ProductCollection
         return result;
     }
 
-    public void searchProductByBarCodeAndPrint(String barCode)
+    public String searchProductByBarCodeAndPrint(String barCode)
     {
-
+    	String text = "";
         if(listOfProducts.size()!=0)
         {
             for(Product i : listOfProducts)
             {
                 if(i.barCode.toLowerCase().contains(barCode.toLowerCase()))
                 {
-                    i.print();
+                    text +=i.print() + "\n";
                 }
             }
         }
-        else System.out.println("The list is empty");
+        else text = "The list is empty";
+        return text;
     }
 
     public void updateProductStockByBarCode(int numberOfItems,String barCode)

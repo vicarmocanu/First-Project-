@@ -86,8 +86,8 @@ public class UpdateContractorGUI extends JFrame {
 						JOptionPane.ERROR_MESSAGE);}
 				else {
 						String contractor;
-						contractor = controller.listContractorByName(searchName);
-							if (contractor != "") textField.setText(controller.listContractorByName(searchName));
+						contractor = controller.listContractorByNamePrint(searchName);
+							if (contractor != "") textField.setText(controller.listContractorByNamePrint(searchName));
 							else   
 								textField.setText("No contractor with that name found in the system.");		}
 					

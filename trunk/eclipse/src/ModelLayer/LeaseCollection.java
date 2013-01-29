@@ -95,32 +95,35 @@ public class LeaseCollection
         else System.out.println("The list is empty!");
     }
 
-    public void searchLease(String id)
+    public String searchLease(String id)
     {
+    	String text = "";
         if(listOfLeases.size()!=0)
         {
             for(Lease i : listOfLeases)
             {
                 if(i.id.equals(id))
                 {
-                    i.print();
-                    System.out.println("                 ");
+                    text += i.print() + "\n";
                 }
             }
         }
-        else System.out.println("The list is empty!");
+        else text = "The list is empty!";
+        return text;
     }
 
-    public void print()
+    public String print()
     {
+    	String text = "";
         if(listOfLeases.size()!=0)
         {
             for(Lease i : listOfLeases)
             {
-                i.print();
-                System.out.println("                 ");
+                text += i.print() + "\n";
+
             }
         }
-        else System.out.println("The list is empty!");
+        else text = "The list is empty!" + "\n";
+        return text;
     }
 }

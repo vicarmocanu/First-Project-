@@ -28,12 +28,14 @@ public class SubOrder
         subTotal=amount*(prodColl.searchProduct(name).salePrice);
     }
     
-    public void print()
+    public String print()
     {
-        System.out.println("Name: " + name);
+    	String text = "";
+        text += "Name: " + name + "\n";
         
-        System.out.println("Amount: " + amount);
-        System.out.println("SubTotal: " + subTotal);
-        System.out.println("                ");
+        text += "Amount: " + amount + "\n";
+        text += "SubTotal: " + subTotal + "\n";
+        text += "                " + "\n";
+        return text;
     }
 }
