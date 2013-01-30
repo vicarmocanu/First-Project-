@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import java.awt.Window.Type;
+
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -18,12 +20,17 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import java.awt.Dimension;
 import javax.swing.JScrollBar;
+import ControlLayer.ProductCtr;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class SetSalePriceGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField searchField;
-	private JTextField salaryField;
+	private JTextField priceField;
+	private ProductCtr controller = new ProductCtr();
+	private String productsWithoutSalePrice;
 
 	/**
 	 * Launch the application.
@@ -45,11 +52,12 @@ public class SetSalePriceGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public SetSalePriceGUI() {
+		
 		setResizable(false);
 		setTitle("SET PRICE FOR PRODUCTS");
 		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 424, 506);
+		setBounds(100, 100, 424, 655);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -62,7 +70,9 @@ public class SetSalePriceGUI extends JFrame {
 		contentPane.add(separator, "cell 0 1 4 1,growx");
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setMaximumSize(new Dimension(2147483647, 200));
+		
+		textArea.setEditable(false);
+		textArea.setText(controller.listProductsWithoutSalePrice());
 		contentPane.add(textArea, "flowx,cell 1 2 3 2,grow");
 		
 		JLabel lblSearchName = new JLabel("SEARCH NAME:");
@@ -71,25 +81,42 @@ public class SetSalePriceGUI extends JFrame {
 		searchField = new JTextField();
 		contentPane.add(searchField, "cell 2 4,growx");
 		searchField.setColumns(10);
-		
-		JButton btnSearch = new JButton("SEARCH");
-		contentPane.add(btnSearch, "cell 3 4");
-		
-		JTextPane textPane = new JTextPane();
+		final JTextPane textPane = new JTextPane();
 		textPane.setEditable(false);
+		
 		contentPane.add(textPane, "cell 0 5 4 1,grow");
+		
+		
+		
 		
 		JLabel lblSalary = new JLabel("PRICE:");
 		contentPane.add(lblSalary, "cell 1 6,alignx trailing");
 		
-		salaryField = new JTextField();
-		salaryField.setEnabled(false);
-		contentPane.add(salaryField, "cell 2 6,growx");
-		salaryField.setColumns(10);
+		priceField = new JTextField();
+		contentPane.add(priceField, "cell 2 6,growx");
+		priceField.setColumns(10);
 		
-		JButton btnUpdate = new JButton("UPDATE");
-		btnUpdate.setEnabled(false);
-		contentPane.add(btnUpdate, "cell 3 6");
+		final JButton btnUpdatePrice = new JButton("UPDATE");
+		btnUpdatePrice.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = searchField.getText();
+				String price = priceField.getText();
+
+				if (price.equals("") || name.equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Empty fields are not allowed!", "Input error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+					
+						controller.updateProductSalePrice(name, Integer.parseInt(price));
+						JOptionPane.showMessageDialog(null,
+								"Sale price was set!", "Sucessfull",
+								JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+		});
+		btnUpdatePrice.setEnabled(false);
+		contentPane.add(btnUpdatePrice, "cell 3 6");
 		
 		JButton btnCancel = new JButton("CANCEL");
 		btnCancel.addActionListener(new ActionListener() {
@@ -98,6 +125,31 @@ public class SetSalePriceGUI extends JFrame {
 			}
 		});
 		contentPane.add(btnCancel, "cell 2 7,growx");
+		
+		
+		JButton btnSearch = new JButton("SEARCH");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = searchField.getText();
+
+				if (name.equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Empty fields are not allowed!", "Input error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+						if(controller.searchProductAndPrint(name))
+						{
+						textPane.setText(controller.searchProductAndPrintPrint(name));
+						btnUpdatePrice.setEnabled(true);
+						}
+						else
+							textPane.setText(controller.searchProductAndPrintPrint(name));
+					
+				}
+			}
+		});
+		contentPane.add(btnSearch, "cell 3 4");
+		
 	}
 
 }
