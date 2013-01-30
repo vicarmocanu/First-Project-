@@ -9,18 +9,21 @@ import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import java.awt.Window.Type;
+
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import ControlLayer.ProductForLeaseCtr;
 
 public class UpdateProductStatusForLeaseGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField searchField;
-	private JTextField idField;
+	private ProductForLeaseCtr controller = new ProductForLeaseCtr();
 
 	/**
 	 * Launch the application.
@@ -46,7 +49,7 @@ public class UpdateProductStatusForLeaseGUI extends JFrame {
 		setTitle("UPDATE STATUS");
 		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 397, 265);
+		setBounds(100, 100, 397, 375);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -65,10 +68,9 @@ public class UpdateProductStatusForLeaseGUI extends JFrame {
 		contentPane.add(searchField, "cell 2 2,growx");
 		searchField.setColumns(10);
 		
-		JButton btnSearch = new JButton("SEARCH");
-		contentPane.add(btnSearch, "cell 3 2");
 		
-		JTextPane textPane = new JTextPane();
+		
+		final JTextPane textPane = new JTextPane();
 		textPane.setEditable(false);
 		contentPane.add(textPane, "cell 2 3 1 2,grow");
 		
@@ -82,15 +84,45 @@ public class UpdateProductStatusForLeaseGUI extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("STATUS:");
 		contentPane.add(lblNewLabel_1, "cell 1 5");
 		
-		idField = new JTextField();
-		idField.setEnabled(false);
-		contentPane.add(idField, "cell 2 5,growx");
-		idField.setColumns(10);
-		
-		JButton btnUpdateId = new JButton("UPDATE");
-		btnUpdateId.setEnabled(false);
-		contentPane.add(btnUpdateId, "cell 3 5");
+		final JButton btnUpdateStatus = new JButton("UPDATE");
+		btnUpdateStatus.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String searchName;
+				searchName = searchField.getText();
+				controller.changeProductForLeaseStatus(searchName);
+				JOptionPane.showMessageDialog(null,
+						"Product updated in the system. ", "Successful",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		btnUpdateStatus.setEnabled(false);
+		contentPane.add(btnUpdateStatus, "cell 2 5,growx");
 		contentPane.add(btnCancel, "cell 2 6,growx");
+		
+		JButton btnSearch = new JButton("SEARCH");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String searchName;
+				searchName = searchField.getText();
+
+				if (searchField.getText().equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Empty fields are not allowed!", "Input error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+
+					if (controller.searchExistProduct(searchName)) {
+						textPane.setText(controller
+								.searchProduct(searchName).print());
+						btnUpdateStatus.setEnabled(true);
+						
+					} else
+						textPane
+								.setText("No product with that name found in the system.");
+				}
+			}
+		});
+		contentPane.add(btnSearch, "cell 3 2");
 	}
 
 }

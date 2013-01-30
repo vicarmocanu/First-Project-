@@ -274,6 +274,28 @@ public class ProductCollection
         }
         else System.out.println("No such product in stock");
     }
+    
+    public void updateProductQuantity(String name, int quantity)
+    {
+        ArrayList<Product> select=new ArrayList<Product>();
+        boolean found=false;
+        if(listOfProducts.size()!=0)
+        {
+            for(Product a: listOfProducts)
+            {
+                if(a.name.equals(name))
+                {
+                    select.add(a);
+                    a.setQuantity(quantity);
+                    System.out.println("Update Successful!");
+                    found=true;
+                }
+
+            }
+            if (!found) System.out.println("No product with that name in the system.");
+        }
+        else System.out.println("No such product in stock");
+    }
 
     public void updateProductLocation(String name, String location)
     {

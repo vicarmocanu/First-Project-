@@ -85,25 +85,23 @@ public class CategoryCollection
     
     public String searchCategoryAndPrint(int categoryNumber)
     {
-    	String text ="";
-    	Iterator<Category> it = listOfCategory.iterator();
-    	boolean found = false;
-        while(it.hasNext())
+    	String text;
+    	text = "";
+    	if (listOfCategory.size()!=0)
         {
-            int x=it.next().categoryNumber;
-            if(x == categoryNumber)
+            for(Category i : listOfCategory)
             {
-            	found = true;
-                text =  it.next().print();
+                text += i.print() + "\n";
+                break;
             }
         }
-       if(!found) text = "No category registed with that number in the system";
-       if(text.equals("")) text = "no category with that name in the system";
-       return text;
+        else text = "No category registered in the system";
+    	if(text.equals("")) text = "no category with that name in the system";
+    	return text;
+       
     }
     public boolean categoryExists(int categoryNumber)
     {
-    	String text ="";
     	Iterator<Category> it = listOfCategory.iterator();
     	boolean found = false;
         while(it.hasNext())
@@ -112,10 +110,10 @@ public class CategoryCollection
             if(x == categoryNumber)
             {
             	found = true;
-                text =  it.next().print();
             }
         }
-       if(!found) text = "No category registed with that number in the system";
+       if(!found) {
+	}
        return found;
     }
 

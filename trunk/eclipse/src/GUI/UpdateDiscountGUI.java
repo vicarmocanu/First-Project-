@@ -80,31 +80,23 @@ public class UpdateDiscountGUI extends JFrame {
 		contentPane.add(lblNewLabel_1, "cell 1 4,growx");
 
 		discountField = new JTextField();
-		discountField.setEnabled(false);
 		discountField.setColumns(10);
 		contentPane.add(discountField, "cell 2 4,growx");
 
-		final JButton btnUpdate = new JButton("UPDATE");
-		btnUpdate.setEnabled(false);
-		btnUpdate.addActionListener(new ActionListener() {
+		final JButton btnUpdateDiscount = new JButton("UPDATE");
+		btnUpdateDiscount.setEnabled(false);
+		btnUpdateDiscount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
 				String category = discountField.getText();
-				int cat = 0;
-				try {
-					cat = Integer.parseInt(category);
-				} catch (NumberFormatException nfe) {
-					JOptionPane.showMessageDialog(null, "This is not a number",
-							"Input error", JOptionPane.ERROR_MESSAGE);
-					discountField.setText("");
-					category = "";
-
-				}
+				
+				
 				if (category.equals("")) {
 					JOptionPane.showMessageDialog(null,
 							"Empty fields are not allowed!", "Input error",
 							JOptionPane.ERROR_MESSAGE);
 				} else {
+					int cat = Integer.parseInt(category);
 					controller.updateDiscount(Integer.parseInt(searchField.getText()), cat);
 
 					{
@@ -116,7 +108,7 @@ public class UpdateDiscountGUI extends JFrame {
 
 			}
 		});
-		contentPane.add(btnUpdate, "cell 3 4,growx");
+		contentPane.add(btnUpdateDiscount, "cell 3 4,growx");
 
 		JButton btnCancel = new JButton("CANCEL");
 		btnCancel.addActionListener(new ActionListener() {
@@ -130,28 +122,20 @@ public class UpdateDiscountGUI extends JFrame {
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = searchField.getText();
-				int cat = 0;
-				try {
-					cat = Integer.parseInt(name);
-				} catch (NumberFormatException nfe) {
-					JOptionPane.showMessageDialog(null, "This is not a number",
-							"Input error", JOptionPane.ERROR_MESSAGE);
-					searchField.setText("");
-					name = "";
-
-				}
+				
+				
 				if (name.equals("")) {
 					JOptionPane.showMessageDialog(null,
 							"Empty fields are not allowed!", "Input error",
 							JOptionPane.ERROR_MESSAGE);
 				} else {
+					int cat = Integer.parseInt(name);
 					if (controller.categoryExists(cat)) {
 						textPane.setText(controller.searchCategoryAndPrint(cat));
-						btnUpdate.setEnabled(true);
-						discountField.setEnabled(true);
+						btnUpdateDiscount.setEnabled(true);
 
 					} else {
-						textPane.setText(controller.searchCategoryAndPrint(cat));
+						textPane.setText("No category with that name found");
 					}
 				}
 			}
