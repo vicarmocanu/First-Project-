@@ -24,7 +24,7 @@ public class SetDiscountGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField searchField;
 	private JTextField categoryField;
-	
+
 	private PersonCtr controller2 = new PersonCtr();
 
 	/**
@@ -81,7 +81,6 @@ public class SetDiscountGUI extends JFrame {
 		contentPane.add(lblNewLabel_1, "cell 1 4");
 
 		categoryField = new JTextField();
-		categoryField.setEnabled(false);
 		contentPane.add(categoryField, "cell 2 4,growx");
 		categoryField.setColumns(10);
 
@@ -90,28 +89,18 @@ public class SetDiscountGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				String category = categoryField.getText();
-				int cat = 0;
-				try {
-					cat = Integer.parseInt(category);
-				} catch (NumberFormatException nfe) {
-					JOptionPane.showMessageDialog(null, "This is not a number",
-							"Input error", JOptionPane.ERROR_MESSAGE);
-					categoryField.setText("");
-					category = "";
-
-				}
 				if (category.equals("")) {
 					JOptionPane.showMessageDialog(null,
 							"Empty fields are not allowed!", "Input error",
 							JOptionPane.ERROR_MESSAGE);
 				} else {
-					controller2.setDiscountCategory(searchField.getText(), cat);
+					controller2.setDiscountCategory(searchField.getText(),
+							Integer.parseInt(category));
 
-					{
-						JOptionPane.showMessageDialog(null,
-								"Discount category updated. ",
-								"Successful", JOptionPane.INFORMATION_MESSAGE);
-					}
+					JOptionPane.showMessageDialog(null,
+							"Discount category updated. ", "Successful",
+							JOptionPane.INFORMATION_MESSAGE);
+
 				}
 			}
 
@@ -130,19 +119,20 @@ public class SetDiscountGUI extends JFrame {
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = searchField.getText();
-				
+
 				if (name.equals("")) {
 					JOptionPane.showMessageDialog(null,
 							"Empty fields are not allowed!", "Input error",
 							JOptionPane.ERROR_MESSAGE);
 				} else {
 					if (controller2.listCustomerByName(name)) {
-						textPane.setText(controller2.listCustomerByNamePrint(name));
+						textPane.setText(controller2
+								.listCustomerByNamePrint(name));
 						btnSetCategory.setEnabled(true);
-						categoryField.setEnabled(true);
 
 					} else {
-						textPane.setText(controller2.listCustomerByNamePrint(name));
+						textPane.setText(controller2
+								.listCustomerByNamePrint(name));
 					}
 				}
 			}
