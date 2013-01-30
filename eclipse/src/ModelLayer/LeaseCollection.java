@@ -109,6 +109,7 @@ public class LeaseCollection
             }
         }
         else text = "The list is empty!";
+        if(text.equals(""))text = "no lease with that id in the system";
         return text;
     }
 
