@@ -50,7 +50,7 @@ public class EmployeeCollection {
 		text = "";
 		if (listOfEmployees.size() != 0) {
 			for (Employee i : listOfEmployees) {
-				text += i.print() + "\n";
+				text += i.printEmployee() + "\n";
 
 			}
 		} else
@@ -106,7 +106,7 @@ public class EmployeeCollection {
 		if (listOfEmployees.size() != 0) {
 			for (Employee i : listOfEmployees) {
 				if (i.name.equals(name)) {
-					text += i.print() + "\n";
+					text += i.printEmployee() + "\n";
 				}
 
 			}

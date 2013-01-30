@@ -1,5 +1,6 @@
 package ControlLayer;
 import ModelLayer.ProductCollectionForLease;
+import ModelLayer.ProductForLease;
 
 /**
  * Write a description of class ProductForLeaseCtr here.
@@ -26,9 +27,9 @@ public class ProductForLeaseCtr
         prodCollForLease.changeProductForLeaseStatus(name);
     }
     
-    public void searchProduct(String name)
+    public ProductForLease searchProduct(String name)
     {
-        prodCollForLease.searchProduct(name);
+        return prodCollForLease.searchProduct(name);
     }
     public boolean searchExistProduct(String name)
     {

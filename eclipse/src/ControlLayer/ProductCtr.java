@@ -96,5 +96,9 @@ public class ProductCtr
     {
         collection.updateProductMax(name,max);
     }
+    public void updateProductQuantity(String name, int quantity)
+    {
+        collection.updateProductQuantity(name,quantity);
+    }
 
 }

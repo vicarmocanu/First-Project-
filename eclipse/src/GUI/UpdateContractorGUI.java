@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class UpdateContractorGUI extends JFrame {
 
@@ -27,7 +28,6 @@ public class UpdateContractorGUI extends JFrame {
 	private JTextField addressField;
 	private JTextField phoneField;
 	private PersonCtr controller = new PersonCtr();
-	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -53,7 +53,7 @@ public class UpdateContractorGUI extends JFrame {
 		setTitle("UPDATE CONTRACTOR");
 		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 403, 328);
+		setBounds(100, 100, 403, 399);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -72,36 +72,8 @@ public class UpdateContractorGUI extends JFrame {
 		contentPane.add(searchField, "cell 2 2,growx");
 		searchField.setColumns(10);
 		
-		JButton btnSearch = new JButton("SEARCH");
-		btnSearch.addActionListener(new ActionListener() {
-			 public void actionPerformed(ActionEvent arg0) {
-				
-				String searchName;
-				searchName = searchField.getText();
-				
-			if (searchField.getText().equals("")) {
-					JOptionPane.showMessageDialog(null,
-				
-						"Empty fields are not allowed!", "Input error",
-						JOptionPane.ERROR_MESSAGE);}
-				else {
-						String contractor;
-						contractor = controller.listContractorByNamePrint(searchName);
-							if (contractor != "") textField.setText(controller.listContractorByNamePrint(searchName));
-							else   
-								textField.setText("No contractor with that name found in the system.");		}
-					
-			
-			}}
-			
-		);
-		contentPane.add(btnSearch, "cell 3 2");
-		
-		textField = new JTextField();
+		final JTextPane textField = new JTextPane();
 		contentPane.add(textField, "cell 2 3,grow");
-		textField.setColumns(10);
-
-		
 
 		JLabel lblNewLabel_1 = new JLabel("ID:");
 		contentPane.add(lblNewLabel_1, "cell 1 4,growx");
@@ -110,25 +82,28 @@ public class UpdateContractorGUI extends JFrame {
 		idField.setColumns(10);
 		contentPane.add(idField, "cell 2 4,growx");
 
-		JButton btnUpdate = new JButton("UPDATE");
-		btnUpdate.addActionListener(new ActionListener() {
+		final JButton btnUpdateId = new JButton("UPDATE");
+		btnUpdateId.setEnabled(false);
+		btnUpdateId.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
 				String id = idField.getText();
 				String name = searchField.getText();
-				if (idField.getText().equals("")){
+				if (idField.getText().equals("")) {
 					JOptionPane.showMessageDialog(null,
 							"Empty fields are not allowed!", "Input error",
 							JOptionPane.ERROR_MESSAGE);
+				} else {
+					controller.updateContractorId(name, id);
+					JOptionPane.showMessageDialog(null,
+							"Contractor updated in the system. ", "Successful",
+							JOptionPane.INFORMATION_MESSAGE);
+					btnUpdateId.setEnabled(false);
 				}
-					else {controller.updateContractorId(name, id);
-				JOptionPane.showMessageDialog(null,
-						"Contractor updated in the system. ", "Successful",
-						JOptionPane.INFORMATION_MESSAGE);}
-				
-				}
+
+			}
 		});
-		contentPane.add(btnUpdate, "cell 3 4");
+		contentPane.add(btnUpdateId, "cell 3 4");
 
 		JLabel lblAddress = new JLabel("ADDRESS:");
 		contentPane.add(lblAddress, "cell 1 5,growx");
@@ -137,23 +112,27 @@ public class UpdateContractorGUI extends JFrame {
 		addressField.setColumns(10);
 		contentPane.add(addressField, "cell 2 5,growx");
 
-		JButton btnUpdate_1 = new JButton("UPDATE");
-		btnUpdate_1.addActionListener(new ActionListener() {
+		final JButton btnUpdateAddress = new JButton("UPDATE");
+		btnUpdateAddress.setEnabled(false);
+		btnUpdateAddress.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String address = addressField.getText();
 				String name = searchField.getText();
-				if (addressField.getText().equals("")){
+				if (addressField.getText().equals("")) {
 					JOptionPane.showMessageDialog(null,
 							"Empty fields are not allowed!", "Input error",
 							JOptionPane.ERROR_MESSAGE);
+				} else
+					controller.updateContractorAddress(name, address);
+				{
+					JOptionPane.showMessageDialog(null,
+							"Contractor updated in the system. ", "Successful",
+							JOptionPane.INFORMATION_MESSAGE);
+					btnUpdateAddress.setEnabled(false);
 				}
-				else	controller.updateContractorAddress(name, address);
-						{JOptionPane.showMessageDialog(null,
-						"Contractor updated in the system. ", "Successful",
-						JOptionPane.INFORMATION_MESSAGE);}
 			}
 		});
-		contentPane.add(btnUpdate_1, "cell 3 5");
+		contentPane.add(btnUpdateAddress, "cell 3 5");
 
 		JLabel lblPhoneNr = new JLabel("PHONE NR:");
 		contentPane.add(lblPhoneNr, "cell 1 6,growx");
@@ -169,8 +148,9 @@ public class UpdateContractorGUI extends JFrame {
 			}
 		});
 
-		JButton button = new JButton("UPDATE");
-		button.addActionListener(new ActionListener() {
+		final JButton btnUpdatePhoneNr = new JButton("UPDATE");
+		btnUpdatePhoneNr.setEnabled(false);
+		btnUpdatePhoneNr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				String phone = phoneField.getText();
@@ -181,13 +161,46 @@ public class UpdateContractorGUI extends JFrame {
 							JOptionPane.ERROR_MESSAGE);
 				} else
 					controller.updateContractorPhoneNumber(name, phone);
-				{JOptionPane.showMessageDialog(null,
-						"Contractor updated in the system. ", "Successful",
-						JOptionPane.INFORMATION_MESSAGE);}
+				{
+					JOptionPane.showMessageDialog(null,
+							"Contractor updated in the system. ", "Successful",
+							JOptionPane.INFORMATION_MESSAGE);
+					btnUpdatePhoneNr.setEnabled(false);
+				}
 			}
 		});
-		contentPane.add(button, "cell 3 6");
+		contentPane.add(btnUpdatePhoneNr, "cell 3 6");
 		contentPane.add(btnCancel, "cell 2 7,growx");
+		
+		JButton btnSearch = new JButton("SEARCH");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				String searchName;
+				searchName = searchField.getText();
+
+				if (searchField.getText().equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Empty fields are not allowed!", "Input error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+
+					if (controller.listContractorByName(searchName)) {
+						textField.setText(controller
+								.listContractorByNamePrint(searchName));
+						btnUpdateId.setEnabled(true);
+						btnUpdateAddress.setEnabled(true);
+						btnUpdatePhoneNr.setEnabled(true);
+					} else
+						textField
+								.setText("No contractor with that name found in the system.");
+				}
+
+			}
+		}
+
+		);
+		contentPane.add(btnSearch, "cell 3 2");
 	}
 
 }
