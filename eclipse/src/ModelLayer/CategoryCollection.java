@@ -78,8 +78,43 @@ public class CategoryCollection
 
             }
         }
-        else text = "No contractor registered in the system";
+        else text = "No category registered in the system";
     	return text;
+    }
+    
+    public String searchCategoryAndPrint(int categoryNumber)
+    {
+    	String text ="";
+    	Iterator<Category> it = listOfCategory.iterator();
+    	boolean found = false;
+        while(it.hasNext())
+        {
+            int x=it.next().categoryNumber;
+            if(x == categoryNumber)
+            {
+            	found = true;
+                text =  it.next().print();
+            }
+        }
+       if(!found) text = "No category registed with that number in the system";
+       return text;
+    }
+    public boolean categoryExists(int categoryNumber)
+    {
+    	String text ="";
+    	Iterator<Category> it = listOfCategory.iterator();
+    	boolean found = false;
+        while(it.hasNext())
+        {
+            int x=it.next().categoryNumber;
+            if(x == categoryNumber)
+            {
+            	found = true;
+                text =  it.next().print();
+            }
+        }
+       if(!found) text = "No category registed with that number in the system";
+       return found;
     }
 
     public void deleteCategory(int categoryNumber)          

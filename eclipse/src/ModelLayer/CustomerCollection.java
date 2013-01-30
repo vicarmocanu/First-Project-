@@ -121,13 +121,15 @@ public class CustomerCollection
                 if(i.name.equals(name))
                 {
                 	text += i.print() + "\n";
+                	break;
                 }
                 
             }
            
             
         }
-        text = "No customers in the system" + "\n";
+    	else text = "No customers in the system" + "\n";
+    	if (text.equals("")) text = "No customer with that name in the system.";
         return text;
     }
 

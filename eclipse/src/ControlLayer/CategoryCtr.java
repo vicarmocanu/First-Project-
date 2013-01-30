@@ -25,7 +25,14 @@ public class CategoryCtr
     {
         return category.listAllCategories();
     }
-    
+    public String searchCategoryAndPrint(int cat)
+    {
+    	return category.searchCategoryAndPrint(cat);
+    }
+    public boolean categoryExists(int cat)
+    {
+    	return category.categoryExists(cat);
+    }
     public void deleteCategory(int categoryNumber)
     {
         category.deleteCategory(categoryNumber);

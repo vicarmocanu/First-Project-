@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import java.awt.Window.Type;
+
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
@@ -25,7 +27,6 @@ public class DeleteEmployeeGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField searchField;
 	private PersonCtr controller=new PersonCtr();
-	private String name;
 
 	/**
 	 * Launch the application.
@@ -51,7 +52,7 @@ public class DeleteEmployeeGUI extends JFrame {
 		setResizable(false);
 		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 373, 225);
+		setBounds(100, 100, 373, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -73,14 +74,28 @@ public class DeleteEmployeeGUI extends JFrame {
 
 		
 
-		final JTextPane resultField = new JTextPane();
-		contentPane.add(resultField, "cell 2 3,grow");
+		final JTextPane textPane = new JTextPane();
+		contentPane.add(textPane, "cell 2 3,grow");
 
 		final JButton btnDelete = new JButton("DELETE");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.deleteEmployee(name);
-				btnDelete.setEnabled(false);
+				String name = searchField.getText();
+
+				if (searchField.getText().equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Empty fields are not allowed!", "Input error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+					controller.deleteEmployee(name);
+
+					{
+						JOptionPane.showMessageDialog(null,
+								"Employee deleted from the system. ",
+								"Successful", JOptionPane.INFORMATION_MESSAGE);
+						btnDelete.setEnabled(false);
+					}
+				}
 			}
 		});
 			btnDelete.setEnabled(false);
@@ -97,9 +112,23 @@ public class DeleteEmployeeGUI extends JFrame {
 		JButton btnSearch = new JButton("SEARCH");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				name = searchField.getText();
-				
-				btnDelete.setEnabled(true);
+				String name = searchField.getText();
+
+				if (name.equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Empty fields are not allowed!", "Input error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+					if (controller.listEmployeeByName(name)) {
+						textPane.setText(controller
+								.listEmployeeByNamePrint(name));
+						btnDelete.setEnabled(true);
+
+					} else {
+						textPane.setText(controller
+								.listEmployeeByNamePrint(name));
+					}
+				}
 			}
 		});
 		contentPane.add(btnSearch, "cell 3 2");

@@ -49,53 +49,78 @@ public class DeleteContractorGUI extends JFrame {
 		setResizable(false);
 		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 373, 225);
+		setBounds(100, 100, 373, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[][][grow][]", "[][][][grow][][]"));
-		
+		contentPane.setLayout(new MigLayout("", "[][][grow][]",
+				"[][][][grow][][]"));
+
 		JLabel lblDeleteContractor = new JLabel("DELETE CONTRACTOR");
 		contentPane.add(lblDeleteContractor, "cell 2 0,alignx center");
-		
+
 		JSeparator separator = new JSeparator();
 		contentPane.add(separator, "cell 0 1 4 1,growx");
-		
+
 		JLabel lblSearch = new JLabel("SEARCH NAME:");
 		contentPane.add(lblSearch, "cell 1 2,alignx trailing");
-		
+
 		searchField = new JTextField();
 		contentPane.add(searchField, "cell 2 2,growx");
 		searchField.setColumns(10);
-		
-		JButton btnSearch = new JButton("SEARCH");
-		contentPane.add(btnSearch, "cell 3 2");
-		
-		JTextPane textPane = new JTextPane();
+
+		final JTextPane textPane = new JTextPane();
 		contentPane.add(textPane, "cell 2 3,grow");
-		
-		JButton btnDelete = new JButton("DELETE");
+
+		final JButton btnDelete = new JButton("DELETE");
+		btnDelete.setEnabled(false);
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				 String name = searchField.getText();
-				 
-				 if (searchField.getText().equals("")){
+
+				String name = searchField.getText();
+
+				if (searchField.getText().equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Empty fields are not allowed!", "Input error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+					controller.deleteContractor(name);
+
+					{
 						JOptionPane.showMessageDialog(null,
-								"Empty fields are not allowed!", "Input error",
-								JOptionPane.ERROR_MESSAGE);
+								"Contractor deleted from the system. ",
+								"Successful", JOptionPane.INFORMATION_MESSAGE);
+						btnDelete.setEnabled(false);
 					}
-				 else {
-					 	controller.deleteContractor(name);
-					 	
-						{JOptionPane.showMessageDialog(null,
-						"Contractor deleted from the system. ", "Successful",
-						JOptionPane.INFORMATION_MESSAGE);}
-				 }
+				}
 			}
 		});
 		contentPane.add(btnDelete, "cell 2 4,growx");
-		
+
+		JButton btnSearch = new JButton("SEARCH");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String name = searchField.getText();
+
+				if (name.equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Empty fields are not allowed!", "Input error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+					if (controller.listContractorByName(name)) {
+						textPane.setText(controller
+								.listContractorByNamePrint(name));
+						btnDelete.setEnabled(true);
+
+					} else {
+						textPane.setText(controller
+								.listContractorByNamePrint(name));
+					}
+				}
+			}
+		});
+		contentPane.add(btnSearch, "cell 3 2");
+
 		JButton btnCancel = new JButton("CANCEL");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
