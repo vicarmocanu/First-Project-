@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
@@ -19,7 +20,7 @@ import ControlLayer.PersonCtr;
 public class FindEmployeeGUI extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField searchField;
 	private PersonCtr controller=new PersonCtr();
 	
 	/**
@@ -58,21 +59,34 @@ public class FindEmployeeGUI extends JFrame {
 		JLabel lblSearchName = new JLabel("SEARCH NAME:");
 		contentPane.add(lblSearchName, "cell 0 1,alignx trailing");
 		
-		textField = new JTextField();
-		contentPane.add(textField, "cell 1 1,growx");
-		textField.setColumns(10);
+		searchField = new JTextField();
+		contentPane.add(searchField, "cell 1 1,growx");
+		searchField.setColumns(10);
+		
+		final JTextPane textPane = new JTextPane();
+		textPane.setEditable(false);
+		contentPane.add(textPane, "cell 1 2,grow");
 		
 		JButton btnSearch = new JButton("SEARCH");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				String name = searchField.getText();
+
+				if (name.equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Empty fields are not allowed!", "Input error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+					
+						textPane.setText(controller
+								.listEmployeeByNamePrint(name));
+					
+				}
 			}
 		});
 		contentPane.add(btnSearch, "cell 2 1");
 		
-		JTextPane textPane = new JTextPane();
-		textPane.setEditable(false);
-		contentPane.add(textPane, "cell 1 2,grow");
+		
 		
 		JButton btnCalcel = new JButton("CANCEL");
 		btnCalcel.addActionListener(new ActionListener() {

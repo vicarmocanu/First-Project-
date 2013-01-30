@@ -26,9 +26,9 @@ public class LeaseCtr
         leaseColl.addSubLeaseToLease(id, name, numberOfDays);
     }
     
-    public void searchLease(String id)
+    public String searchLease(String id)
     {
-        leaseColl.searchLease(id);
+        return leaseColl.searchLease(id);
     }
     
     public String print()
