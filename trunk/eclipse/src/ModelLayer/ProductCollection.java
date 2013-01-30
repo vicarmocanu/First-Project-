@@ -98,7 +98,10 @@ public class ProductCollection
                 }
             }
         }
-        else text = "The list is empty";
+        else text = "The list of products is empty";
+        if(text.equals("")){
+        	text = "No products with that name in the system";
+        }
         return text;
 
     }

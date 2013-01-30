@@ -111,8 +111,8 @@ public class EmployeeCollection {
 
 			}
 
-		}
-		text = "No employees in the system" + "\n";
+		}else text = "No employees in the system" + "\n";
+		if (text.equals("")) text = "No employees in the system with that name" + "\n";
 		return text;
 	}
 

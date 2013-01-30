@@ -49,7 +49,7 @@ public class DeleteDiscountGUI extends JFrame {
 		setResizable(false);
 		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 373, 225);
+		setBounds(100, 100, 373, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -69,13 +69,11 @@ public class DeleteDiscountGUI extends JFrame {
 		contentPane.add(searchField, "cell 2 2,growx");
 		searchField.setColumns(10);
 
-		JButton btnSearch = new JButton("SEARCH");
-		contentPane.add(btnSearch, "cell 3 2");
-
-		JTextPane textPane = new JTextPane();
+		final JTextPane textPane = new JTextPane();
 		contentPane.add(textPane, "cell 2 3,grow");
 
-		JButton btnDelete = new JButton("DELETE");
+		final JButton btnDelete = new JButton("DELETE");
+		btnDelete.setEnabled(false);
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -97,6 +95,38 @@ public class DeleteDiscountGUI extends JFrame {
 			}
 		});
 		contentPane.add(btnDelete, "cell 2 4,growx");
+
+		JButton btnSearch = new JButton("SEARCH");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = searchField.getText();
+				int cat = 0;
+				try {
+					cat = Integer.parseInt(name);
+				} catch (NumberFormatException nfe) {
+					JOptionPane.showMessageDialog(null, "This is not a number",
+							"Input error", JOptionPane.ERROR_MESSAGE);
+					searchField.setText("");
+					name = "";
+
+				}
+				if (name.equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Empty fields are not allowed!", "Input error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+					if (controller.categoryExists(cat)) {
+						textPane.setText(controller.searchCategoryAndPrint(cat));
+						btnDelete.setEnabled(true);
+
+					} else {
+						textPane.setText(controller.searchCategoryAndPrint(cat));
+					}
+				}
+
+			}
+		});
+		contentPane.add(btnSearch, "cell 3 2");
 
 		JButton btnCancel = new JButton("CANCEL");
 		btnCancel.addActionListener(new ActionListener() {
