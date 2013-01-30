@@ -56,7 +56,7 @@ public class CustomerCollection
         {
             for(Customer i : listOfCustomers)
             {
-                text += i.print() + "\n";
+                text += i.printCustomer() + "\n";
 
             }
         }
@@ -120,7 +120,7 @@ public class CustomerCollection
             {
                 if(i.name.equals(name))
                 {
-                	text += i.print() + "\n";
+                	text += i.printCustomer() + "\n";
                 	break;
                 }
                 

@@ -68,7 +68,7 @@ public class Customer extends Person
     {
     	String text;
     	text="";
-        print();
+        text += print() + "\n";
         text += "Discount category: " + discountCategory + "\n";
         return text;
     }
