@@ -92,6 +92,8 @@ public class SaleCollection
             }
         }
         else text = "The list is empty!" + "\n";
+
+        if(text.equals("")) text = "No sale with that ID in the system";
         return text;
     }
     

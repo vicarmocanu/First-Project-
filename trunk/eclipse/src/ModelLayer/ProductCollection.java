@@ -80,6 +80,7 @@ public class ProductCollection
             }
         }
         else text = "The list is empty";
+        if(text.equals("")) text = "No product with that name in the system";
         return false;
 
     }
@@ -137,6 +138,8 @@ public class ProductCollection
             }
         }
         else text = "The list is empty";
+
+        if(text.equals("")) text = "No product with that BAR CODE in the system";
         return text;
     }
 
