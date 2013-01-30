@@ -72,6 +72,7 @@ public class OrderCollection
             }
         }
         else text = "The list is empty!";
+        if(text.equals("")) text = "no order with that id in the system";
         return text;
     }
 
@@ -90,6 +91,7 @@ public class OrderCollection
             }
         }
         else text = "The list is empty!";
+        if(text.equals("")) text = "no order with that id in the system";
         return text;
     }
 

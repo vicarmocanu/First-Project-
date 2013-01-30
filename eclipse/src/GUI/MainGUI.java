@@ -1020,18 +1020,42 @@ public class MainGUI extends JFrame {
 		e_leaseControlMenuPanel.add(separator_23, "cell 0 1 3 1,growx");
 
 		btnMakeLease = new JButton("MAKE LEASE");
+		btnMakeLease.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CreateLeaseGUI createLeaseGUI = new CreateLeaseGUI();
+				createLeaseGUI.setVisible(true);
+			}
+		});
 		e_leaseControlMenuPanel.add(btnMakeLease, "cell 1 2,growx");
 
 		btnAdd = new JButton("ADD PRODUCTS ");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AddProductForLeaseGUI addProductForLeaseGUI = new AddProductForLeaseGUI();
+				addProductForLeaseGUI.setVisible(true);
+			}
+		});
 		e_leaseControlMenuPanel.add(btnAdd, "cell 1 3,growx");
 
 		btnChangeStatus = new JButton("CHANGE STATUS");
 		e_leaseControlMenuPanel.add(btnChangeStatus, "cell 1 4,growx");
 
 		btnReturnProduct = new JButton("RETURN PRODUCT");
+		btnReturnProduct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ReturnProductGUI returnProductGUI = new ReturnProductGUI();
+				returnProductGUI.setVisible(true);
+			}
+		});
 		e_leaseControlMenuPanel.add(btnReturnProduct, "cell 1 5,growx");
 
 		btnSearch = new JButton("SEARCH LEASE");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FindLeaseGUI findLeaseGUI = new FindLeaseGUI();
+				findLeaseGUI.setVisible(true);
+			}
+		});
 		e_leaseControlMenuPanel.add(btnSearch, "cell 1 6,growx");
 
 		separator_24 = new JSeparator();

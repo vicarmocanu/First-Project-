@@ -9,6 +9,9 @@ import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import java.awt.Window.Type;
+
+import ControlLayer.PersonCtr;
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -21,6 +24,8 @@ public class SetDiscountGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField searchField;
 	private JTextField categoryField;
+	
+	private PersonCtr controller2 = new PersonCtr();
 
 	/**
 	 * Launch the application.
@@ -50,40 +55,70 @@ public class SetDiscountGUI extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[][][grow][]", "[][][][grow][][]"));
-		
+		contentPane.setLayout(new MigLayout("", "[][][grow][]",
+				"[][][][grow][][]"));
+
 		JLabel lblNewLabel = new JLabel("SET CUSTOMER DISCOUNT");
 		contentPane.add(lblNewLabel, "cell 2 0,alignx center");
-		
+
 		JSeparator separator = new JSeparator();
 		contentPane.add(separator, "cell 0 1 4 1,growx");
-		
+
 		JLabel lblSearchName = new JLabel("SEARCH NAME:");
 		contentPane.add(lblSearchName, "cell 1 2,alignx trailing");
-		
+
 		searchField = new JTextField();
 		contentPane.add(searchField, "cell 2 2,growx");
 		searchField.setColumns(10);
-		
+
 		JButton btnSearch = new JButton("SEARCH");
-		contentPane.add(btnSearch, "cell 3 2");
-		
-		JTextPane textPane = new JTextPane();
+
+		final JTextPane textPane = new JTextPane();
 		textPane.setEditable(false);
 		contentPane.add(textPane, "cell 2 3,grow");
-		
+
 		JLabel lblNewLabel_1 = new JLabel("CATEGORY:");
 		contentPane.add(lblNewLabel_1, "cell 1 4");
-		
+
 		categoryField = new JTextField();
 		categoryField.setEnabled(false);
 		contentPane.add(categoryField, "cell 2 4,growx");
 		categoryField.setColumns(10);
-		
-		JButton btnSetCategory = new JButton("SET");
+
+		final JButton btnSetCategory = new JButton("SET");
+		btnSetCategory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				String category = categoryField.getText();
+				int cat = 0;
+				try {
+					cat = Integer.parseInt(category);
+				} catch (NumberFormatException nfe) {
+					JOptionPane.showMessageDialog(null, "This is not a number",
+							"Input error", JOptionPane.ERROR_MESSAGE);
+					categoryField.setText("");
+					category = "";
+
+				}
+				if (category.equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Empty fields are not allowed!", "Input error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+					controller2.setDiscountCategory(searchField.getText(), cat);
+
+					{
+						JOptionPane.showMessageDialog(null,
+								"Discount category updated. ",
+								"Successful", JOptionPane.INFORMATION_MESSAGE);
+					}
+				}
+			}
+
+		});
 		btnSetCategory.setEnabled(false);
 		contentPane.add(btnSetCategory, "cell 3 4,growx");
-		
+
 		JButton btnCancel = new JButton("CANCEL");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -91,6 +126,28 @@ public class SetDiscountGUI extends JFrame {
 			}
 		});
 		contentPane.add(btnCancel, "cell 2 5,growx");
+
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = searchField.getText();
+				
+				if (name.equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Empty fields are not allowed!", "Input error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+					if (controller2.listCustomerByName(name)) {
+						textPane.setText(controller2.listCustomerByNamePrint(name));
+						btnSetCategory.setEnabled(true);
+						categoryField.setEnabled(true);
+
+					} else {
+						textPane.setText(controller2.listCustomerByNamePrint(name));
+					}
+				}
+			}
+		});
+		contentPane.add(btnSearch, "cell 3 2");
 	}
 
 }

@@ -79,6 +79,7 @@ public class CategoryCollection
             }
         }
         else text = "No category registered in the system";
+    	if(text.equals("")) text = "no category with that name in the system";
     	return text;
     }
     
@@ -97,6 +98,7 @@ public class CategoryCollection
             }
         }
        if(!found) text = "No category registed with that number in the system";
+       if(text.equals("")) text = "no category with that name in the system";
        return text;
     }
     public boolean categoryExists(int categoryNumber)

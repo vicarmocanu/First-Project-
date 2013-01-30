@@ -1,7 +1,7 @@
 package GUI;
 
 import java.awt.BorderLayout;
-import ControlLayer.PersonCtr;
+import ControlLayer.CategoryCtr;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -24,7 +24,7 @@ public class UpdateDiscountGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField searchField;
 	private JTextField discountField;
-	private PersonCtr controller = new PersonCtr();
+	private CategoryCtr controller = new CategoryCtr();
 
 	/**
 	 * Launch the application.
@@ -70,10 +70,9 @@ public class UpdateDiscountGUI extends JFrame {
 		contentPane.add(searchField, "cell 2 2,growx");
 		searchField.setColumns(10);
 
-		JButton btnSearch = new JButton("SEARCH");
-		contentPane.add(btnSearch, "cell 3 2");
+		
 
-		JTextPane textPane = new JTextPane();
+		final JTextPane textPane = new JTextPane();
 		textPane.setEditable(false);
 		contentPane.add(textPane, "cell 2 3,grow");
 
@@ -81,36 +80,83 @@ public class UpdateDiscountGUI extends JFrame {
 		contentPane.add(lblNewLabel_1, "cell 1 4,growx");
 
 		discountField = new JTextField();
+		discountField.setEnabled(false);
 		discountField.setColumns(10);
 		contentPane.add(discountField, "cell 2 4,growx");
 
-		JButton btnUpdate = new JButton("UPDATE");
+		final JButton btnUpdate = new JButton("UPDATE");
+		btnUpdate.setEnabled(false);
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				String id = discountField.getText();
-				String name = searchField.getText();
-				if (discountField.getText().equals("")){
+				String category = discountField.getText();
+				int cat = 0;
+				try {
+					cat = Integer.parseInt(category);
+				} catch (NumberFormatException nfe) {
+					JOptionPane.showMessageDialog(null, "This is not a number",
+							"Input error", JOptionPane.ERROR_MESSAGE);
+					discountField.setText("");
+					category = "";
+
+				}
+				if (category.equals("")) {
 					JOptionPane.showMessageDialog(null,
 							"Empty fields are not allowed!", "Input error",
 							JOptionPane.ERROR_MESSAGE);
+				} else {
+					controller.updateDiscount(Integer.parseInt(searchField.getText()), cat);
+
+					{
+						JOptionPane.showMessageDialog(null,
+								"Discount category updated. ",
+								"Successful", JOptionPane.INFORMATION_MESSAGE);
+					}
 				}
-					else {controller.updateContractorId(name, id);
-				JOptionPane.showMessageDialog(null,
-						"Contractor updated in the system. ", "Successful",
-						JOptionPane.INFORMATION_MESSAGE);}
-				
-				}
+
+			}
 		});
 		contentPane.add(btnUpdate, "cell 3 4,growx");
+
+		JButton btnCancel = new JButton("CANCEL");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		contentPane.add(btnCancel, "cell 2 5,growx");
 		
-				JButton btnCancel = new JButton("CANCEL");
-				btnCancel.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
+		JButton btnSearch = new JButton("SEARCH");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = searchField.getText();
+				int cat = 0;
+				try {
+					cat = Integer.parseInt(name);
+				} catch (NumberFormatException nfe) {
+					JOptionPane.showMessageDialog(null, "This is not a number",
+							"Input error", JOptionPane.ERROR_MESSAGE);
+					searchField.setText("");
+					name = "";
+
+				}
+				if (name.equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Empty fields are not allowed!", "Input error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+					if (controller.categoryExists(cat)) {
+						textPane.setText(controller.searchCategoryAndPrint(cat));
+						btnUpdate.setEnabled(true);
+						discountField.setEnabled(true);
+
+					} else {
+						textPane.setText(controller.searchCategoryAndPrint(cat));
 					}
-				});
-				contentPane.add(btnCancel, "cell 2 5,growx");
+				}
+			}
+		});
+		contentPane.add(btnSearch, "cell 3 2");
 	}
 
 }
