@@ -103,7 +103,7 @@ public class CreateProductForLeaseGUI extends JFrame {
 				   String location = locationField.getText();
 				   String description = descriptionField.getText();
 				   int pricePerDay = Integer.parseInt(pricePerDayField.getText());
-				   String status = "available";
+				   String status = "Available";
 				   
 			       controller.makeProductForLease(barCode, location, name, description, status, pricePerDay);
 				
