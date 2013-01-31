@@ -15,6 +15,7 @@ public class Sale {
 	String employeeName;
 	ArrayList<SubSale> listOfSubSales;
 	EmployeeCollection employeeCollection = EmployeeCollection.getInstance();
+	CustomerCollection customerCollection = CustomerCollection.getInstance();
 
 	public Sale(String id, String customerName, String employeeName) {
 		String test;
@@ -60,10 +61,14 @@ public class Sale {
 			total = total + i.subTotal;
 		}
 		addTotalToEmployee(employeeName, total);
+		addTotalToCustomer(customerName, total);
 	}
 
 	public void addTotalToEmployee(String employeeName, int total) {
 		employeeCollection.updateEmployeeTotalFromSales(employeeName, total);
+	}
+	public void addTotalToCustomer(String customerName, int total) {
+		customerCollection.updateCustomerTotalFromSales(employeeName, total);
 	}
 
 }
