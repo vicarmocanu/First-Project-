@@ -44,7 +44,7 @@ public class StatisticsEmployeeGUI extends JFrame {
 	public StatisticsEmployeeGUI() {
 		setResizable(false);
 		setType(Type.UTILITY);
-		setTitle("CUSTOMER STATISTICS");
+		setTitle("EMPLOYEE STATISTICS");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -53,7 +53,7 @@ public class StatisticsEmployeeGUI extends JFrame {
 		contentPane
 				.setLayout(new MigLayout("", "[][grow][][]", "[][][grow][]"));
 
-		JLabel lblFindContractor = new JLabel("FIND CUSTOMER");
+		JLabel lblFindContractor = new JLabel("FIND EMPLOYEE");
 		contentPane.add(lblFindContractor, "cell 1 0,alignx center");
 
 		JLabel lblSearchName = new JLabel("SEARCH NAME:");
@@ -99,7 +99,7 @@ public class StatisticsEmployeeGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 
-					textPane.setText(controller.listCustomersWithStatistics(searchField.getText()));
+					textPane.setText(controller.listAllEmployeesWithStatistics());
 
 			}
 		});
