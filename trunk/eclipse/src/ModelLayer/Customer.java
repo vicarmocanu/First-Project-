@@ -77,7 +77,7 @@ public class Customer extends Person
     {
     	String text;
     	text = "";
-        print();
+        text += printCustomer() + "\n";
 
         text += "Total amount from orders: " + totalAmountFromOrders + "\n";
         text += "Total number of orders placed: " + numberOfOrders + "\n";
