@@ -119,7 +119,6 @@ public class MakeSaleGUI extends JFrame {
 				String cname = customerNameField.getText();
 				String ename = employeeNameField.getText();
 				if (idField.getText().equals("")
-						|| customerNameField.getText().equals("")
 						|| employeeNameField.getText().equals("")
 						|| barCodeField.getText().equals("")
 						|| nrOfProductsField.getText().equals("")) {
@@ -128,30 +127,29 @@ public class MakeSaleGUI extends JFrame {
 							JOptionPane.ERROR_MESSAGE);
 				} else {
 					if (!saleCreated) {
-						
-						int amount = Integer.parseInt(nrOfProductsField.getText());
+
+						int amount = Integer.parseInt(nrOfProductsField
+								.getText());
 						String barCode = barCodeField.getText();
 						controller.createSale(id, cname, ename);
 						controller.addSubSaleToSale(id, amount, barCode);
-						
-						
+
 						employeeNameField.setEnabled(false);
 						customerNameField.setEnabled(false);
 						idField.setEnabled(false);
-						
+
 						barCodeField.setText("");
 						nrOfProductsField.setText("");
 						saleCreated = true;
 
-					}
-					else {
-						int amount = Integer.parseInt(nrOfProductsField.getText());
+					} else {
+						int amount = Integer.parseInt(nrOfProductsField
+								.getText());
 						String barCode = barCodeField.getText();
 						controller.addSubSaleToSale(id, amount, barCode);
 						barCodeField.setText("");
 						nrOfProductsField.setText("");
 					}
-						
 
 				}
 
@@ -170,7 +168,7 @@ public class MakeSaleGUI extends JFrame {
 		printTotalPanel.setVisible(false);
 		contentPane.add(printTotalPanel);
 		printTotalPanel.setLayout(null);
-		
+
 		final JTextPane textPane = new JTextPane();
 		textPane.setBounds(10, 27, 338, 289);
 		printTotalPanel.add(textPane);
@@ -181,7 +179,6 @@ public class MakeSaleGUI extends JFrame {
 				makeSalePanel.setVisible(false);
 				printTotalPanel.setVisible(true);
 
-				
 				controller.calculateTotalForSale(id);
 				textPane.setText(controller.searchSale(id));
 
@@ -194,8 +191,6 @@ public class MakeSaleGUI extends JFrame {
 		JSeparator separator_4 = new JSeparator();
 		separator_4.setBounds(7, 25, 1, 2);
 		printTotalPanel.add(separator_4);
-
-		
 
 		JButton btnNewButton = new JButton("CANCEL");
 		btnNewButton.addActionListener(new ActionListener() {
