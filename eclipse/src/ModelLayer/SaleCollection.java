@@ -68,7 +68,7 @@ public class SaleCollection
         {
             for(Sale i: listOfSales)
             {
-                text += i.print()  + "\n";
+                text += i.print();
                 text += "*************************" + "\n";
             }
         }

@@ -58,7 +58,8 @@ public class ProductCollection
             {
                 if(i.salePrice == 0)
                 {
-                    text += i.print() + "\n";
+                    text += i.print();
+                    text += "********************" + "\n";
                 }
             }
         }
@@ -208,8 +209,8 @@ public class ProductCollection
         {
             for(Product i : listOfProducts)
             {
-                text += i.print() + "\n";
-
+                text += i.print();
+                text += "********************" + "\n";
             }
         }
         else text = "No products in stock";

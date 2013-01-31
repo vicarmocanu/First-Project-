@@ -49,7 +49,7 @@ public class ContractorCollection {
 		if (listOfContractors.size() != 0) {
 			for (Contractor i : listOfContractors) {
 				text += i.print() + "\n";
-
+				text += "********************" + "\n";
 			}
 		} else
 			text = "No contractor registered in the system";

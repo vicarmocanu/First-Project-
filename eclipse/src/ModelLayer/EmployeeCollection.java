@@ -50,8 +50,8 @@ public class EmployeeCollection {
 		text = "";
 		if (listOfEmployees.size() != 0) {
 			for (Employee i : listOfEmployees) {
-				text += i.printEmployee() + "\n";
-
+				text += i.printEmployee();
+				text += "********************" + "\n";
 			}
 		} else
 			text = "No employees registered in the system";

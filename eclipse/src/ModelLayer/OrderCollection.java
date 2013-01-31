@@ -113,8 +113,8 @@ public class OrderCollection
         {
             for(Order i : listOfOrders)
             {
-                text += i.print() + "\n";
-
+                text += i.print();
+                text += "********************" + "\n";
             }
         }
         else text = "No orders registered in the system";

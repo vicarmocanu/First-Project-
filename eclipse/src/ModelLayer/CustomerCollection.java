@@ -57,7 +57,7 @@ public class CustomerCollection
             for(Customer i : listOfCustomers)
             {
                 text += i.printCustomer() + "\n";
-
+                text += "********************" + "\n";
             }
         }
         else text = "No customers registered in the system";
