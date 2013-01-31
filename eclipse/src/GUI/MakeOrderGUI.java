@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
@@ -16,6 +17,7 @@ import java.awt.Window.Type;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import ControlLayer.OrderCtr;
 
 public class MakeOrderGUI extends JFrame {
 
@@ -25,6 +27,8 @@ public class MakeOrderGUI extends JFrame {
 	private JTextField employeeNameField;
 	private JTextField nameField;
 	private JTextField nrOfProductsField;
+	private boolean orderCreated = false;
+	private OrderCtr controller = new OrderCtr();
 
 	/**
 	 * Launch the application.
@@ -46,6 +50,7 @@ public class MakeOrderGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public MakeOrderGUI() {
+		setTitle("MAKE ORDER");
 		setType(Type.UTILITY);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -59,7 +64,7 @@ public class MakeOrderGUI extends JFrame {
 		contentPane.add(makeSalePanel);
 		makeSalePanel.setLayout(new MigLayout("", "[][][grow][]", "[][][][][][][][][][][][]"));
 		
-		JLabel lblNewSale = new JLabel("NEW SALE");
+		JLabel lblNewSale = new JLabel("NEW ORDER");
 		makeSalePanel.add(lblNewSale, "cell 2 0");
 		
 		JSeparator separator_3 = new JSeparator();
@@ -107,6 +112,48 @@ public class MakeOrderGUI extends JFrame {
 		makeSalePanel.add(separator_1, "cell 0 8 4 1,growx");
 		
 		JButton btnAddProduct = new JButton("ADD PRODUCT");
+		btnAddProduct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String id = idField.getText();
+				String cname = customerNameField.getText();
+				String ename = employeeNameField.getText();
+				if (idField.getText().equals("")
+						|| employeeNameField.getText().equals("")
+						|| customerNameField.getText().equals("")
+						|| nameField.getText().equals("")
+						|| nrOfProductsField.getText().equals("")) {
+					JOptionPane.showMessageDialog(null,
+							"Empty fields are not allowed!", "Input error",
+							JOptionPane.ERROR_MESSAGE);
+				} else {
+					if (!orderCreated) {
+
+						int amount = Integer.parseInt(nrOfProductsField
+								.getText());
+						String barCode = nameField.getText();
+						controller.createOrder(id, cname, ename);
+						controller.addSubOrderToOrder(id, amount, barCode);
+
+						employeeNameField.setEnabled(false);
+						customerNameField.setEnabled(false);
+						idField.setEnabled(false);
+
+						nameField.setText("");
+						nrOfProductsField.setText("");
+						orderCreated = true;
+
+					} else {
+						int amount = Integer.parseInt(nrOfProductsField
+								.getText());
+						String name = nameField.getText();
+						controller.addSubOrderToOrder(id, amount, name);
+						nameField.setText("");
+						nrOfProductsField.setText("");
+					}
+
+				}
+			}
+		});
 		makeSalePanel.add(btnAddProduct, "cell 2 9,growx");
 		
 		JSeparator separator_2 = new JSeparator();
@@ -121,10 +168,18 @@ public class MakeOrderGUI extends JFrame {
 		contentPane.add(printTotalPanel);
 		printTotalPanel.setLayout(null);
 		
+		final JTextPane textPane = new JTextPane();
+		textPane.setBounds(10, 27, 338, 289);
+		printTotalPanel.add(textPane);
+		
 		btnPrintTotal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String id = idField.getText();
 				makeSalePanel.setVisible(false);
 				printTotalPanel.setVisible(true);
+
+				controller.calculateTotalForOrder(id);
+				textPane.setText(controller.searchOrder(id));
 				
 			}
 		});
@@ -136,9 +191,7 @@ public class MakeOrderGUI extends JFrame {
 		separator_4.setBounds(7, 25, 1, 2);
 		printTotalPanel.add(separator_4);
 		
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(10, 27, 338, 289);
-		printTotalPanel.add(textPane);
+		
 		
 		JButton btnNewButton = new JButton("CANCEL");
 		btnNewButton.addActionListener(new ActionListener() {
