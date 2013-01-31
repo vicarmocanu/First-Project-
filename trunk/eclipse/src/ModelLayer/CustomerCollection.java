@@ -77,7 +77,7 @@ public class CustomerCollection
             }
         }
         else text = "No customers registred in the system";
-        if (text.equals("")) text = "No customer with that name found in the system";
+        
         return text;
     }
      public String listCustomersWithStatistics(String name)
@@ -94,6 +94,7 @@ public class CustomerCollection
              }
          }
          else text = "No customers registred in the system";
+         if (text.equals("")) text = "No customer with that name found in the system";
          return text;
      }
     
