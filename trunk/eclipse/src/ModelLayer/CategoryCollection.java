@@ -74,7 +74,7 @@ public class CategoryCollection
         {
             for(Category i : listOfCategory)
             {
-                text += i.print() + "\n";
+                text += i.print();
                 text += "********************" + "\n";
             }
         }

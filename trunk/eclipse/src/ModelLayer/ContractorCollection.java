@@ -48,7 +48,7 @@ public class ContractorCollection {
 		text = "";
 		if (listOfContractors.size() != 0) {
 			for (Contractor i : listOfContractors) {
-				text += i.print() + "\n";
+				text += i.print();
 				text += "********************" + "\n";
 			}
 		} else
