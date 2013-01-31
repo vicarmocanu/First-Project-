@@ -68,7 +68,7 @@ public class Sale {
 		employeeCollection.updateEmployeeTotalFromSales(employeeName, total);
 	}
 	public void addTotalToCustomer(String customerName, int total) {
-		customerCollection.updateCustomerTotalFromSales(employeeName, total);
+		customerCollection.updateCustomerTotalFromSales(customerName, total);
 	}
 
 }
