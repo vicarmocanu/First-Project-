@@ -60,12 +60,12 @@ public class Lease
     
     public void addTotalToEmployee(String employeeName, int total)
     {
-        employeeCollection.updateEmployeeTotalFromOrders(employeeName,total);
+        employeeCollection.updateEmployeeTotalFromLeases(employeeName,total);
     }
     
      public void addTotalToCustomer(String customerName, int total)
     {
-        customerCollection.updateCustomerTotalFromOrders(customerName,total);
+        customerCollection.updateCustomerTotalFromLeases(customerName,total);
     }
 
     public void returnSubLease(String name)
