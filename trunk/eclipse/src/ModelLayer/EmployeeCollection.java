@@ -69,15 +69,18 @@ public class EmployeeCollection {
 			text = "No employees registred in the system" + "\n";
 		return text;
 	}
+
 	public String listEmployeesWithStatistics(String name) {
 		String text = "";
 		if (listOfEmployees.size() != 0) {
 			for (Employee i : listOfEmployees) {
-				if(i.getName().equals(name))
-				text = i.printEmployeeWithStatistics() + "\n";
+				if (i.getName().equals(name))
+					text = i.printEmployeeWithStatistics() + "\n";
 			}
 		} else
 			text = "No employees registred in the system" + "\n";
+		if (text.equals(""))
+			text = "No customer with that name found in the system";
 		return text;
 	}
 
@@ -122,8 +125,10 @@ public class EmployeeCollection {
 
 			}
 
-		}else text = "No employees in the system" + "\n";
-		if (text.equals("")) text = "No employees in the system with that name" + "\n";
+		} else
+			text = "No employees in the system" + "\n";
+		if (text.equals(""))
+			text = "No employees in the system with that name" + "\n";
 		return text;
 	}
 

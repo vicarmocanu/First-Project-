@@ -66,16 +66,18 @@ public class CustomerCollection
     
      public String listAllCustomersWithStatistics()
     {
-    	String text;
-    	text = "";
+    	String text = "";
+    	boolean found = false;
         if (listOfCustomers.size()!=0){
             for(Customer i : listOfCustomers)
             {
                 text += i.printCustomerWithStatistics();
                 text += "*****************************" + "\n";
+                
             }
         }
         else text = "No customers registred in the system";
+        if (text.equals("")) text = "No customer with that name found in the system";
         return text;
     }
      public String listCustomersWithStatistics(String name)
