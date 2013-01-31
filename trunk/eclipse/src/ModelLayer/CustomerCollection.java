@@ -67,7 +67,7 @@ public class CustomerCollection
      public String listAllCustomersWithStatistics()
     {
     	String text = "";
-    	boolean found = false;
+    	
         if (listOfCustomers.size()!=0){
             for(Customer i : listOfCustomers)
             {

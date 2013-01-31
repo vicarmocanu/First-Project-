@@ -61,7 +61,7 @@ public class Customer extends Person
     public void setTotalAmountFromLeases(int totalAmountFromLeases)
     {
         this.totalAmountFromLeases+=totalAmountFromLeases;
-        numberOfOrders=numberOfOrders+1;
+        numberOfLeases=numberOfLeases+1;
     }
 
     public String printCustomer()

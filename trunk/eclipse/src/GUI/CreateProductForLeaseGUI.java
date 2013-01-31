@@ -107,8 +107,12 @@ public class CreateProductForLeaseGUI extends JFrame {
 				   
 			       controller.makeProductForLease(barCode, location, name, description, status, pricePerDay);
 				
-				
-				
+			       nameField.setText("");
+			       barCodeField.setText("");
+			       locationField.setText("");
+			       descriptionField.setText("");
+			       pricePerDayField.setText("");
+			       
 				JOptionPane.showMessageDialog(null,
 						"Product added!", "Successful",
 						JOptionPane.INFORMATION_MESSAGE);

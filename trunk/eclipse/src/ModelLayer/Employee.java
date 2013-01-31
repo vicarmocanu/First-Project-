@@ -62,7 +62,7 @@ public class Employee extends Person
      public void setTotalAmountFromLeases(int totalAmountFromLeases)
     {
         this.totalAmountFromLeases+=totalAmountFromLeases;
-        numberOfSales=numberOfSales+1;
+        numberOfLeases=numberOfLeases+1;
     }
     
     public String printEmployee()
