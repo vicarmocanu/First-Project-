@@ -133,7 +133,6 @@ public class MainGUI extends JFrame {
 	private JLabel lblLeaseControlMenu;
 	private JSeparator separator_23;
 	private JButton btnAdd;
-	private JButton btnChangeStatus;
 	private JButton btnMakeLease;
 	private JButton btnReturnProduct;
 	private JButton btnSearch;
@@ -1036,8 +1035,7 @@ public class MainGUI extends JFrame {
 		e_leaseControlMenuPanel = new JPanel();
 		contentPane
 				.add(e_leaseControlMenuPanel, "card_e_leaseControlMenuPanel");
-		e_leaseControlMenuPanel.setLayout(new MigLayout("",
-				"[1000px][][1000px]", "[][][][][][][][][]"));
+		e_leaseControlMenuPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][][][][]"));
 
 		lblLeaseControlMenu = new JLabel("LEASE CONTROL MENU");
 		e_leaseControlMenuPanel.add(lblLeaseControlMenu,
@@ -1063,38 +1061,35 @@ public class MainGUI extends JFrame {
 			}
 		});
 		e_leaseControlMenuPanel.add(btnAdd, "cell 1 3,growx");
-
-		btnChangeStatus = new JButton("CHANGE STATUS");
-		e_leaseControlMenuPanel.add(btnChangeStatus, "cell 1 4,growx");
-
-		btnReturnProduct = new JButton("RETURN PRODUCT");
-		btnReturnProduct.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ReturnProductGUI returnProductGUI = new ReturnProductGUI();
-				returnProductGUI.setVisible(true);
-			}
-		});
-		e_leaseControlMenuPanel.add(btnReturnProduct, "cell 1 5,growx");
-
-		btnSearch = new JButton("SEARCH LEASE");
-		btnSearch.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				FindLeaseGUI findLeaseGUI = new FindLeaseGUI();
-				findLeaseGUI.setVisible(true);
-			}
-		});
-		e_leaseControlMenuPanel.add(btnSearch, "cell 1 6,growx");
-
-		separator_24 = new JSeparator();
-		e_leaseControlMenuPanel.add(separator_24, "cell 0 7 3 1,growx");
-
-		btnBackToEmployee_4 = new JButton("BACK TO EMPLOYEE MENU");
-		btnBackToEmployee_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				CardLayout cl = (CardLayout) contentPane.getLayout();
-				cl.show(contentPane, "card_employeeMenuPanel");
-			}
-		});
-		e_leaseControlMenuPanel.add(btnBackToEmployee_4, "cell 1 8");
+		
+				btnReturnProduct = new JButton("RETURN PRODUCT");
+				btnReturnProduct.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						ReturnProductGUI returnProductGUI = new ReturnProductGUI();
+						returnProductGUI.setVisible(true);
+					}
+				});
+				e_leaseControlMenuPanel.add(btnReturnProduct, "cell 1 4,growx");
+		
+				btnSearch = new JButton("SEARCH LEASE");
+				btnSearch.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						FindLeaseGUI findLeaseGUI = new FindLeaseGUI();
+						findLeaseGUI.setVisible(true);
+					}
+				});
+				e_leaseControlMenuPanel.add(btnSearch, "cell 1 5,growx");
+		
+				separator_24 = new JSeparator();
+				e_leaseControlMenuPanel.add(separator_24, "cell 0 6 3 1,growx");
+		
+				btnBackToEmployee_4 = new JButton("BACK TO EMPLOYEE MENU");
+				btnBackToEmployee_4.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						CardLayout cl = (CardLayout) contentPane.getLayout();
+						cl.show(contentPane, "card_employeeMenuPanel");
+					}
+				});
+				e_leaseControlMenuPanel.add(btnBackToEmployee_4, "cell 1 7");
 	}
 }

@@ -76,33 +76,33 @@ public class ReturnProductGUI extends JFrame {
 		productNameField = new JTextField();
 		productNameField.setColumns(10);
 		contentPane.add(productNameField, "cell 2 3,growx");
-
-		JButton btnCancel = new JButton("CANCEL");
-		btnCancel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-		});
-
-		JButton btnReturnIt = new JButton("RETURN IT");
-		btnReturnIt.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String leaseId = leaseIdField.getText();
-				String productName = productNameField.getText();
-				if (leaseId.equals("") || productName.equals("")) {
-					JOptionPane.showMessageDialog(null,
-							"Empty fields are not allowed!", "Input error",
-							JOptionPane.ERROR_MESSAGE);
-				} else {
-					controller.returnLeasedProduct(leaseId, productName);
-					JOptionPane.showMessageDialog(null,
-							"Product returned successful!", "Successful!",
-							JOptionPane.INFORMATION_MESSAGE);
-				}
-			}
-		});
-		contentPane.add(btnReturnIt, "cell 2 5,growx");
-		contentPane.add(btnCancel, "cell 2 7,growx");
+		
+				JButton btnReturnIt = new JButton("RETURN IT");
+				btnReturnIt.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						String leaseId = leaseIdField.getText();
+						String productName = productNameField.getText();
+						if (leaseId.equals("") || productName.equals("")) {
+							JOptionPane.showMessageDialog(null,
+									"Empty fields are not allowed!", "Input error",
+									JOptionPane.ERROR_MESSAGE);
+						} else {
+							controller.returnLeasedProduct(leaseId, productName);
+							JOptionPane.showMessageDialog(null,
+									"Product returned successful!", "Successful!",
+									JOptionPane.INFORMATION_MESSAGE);
+						}
+					}
+				});
+				contentPane.add(btnReturnIt, "cell 1 5,growx");
+		
+				JButton btnCancel = new JButton("CANCEL");
+				btnCancel.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
+				contentPane.add(btnCancel, "cell 2 5,growx");
 	}
 
 }
