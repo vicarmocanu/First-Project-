@@ -143,6 +143,10 @@ public class MainGUI extends JFrame {
 	private JSeparator separator_26;
 	private JSeparator separator_27;
 	private JLabel label_manager;
+	private JLabel lblStatistics;
+	private JButton btnEmployee;
+	private JButton btnCustomer;
+	private JSeparator separator_28;
 
 	/**
 	 * Launch the application.
@@ -428,8 +432,7 @@ public class MainGUI extends JFrame {
 		final JPanel managerPanel = new JPanel();
 		managerPanel.setVisible(false);
 		managerMenuPanel.add(managerPanel);
-		managerPanel.setLayout(new MigLayout("", "[1000px][][1000px]",
-				"[][][][][][][][][]"));
+		managerPanel.setLayout(new MigLayout("", "[1000px][][1000px]", "[][][][][][][][][][][][]"));
 		JButton btnLogin = new JButton("LOGIN");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -516,7 +519,31 @@ public class MainGUI extends JFrame {
 				cl.show(contentPane, "card_mainMenuPanel");
 			}
 		});
-		managerPanel.add(btnBackToMain, "cell 1 8,growx");
+		
+		lblStatistics = new JLabel("STATISTICS");
+		managerPanel.add(lblStatistics, "cell 1 7,alignx center");
+		
+		btnEmployee = new JButton("EMPLOYEE");
+		btnEmployee.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				StatisticsEmployeeGUI statisticsEmployeeGUI = new StatisticsEmployeeGUI();
+				statisticsEmployeeGUI.setVisible(true);
+			}
+		});
+		managerPanel.add(btnEmployee, "cell 1 8,growx");
+		
+		btnCustomer = new JButton("CUSTOMER");
+		btnCustomer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				StatisticsCustomerGUI statisticsCustomerGUI = new StatisticsCustomerGUI();
+				statisticsCustomerGUI.setVisible(true);
+			}
+		});
+		managerPanel.add(btnCustomer, "cell 1 9,growx");
+		
+		separator_28 = new JSeparator();
+		managerPanel.add(separator_28, "cell 0 10 3 1,growx");
+		managerPanel.add(btnBackToMain, "cell 1 11,growx");
 
 		discountControlMenuPanel = new JPanel();
 		contentPane.add(discountControlMenuPanel,

@@ -62,8 +62,19 @@ public class EmployeeCollection {
 		String text = "";
 		if (listOfEmployees.size() != 0) {
 			for (Employee i : listOfEmployees) {
-				text += i.printEmployeeWithStatistics() + "\n";
+				text += i.printEmployeeWithStatistics();
 				text += "*****************************" + "\n";
+			}
+		} else
+			text = "No employees registred in the system" + "\n";
+		return text;
+	}
+	public String listEmployeesWithStatistics(String name) {
+		String text = "";
+		if (listOfEmployees.size() != 0) {
+			for (Employee i : listOfEmployees) {
+				if(i.getName().equals(name))
+				text = i.printEmployeeWithStatistics() + "\n";
 			}
 		} else
 			text = "No employees registred in the system" + "\n";
