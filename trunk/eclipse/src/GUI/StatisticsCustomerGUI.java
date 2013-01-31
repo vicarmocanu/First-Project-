@@ -99,7 +99,7 @@ public class StatisticsCustomerGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 
-					textPane.setText(controller.listCustomersWithStatistics(searchField.getText()));
+					textPane.setText(controller.listAllCustomersWithStatistics());
 
 			}
 		});
