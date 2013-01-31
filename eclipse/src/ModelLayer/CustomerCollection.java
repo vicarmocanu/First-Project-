@@ -71,13 +71,29 @@ public class CustomerCollection
         if (listOfCustomers.size()!=0){
             for(Customer i : listOfCustomers)
             {
-                text += i.printCustomerWithStatistics() + "\n";
+                text += i.printCustomerWithStatistics();
                 text += "*****************************" + "\n";
             }
         }
         else text = "No customers registred in the system";
         return text;
     }
+     public String listCustomersWithStatistics(String name)
+     {
+     	String text;
+     	text = "";
+         if (listOfCustomers.size()!=0){
+             for(Customer i : listOfCustomers)
+             {
+            	 if(i.getName().equals(name))
+            	 {
+                 text = i.printCustomerWithStatistics()+ "\n";
+            	 }
+             }
+         }
+         else text = "No customers registred in the system";
+         return text;
+     }
     
     public boolean listCustomerByName(String name)
     {

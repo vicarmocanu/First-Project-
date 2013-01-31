@@ -86,6 +86,8 @@ public class CreateDiscountCategoryGUI extends JFrame {
 				JOptionPane.showMessageDialog(null,
 						"New discount category added in the system!", "Successful",
 						JOptionPane.INFORMATION_MESSAGE);
+				categoryField.setText("");
+				discountField.setText("");
 			}
 		});
 		contentPane.add(btnAdd, "cell 0 3,growx");

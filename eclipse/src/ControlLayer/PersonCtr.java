@@ -39,6 +39,11 @@ public class PersonCtr
         return customer.listAllCustomersWithStatistics();
     }
     
+    public String listCustomersWithStatistics(String name)
+    {
+        return customer.listCustomersWithStatistics(name);
+    }
+    
     public boolean listCustomerByName(String name)
     {
         return customer.listCustomerByName(name);
@@ -87,6 +92,11 @@ public class PersonCtr
     public String listAllEmployeesWithStatistics()
     {
         return employee.listAllEmployeesWithStatistics();
+    }
+    
+    public String listEmployeesWithStatistics(String name)
+    {
+        return employee.listEmployeesWithStatistics(name);
     }
     
     public boolean listEmployeeByName(String name)
