@@ -105,7 +105,7 @@ public class ProductCollectionForLease {
 		String text = "";
 		if (listOfProductsForLease.size() != 0) {
 			for (ProductForLease i : listOfProductsForLease) {
-				text += i.print() + "\n";
+				text += i.print();
 				text += "******************" + "\n";
 			}
 		} else

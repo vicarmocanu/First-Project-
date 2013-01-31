@@ -75,7 +75,7 @@ public class CategoryCollection
             for(Category i : listOfCategory)
             {
                 text += i.print() + "\n";
-
+                text += "********************" + "\n";
             }
         }
         else text = "No category registered in the system";

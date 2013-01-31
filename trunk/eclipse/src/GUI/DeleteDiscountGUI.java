@@ -120,7 +120,8 @@ public class DeleteDiscountGUI extends JFrame {
 						btnDelete.setEnabled(true);
 
 					} else {
-						textPane.setText(controller.searchCategoryAndPrint(cat));
+						textPane.setText("No category with that name found");
+						btnDelete.setEnabled(false);
 					}
 				}
 
