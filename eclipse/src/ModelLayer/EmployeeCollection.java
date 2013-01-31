@@ -80,7 +80,7 @@ public class EmployeeCollection {
 		} else
 			text = "No employees registred in the system" + "\n";
 		if (text.equals(""))
-			text = "No customer with that name found in the system";
+			text = "No employee with that name found in the system";
 		return text;
 	}
 
