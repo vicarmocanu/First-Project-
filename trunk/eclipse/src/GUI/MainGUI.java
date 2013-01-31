@@ -1058,7 +1058,7 @@ public class MainGUI extends JFrame {
 		btnAdd = new JButton("ADD PRODUCTS ");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AddProductForLeaseGUI addProductForLeaseGUI = new AddProductForLeaseGUI();
+				CreateProductForLeaseGUI addProductForLeaseGUI = new CreateProductForLeaseGUI();
 				addProductForLeaseGUI.setVisible(true);
 			}
 		});
