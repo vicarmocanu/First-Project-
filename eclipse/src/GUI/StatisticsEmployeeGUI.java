@@ -46,7 +46,7 @@ public class StatisticsEmployeeGUI extends JFrame {
 		setType(Type.UTILITY);
 		setTitle("EMPLOYEE STATISTICS");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 521);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -80,7 +80,7 @@ public class StatisticsEmployeeGUI extends JFrame {
 							JOptionPane.ERROR_MESSAGE);
 				} else
 
-					textPane.setText(controller.listCustomersWithStatistics(name));
+					textPane.setText(controller.listEmployeesWithStatistics(name));
 
 			}
 
