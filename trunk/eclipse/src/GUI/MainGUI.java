@@ -1049,7 +1049,7 @@ public class MainGUI extends JFrame {
 		btnMakeLease = new JButton("MAKE LEASE");
 		btnMakeLease.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CreateLeaseGUI createLeaseGUI = new CreateLeaseGUI();
+				MakeLeaseGUI createLeaseGUI = new MakeLeaseGUI();
 				createLeaseGUI.setVisible(true);
 			}
 		});
