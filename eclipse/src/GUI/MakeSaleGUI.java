@@ -170,6 +170,10 @@ public class MakeSaleGUI extends JFrame {
 		printTotalPanel.setVisible(false);
 		contentPane.add(printTotalPanel);
 		printTotalPanel.setLayout(null);
+		
+		final JTextPane textPane = new JTextPane();
+		textPane.setBounds(10, 27, 338, 289);
+		printTotalPanel.add(textPane);
 
 		btnPrintTotal.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -178,6 +182,8 @@ public class MakeSaleGUI extends JFrame {
 				printTotalPanel.setVisible(true);
 
 				controller.calculateTotalForSale(id);
+				
+				textPane.setText(controller.searchSale(id));
 
 			}
 		});
@@ -189,9 +195,7 @@ public class MakeSaleGUI extends JFrame {
 		separator_4.setBounds(7, 25, 1, 2);
 		printTotalPanel.add(separator_4);
 
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(10, 27, 338, 289);
-		printTotalPanel.add(textPane);
+		
 
 		JButton btnNewButton = new JButton("CANCEL");
 		btnNewButton.addActionListener(new ActionListener() {
