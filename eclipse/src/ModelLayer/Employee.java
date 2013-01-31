@@ -68,7 +68,7 @@ public class Employee extends Person
     public String printEmployee()
     {
     	String text = "";
-        text += print() + "\n";
+        text += print();
         text += "Position :" + position+ "\n";
         text += "Salary   :" + salary+ "\n";
         

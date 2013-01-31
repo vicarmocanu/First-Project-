@@ -56,7 +56,7 @@ public class CustomerCollection
         {
             for(Customer i : listOfCustomers)
             {
-                text += i.printCustomer() + "\n";
+                text += i.printCustomer();
                 text += "********************" + "\n";
             }
         }

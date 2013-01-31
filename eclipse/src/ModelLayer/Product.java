@@ -135,7 +135,6 @@ public class Product {
 		text += "Min         : " + min + "\n";
 		text += "Max         : " + max + "\n";
 		text += "Quantity    : " + quantity + "\n";
-		text += "*****************" + "\n";
 		return text;
 	}
 
