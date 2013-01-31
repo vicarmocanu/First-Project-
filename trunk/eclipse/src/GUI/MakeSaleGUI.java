@@ -133,7 +133,7 @@ public class MakeSaleGUI extends JFrame {
 						String barCode = barCodeField.getText();
 						controller.createSale(id, cname, ename);
 						controller.addSubSaleToSale(id, amount, barCode);
-						controller.calculateTotalForSale(id);
+						
 						
 						employeeNameField.setEnabled(false);
 						customerNameField.setEnabled(false);
@@ -181,8 +181,8 @@ public class MakeSaleGUI extends JFrame {
 				makeSalePanel.setVisible(false);
 				printTotalPanel.setVisible(true);
 
-				controller.calculateTotalForSale(id);
 				
+				controller.calculateTotalForSale(id);
 				textPane.setText(controller.searchSale(id));
 
 			}
