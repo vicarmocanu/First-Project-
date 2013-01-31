@@ -49,19 +49,19 @@ public class Employee extends Person
 
      public void setTotalAmountFromSales(int totalAmountFromSales)
     {
-        this.totalAmountFromSales=totalAmountFromSales;
+        this.totalAmountFromSales+=totalAmountFromSales;
         numberOfSales=numberOfSales+1;
     }
     
     public void setTotalAmountFromOrders(double totalAmountFromOrders)
     {
-        this.totalAmountFromOrders=totalAmountFromOrders;
+        this.totalAmountFromOrders+=totalAmountFromOrders;
         numberOfOrders=numberOfOrders+1;
     }
     
      public void setTotalAmountFromLeases(int totalAmountFromLeases)
     {
-        this.totalAmountFromLeases=totalAmountFromLeases;
+        this.totalAmountFromLeases+=totalAmountFromLeases;
         numberOfSales=numberOfSales+1;
     }
     
