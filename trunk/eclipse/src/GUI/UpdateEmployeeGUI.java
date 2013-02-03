@@ -18,6 +18,7 @@ import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import ControlLayer.PersonCtr;
+import javax.swing.JScrollPane;
 
 public class UpdateEmployeeGUI extends JFrame {
 
@@ -73,10 +74,13 @@ public class UpdateEmployeeGUI extends JFrame {
 		contentPane.add(searchField, "cell 2 2,growx");
 		searchField.setColumns(10);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		contentPane.add(scrollPane, "cell 2 3,grow");
+		
 		
 		final JTextPane textPane = new JTextPane();
+		scrollPane.setViewportView(textPane);
 		textPane.setEditable(false);
-		contentPane.add(textPane, "cell 2 3,grow");
 		
 		JLabel lblNewLabel_1 = new JLabel("ID:");
 		contentPane.add(lblNewLabel_1, "cell 1 4");

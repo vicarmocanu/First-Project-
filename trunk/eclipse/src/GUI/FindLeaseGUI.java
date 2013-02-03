@@ -15,6 +15,7 @@ import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Window.Type;
+import javax.swing.JScrollPane;
 
 public class FindLeaseGUI extends JFrame {
 
@@ -62,9 +63,12 @@ public class FindLeaseGUI extends JFrame {
 		contentPane.add(searchField, "cell 1 1,growx");
 		searchField.setColumns(10);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		contentPane.add(scrollPane, "cell 1 2,grow");
+		
 		final JTextPane textPane = new JTextPane();
+		scrollPane.setViewportView(textPane);
 		textPane.setEditable(false);
-		contentPane.add(textPane, "cell 1 2,grow");
 		
 		JButton btnSearch = new JButton("SEARCH");
 		btnSearch.addActionListener(new ActionListener() {

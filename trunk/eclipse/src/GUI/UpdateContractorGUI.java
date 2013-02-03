@@ -19,6 +19,7 @@ import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
+import javax.swing.JScrollPane;
 
 public class UpdateContractorGUI extends JFrame {
 
@@ -72,8 +73,12 @@ public class UpdateContractorGUI extends JFrame {
 		contentPane.add(searchField, "cell 2 2,growx");
 		searchField.setColumns(10);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		contentPane.add(scrollPane, "cell 2 3,grow");
+		
 		final JTextPane textField = new JTextPane();
-		contentPane.add(textField, "cell 2 3,grow");
+		textField.setEditable(false);
+		scrollPane.setViewportView(textField);
 
 		JLabel lblNewLabel_1 = new JLabel("ID:");
 		contentPane.add(lblNewLabel_1, "cell 1 4,growx");
