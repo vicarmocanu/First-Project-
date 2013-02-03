@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class SetDiscountGUI extends JFrame {
 
@@ -55,8 +56,7 @@ public class SetDiscountGUI extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[][][grow][]",
-				"[][][][grow][][]"));
+		contentPane.setLayout(new MigLayout("", "[][][grow][]", "[][][][grow][][]"));
 
 		JLabel lblNewLabel = new JLabel("SET CUSTOMER DISCOUNT");
 		contentPane.add(lblNewLabel, "cell 2 0,alignx center");
@@ -72,10 +72,13 @@ public class SetDiscountGUI extends JFrame {
 		searchField.setColumns(10);
 
 		JButton btnSearch = new JButton("SEARCH");
+		
+		JScrollPane scrollPane = new JScrollPane();
+		contentPane.add(scrollPane, "cell 2 3,grow");
 
 		final JTextPane textPane = new JTextPane();
+		scrollPane.setViewportView(textPane);
 		textPane.setEditable(false);
-		contentPane.add(textPane, "cell 2 3,grow");
 
 		JLabel lblNewLabel_1 = new JLabel("CATEGORY:");
 		contentPane.add(lblNewLabel_1, "cell 1 4");

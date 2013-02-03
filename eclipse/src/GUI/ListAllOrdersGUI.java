@@ -13,6 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class ListAllOrdersGUI extends JFrame {
 
@@ -59,8 +60,12 @@ public class ListAllOrdersGUI extends JFrame {
 		});
 		contentPane.add(btnCancel, "cell 1 0");
 		
+		JScrollPane scrollPane = new JScrollPane();
+		contentPane.add(scrollPane, "cell 0 1 2 1,grow");
+		
 		JTextArea textArea = new JTextArea();
-		contentPane.add(textArea, "cell 0 1 2 1,grow");
+		scrollPane.setViewportView(textArea);
+		textArea.setEditable(false);
 	}
 
 }

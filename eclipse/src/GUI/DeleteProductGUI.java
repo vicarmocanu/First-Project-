@@ -18,6 +18,7 @@ import javax.swing.JTextPane;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class DeleteProductGUI extends JFrame {
 
@@ -53,8 +54,7 @@ public class DeleteProductGUI extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[][][grow][]",
-				"[][][][grow][][]"));
+		contentPane.setLayout(new MigLayout("", "[][][grow][]", "[][][][grow][][]"));
 
 		JLabel lblDeleteContractor = new JLabel("DELETE PRODUCT");
 		contentPane.add(lblDeleteContractor, "cell 2 0,alignx center");
@@ -69,9 +69,13 @@ public class DeleteProductGUI extends JFrame {
 		contentPane.add(searchField, "cell 2 2,growx");
 		searchField.setColumns(10);
 		String name = searchField.getText();
+		
+		JScrollPane scrollPane = new JScrollPane();
+		contentPane.add(scrollPane, "cell 2 3,grow");
 
 		final JTextPane textPane = new JTextPane();
-		contentPane.add(textPane, "cell 2 3,grow");
+		textPane.setEditable(false);
+		scrollPane.setViewportView(textPane);
 
 		final JButton btnDelete = new JButton("DELETE");
 		btnDelete.addActionListener(new ActionListener() {

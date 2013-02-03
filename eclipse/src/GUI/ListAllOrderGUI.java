@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JScrollPane;
 
 public class ListAllOrderGUI extends JFrame {
 
@@ -62,12 +63,16 @@ public class ListAllOrderGUI extends JFrame {
 			}
 		});
 		contentPane.add(btnCancel, "cell 1 0");
+	
+	JScrollPane scrollPane = new JScrollPane();
+	contentPane.add(scrollPane, "cell 0 1 2 1,grow");
 		
 		
 	
 	
 	final JTextArea textArea = new JTextArea();
-	contentPane.add(textArea, "cell 0 1 2 1,grow");
+	scrollPane.setViewportView(textArea);
+	textArea.setEditable(false);
 	
 	addWindowListener(new WindowAdapter() {
 		@Override

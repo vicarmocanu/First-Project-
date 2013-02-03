@@ -19,6 +19,7 @@ import java.awt.event.WindowEvent;
 import ControlLayer.ProductCtr;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import javax.swing.JScrollPane;
 
 public class ListAllProductGUI extends JFrame {
 
@@ -53,7 +54,7 @@ public class ListAllProductGUI extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[grow][][]", "[][grow]"));
+		contentPane.setLayout(new MigLayout("", "[grow][]", "[][grow]"));
 		
 		JLabel lblListAllContractors = new JLabel("LIST ALL PRODUCTS");
 		contentPane.add(lblListAllContractors, "cell 0 0");
@@ -67,10 +68,14 @@ public class ListAllProductGUI extends JFrame {
 		
 		
 		
-		contentPane.add(btnCancel, "cell 2 0");
+		contentPane.add(btnCancel, "cell 1 0");
+		
+		JScrollPane scrollPane = new JScrollPane();
+		contentPane.add(scrollPane, "cell 0 1,grow");
 		
 		final JTextArea textArea = new JTextArea();
-		contentPane.add(textArea, "cell 0 1 2 1,grow");
+		scrollPane.setViewportView(textArea);
+		textArea.setEditable(false);
 		
 		addWindowListener(new WindowAdapter() {
 			@Override

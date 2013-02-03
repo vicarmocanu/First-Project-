@@ -21,6 +21,7 @@ import sun.io.Converters;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import ControlLayer.PersonCtr;
+import javax.swing.JScrollPane;
 
 public class DeleteEmployeeGUI extends JFrame {
 
@@ -56,8 +57,7 @@ public class DeleteEmployeeGUI extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[][][grow][]",
-				"[][][][grow][][]"));
+		contentPane.setLayout(new MigLayout("", "[][][grow][]", "[][][][grow][][]"));
 
 		JLabel lblDeleteContractor = new JLabel("DELETE EMPLOYEE");
 		contentPane.add(lblDeleteContractor, "cell 2 0,alignx center");
@@ -71,11 +71,15 @@ public class DeleteEmployeeGUI extends JFrame {
 		searchField = new JTextField();
 		contentPane.add(searchField, "cell 2 2,growx");
 		searchField.setColumns(10);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		contentPane.add(scrollPane, "cell 2 3,grow");
 
 		
 
 		final JTextPane textPane = new JTextPane();
-		contentPane.add(textPane, "cell 2 3,grow");
+		scrollPane.setViewportView(textPane);
+		textPane.setEditable(false);
 
 		final JButton btnDelete = new JButton("DELETE");
 		btnDelete.addActionListener(new ActionListener() {
