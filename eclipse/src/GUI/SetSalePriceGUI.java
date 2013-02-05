@@ -75,6 +75,7 @@ public class SetSalePriceGUI extends JFrame {
 		
 		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
+		textArea.setText(controller.listProductsWithoutSalePrice());
 		
 		textArea.setEditable(false);
 		
@@ -84,10 +85,12 @@ public class SetSalePriceGUI extends JFrame {
 		searchField = new JTextField();
 		contentPane.add(searchField, "cell 2 3,growx");
 		searchField.setColumns(10);
-		final JTextPane textPane = new JTextPane();
-		textPane.setEditable(false);
 		
-		contentPane.add(textPane, "cell 0 4 4 1,grow");
+		JScrollPane scrollPane_1 = new JScrollPane();
+		contentPane.add(scrollPane_1, "cell 0 4 4 1,grow");
+		final JTextPane textPane = new JTextPane();
+		scrollPane_1.setViewportView(textPane);
+		textPane.setEditable(false);
 		
 		
 		
